@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Chararacters</key>
+	<array>
+		<dict>
+			<key>PositionIndex</key>
+			<integer>0</integer>
+			<key>CharacterCommonTexture</key>
+			<string>hero1.png</string>
+			<key>CharacterPortraitTexture</key>
+			<string>hero1.png</string>
+			<key>CharacterGendor</key>
+			<integer>1</integer>
+			<key>CharacterAge</key>
+			<integer>21</integer>
+			<key>CharacterNickName</key>
+			<string>大纲</string>
+			<key>CharacterName</key>
+			<string>赵大刚</string>
+			<key>CharacterID</key>
+			<integer>100</integer>
+		</dict>
+		<dict>
+			<key>PositionIndex</key>
+			<integer>1</integer>
+			<key>CharacterCommonTexture</key>
+			<string>hero2.png</string>
+			<key>CharacterPortraitTexture</key>
+			<string>hero2.png</string>
+			<key>CharacterGendor</key>
+			<integer>1</integer>
+			<key>CharacterAge</key>
+			<integer>16</integer>
+			<key>CharacterNickName</key>
+			<string>小明</string>
+			<key>CharacterName</key>
+			<string>王晓明</string>
+			<key>CharacterID</key>
+			<integer>101</integer>
+		</dict>
+		<dict>
+			<key>PositionIndex</key>
+			<integer>2</integer>
+			<key>CharacterCommonTexture</key>
+			<string>hero3.png</string>
+			<key>CharacterPortraitTexture</key>
+			<string>hero3.png</string>
+			<key>CharacterGendor</key>
+			<integer>0</integer>
+			<key>CharacterAge</key>
+			<integer>18</integer>
+			<key>CharacterNickName</key>
+			<string>小丽</string>
+			<key>CharacterName</key>
+			<string>田晓丽</string>
+			<key>CharacterID</key>
+			<integer>102</integer>
+		</dict>
+	</array>
+	<key>Address</key>
+	<string>homeback.jpg</string>
+	<key>Timeofday</key>
+	<integer>0</integer>
+</dict>
+</plist>
