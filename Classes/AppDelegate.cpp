@@ -1,6 +1,6 @@
 #include "AppDelegate.h"
-#include "VideoScene.h"
-
+#include "GameScene.h"
+#include "SimpleAudioEngine.h"
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -45,8 +45,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     
     FileUtils::getInstance()->addSearchPath("res");
-    FileUtils::getInstance()->addSearchPath("res");
-
+    
     FileUtils::getInstance()->addSearchPath("res/DramaPlist");
 
     FileUtils::getInstance()->addSearchPath("res/Shaders");
@@ -55,7 +54,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     FileUtils::getInstance()->addSearchPath("res/Audio");
     // create a scene. it's an autorelease object
-    auto scene = VideoScene::createScene();
+    auto scene = GameScene::createScene();
     
     // run
     director->runWithScene(scene);
@@ -68,7 +67,7 @@ void AppDelegate::applicationDidEnterBackground() {
     Director::getInstance()->stopAnimation();
     
     // if you use SimpleAudioEngine, it must be pause
-    // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+     CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
@@ -76,7 +75,7 @@ void AppDelegate::applicationWillEnterForeground() {
     Director::getInstance()->startAnimation();
     
     // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+     CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }
 
 

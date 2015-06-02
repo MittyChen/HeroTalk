@@ -4,7 +4,17 @@
 #include "HappyStartCell.h"
 #include "MainMenuScene.h"
 #include "SimpleAudioEngine.h"
+
+#include "FinishPopup.h"
+#include "CCSpriteWithHue.h"
+
+#include "PopupWithMask.h"
+
+
 USING_NS_CC;
+
+ bool GameScene::isPaused  = false;
+ static HappyStartCell* seletingCell = NULL;
 
 using namespace cocostudio::timeline;
 
@@ -29,6 +39,7 @@ bool GameScene::init()
     {
         return false;
     }
+    isPaused = false;
     _mMode = CELL_TOUCH_MODE::NORMAL_MODE;
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -54,18 +65,68 @@ bool GameScene::init()
     mTool_OneShot->addClickEventListener(CC_CALLBACK_1(GameScene::deleteOneCell,this));
     onShotButtonPos = mTool_OneShot->getPosition();
     
+    cocos2d::ui::CheckBox* mTool_RandomType = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(19);
+    mTool_RandomType->addClickEventListener(CC_CALLBACK_1(GameScene::changeTypeRandom,this));
+    
+    cocos2d::ui::CheckBox* mTool_ChangeType = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(20);
+    mTool_ChangeType->addClickEventListener(CC_CALLBACK_1(GameScene::changeType,this));
+    
+    
     actionPlaying = false;
-    count = 6 ;
-    munitSize =(visibleSize.height < visibleSize.width?visibleSize.height:visibleSize.width - 120)/count - 1;
-    unitOriginPosition = origin + Vec2((visibleSize.width - (munitSize + 1) * count)/2 ,  (visibleSize.height - (munitSize + 1) * count )/2);
+    count = 8;
+    
+    Vec2 uiPosition = btnBack->getPosition() + Vec2(40, 0);
+    
+    float middleX = (uiPosition.x + visibleSize.width)/2;
+    float middleY = visibleSize.height/2;
+    
+    
+    
+    int mcount = 8;
+    munitSize =(visibleSize.height < visibleSize.width?visibleSize.height:visibleSize.width )/mcount - 3;
+//    unitOriginPosition = origin + Vec2((visibleSize.width - (munitSize + 1) * mcount)*2/3 ,  (visibleSize.height - (munitSize + 1) * mcount )/2);
+    unitOriginPosition = Vec2(middleX - munitSize * count  / 2 ,middleY - munitSize*count/2);
+    
+    LayerColor* mlc = LayerColor::create(Color4B(100, 255, 100, 50), (munitSize + 1)* count + 10, (munitSize + 10) * count + 5);
+    
+    mlc->setPosition(unitOriginPosition - Vec2(5,5));
+    mlc->setAnchorPoint(Vec2(0, 0));
+    this->addChild(mlc);
     
     loadMap(NULL,cocos2d::ui::Widget::TouchEventType::BEGAN);
     
+    
+    
     auto _eventDispatcher = Director::getInstance()->getEventDispatcher();
     auto touchListener = EventListenerTouchOneByOne::create();
-    touchListener->setSwallowTouches(false);
+    touchListener->setSwallowTouches(true);
     touchListener->onTouchBegan = CC_CALLBACK_2(GameScene::onTouchBegan, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
+    
+    
+    
+    
+//    LayerColor* mLayerMask = LayerColor::create(cocos2d::Color4B(0, 0, 0, 150));
+//    mLayerMask->setContentSize(cocos2d::Size(visibleSize.width,visibleSize.height));
+//    this->addChild(mLayerMask);
+//    mLayerMask->setVisible(false);
+//    auto listener = EventListenerTouchOneByOne::create();
+//    listener->onTouchBegan =  [this](Touch * ,Event *)
+//    {
+//        if (!isPaused) {
+//            return true;
+//        }else{
+//            return false;
+//        }
+//        
+//    };
+//    
+//    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener,mLayerMask);
+//    
+    
+    
+    
+    
     
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("explod.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("colorfulmade.wav");
@@ -73,17 +134,36 @@ bool GameScene::init()
     CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     auto removeLamda = [=](Ref* pSender)
     {
-        CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("playbg.mp3",true);
+//        CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("playbg.mp3",true);
     };
     
     this->runAction(Sequence::create(DelayTime::create(2),CallFuncN::create(removeLamda), NULL) );
    
+    
+    cellsCacheOne.clear();
+    
+    
+    
+//    for(int i=0; i<10; i++)
+//    {
+//        auto alien = SpriteWithHue::create("alien.png");
+//        alien->setPosition(Vec2((visibleSize.width + origin.x) * CCRANDOM_0_1(), (visibleSize.height + origin.y) * CCRANDOM_0_1()));
+//        alien->setHue(2 * M_PI * CCRANDOM_0_1());
+//        this->addChild(alien,1);
+//    }
+    
+    
+    
+  
+    
+    
     return true;
 }
 
 
 void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
+    
     scoreLAbel->setString("SCORE : 0");
     
     map<Vec2, HappyStartCell*>::iterator  mpIterator = allcells.begin();
@@ -114,17 +194,17 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     
     //储存上一步地图情况
     cellsCacheOne.clear();
-    mpIterator = allcells.begin();
-    for (; mpIterator != allcells.end(); ++mpIterator)
-    {
-        if(mpIterator != allcells.end()){
-            // 深度拷贝
-            float xpos = mpIterator->second->getposIndex().x;
-            float ypos = mpIterator->second->getposIndex().y;
-            struct HappyStartStruct datatemp = {Vec2(xpos,ypos),mpIterator->second->getType()};
-            cellsCacheOne.push_back( datatemp );
-        }
-    }
+//    mpIterator = allcells.begin();
+//    for (; mpIterator != allcells.end(); ++mpIterator)
+//    {
+//        if(mpIterator != allcells.end()){
+//            // 深度拷贝
+//            float xpos = mpIterator->second->getposIndex().x;
+//            float ypos = mpIterator->second->getposIndex().y;
+//            struct HappyStartStruct datatemp = {Vec2(xpos,ypos),mpIterator->second->getType()};
+//            cellsCacheOne.push_back( datatemp );
+//        }
+//    }
     
     
     //    int blueCount = count/3;
@@ -155,31 +235,82 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
 
 
 
+void GameScene::seletctCellolor(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
+{
+    
+    if(type == cocos2d::ui::Widget::TouchEventType::BEGAN){
+    
+        Node* selectType = (Node*)object;
+        
+        int tag = selectType->getTag();
+        
+        switch (tag) {
+            case 26:
+                seletingCell->setType(CELL_TYPE::TYPE_RED);
+                
+                break;
+            case 27:
+                seletingCell->setType(CELL_TYPE::TYPE_BLUE);
+                
+                break;
+            case 28:
+                seletingCell->setType(CELL_TYPE::TYPE_GREEN);
+                
+                break;
+            default:
+                break;
+        }
+        isPaused = false;
+        this->removeChildByTag(1999);
+        seletingCell= NULL;
+    }
+}
+
+
+
 void GameScene::backOneStep(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
-
-    map<Vec2, HappyStartCell*>::iterator  mpIterator = allcells.begin();
-    
-    for (; mpIterator != allcells.end(); ++mpIterator)
-    {
-        if (mpIterator!=allcells.end()) {
-            this->removeChild((Node*)mpIterator->second);
+    switch (type) {
+        case cocos2d::ui::Widget::TouchEventType::BEGAN:
+        {
+            if(cellsCacheOne.size() == 0 || (cellsCacheOne.size() == 4 && allcells.size()==count*count-1))
+            {
+                CommonUtils::showToastOnIOS(*this,"没有可返回的步数哦 QAQ~");
+                
+                return;
+            }
+            
+            map<Vec2, HappyStartCell*>::iterator  mpIterator = allcells.begin();
+            
+            for (; mpIterator != allcells.end(); ++mpIterator)
+            {
+                if (mpIterator!=allcells.end()) {
+                    this->removeChild((Node*)mpIterator->second);
+                }
+            }
+            
+            allcells.clear();
+            
+            for(HappyStartStruct tempCell : cellsCacheOne)
+            {
+                
+                HappyStartCell* mCell = HappyStartCell::create();
+                mCell->setParameters(Color3B(0,0,0),unitOriginPosition,Size(munitSize,munitSize),tempCell._posIndex,count);
+                mCell->setType((CELL_TYPE) tempCell._mType);
+                
+                mCell->setdownShouldGo(0.0f);
+                mCell->setleftShouldGo(0.0f);
+                this->addChild((Node*) mCell);
+                allcells.insert((pair<Vec2, HappyStartCell*> (tempCell._posIndex,mCell)));
+            }
+            cellsCacheOne.clear();
+            
+            break;
         }
+        default:
+            break;
     }
     
-    allcells.clear();
-    
-    for(HappyStartStruct tempCell : cellsCacheOne)
-    {
-        
-        HappyStartCell* mCell = HappyStartCell::create();
-        mCell->setParameters(Color3B(0,0,0),unitOriginPosition,Size(munitSize,munitSize),tempCell._posIndex,count);
-        mCell->setType((CELL_TYPE) tempCell._mType);
-        mCell->setdownShouldGo(0.0f);
-        mCell->setleftShouldGo(0.0f);
-        this->addChild((Node*) mCell);
-        allcells.insert((pair<Vec2, HappyStartCell*> (tempCell._posIndex,mCell)));
-    }
 }
 
 
@@ -189,7 +320,6 @@ void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
     auto scene = MainMenuScene::createScene();
     // run
     Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
-    
 }
 
 void GameScene::deleteOneCell(cocos2d::Ref* object)
@@ -201,7 +331,23 @@ void GameScene::deleteOneCell(cocos2d::Ref* object)
     }
 }
 
+void GameScene::changeTypeRandom(cocos2d::Ref* object)
+{
+    if (_mMode == CELL_TOUCH_MODE::NORMAL_MODE) {
+        _mMode = CELL_TOUCH_MODE::CHANGE_COLOR_RANDOM;
+    }else{
+        _mMode = CELL_TOUCH_MODE::NORMAL_MODE;
+    }
+}
 
+void GameScene::changeType(cocos2d::Ref* object)
+{
+    if (_mMode == CELL_TOUCH_MODE::NORMAL_MODE) {
+        _mMode = CELL_TOUCH_MODE::CHANGE_COLOR;
+    }else{
+        _mMode = CELL_TOUCH_MODE::NORMAL_MODE;
+    }
+}
 
 void GameScene::update(float delta)
 {
@@ -210,6 +356,9 @@ void GameScene::update(float delta)
 
 bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event)
 {
+    if (isPaused){
+        return false;
+    }
     
     cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
     cocos2d::Vec2 origin = cocos2d::Director::getInstance()->getVisibleOrigin();
@@ -228,7 +377,6 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
         {
             if(mIt->second)
             {
-                
 //                 mIt->second->_glprogramstate->setUniformFloat("nightDegree",1.0);
                 
                 switch (_mMode) {
@@ -292,12 +440,9 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                                    if(allcells.find(Vec2(i,mIt->second->getposIndex().y)) != allcells.end())
                                    {
                                        HappyStartCell* mmcell = allcells.find(Vec2(i,mIt->second->getposIndex().y))->second;
-                                       CCLOG("GameScene::onTouchBegan stash HERE-------1--------");
                                        
                                        if(!(mmcell->gethasFind()))
                                        {
-                                           CCLOG("GameScene::onTouchBegan stash HERE-------2-------- %d",i);
-                                           
                                            templist.push_back(mmcell);
                                            mmcell->sethasFind(true);
                                        }
@@ -309,31 +454,43 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
 //                            templist.push_back(mIt->second);
 
                         }
+                        map<Vec2, HappyStartCell*>::iterator  _mpIterator = allcells.begin();
+                        cellsCacheOne.clear();
+                        for (; _mpIterator != allcells.end(); ++_mpIterator)
+                        {
+                            if(_mpIterator != allcells.end()){
+                                // 深度拷贝
+                                float xpos = _mpIterator->second->getposIndex().x;
+                                float ypos = _mpIterator->second->getposIndex().y;
+                                struct HappyStartStruct datatemp = {Vec2(xpos,ypos),_mpIterator->second->getType()};
+                                cellsCacheOne.push_back( datatemp );
+                            }
+                        }
                         
                         if (!(mIt->second->getType() == CELL_TYPE::TYPE_7COLORS) ) {
                             
                         
-                        if(templist.size() >= 5)
-                        {
-                            for(HappyStartCell* temp :templist)
+                            if(templist.size() >= 5)
                             {
-                                if(temp  && temp->getposIndex().y == mIt->second->getposIndex().y && temp->getposIndex().x == mIt->second->getposIndex().x)
+                                for(HappyStartCell* temp :templist)
                                 {
-                                    HappyStartCell* tempcell7 = HappyStartCell::create();
-                                    tempcell7->setParameters(cocos2d::Color3B::BLUE,unitOriginPosition, cocos2d::Size(munitSize,munitSize),mIt->second->getposIndex() , count);
-                                    
-                                    this->removeChild((Node*)mIt->second);
-                                    templist.remove(temp);
-                                    
-                                    mIt->second = tempcell7;
-                                    tempcell7->setType(CELL_TYPE::TYPE_7COLORS);
-                                    this->addChild((Node*)tempcell7);
-                                    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("colorfulmade.wav",false, 1.0f, 0.0f, 0.6f);
-                                    
-                                    break;
+                                    if(temp  && temp->getposIndex().y == mIt->second->getposIndex().y && temp->getposIndex().x == mIt->second->getposIndex().x)
+                                    {
+                                        HappyStartCell* tempcell7 = HappyStartCell::create();
+                                        tempcell7->setParameters(cocos2d::Color3B::BLUE,unitOriginPosition, cocos2d::Size(munitSize,munitSize),mIt->second->getposIndex() , count);
+                                        
+                                        this->removeChild((Node*)mIt->second);
+                                        templist.remove(temp);
+                                        
+                                        mIt->second = tempcell7;
+                                        tempcell7->setType(CELL_TYPE::TYPE_7COLORS);
+                                        this->addChild((Node*)tempcell7);
+                                        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("colorfulmade.wav",false, 1.0f, 0.0f, 0.6f);
+                                        
+                                        break;
+                                    }
                                 }
                             }
-                        }
                         
                         }
                         map<Vec2, HappyStartCell*>::iterator  mpIterator = allcells.begin();
@@ -357,18 +514,7 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                             }
                         }
                         
-                        mpIterator = allcells.begin();
-                        cellsCacheOne.clear();
-                        for (; mpIterator != allcells.end(); ++mpIterator)
-                        {
-                            if(mpIterator != allcells.end()){
-                                // 深度拷贝
-                                float xpos = mpIterator->second->getposIndex().x;
-                                float ypos = mpIterator->second->getposIndex().y;
-                                struct HappyStartStruct datatemp = {Vec2(xpos,ypos),mpIterator->second->getType()};
-                                cellsCacheOne.push_back( datatemp );
-                            }
-                        }
+                        
                         
                         
                         
@@ -420,6 +566,9 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                             
                             
                         }
+                        
+                        
+                        
                         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("explod.wav",  false,
                                                                                     1.0f,  0.0f,  0.2f);
                         
@@ -456,6 +605,7 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         }
                         
                         
+                        
                         //保存所有cell副本
                         list<HappyStartCell*> allcellsTemp;
                         
@@ -482,6 +632,7 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                             }
                         }
                         
+                        checkoutResult();
                         
                         break;
                     
@@ -661,6 +812,7 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                                 mpIterator->second->settimeToDelay(0.0f);
                             }
                              actionPlaying = false;
+                            checkoutResult();
                         };
                         
                         
@@ -674,16 +826,59 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         break;
                         
                 }
+                        
+                    case CHANGE_COLOR_RANDOM:
+                        
+                        mIt->second->changeTypeRandom();
+                        
+                        
+                        break;
+                        
+                    case CHANGE_COLOR:
+                    {
+//                        PopupWithMask * popLayer= PopupWithMask::create();
+//                        popLayer->setTag(1999);
+//                        this->addChild(popLayer);
+                        
+                        Size visiableSize = Director::getInstance()->getVisibleSize();
+                        auto rootNode = CSLoader::createNode("ColorSelectNode.csb");
+                        rootNode->setAnchorPoint(Vec2(0.5, 0.5));
+                        
+                        this->addChild(rootNode);
+                        rootNode->setTag(1999);
+                        
+                        rootNode->setPosition(mIt->second->getPosition());
+                        rootNode->runAction(MoveTo::create(1.0, visiableSize/2));
+                        rootNode->setScale(0.01);
+                        rootNode->runAction(ScaleTo::create(0.5, 1.0));
+//                        popLayer->addChild(rootNode);
+                        
+                        cocos2d::ui::Button* btnRed =  (cocos2d::ui::Button*)rootNode->getChildByTag(32);//红色
+                        btnRed->addTouchEventListener(CC_CALLBACK_2(GameScene::seletctCellolor, this) );
+                        btnRed->setPropagateTouchEvents(false);
+                        
+                        
+                        cocos2d::ui::Button* btnBlue =  (cocos2d::ui::Button*)rootNode->getChildByTag(33);//蓝色
+                        btnBlue->addTouchEventListener(CC_CALLBACK_2(GameScene::seletctCellolor, this) );
+                        btnBlue->setPropagateTouchEvents(false);
+                        
+                        cocos2d::ui::Button* btnGreen =  (cocos2d::ui::Button*)rootNode->getChildByTag(34);//绿色
+                        btnGreen->addTouchEventListener(CC_CALLBACK_2(GameScene::seletctCellolor, this) );
+                        btnGreen->setPropagateTouchEvents(false);
+                   
+                        
+                        seletingCell = mIt->second;
+                        
+                        isPaused = true;
+                        
+                        break;
+                    }
+                        
                     default:
                         break;
                 }
                 
-                
-                
-                
-                
             }
-            
             
         
         }
@@ -771,7 +966,7 @@ int GameScene::getCountSameToThis(HappyStartCell* targetCell)
     int doCount = 0;
     if(targetCell)
     {
-        targetCell->sethasFind(true);
+//        targetCell->sethasFind(true);
         
         int targetposX =  targetCell->getposIndex().x;
         int targetposY =  targetCell->getposIndex().y;
@@ -807,4 +1002,37 @@ int GameScene::getCountSameToThis(HappyStartCell* targetCell)
     
     return doCount; 
 }
+//查询结果
+void GameScene::checkoutResult()
+{
+    int sumCount = 0;
+    bool canNotContinue = false;
+     
+    map<Vec2, HappyStartCell*>::iterator  mpIterator = allcells.begin();
+    
+    
+    for (; mpIterator != allcells.end(); ++mpIterator)
+    {
+        sumCount += getCountSameToThis(mpIterator->second);
+    }
+    
+    canNotContinue = ((sumCount==0)?true:false);
+    
+    mpIterator = allcells.begin();
+    for (; mpIterator != allcells.end(); ++mpIterator)
+    {
+        if (mpIterator->second->getType() == CELL_TYPE::TYPE_7COLORS) {
+            canNotContinue = false;
 
+        }
+    }
+    
+    CCLOG("canNotContinue --- %d",canNotContinue);
+    
+    if(canNotContinue)
+    {
+        this->addChild(FinishPopup::create());
+        isPaused = true;
+    }
+    
+}

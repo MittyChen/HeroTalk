@@ -23,7 +23,7 @@ enum CELL_TYPE{
     TYPE_RED = 4 ,
     TYPE_GREEN = 2,
     TYPE_BLUE = 1,
-    TYPE_7COLORS = 5
+    TYPE_7COLORS = 3
 };
 
 
@@ -83,7 +83,7 @@ public:
     
     void initShaders();
     
-    
+    void changeTypeRandom();
     
 };
 

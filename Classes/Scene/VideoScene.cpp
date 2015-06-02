@@ -61,6 +61,7 @@ void VideoScene::update(float delta)
 
 bool VideoScene::onTouchBegan(Touch *touch, Event *unused_event)
 {
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     touchcount++;
     auto lamdaResetcount = [&](Node* pSender){
         touchcount=0;
@@ -101,7 +102,7 @@ bool VideoScene::onTouchBegan(Touch *touch, Event *unused_event)
 //        };
 //        this->runAction(Sequence::create(DelayTime::create(2),CallFuncN::create(lamdafade),CallFuncN::create(lamdaRemove), NULL));
     }
-    
+#endif
     return true;
 }
 
@@ -128,7 +129,7 @@ void VideoScene::onEnter()
     
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     
-    JniMethodInfo t;
+//    JniMethodInfo t;
 //    if (JniHelper::getStaticMethodInfo(t,
 //                                       "org/cocos2dx/lib/Cocos2dxActivity",
 //                                       "playVideo",
@@ -150,7 +151,7 @@ void VideoScene::onEnter()
 //    videoPlayer->setKeepAspectRatioEnabled(true);
 //    videoPlayer->setFullScreenEnabled(true);
     this->addChild(videoPlayer);
-    videoPlayer->setFileName("res/Audio/HE.mp4");
+    videoPlayer->setFileName(FileUtils::getInstance()->fullPathForFilename("HE.mp4"));
     videoPlayer->play();
     
     

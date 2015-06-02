@@ -31,8 +31,17 @@
 		1F75ED831B0C620A0053E55B /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F75ED7D1B0C620A0053E55B /* GameScene.cpp */; };
 		1F75ED841B0C620A0053E55B /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F75ED7F1B0C620A0053E55B /* MainMenuScene.cpp */; };
 		1F75ED851B0C620A0053E55B /* TalkScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F75ED811B0C620A0053E55B /* TalkScene.cpp */; };
+		1F95A8A21B17021200EBA3B1 /* FinishPopup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F95A8A01B17021200EBA3B1 /* FinishPopup.cpp */; };
 		1F95B5931AF1D3E700E39A91 /* LoudSpeaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F95B5911AF1D3E700E39A91 /* LoudSpeaker.cpp */; };
 		1FA2D6321AF0D7DB0093B18F /* StageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2D6301AF0D7DB0093B18F /* StageManager.cpp */; };
+		1FA6F96B1B16D79E006CA13B /* CKIAPManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FA6F9681B16D79E006CA13B /* CKIAPManager.mm */; };
+		1FA6F96C1B16D79E006CA13B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA6F96A1B16D79E006CA13B /* Reachability.m */; };
+		1FA6F96E1B16D7A7006CA13B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA6F96D1B16D7A7006CA13B /* StoreKit.framework */; };
+		1FA6F9701B16D87F006CA13B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA6F96F1B16D87F006CA13B /* CFNetwork.framework */; };
+		1FA6F9721B16D9B7006CA13B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA6F9711B16D9B7006CA13B /* SystemConfiguration.framework */; };
+		1FAE98EE1B1408190073F3C7 /* CommonUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE98EC1B1408190073F3C7 /* CommonUtils.cpp */; };
+		1FBC29B31B1D7A1400FE1B28 /* PopupWithMask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FBC29B11B1D7A1400FE1B28 /* PopupWithMask.cpp */; };
+		1FF29B0F1B1848E60017AA79 /* CCSpriteWithHue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF29B0D1B1848E60017AA79 /* CCSpriteWithHue.cpp */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		3F0F4FE7BFD23C718A7344DE /* res in Resources */ = {isa = PBXBuildFile; fileRef = 0F3A4B559B3019F2C7B0E080 /* res */; };
 		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
@@ -127,10 +136,26 @@
 		1F75ED801B0C620A0053E55B /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		1F75ED811B0C620A0053E55B /* TalkScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TalkScene.cpp; sourceTree = "<group>"; };
 		1F75ED821B0C620A0053E55B /* TalkScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkScene.h; sourceTree = "<group>"; };
+		1F95A8A01B17021200EBA3B1 /* FinishPopup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FinishPopup.cpp; sourceTree = "<group>"; };
+		1F95A8A11B17021200EBA3B1 /* FinishPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishPopup.h; sourceTree = "<group>"; };
 		1F95B5911AF1D3E700E39A91 /* LoudSpeaker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoudSpeaker.cpp; sourceTree = "<group>"; };
 		1F95B5921AF1D3E700E39A91 /* LoudSpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoudSpeaker.h; sourceTree = "<group>"; };
 		1FA2D6301AF0D7DB0093B18F /* StageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StageManager.cpp; sourceTree = "<group>"; };
 		1FA2D6311AF0D7DB0093B18F /* StageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "\U0010StageManager.h"; sourceTree = "<group>"; };
+		1FA6F9671B16D79E006CA13B /* CKIAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKIAPManager.h; sourceTree = "<group>"; };
+		1FA6F9681B16D79E006CA13B /* CKIAPManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CKIAPManager.mm; sourceTree = "<group>"; };
+		1FA6F9691B16D79E006CA13B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		1FA6F96A1B16D79E006CA13B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		1FA6F96D1B16D7A7006CA13B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		1FA6F96F1B16D87F006CA13B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		1FA6F9711B16D9B7006CA13B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		1FAE98EC1B1408190073F3C7 /* CommonUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonUtils.cpp; sourceTree = "<group>"; };
+		1FAE98ED1B1408190073F3C7 /* CommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtils.h; sourceTree = "<group>"; };
+		1FAE98F51B1418360073F3C7 /* StringComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringComparator.h; sourceTree = "<group>"; };
+		1FBC29B11B1D7A1400FE1B28 /* PopupWithMask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PopupWithMask.cpp; sourceTree = "<group>"; };
+		1FBC29B21B1D7A1400FE1B28 /* PopupWithMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupWithMask.h; sourceTree = "<group>"; };
+		1FF29B0D1B1848E60017AA79 /* CCSpriteWithHue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCSpriteWithHue.cpp; sourceTree = "<group>"; };
+		1FF29B0E1B1848E60017AA79 /* CCSpriteWithHue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSpriteWithHue.h; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		36C64C27B51AFFE8FF5464D4 /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "/Applications/Cocos/frameworks/cocos2d-x-3.4/prebuilt/ios/libcocos2d iOS.a"; sourceTree = "<absolute>"; };
 		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
@@ -185,6 +210,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FA6F9721B16D9B7006CA13B /* SystemConfiguration.framework in Frameworks */,
+				1FA6F9701B16D87F006CA13B /* CFNetwork.framework in Frameworks */,
+				1FA6F96E1B16D7A7006CA13B /* StoreKit.framework in Frameworks */,
 				1F4373351B0DDCD100A7FD8D /* MediaPlayer.framework in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
@@ -253,6 +281,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1F02BE701B17175F00C8D936 /* CKIAPLib */ = {
+			isa = PBXGroup;
+			children = (
+				1FA6F9671B16D79E006CA13B /* CKIAPManager.h */,
+				1FA6F9681B16D79E006CA13B /* CKIAPManager.mm */,
+				1FA6F9691B16D79E006CA13B /* Reachability.h */,
+				1FA6F96A1B16D79E006CA13B /* Reachability.m */,
+			);
+			name = CKIAPLib;
+			sourceTree = "<group>";
+		};
 		1F5CAFA31AEDE4E2000D3656 /* ScriptEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +338,8 @@
 		1F75ED751B0C2BA90053E55B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				1FF29B0D1B1848E60017AA79 /* CCSpriteWithHue.cpp */,
+				1FF29B0E1B1848E60017AA79 /* CCSpriteWithHue.h */,
 				1F75ED761B0C2BA90053E55B /* HappyStartCell.cpp */,
 				1F75ED771B0C2BA90053E55B /* HappyStartCell.h */,
 			);
@@ -308,6 +349,7 @@
 		1F75ED7C1B0C620A0053E55B /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				1F95A89F1B17020200EBA3B1 /* Popup */,
 				1F43732A1B0DD7C600A7FD8D /* VideoScene.cpp */,
 				1F43732B1B0DD7C600A7FD8D /* VideoScene.h */,
 				1F4373271B0DBB9400A7FD8D /* BaseScene.cpp */,
@@ -322,6 +364,27 @@
 				1F75ED821B0C620A0053E55B /* TalkScene.h */,
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		1F95A89F1B17020200EBA3B1 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				1FBC29B11B1D7A1400FE1B28 /* PopupWithMask.cpp */,
+				1FBC29B21B1D7A1400FE1B28 /* PopupWithMask.h */,
+				1F95A8A01B17021200EBA3B1 /* FinishPopup.cpp */,
+				1F95A8A11B17021200EBA3B1 /* FinishPopup.h */,
+			);
+			name = Popup;
+			sourceTree = "<group>";
+		};
+		1FAE98EB1B1408190073F3C7 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				1FAE98F51B1418360073F3C7 /* StringComparator.h */,
+				1FAE98EC1B1408190073F3C7 /* CommonUtils.cpp */,
+				1FAE98ED1B1408190073F3C7 /* CommonUtils.h */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
@@ -342,6 +405,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FA6F9711B16D9B7006CA13B /* SystemConfiguration.framework */,
+				1FA6F96F1B16D87F006CA13B /* CFNetwork.framework */,
+				1FA6F96D1B16D7A7006CA13B /* StoreKit.framework */,
 				1F4373341B0DDCD100A7FD8D /* MediaPlayer.framework */,
 				52B47A461A53D09B004E4C60 /* Security.framework */,
 				D6B0611A1803AB670077942B /* CoreMotion.framework */,
@@ -375,6 +441,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1F02BE701B17175F00C8D936 /* CKIAPLib */,
+				1FAE98EB1B1408190073F3C7 /* common */,
 				1F6607201B0EC3550001E3D8 /* playmp4 */,
 				1F75ED7C1B0C620A0053E55B /* Scene */,
 				1F75ED751B0C2BA90053E55B /* Cell */,
@@ -558,6 +626,7 @@
 				1F75ED781B0C2BA90053E55B /* HappyStartCell.cpp in Sources */,
 				1F43732C1B0DD7C600A7FD8D /* VideoScene.cpp in Sources */,
 				1F4373261B0DB90300A7FD8D /* LoadingScene.cpp in Sources */,
+				1FF29B0F1B1848E60017AA79 /* CCSpriteWithHue.cpp in Sources */,
 				1F66072E1B0EC3550001E3D8 /* README.md in Sources */,
 				1F66072B1B0EC3550001E3D8 /* LHVideoPlayer.mm in Sources */,
 				1F5CAFB21AEDE577000D3656 /* ScriptLoader.cpp in Sources */,
@@ -575,11 +644,16 @@
 				1F66072C1B0EC3550001E3D8 /* LHVideoPlayerImpl.m in Sources */,
 				1F5CAFAF1AEDE534000D3656 /* CharacterAction.cpp in Sources */,
 				1F75ED841B0C620A0053E55B /* MainMenuScene.cpp in Sources */,
+				1FA6F96B1B16D79E006CA13B /* CKIAPManager.mm in Sources */,
 				1F5CAFB51AEDE596000D3656 /* DramaDirector.cpp in Sources */,
 				1F5CAFB81AEDE740000D3656 /* Character.cpp in Sources */,
+				1FA6F96C1B16D79E006CA13B /* Reachability.m in Sources */,
 				1F66072A1B0EC3550001E3D8 /* LHVideoOverlayView.m in Sources */,
+				1FAE98EE1B1408190073F3C7 /* CommonUtils.cpp in Sources */,
 				1F75ED851B0C620A0053E55B /* TalkScene.cpp in Sources */,
 				1F95B5931AF1D3E700E39A91 /* LoudSpeaker.cpp in Sources */,
+				1FBC29B31B1D7A1400FE1B28 /* PopupWithMask.cpp in Sources */,
+				1F95A8A21B17021200EBA3B1 /* FinishPopup.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

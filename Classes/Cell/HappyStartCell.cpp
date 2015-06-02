@@ -5,8 +5,10 @@
 //  Created by chenwei on 15/3/9.
 //
 //
-
+#include "cocostudio/CocoStudio.h"
 #include "HappyStartCell.h"
+
+using namespace cocostudio::timeline;
 
 HappyStartCell::HappyStartCell()
 {
@@ -117,10 +119,16 @@ void HappyStartCell::setType(enum CELL_TYPE mtype)
         this->addChild(round7);
         round7->setAnchorPoint(Vec2(0.5,0.5));
         round7->setPosition(this->getContentSize()/2);
+        round7->setTag(999);
         round7->runAction(RepeatForever::create(RotateBy::create(5, 360)));
         
         this->setColor(cocos2d::Color3B(120, 255,120));
     }else{
+        
+        if(this->getChildByTag(999))
+        {
+            this->removeChildByTag(999);
+        }
         
         if(mtype ==TYPE_RED )
         {
@@ -166,3 +174,9 @@ void HappyStartCell::initShaders()
     
     
 }
+
+void HappyStartCell::changeTypeRandom()
+{
+     this->setType((CELL_TYPE)random(1, 4));
+}
+

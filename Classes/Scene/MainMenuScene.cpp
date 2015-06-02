@@ -183,8 +183,8 @@ bool MainMenuScene::init()
 //    this->runAction(ta);
     
     Label* gameTitle = Label::create();
-    gameTitle->setString("英雄低语");
-    gameTitle->setSystemFontName("Helvetica");
+    gameTitle->setString("不要一百分");
+    gameTitle->setSystemFontName("Arial");
     gameTitle->setSystemFontSize(100);
     gameTitle->setAnchorPoint(Vec2(0.5,0.5));
     gameTitle->setPosition(Vec2(visibleSize.width/2,visibleSize.height*4/6));

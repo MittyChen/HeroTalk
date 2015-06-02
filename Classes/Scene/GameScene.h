@@ -6,9 +6,13 @@
 #include "cocostudio/CocoStudio.h"
 #include "cocostudio/WidgetCallBackHandlerProtocol.h"
 #include "ui/CocosGUI.h"
+#include "CommonUtils.h"
+
 enum CELL_TOUCH_MODE{
     NORMAL_MODE = -1,
-    DELETE_ONE_MODE = 1
+    DELETE_ONE_MODE = 1,
+    CHANGE_COLOR = 2,
+    CHANGE_COLOR_RANDOM = 3,
 };
 
 class GameScene : public cocos2d::Layer
@@ -39,6 +43,15 @@ public:
     
     void deleteTargetCell(map<cocos2d::Vec2,HappyStartCell*>::iterator   targetCell);
     
+    void checkoutResult();
+    
+    void changeTypeRandom(cocos2d::Ref* object);
+    
+    void changeType(cocos2d::Ref* object);
+    
+    void seletctCellolor(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
+    
+    
 public:
 
     float munitSize;
@@ -54,6 +67,9 @@ public:
     bool actionPlaying;
     
     cocos2d::ui::Text* scoreLAbel;
+    
+    static bool isPaused;
+    
 };
 
 #endif // __GAME_SCENE_H__
