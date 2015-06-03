@@ -44,3 +44,5 @@ proj.android/gen/com/mitty/herotalk/BuildConfig.java
 *.apk
 
 *.apk
+
+*.apk

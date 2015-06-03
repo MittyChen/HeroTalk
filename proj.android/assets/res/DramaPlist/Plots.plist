@@ -4,15 +4,16 @@
 <dict>
 	<key>TalkContent</key>
 	<array>
-		<string>99:Talk:那是在一个阳光明媚的晚上。。。。</string>
-		<string>99:Talk:鸟儿在歌唱。。。</string>
-		<string>99:Talk:少年们追逐着风，放肆的高歌。。</string>
+		<string>99:Talk:这是什么地方？</string>
+		<string>99:Talk:好像是学校后山哦。。</string>
+		<string>99:Talk:好像远处走来三个人。。。</string>
 		<string>100:Talk:大刚：今天的天气还真好啊~</string>
-		<string>101:Talk:小明：是啊 没雾霾也没下雨。</string>
-		<string>102:Talk:小丽：你俩说的都是废话！！！</string>
-		<string>101:Talk:小明：你再这么说话把你嘴堵上。</string>
-		<string>100:Talk:大纲：别说了  他就这样。。</string>
-		<string>102:Talk:小丽：切~不跟你们玩了，我去玩会游戏。</string>
+		<string>101:Talk:小明：是啊</string>
+		<string>102:Talk:小丽：下节课是体育课吧</string>
+		<string>101:Talk:小明： 恩 </string>
+		<string>99:Talk:铃铃~~~</string>
+		<string>100:Talk:大纲：铃声响了哦</string>
+		<string>102:Talk:小丽： 赶紧的。。</string>
 	</array>
 </dict>
 </plist>

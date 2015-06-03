@@ -27,6 +27,8 @@
 		1F66072C1B0EC3550001E3D8 /* LHVideoPlayerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6607261B0EC3550001E3D8 /* LHVideoPlayerImpl.m */; };
 		1F66072D1B0EC3550001E3D8 /* LHVideoPlayerImplCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6607281B0EC3550001E3D8 /* LHVideoPlayerImplCpp.mm */; };
 		1F66072E1B0EC3550001E3D8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 1F6607291B0EC3550001E3D8 /* README.md */; };
+		1F72C2A01B1E9E1E0030AF38 /* LevelNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F72C29E1B1E9E1E0030AF38 /* LevelNode.cpp */; };
+		1F72C2A31B1EA52F0030AF38 /* LevelSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F72C2A11B1EA52F0030AF38 /* LevelSelectScene.cpp */; };
 		1F75ED781B0C2BA90053E55B /* HappyStartCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F75ED761B0C2BA90053E55B /* HappyStartCell.cpp */; };
 		1F75ED831B0C620A0053E55B /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F75ED7D1B0C620A0053E55B /* GameScene.cpp */; };
 		1F75ED841B0C620A0053E55B /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F75ED7F1B0C620A0053E55B /* MainMenuScene.cpp */; };
@@ -128,6 +130,10 @@
 		1F6607271B0EC3550001E3D8 /* LHVideoPlayerImplCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHVideoPlayerImplCpp.h; sourceTree = "<group>"; };
 		1F6607281B0EC3550001E3D8 /* LHVideoPlayerImplCpp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LHVideoPlayerImplCpp.mm; sourceTree = "<group>"; };
 		1F6607291B0EC3550001E3D8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1F72C29E1B1E9E1E0030AF38 /* LevelNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelNode.cpp; sourceTree = "<group>"; };
+		1F72C29F1B1E9E1E0030AF38 /* LevelNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelNode.h; sourceTree = "<group>"; };
+		1F72C2A11B1EA52F0030AF38 /* LevelSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSelectScene.cpp; sourceTree = "<group>"; };
+		1F72C2A21B1EA52F0030AF38 /* LevelSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectScene.h; sourceTree = "<group>"; };
 		1F75ED761B0C2BA90053E55B /* HappyStartCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HappyStartCell.cpp; sourceTree = "<group>"; };
 		1F75ED771B0C2BA90053E55B /* HappyStartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HappyStartCell.h; sourceTree = "<group>"; };
 		1F75ED7D1B0C620A0053E55B /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
@@ -338,6 +344,8 @@
 		1F75ED751B0C2BA90053E55B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				1F72C29E1B1E9E1E0030AF38 /* LevelNode.cpp */,
+				1F72C29F1B1E9E1E0030AF38 /* LevelNode.h */,
 				1FF29B0D1B1848E60017AA79 /* CCSpriteWithHue.cpp */,
 				1FF29B0E1B1848E60017AA79 /* CCSpriteWithHue.h */,
 				1F75ED761B0C2BA90053E55B /* HappyStartCell.cpp */,
@@ -349,6 +357,8 @@
 		1F75ED7C1B0C620A0053E55B /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				1F72C2A11B1EA52F0030AF38 /* LevelSelectScene.cpp */,
+				1F72C2A21B1EA52F0030AF38 /* LevelSelectScene.h */,
 				1F95A89F1B17020200EBA3B1 /* Popup */,
 				1F43732A1B0DD7C600A7FD8D /* VideoScene.cpp */,
 				1F43732B1B0DD7C600A7FD8D /* VideoScene.h */,
@@ -633,9 +643,11 @@
 				1F5CAFA91AEDE515000D3656 /* Curtain.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				1F5CAFA61AEDE503000D3656 /* Drama.cpp in Sources */,
+				1F72C2A01B1E9E1E0030AF38 /* LevelNode.cpp in Sources */,
 				1F4373291B0DBB9400A7FD8D /* BaseScene.cpp in Sources */,
 				1F75ED831B0C620A0053E55B /* GameScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				1F72C2A31B1EA52F0030AF38 /* LevelSelectScene.cpp in Sources */,
 				1F66072D1B0EC3550001E3D8 /* LHVideoPlayerImplCpp.mm in Sources */,
 				1F5CAFBB1AEDE75F000D3656 /* Plot.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,

@@ -11,14 +11,23 @@
         <iOS_Target Value="HeroTalk iOS" />
         <iOS_BundleID Value="iPhone Distribution: Beijing Chukong Aipu Technology Co.,Ltd. (6JJBR8K7BJ)" />
         <Platform Value="Android" />
-        <PublishSetting Value="Resource" />
         <FrameworkVersion Value="cocos2d-x-3.4" />
         <IsDebugKeystore Value="True" />
+        <EnableSourceMap Value="False" />
+        <EnableHTML5Advanced Value="False" />
+      </Value>
+    </Item>
+    <Item Key="CocosRecentOperation">
+      <Value ctype="CocosRecentOperation">
+        <LastPublishType Value="Resource" />
+        <IsLastPublish Value="True" />
+        <LastRunType Value="Unknown" />
       </Value>
     </Item>
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
         <OpenedDocuments>
+          <FilePathData Path="ColorSelectNode.csd" />
           <FilePathData Path="MainScene.csd" />
         </OpenedDocuments>
         <ActiveDocument Path="MainScene.csd" />

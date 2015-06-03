@@ -9,19 +9,24 @@
 #include "CCSpriteWithHue.h"
 
 #include "PopupWithMask.h"
-
+#include "LevelSelectScene.h"
 
 USING_NS_CC;
 
  bool GameScene::isPaused  = false;
  static HappyStartCell* seletingCell = NULL;
-
+ int GameScene::count = 8;
 using namespace cocostudio::timeline;
 
-Scene* GameScene::createScene()
+bool isPauseFlag = false;
+int framecount = 0;
+
+
+Scene* GameScene::createScene(int code )
 {
     auto scene = Scene::create();
     
+    count = code+1;
     auto layer = GameScene::create();
 
     scene->addChild(layer);
@@ -39,6 +44,8 @@ bool GameScene::init()
     {
         return false;
     }
+    
+    scheduleUpdate();
     isPaused = false;
     _mMode = CELL_TOUCH_MODE::NORMAL_MODE;
     Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -58,6 +65,13 @@ bool GameScene::init()
     
     cocos2d::ui::Button* btnExit =  (cocos2d::ui::Button*)rootNode->getChildByTag(9);
     btnExit->addTouchEventListener(CC_CALLBACK_2(GameScene::exitGame, this) );
+
+    
+    
+    cocos2d::ui::Button* levels =  (cocos2d::ui::Button*)rootNode->getChildByTag(44);
+    levels->addTouchEventListener(CC_CALLBACK_2(GameScene::gotoLevelSelect, this) );
+
+    
     
     scoreLAbel = (cocos2d::ui::Text*)rootNode->getChildByTag(7);
     
@@ -73,7 +87,6 @@ bool GameScene::init()
     
     
     actionPlaying = false;
-    count = 8;
     
     Vec2 uiPosition = btnBack->getPosition() + Vec2(40, 0);
     
@@ -83,11 +96,18 @@ bool GameScene::init()
     
     
     int mcount = 8;
+    
+    if(count >= 8)
+    {
+        mcount = count;
+        
+    }
+    
     munitSize =(visibleSize.height < visibleSize.width?visibleSize.height:visibleSize.width )/mcount - 3;
 //    unitOriginPosition = origin + Vec2((visibleSize.width - (munitSize + 1) * mcount)*2/3 ,  (visibleSize.height - (munitSize + 1) * mcount )/2);
     unitOriginPosition = Vec2(middleX - munitSize * count  / 2 ,middleY - munitSize*count/2);
     
-    LayerColor* mlc = LayerColor::create(Color4B(100, 255, 100, 50), (munitSize + 1)* count + 10, (munitSize + 10) * count + 5);
+    LayerColor* mlc = LayerColor::create(Color4B(100, 255, 100, 50), (munitSize + 1)* count + 10, (munitSize + 1) * count + 10);
     
     mlc->setPosition(unitOriginPosition - Vec2(5,5));
     mlc->setAnchorPoint(Vec2(0, 0));
@@ -134,7 +154,7 @@ bool GameScene::init()
     CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     auto removeLamda = [=](Ref* pSender)
     {
-//        CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("playbg.mp3",true);
+        CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("playbg.mp3",true);
     };
     
     this->runAction(Sequence::create(DelayTime::create(2),CallFuncN::create(removeLamda), NULL) );
@@ -163,6 +183,11 @@ bool GameScene::init()
 
 void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
+    
+    if (isPaused){
+        return;
+    }
+    
     
     scoreLAbel->setString("SCORE : 0");
     
@@ -245,22 +270,22 @@ void GameScene::seletctCellolor(cocos2d::Ref* object, cocos2d::ui::Widget::Touch
         int tag = selectType->getTag();
         
         switch (tag) {
-            case 26:
+            case 32:
                 seletingCell->setType(CELL_TYPE::TYPE_RED);
                 
                 break;
-            case 27:
+            case 33:
                 seletingCell->setType(CELL_TYPE::TYPE_BLUE);
                 
                 break;
-            case 28:
+            case 34:
                 seletingCell->setType(CELL_TYPE::TYPE_GREEN);
                 
                 break;
             default:
                 break;
         }
-        isPaused = false;
+        isPauseFlag = true;
         this->removeChildByTag(1999);
         seletingCell= NULL;
     }
@@ -270,6 +295,10 @@ void GameScene::seletctCellolor(cocos2d::Ref* object, cocos2d::ui::Widget::Touch
 
 void GameScene::backOneStep(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
+    if (isPaused){
+        return;
+    }
+    
     switch (type) {
         case cocos2d::ui::Widget::TouchEventType::BEGAN:
         {
@@ -317,13 +346,30 @@ void GameScene::backOneStep(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
 
 void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
+    if (isPaused){
+        return;
+    }
     auto scene = MainMenuScene::createScene();
+    // run
+    Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+}
+
+void GameScene::gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
+{
+    if (isPaused){
+        return;
+    }
+    auto scene =  LevelSelectScene::createScene();
     // run
     Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
 }
 
 void GameScene::deleteOneCell(cocos2d::Ref* object)
 {
+    if (isPaused){
+        return;
+    }
+    
     if (_mMode == CELL_TOUCH_MODE::NORMAL_MODE) {
         _mMode = CELL_TOUCH_MODE::DELETE_ONE_MODE;
     }else{
@@ -349,9 +395,20 @@ void GameScene::changeType(cocos2d::Ref* object)
     }
 }
 
+
 void GameScene::update(float delta)
 {
     
+    //延迟一帧重置暂停标识
+    if(framecount == 1){
+        isPauseFlag = false;
+        framecount = 0;
+        isPaused = false;
+    }
+    
+    if (isPauseFlag) {
+        framecount++ ;
+    }
 }
 
 bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event)
@@ -836,11 +893,6 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         
                     case CHANGE_COLOR:
                     {
-//                        PopupWithMask * popLayer= PopupWithMask::create();
-//                        popLayer->setTag(1999);
-//                        this->addChild(popLayer);
-                        
-                        Size visiableSize = Director::getInstance()->getVisibleSize();
                         auto rootNode = CSLoader::createNode("ColorSelectNode.csb");
                         rootNode->setAnchorPoint(Vec2(0.5, 0.5));
                         
@@ -848,15 +900,13 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         rootNode->setTag(1999);
                         
                         rootNode->setPosition(mIt->second->getPosition());
-                        rootNode->runAction(MoveTo::create(1.0, visiableSize/2));
                         rootNode->setScale(0.01);
-                        rootNode->runAction(ScaleTo::create(0.5, 1.0));
-//                        popLayer->addChild(rootNode);
+                        rootNode->runAction(ScaleTo::create(0.2, 1.0));
                         
                         cocos2d::ui::Button* btnRed =  (cocos2d::ui::Button*)rootNode->getChildByTag(32);//红色
                         btnRed->addTouchEventListener(CC_CALLBACK_2(GameScene::seletctCellolor, this) );
                         btnRed->setPropagateTouchEvents(false);
-                        
+                        btnRed->setSwallowTouches(true);
                         
                         cocos2d::ui::Button* btnBlue =  (cocos2d::ui::Button*)rootNode->getChildByTag(33);//蓝色
                         btnBlue->addTouchEventListener(CC_CALLBACK_2(GameScene::seletctCellolor, this) );
@@ -866,7 +916,6 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         btnGreen->addTouchEventListener(CC_CALLBACK_2(GameScene::seletctCellolor, this) );
                         btnGreen->setPropagateTouchEvents(false);
                    
-                        
                         seletingCell = mIt->second;
                         
                         isPaused = true;

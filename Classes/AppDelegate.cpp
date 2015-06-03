@@ -1,6 +1,8 @@
 #include "AppDelegate.h"
 #include "GameScene.h"
 #include "SimpleAudioEngine.h"
+#include "LevelSelectScene.h"
+
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -53,8 +55,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     FileUtils::getInstance()->addSearchPath("res/Sounds");
 
     FileUtils::getInstance()->addSearchPath("res/Audio");
+    
+    FileUtils::getInstance()->addSearchPath("res/clouds");
+    
     // create a scene. it's an autorelease object
-    auto scene = GameScene::createScene();
+    auto scene = GameScene::createScene(2);
     
     // run
     director->runWithScene(scene);

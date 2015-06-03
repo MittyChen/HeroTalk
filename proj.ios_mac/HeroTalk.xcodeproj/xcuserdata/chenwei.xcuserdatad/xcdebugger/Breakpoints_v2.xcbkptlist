@@ -22,16 +22,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/Scene/GameScene.cpp"
-            timestampString = "454930969.460112"
+            filePath = "../Classes/Cell/LevelNode.cpp"
+            timestampString = "455009932.619825"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "359"
-            endingLineNumber = "359"
-            landmarkName = "GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event)"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "LevelNode::onTouchBegan(Touch *touch, Event *unused_event)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

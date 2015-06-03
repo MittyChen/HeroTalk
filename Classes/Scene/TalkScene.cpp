@@ -1,7 +1,7 @@
 #include "TalkScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "GameScene.h"
+#include "LevelSelectScene.h"
 
 
 #include "DramaDirector.h"
@@ -46,10 +46,16 @@ bool TalkScene::init()
     
     auto lambaStartGame = [=](Node* pSender)
     {
-        auto scene = GameScene::createScene();
+//        auto scene = GameScene::createScene(8);
+//        // run
+//        
+//        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+      
+        auto scene = LevelSelectScene::createScene();
         // run
-        
+
         Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+
         
 //        Director::getInstance()->pushScene(LoadingScene::createScene());
     };
@@ -71,7 +77,7 @@ bool TalkScene::onTouchBegan(Touch *touch, Event *unused_event)
 }
 void TalkScene::playClickCallBack(Ref* sender,cocos2d::ui::TouchEventType type)
 {
-    auto scene = GameScene::createScene();
+//    auto scene = GameScene::createScene();
     // run
 //    Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
     

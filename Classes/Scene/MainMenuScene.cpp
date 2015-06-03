@@ -211,7 +211,9 @@ bool MainMenuScene::init()
 
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("gamebg.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("playbg.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("levelselect.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("gamebg.mp3",true);
+    
     
     return true;
 }

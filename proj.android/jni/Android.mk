@@ -26,6 +26,7 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/Cell
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/Scene
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ScriptEngine
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/common
 
 
 

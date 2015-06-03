@@ -19,7 +19,7 @@ class GameScene : public cocos2d::Layer
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
-    static cocos2d::Scene* createScene();
+    static cocos2d::Scene* createScene(int code);
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
@@ -39,6 +39,8 @@ public:
     
     void exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type) ;
     
+    void gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
+    
     void deleteOneCell(cocos2d::Ref* object);
     
     void deleteTargetCell(map<cocos2d::Vec2,HappyStartCell*>::iterator   targetCell);
@@ -51,11 +53,10 @@ public:
     
     void seletctCellolor(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
     
-    
 public:
 
     float munitSize;
-    int count;
+     static int count;
     map<cocos2d::Vec2, HappyStartCell*> allcells;
     cocos2d::Vec2 unitOriginPosition;
     list<HappyStartCell*> cellsGet; //在递归方法中，使用临时容器注意被清空。
