@@ -13,9 +13,10 @@
 
 USING_NS_CC;
 
- bool GameScene::isPaused  = false;
- static HappyStartCell* seletingCell = NULL;
- int GameScene::count = 8;
+bool GameScene::isPaused  = false;
+static HappyStartCell* seletingCell = NULL;
+bool GameScene::isGameFinish = false;
+int GameScene::count = 8;
 using namespace cocostudio::timeline;
 
 bool isPauseFlag = false;
@@ -47,6 +48,7 @@ bool GameScene::init()
     
     scheduleUpdate();
     isPaused = false;
+    isGameFinish = false;
     _mMode = CELL_TOUCH_MODE::NORMAL_MODE;
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -54,7 +56,7 @@ bool GameScene::init()
     
     auto rootNode = CSLoader::createNode("MainScene.csb");
     addChild(rootNode);
-    
+    rootNode->setName("MainSceneRoot");
     
     cocos2d::ui::Button* btnReset =  (cocos2d::ui::Button*)rootNode->getChildByTag(8);
     btnReset->addTouchEventListener(CC_CALLBACK_2(GameScene::loadMap, this) );
@@ -183,6 +185,62 @@ bool GameScene::init()
 
 void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
+    if(isGameFinish)
+    {
+        
+        if (((Node*)object)->getParent()->getName() != "MainSceneRoot") {
+            return;
+        }
+        this->removeChildByName("GameFinish");
+        
+        isPauseFlag = true;
+        
+        isGameFinish = false;
+        scoreLAbel->setString("SCORE : 0");
+        
+        map<Vec2, HappyStartCell*>::iterator  mpIterator = allcells.begin();
+        
+        for (; mpIterator != allcells.end(); ++mpIterator)
+        {
+            if (mpIterator!=allcells.end()) {
+                this->removeChild((Node*)mpIterator->second);
+            }
+        }
+        
+        if (allcells.begin()->second != NULL) {
+            allcells.clear();
+        }
+        
+        for(int i = 0; i < count; ++i )
+        {
+            for(int j =0 ; j < count ; ++j)
+            {
+                HappyStartCell* mm =  HappyStartCell::create();
+                mm->setParameters(Color3B(25.5f * i,25.5f * j,10.f*(i+j)),unitOriginPosition,Size(munitSize,munitSize),Vec2(i,j),count);
+                allcells.insert(pair<Vec2, HappyStartCell*> (Vec2(i,j), mm));
+                addChild((Node*)mm);
+            }
+        }
+        
+        srand(0);
+        
+        mpIterator = allcells.begin();
+        
+        for (; mpIterator != allcells.end(); ++mpIterator)
+        {
+            int typeFind = rand()%5;
+            
+            if(typeFind == 0)
+            {
+                typeFind = 1;
+            }
+            if (typeFind == 3) {
+                typeFind=4;
+            }
+            
+            mpIterator->second->setType((CELL_TYPE)typeFind);
+        }
+    }
     
     if (isPaused){
         return;
@@ -346,6 +404,15 @@ void GameScene::backOneStep(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
 
 void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
+    if(isGameFinish)
+    {
+        isGameFinish = false;
+        auto scene = MainMenuScene::createScene();
+        // run
+        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+    }
+    
+    
     if (isPaused){
         return;
     }
@@ -356,10 +423,22 @@ void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
 
 void GameScene::gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
+    
+    if(isGameFinish)
+    {
+        isGameFinish = false;
+
+        auto scene =  LevelSelectScene::createScene(count);
+        // run
+        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        
+    }
+    
+    
     if (isPaused){
         return;
     }
-    auto scene =  LevelSelectScene::createScene();
+    auto scene =  LevelSelectScene::createScene(0);
     // run
     Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
 }
@@ -1080,8 +1159,23 @@ void GameScene::checkoutResult()
     
     if(canNotContinue)
     {
-        this->addChild(FinishPopup::create());
+        Layer* ly = FinishPopup::create();
+        this->addChild(ly);
+        ly->setName("GameFinish");
+        auto rootNode = ly->getChildByName("FinishPopRoot");
+        cocos2d::ui::Button* btnRetry =  (cocos2d::ui::Button*)rootNode->getChildByTag(14);
+        btnRetry->addTouchEventListener(CC_CALLBACK_2(GameScene::loadMap, this) );
+        
+        cocos2d::ui::Button* btnNext =  (cocos2d::ui::Button*)rootNode->getChildByTag(31);
+        btnNext->addTouchEventListener(CC_CALLBACK_2(GameScene::gotoLevelSelect, this) );
+        
+        cocos2d::ui::Button* btnExit =  (cocos2d::ui::Button*)rootNode->getChildByTag(16);
+        btnExit->addTouchEventListener(CC_CALLBACK_2(GameScene::exitGame, this) );
+        
         isPaused = true;
+        isGameFinish = true;
+        
+        
     }
     
 }

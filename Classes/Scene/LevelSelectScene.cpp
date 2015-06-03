@@ -5,17 +5,21 @@
 #include "SimpleAudioEngine.h"
 USING_NS_CC;
 
-Scene* LevelSelectScene::createScene()
+static int levelToUnlock = 0;
+
+Scene* LevelSelectScene::createScene(int unclockLevel)
 {
     // 'scene' is an autorelease object
     auto scene = Scene::create();
+    
+    levelToUnlock = unclockLevel;
     
     // 'layer' is an autorelease object
     auto layer = LevelSelectScene::create();
 
     // add layer as a child to scene
     scene->addChild(layer);
-
+ 
     // return the scene
     return scene;
 }
@@ -35,6 +39,13 @@ bool LevelSelectScene::init()
     
     
 
+    
+    
+    std::string fullPath = FileUtils::getInstance()->fullPathForFilename("Levels.plist");
+    
+    __Dictionary* pdic = Dictionary::createWithContentsOfFile(fullPath.c_str());
+    
+
     Label* levelsec = Label::create("Select A Level ", "Arial", 60);
     levelsec->setColor(Color3B(0,100,255));
     levelsec->setPosition( Vec2(20 + levelsec->getContentSize().width/2, -levelsec->getContentSize().height/2 + visibleSize.height -20));
@@ -45,7 +56,7 @@ bool LevelSelectScene::init()
     m_scrollView->setDirection( ui::ScrollView::Direction::HORIZONTAL);
     m_scrollView->setAnchorPoint(Point::ZERO);
     m_scrollView->setPosition(Vec2::ZERO);
-    m_scrollView->setInnerContainerSize(Size(visibleSize.width * 25, visibleSize.height));
+    m_scrollView->setInnerContainerSize(Size(visibleSize.width * (LEVEL_COUNT / 4 ), visibleSize.height));
 
     
     m_scrollView->setContentSize(visibleSize);
@@ -86,12 +97,27 @@ bool LevelSelectScene::init()
     m_scrollView->addChild(mylines);
     mylines->setPosition(visibleSize/2 );
     
-    for (int i = 1; i < 100; i++) {
+    for (int i = 1; i < LEVEL_COUNT; i++) {
         LevelNode* lbn = LevelNode::create();
         int randomRate = cocos2d::random(-40, 40);
         lbn->setPosition(Vec2(lbn->getContentSize().width/2 -visibleSize.width/2 + 200 * i, (i%2==0?100:-100) + randomRate ));
         lbn->setLevelCode(i);
-        lbn->startRain();
+        
+        if(levelToUnlock >= i)
+        {
+            lbn->unlockLevel();
+            
+        }
+        if(levelToUnlock == i)
+        {
+            m_scrollView->scrollToPercentHorizontal( 0.5 , 1, false);
+        }
+        
+        //lbn->getPosition().x / (visibleSize.width * (LEVEL_COUNT / 4 ))
+        if(!(lbn->isLocked))
+        {
+            lbn->startRain();
+        }
         
         m_scrollView->addChild(lbn);
         destinPos = lbn->getPosition();
@@ -100,24 +126,25 @@ bool LevelSelectScene::init()
         {
             mylines->drawQuadBezier(originPos, i%2==0?Vec2(originPos.x, destinPos.y):Vec2(destinPos.x, originPos.y), destinPos, 20, Color4F(120, 120, 0, 100));
         }
-        
-        
-        
-//        cocos2d::ui::Button * mbutton = cocos2d::ui::Button::create("Default/Button_Normal.png");
-//        
-////        mbutton->setPosition(Vec2::ZERO);
-//        
-//        mbutton->addTouchEventListener(CC_CALLBACK_2(LevelSelectScene::selectLevelAction, this) );
-//        lbn->addChild(mbutton);
+
         __String* cc = __String::createWithFormat("LevelNode_%d",i);
         
         
         cocos2d::ui::Button* btnlevelnode =  (cocos2d::ui::Button*) lbn->getChildByName(cc->getCString());
         btnlevelnode->addTouchEventListener(CC_CALLBACK_2(LevelSelectScene::selectLevelAction, this) );
         
-       
-       
-        originPos =  lbn->getPosition();
+        auto isunlock = pdic->objectForKey(cc->getCString());
+        
+        
+        if (isunlock != NULL) {
+            if(strcmp(((__String*)isunlock)->getCString(), "ok") == 0)
+            {
+                lbn->unlockLevel();
+                lbn->startRain();
+            }
+        }
+        
+        originPos = lbn->getPosition();
     }
     
    

@@ -51,7 +51,7 @@ bool TalkScene::init()
 //        
 //        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
       
-        auto scene = LevelSelectScene::createScene();
+        auto scene = LevelSelectScene::createScene(0);
         // run
 
         Director::getInstance()->replaceScene(TransitionFade::create(2, scene));

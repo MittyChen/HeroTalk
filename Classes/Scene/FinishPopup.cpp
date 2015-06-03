@@ -49,14 +49,11 @@ bool FinishPopup::init()
     rootNode->setAnchorPoint(Vec2(0.5,0.5));
     rootNode->setPosition(visibleSize/2);
     this->addChild(rootNode);
-    
-    
+    rootNode->setName("FinishPopRoot");
     rootNode->runAction(Sequence::create(ScaleTo::create(0.15,1.1),ScaleTo::create(0.15, 1.0), NULL));
     return true;
 }
 bool FinishPopup::onTouchBegan(Touch *touch, Event *unused_event)
 {
-    this->removeFromParent();
-    GameScene::isPaused  = false;
     return true;
 }

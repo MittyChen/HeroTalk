@@ -71,6 +71,8 @@ public:
     
     static bool isPaused;
     
+    static bool isGameFinish;
+    
 };
 
 #endif // __GAME_SCENE_H__

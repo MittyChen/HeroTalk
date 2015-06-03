@@ -29,6 +29,7 @@ bool LevelNode::init()
     }
 //    this->scheduleUpdate();
     mcode = 1;
+    isLocked = true;
     int indexz = random(0, 4);
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -50,19 +51,22 @@ bool LevelNode::init()
     ps->setTexture(cocos2d::Director::getInstance()->getTextureCache()->addImage("whitedot.png"));
     ps->setContentSize(cloud->getContentSize());
     ps->setPosition (cloud->getPosition() );
-    
-    ps->setStartColor(Color4F(200,100,100,100));
-    ps->setTotalParticles(100);
-    ps->setLife(1.0);
-    ps->setSpeed(30);
+    ps->setStartSize(ps->getStartSize()*3);
+    ps->setStartColor(Color4F(0,200,200,200));
+    ps->setTotalParticles(200);
+    ps->setLife(3.0);
+    ps->setSpeed(20);
     ps->setScaleX(cloud->getContentSize().width/visibleSize.width /2);
+    
+//    ps->setContentSize(cloud->getContentSize());
     ps->setScaleY(2);
     
     this->addChild(ps);
     this->addChild(cloud);
     this->addChild(levelcode);
-    ps->stopSystem();
     
+    stopRain();
+
     
 //    auto listener = EventListenerTouchOneByOne::create();
 //    listener->onTouchBegan = CC_CALLBACK_2(LevelNode::onTouchBegan,this);
@@ -100,14 +104,35 @@ int LevelNode::getLevelCode()
 
 void LevelNode::startRain()
 {
+    cloud->setColor(Color3B(255,255,255));
+    cloud->setEnabled(true);
     ps->resetSystem();
 }
 
 void LevelNode::stopRain()
 {
+    cloud->setEnabled(false);
+    cloud->setColor(Color3B(180,180,180));
      ps->stopSystem();
 }
 bool LevelNode::onTouchBegan(Touch *touch, Event *unused_event)
 {
     return true;
+}
+void LevelNode::unlockLevel()
+{
+    std::string fullPath = FileUtils::getInstance()->fullPathForFilename("Levels.plist");
+    
+    __Dictionary* pdic = Dictionary::createWithContentsOfFile(fullPath.c_str());
+    
+    pdic->setObject(__String::create("ok"), cloud->getName());
+    
+    Value mval = Value("ok");
+    ValueMap _levelsmap;
+    _levelsmap.insert(make_pair(cloud->getName(),mval));
+    
+    
+    FileUtils::getInstance()->writeToFile(_levelsmap, fullPath);
+    
+    isLocked = false;
 }

@@ -42,7 +42,11 @@ public:
     
     void stopRain();
     
-     virtual bool onTouchBegan(Touch *touch, Event *unused_event);
+    virtual bool onTouchBegan(Touch *touch, Event *unused_event);
+    
+    void unlockLevel();
+    
+    bool isLocked;
     
 };
 
