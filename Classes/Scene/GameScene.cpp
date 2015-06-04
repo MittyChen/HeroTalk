@@ -1,4 +1,4 @@
-#include "GameScene.h"
+ #include "GameScene.h"
 #include "cocostudio/CocoStudio.h"
 
 #include "HappyStartCell.h"
@@ -188,7 +188,7 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     if(isGameFinish)
     {
         
-        if (((Node*)object)->getParent()->getName() != "MainSceneRoot") {
+        if (((Node*)object)->getParent()->getName() == "MainSceneRoot") {
             return;
         }
         this->removeChildByName("GameFinish");
@@ -660,7 +660,6 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                             ps->setTexture(cocos2d::Director::getInstance()->getTextureCache()->addImage("whitedot.png"));
                             
                             ps->setPosition( unitOriginPosition +  temp->getposIndex()  * (1 + munitSize) + Vec2(munitSize/2,munitSize/2) );
-//                            ps->setStartColor(Color4F(220,177.f,0.f,1.f));
                             ps->setStartColor(Color4F(temp->getColor()));
                             
                             ps->setTotalParticles(300);
@@ -1159,22 +1158,27 @@ void GameScene::checkoutResult()
     
     if(canNotContinue)
     {
-        Layer* ly = FinishPopup::create();
-        this->addChild(ly);
-        ly->setName("GameFinish");
-        auto rootNode = ly->getChildByName("FinishPopRoot");
-        cocos2d::ui::Button* btnRetry =  (cocos2d::ui::Button*)rootNode->getChildByTag(14);
-        btnRetry->addTouchEventListener(CC_CALLBACK_2(GameScene::loadMap, this) );
         
-        cocos2d::ui::Button* btnNext =  (cocos2d::ui::Button*)rootNode->getChildByTag(31);
-        btnNext->addTouchEventListener(CC_CALLBACK_2(GameScene::gotoLevelSelect, this) );
+        auto gotoFinish = [=](Ref* pSender)
+        {
+            Layer* ly = FinishPopup::create();
+            this->addChild(ly);
+            ly->setName("GameFinish");
+            auto rootNode = ly->getChildByName("FinishPopRoot");
+            cocos2d::ui::Button* btnRetry =  (cocos2d::ui::Button*)rootNode->getChildByTag(14);
+            btnRetry->addTouchEventListener(CC_CALLBACK_2(GameScene::loadMap, this) );
+            
+            cocos2d::ui::Button* btnNext =  (cocos2d::ui::Button*)rootNode->getChildByTag(31);
+            btnNext->addTouchEventListener(CC_CALLBACK_2(GameScene::gotoLevelSelect, this) );
+            
+            cocos2d::ui::Button* btnExit =  (cocos2d::ui::Button*)rootNode->getChildByTag(16);
+            btnExit->addTouchEventListener(CC_CALLBACK_2(GameScene::exitGame, this) );
+            
+            isPaused = true;
+            isGameFinish = true;
+        };
         
-        cocos2d::ui::Button* btnExit =  (cocos2d::ui::Button*)rootNode->getChildByTag(16);
-        btnExit->addTouchEventListener(CC_CALLBACK_2(GameScene::exitGame, this) );
-        
-        isPaused = true;
-        isGameFinish = true;
-        
+        this->runAction(Sequence::create(DelayTime::create(1),CallFuncN::create(gotoFinish), NULL) );
         
     }
     

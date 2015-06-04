@@ -65,31 +65,31 @@ bool MainMenuScene::init()
     
     this->addChild(fengye);
     
-//    {
-//        Sprite* dotP = Sprite::create("whitedot.png");
-//        dotP->setPosition(Vec2::ZERO);
-////        dotP->runAction(TintTo::create(0.01, 255, 89, 56));
-//        
-//        ccBezierConfig ccb;
-//        ccb.controlPoint_1 = Vec2(visibleSize.height/2 + 280,visibleSize.height/2 - 280);
-//        ccb.controlPoint_2 = Vec2(visibleSize.width/2 + 280,visibleSize.height/2 - 280);
-//        ccb.endPosition = Vec2(visibleSize.width,visibleSize.height);
-//        BezierTo* actionb = BezierTo::create(10, ccb);
-//        
-//        
-//        ccBezierConfig ccb2;
-//        ccb2.controlPoint_1 = Vec2(visibleSize.width/2 - 280,visibleSize.height/2 + 280);
-//        ccb2.controlPoint_2 = Vec2(visibleSize.width/2 - 280,visibleSize.height/2 + 280);
-//        ccb2.endPosition = Vec2(0,0);
-//        BezierTo* actionb2 = BezierTo::create(10, ccb2);
-//        
-//        dotP->runAction(RepeatForever::create(Sequence::create(actionb,actionb2, NULL)));
-//        
-//        this->addChild(dotP);
-//        dotP->setColor(cocos2d::Color3B(249, 62, 79));
-////        dotP->runAction(RepeatForever::create(Sequence::create(TintTo::create(10, 0, 200, 120),TintTo::create(10, 255, 89, 56), NULL) ));
-//    }
-//    
+    {
+        Sprite* dotP = Sprite::create("whitedot.png");
+        dotP->setPosition(Vec2::ZERO);
+//        dotP->runAction(TintTo::create(0.01, 255, 89, 56));
+        
+        ccBezierConfig ccb;
+        ccb.controlPoint_1 = Vec2(visibleSize.height/2 + 280,visibleSize.height/2 - 280);
+        ccb.controlPoint_2 = Vec2(visibleSize.width/2 + 280,visibleSize.height/2 - 280);
+        ccb.endPosition = Vec2(visibleSize.width,visibleSize.height);
+        BezierTo* actionb = BezierTo::create(10, ccb);
+        
+        
+        ccBezierConfig ccb2;
+        ccb2.controlPoint_1 = Vec2(visibleSize.width/2 - 280,visibleSize.height/2 + 280);
+        ccb2.controlPoint_2 = Vec2(visibleSize.width/2 - 280,visibleSize.height/2 + 280);
+        ccb2.endPosition = Vec2(0,0);
+        BezierTo* actionb2 = BezierTo::create(10, ccb2);
+        
+        dotP->runAction(RepeatForever::create(Sequence::create(actionb,actionb2, NULL)));
+        
+        this->addChild(dotP);
+        dotP->setColor(cocos2d::Color3B(249, 62, 79));
+//        dotP->runAction(RepeatForever::create(Sequence::create(TintTo::create(10, 0, 200, 120),TintTo::create(10, 255, 89, 56), NULL) ));
+    }
+//
 //    {
 //        Sprite* dotP = Sprite::create("whitedot.png");
 //        dotP->setPosition(visibleSize);
@@ -183,7 +183,7 @@ bool MainMenuScene::init()
 //    this->runAction(ta);
     
     Label* gameTitle = Label::create();
-    gameTitle->setString("不要一百分");
+    gameTitle->setString("英雄99");
     gameTitle->setSystemFontName("Arial");
     gameTitle->setSystemFontSize(100);
     gameTitle->setAnchorPoint(Vec2(0.5,0.5));

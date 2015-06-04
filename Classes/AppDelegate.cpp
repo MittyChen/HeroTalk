@@ -59,7 +59,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     FileUtils::getInstance()->addSearchPath("res/clouds");
     
     // create a scene. it's an autorelease object
-    auto scene = GameScene::createScene(2);
+    auto scene = LevelSelectScene::createScene(2);
     
     // run
     director->runWithScene(scene);

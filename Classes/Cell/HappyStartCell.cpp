@@ -90,7 +90,7 @@ void HappyStartCell::update(float delta)
     
     if(_leftShouldGo > 0)
     {
-        this->runAction(cocos2d::RotateBy::create(1.0f, -144.f));
+//        this->runAction(cocos2d::RotateBy::create(1.0f, -144.f));
         
         this->runAction(cocos2d::Sequence::create(cocos2d::DelayTime::create(_timeToDelay+0.4),cocos2d::MoveBy::create(0.4f,cocos2d::Vec2(-1*_leftShouldGo  * _unitSize.width,0.0f)),NULL));
         
@@ -115,14 +115,17 @@ void HappyStartCell::setType(enum CELL_TYPE mtype)
     
     if (mtype==TYPE_7COLORS) {
          this->setTexture("ball.png");
-        Sprite* round7 = Sprite::create("bold7.png");
+        Sprite* round7 = Sprite::create("ten.png");
         this->addChild(round7);
         round7->setAnchorPoint(Vec2(0.5,0.5));
         round7->setPosition(this->getContentSize()/2);
         round7->setTag(999);
-        round7->runAction(RepeatForever::create(RotateBy::create(5, 360)));
-        
-        this->setColor(cocos2d::Color3B(120, 255,120));
+//        round7->runAction(RepeatForever::create(RotateBy::create(5, 360)));
+        float scalenow = round7->getScale();
+        this->setRotation3D(Vec3(0,90,0));
+        round7->runAction(RepeatForever::create(Sequence::create(ScaleTo::create(0.5,2.2*scalenow),ScaleTo::create(0.5,1.8*scalenow), NULL)  ));
+        this->setColor(cocos2d::Color3B(144,0,255));
+        this->runAction(RotateTo::create(1.0, Vec3(0,0,0)));
     }else{
         
         if(this->getChildByTag(999))
@@ -144,7 +147,7 @@ void HappyStartCell::setType(enum CELL_TYPE mtype)
 //        this->setColor(cocos2d::Color3B(255 *( mtype & 4 ), 255 *( mtype & 2 ),255 *( mtype & 1 )));
     }
     
-    this->setRotation(45*mtype);
+//    this->setRotation(45*mtype);
 }
 
 void HappyStartCell::initShaders()

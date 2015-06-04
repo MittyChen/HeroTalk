@@ -33,6 +33,7 @@ public:
     Label* levelcode;
     cocos2d::ParticleSystem* ps;
     cocos2d::ui::Button *  cloud;
+//    Sprite* userNode ;
     void setLevelCode(int code);
     
     int getLevelCode();
@@ -47,6 +48,8 @@ public:
     void unlockLevel();
     
     bool isLocked;
+    
+    
     
 };
 

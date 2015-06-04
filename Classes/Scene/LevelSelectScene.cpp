@@ -46,11 +46,11 @@ bool LevelSelectScene::init()
     __Dictionary* pdic = Dictionary::createWithContentsOfFile(fullPath.c_str());
     
 
-    Label* levelsec = Label::create("Select A Level ", "Arial", 60);
-    levelsec->setColor(Color3B(0,100,255));
-    levelsec->setPosition( Vec2(20 + levelsec->getContentSize().width/2, -levelsec->getContentSize().height/2 + visibleSize.height -20));
-    
-    this->addChild(levelsec);
+//    Label* levelsec = Label::create("关卡", "Arial", 60);
+//    levelsec->setColor(Color3B(0,100,100));
+//    levelsec->setPosition( Vec2(20 + levelsec->getContentSize().width/2, -levelsec->getContentSize().height/2 + visibleSize.height -20));
+//    
+//    this->addChild(levelsec);
     
     ui::ScrollView* m_scrollView =  ui::ScrollView::create();
     m_scrollView->setDirection( ui::ScrollView::Direction::HORIZONTAL);
@@ -72,9 +72,12 @@ bool LevelSelectScene::init()
     cocos2d::ui::Button* backbtn = cocos2d::ui::Button::create("Default/Button_Normal.png");
     
     backbtn->setAnchorPoint(Vec2(0.5, 0.5));
-    backbtn->setPosition(backbtn->getContentSize()*2);
+    
+//    backbtn->setPosition(backbtn->getContentSize()*2);
+    backbtn->setPosition( Vec2(40 + backbtn->getContentSize().width, -backbtn->getContentSize().height/2 + visibleSize.height -40));
+    
     backbtn->setScale(2);
-    backbtn->setTitleText("back");
+    backbtn->setTitleText("返回");
     backbtn->setTitleFontSize(20);
     backbtn->setTitleColor(Color3B(0,200,120));
     this->addChild(backbtn);
@@ -96,11 +99,12 @@ bool LevelSelectScene::init()
     DrawNode * mylines = DrawNode::create();
     m_scrollView->addChild(mylines);
     mylines->setPosition(visibleSize/2 );
+    LevelNode* maxindexUnlocked = NULL;
     
     for (int i = 1; i < LEVEL_COUNT; i++) {
         LevelNode* lbn = LevelNode::create();
         int randomRate = cocos2d::random(-40, 40);
-        lbn->setPosition(Vec2(lbn->getContentSize().width/2 -visibleSize.width/2 + 200 * i, (i%2==0?100:-100) + randomRate ));
+        lbn->setPosition(Vec2(lbn->getContentSize().width/2 -visibleSize.width/2 + 200 * i, 50 + (i%2==0?100:-100) + randomRate ));
         lbn->setLevelCode(i);
         
         if(levelToUnlock >= i)
@@ -141,19 +145,57 @@ bool LevelSelectScene::init()
             {
                 lbn->unlockLevel();
                 lbn->startRain();
+                maxindexUnlocked = lbn;
             }
         }
         
         originPos = lbn->getPosition();
+        
+        if (i==LEVEL_COUNT-1) {
+            
+            cocos2d::ui::Button* btnlevelnode =  (cocos2d::ui::Button*) lbn->getChildByName(cc->getCString());
+            btnlevelnode->addTouchEventListener(CC_CALLBACK_2(LevelSelectScene::selectLevelAction, this) );
+            
+            
+            Sprite* userNode = Sprite::create("whitedot.png");
+            Vec2 pos = Vec2(maxindexUnlocked->getPosition().x, maxindexUnlocked->getPosition().y + maxindexUnlocked->getContentSize().height + userNode->getContentSize().height/2);
+            userNode->setPosition(pos);
+            userNode->setAnchorPoint(Vec2(0.5, 0.5));
+            this->addChild(userNode);
+        }
     }
-    
    
+    
+    
+    auto waterSpirit = Sprite::create("water.png");
+    waterSpirit->setPosition(Vec2(bgSpirit->getContentSize().width /2 ,  0));
+    waterSpirit->setScale(visibleSize.width/waterSpirit->getContentSize().width *10, visibleSize.height/waterSpirit->getContentSize().height /10 * maxindexUnlocked->getLevelCode());
+    
+    // create a Lens3D action
+//    ActionInterval* lens = Lens3D::create(10, Size(32, 24), Vec2(100, 180), 150);
+    
+    // create a Waved3D action
+    ActionInterval* waves = Waves3D::create(30, Size(15, 15), 20, 5);
+    auto nodeGrid = NodeGrid::create();
+    nodeGrid->addChild(waterSpirit);
+    nodeGrid->runAction(RepeatForever::create((Sequence*)Sequence::create(waves, NULL)));
+    this->addChild(nodeGrid);
+    
+    
+    auto waterpoolSpirit = Sprite::create("poolwater.png");
+    waterpoolSpirit->setPosition(Vec2(visibleSize.width /2 ,  0));
+    
+    waterpoolSpirit->setScale(visibleSize.width/waterpoolSpirit->getContentSize().width);
+    
+    this->addChild(waterpoolSpirit);
+    
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(LevelSelectScene::onTouchBegan,this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener,this);
-    
-    
     CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+    
+    
+    
     auto removeLamda = [=](Ref* pSender)
     {
        

@@ -41,7 +41,7 @@ bool LevelNode::init()
     cloud->setAnchorPoint(Vec2(0.5, 0.5));
     cloud->setPosition(visibleSize/2);
     
-    levelcode = Label::create("LEVEL 1", "Arial", 20);
+    levelcode = Label::create("第 1 关", "Arial", 20);
     levelcode->setColor(Color3B(0,100,255));
     levelcode->setAnchorPoint(Vec2(0.5, 0.5));
     levelcode->setPosition(visibleSize/2);
@@ -52,13 +52,11 @@ bool LevelNode::init()
     ps->setContentSize(cloud->getContentSize());
     ps->setPosition (cloud->getPosition() );
     ps->setStartSize(ps->getStartSize()*3);
-    ps->setStartColor(Color4F(0,200,200,200));
+    ps->setStartColor(Color4F(0,100,255,255));
     ps->setTotalParticles(200);
     ps->setLife(3.0);
     ps->setSpeed(20);
     ps->setScaleX(cloud->getContentSize().width/visibleSize.width /2);
-    
-//    ps->setContentSize(cloud->getContentSize());
     ps->setScaleY(2);
     
     this->addChild(ps);
@@ -72,6 +70,14 @@ bool LevelNode::init()
 //    listener->onTouchBegan = CC_CALLBACK_2(LevelNode::onTouchBegan,this);
 //    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener,this);
 //    listener->setSwallowTouches(true);
+    
+//    userNode = Sprite::create("whitedot.png");
+//    Vec2 pos = Vec2(visibleSize.width/2, visibleSize.height/2 + cloud->getContentSize().height/2 + userNode->getContentSize().height/2);
+//    
+//    userNode->setAnchorPoint(Vec2(0.5, 0.5));
+//    userNode->setPosition(pos);
+//    this->setPosition(pos);
+//    this->addChild(userNode);
     
     
     return true;
@@ -87,7 +93,7 @@ void LevelNode::update(float delta)
 
 void LevelNode::setLevelCode(int code)
 {
-    __String* ss = __String::createWithFormat("LEVEL %d",code);
+    __String* ss = __String::createWithFormat("第 %d 关",code);
     levelcode->setString(ss->getCString());
     
     __String* cc = __String::createWithFormat("LevelNode_%d",code);
