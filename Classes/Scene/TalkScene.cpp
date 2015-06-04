@@ -46,18 +46,13 @@ bool TalkScene::init()
     
     auto lambaStartGame = [=](Node* pSender)
     {
-//        auto scene = GameScene::createScene(8);
-//        // run
-//        
-//        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
-      
         auto scene = LevelSelectScene::createScene(0);
         // run
 
         Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
 
-        
-//        Director::getInstance()->pushScene(LoadingScene::createScene());
+        UserDefault::getInstance()->setBoolForKey("UserSeenTalk", true);
+
     };
     
     DramaDirector::getInstance()->setDelegate(*this,"dramabg.mp3","DramaDescription.plist","Plots.plist",lambaStartGame);

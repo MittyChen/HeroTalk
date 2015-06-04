@@ -1,7 +1,7 @@
 #include "MainMenuScene.h"
 #include "TalkScene.h"
 #include "SimpleAudioEngine.h"
-
+#include "LevelSelectScene.h"
 USING_NS_CC;
 
 using namespace ui;
@@ -202,9 +202,19 @@ bool MainMenuScene::init()
     
     auto skipDrama = [=](Ref* obj,cocos2d::ui::Widget::TouchEventType event)
     {
-        auto scene = TalkScene::createScene();
-        // run
-        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        bool istalkSeen = UserDefault::getInstance()->getBoolForKey("UserSeenTalk");
+        if (!istalkSeen) {
+            auto scene = TalkScene::createScene();
+            // run
+            Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+            
+        }
+        else
+        {
+            auto scene = LevelSelectScene::createScene(0);
+            // run
+            Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        }
     };
     skipbutton->addTouchEventListener(skipDrama);
     this->addChild(skipbutton);
@@ -223,7 +233,18 @@ bool MainMenuScene::onTouchBegan(Touch *touch, Event *unused_event)
 }
 void MainMenuScene::playClickCallBack(Ref* sender,cocos2d::ui::TouchEventType type)
 {
-    auto scene = TalkScene::createScene();
-    // run
-    Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+    bool istalkSeen = UserDefault::getInstance()->getBoolForKey("UserSeenTalk");
+    if (!istalkSeen) {
+        auto scene = TalkScene::createScene();
+        // run
+        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+    }
+    else
+    {
+        auto scene = LevelSelectScene::createScene(0);
+        // run
+        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+    }
+    
+   
 }

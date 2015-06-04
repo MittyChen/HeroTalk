@@ -110,7 +110,7 @@ bool LevelSelectScene::init()
         }
         if(levelToUnlock == i)
         {
-            m_scrollView->scrollToPercentHorizontal( 0.5 , 1, false);
+            m_scrollView->scrollToPercentHorizontal( 100 * ((lbn->getPosition().x * (i+2)) / i) / (m_scrollView->getInnerContainerSize().width) , 2, true);
         }
         
         //lbn->getPosition().x / (visibleSize.width * (LEVEL_COUNT / 4 ))

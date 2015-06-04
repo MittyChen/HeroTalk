@@ -24,5 +24,15 @@
         <LastRunType Value="Unknown" />
       </Value>
     </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="ColorSelectNode.csd" />
+          <FilePathData Path="MainScene.csd" />
+          <FilePathData Path="GameFinishScene.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="GameFinishScene.csd" />
+      </Value>
+    </Item>
   </Properties>
 </UserData>

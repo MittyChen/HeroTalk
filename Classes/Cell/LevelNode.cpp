@@ -104,7 +104,10 @@ int LevelNode::getLevelCode()
 
 void LevelNode::startRain()
 {
-    cloud->setColor(Color3B(255,255,255));
+//    cloud->setColor(Color3B(255,255,255));
+    
+    cloud->runAction(TintTo::create(4, 255, 255, 255));
+    
     cloud->setEnabled(true);
     ps->resetSystem();
 }
@@ -127,12 +130,20 @@ void LevelNode::unlockLevel()
     
     pdic->setObject(__String::create("ok"), cloud->getName());
     
+    
+    
     Value mval = Value("ok");
     ValueMap _levelsmap;
-    _levelsmap.insert(make_pair(cloud->getName(),mval));
+//    _levelsmap.insert(make_pair(cloud->getName(),mval));
+    
+    for (int i = mcode; i>0; i--) {
+        __String* ss = __String::createWithFormat("LevelNode_%d",i);
+        
+        _levelsmap.insert(std::make_pair(ss->getCString(),mval));
+    }
     
     
-    FileUtils::getInstance()->writeToFile(_levelsmap, fullPath);
+    FileUtils::getInstance()->writeToFile(_levelsmap, fullPath);//放在包中的文件在重启会被覆盖 丢失数据
     
     isLocked = false;
 }
