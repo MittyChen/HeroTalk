@@ -36,8 +36,6 @@ void LHVideoPlayerImplCpp::finishCallback()
 
 void LHVideoPlayerImplCpp::skipVideo()
 {
-    NSArray* ss =  [NSArray arrayWithObject:@"com.cc.cco"];
-    [IAPmanager  purchasesProduct:@"com.ccs.cc"];
     [LHVideoPlayerImpl skipVideo];
 }
 

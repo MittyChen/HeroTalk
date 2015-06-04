@@ -11,6 +11,7 @@
         <Image Name="whitedot.png" />
         <Image Name="ball.png" />
         <Project Name="ColorSelectNode.csd" Type="Node" />
+        <Project Name="OptionsLayer.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>

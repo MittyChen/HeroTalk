@@ -2,8 +2,13 @@
 #include "TalkScene.h"
 #include "SimpleAudioEngine.h"
 #include "LevelSelectScene.h"
+#include "cocostudio/CocoStudio.h"
+#include "OptionsPopup.h"
+
 USING_NS_CC;
 
+
+bool isoptions = false;
 using namespace ui;
 
 Scene* MainMenuScene::createScene()
@@ -50,6 +55,9 @@ bool MainMenuScene::init()
     fengye->setAnchorPoint(Vec2(0.5,0.5));
     fengye->runAction(FadeTo::create(0.001, 255));
    
+    
+
+    
     float scaleX = visibleSize.width/fengye->getContentSize().width;
     float scaleY = visibleSize.height/fengye->getContentSize().height;
     
@@ -183,7 +191,7 @@ bool MainMenuScene::init()
 //    this->runAction(ta);
     
     Label* gameTitle = Label::create();
-    gameTitle->setString("英雄99");
+    gameTitle->setString("度");
     gameTitle->setSystemFontName("Arial");
     gameTitle->setSystemFontSize(100);
     gameTitle->setAnchorPoint(Vec2(0.5,0.5));
@@ -199,6 +207,22 @@ bool MainMenuScene::init()
     skipLabel->setPosition(skipbutton->getContentSize()/2);
     skipLabel->setTextColor(Color4B(0,200,150,255));
     skipbutton->setScale(2.0);
+    
+    cocos2d::ui::Button * options = cocos2d::ui::Button::create("settings.png");
+    options->setScale(0.3);
+    options->setPosition(Vec2( -options->getContentSize().width/2  + visibleSize.width,visibleSize.height-options->getContentSize().height*2));
+    this->addChild(options);
+    
+    
+    auto gotoOptions = [this](Ref* pSender ,cocos2d::ui::Widget::TouchEventType event){
+        isoptions = true;
+        OptionsPopup* op = OptionsPopup::create();
+        
+        this->addChild(op);
+    };
+    options->addTouchEventListener(gotoOptions);
+    
+    
     
     auto skipDrama = [=](Ref* obj,cocos2d::ui::Widget::TouchEventType event)
     {
@@ -229,6 +253,7 @@ bool MainMenuScene::init()
 }
 bool MainMenuScene::onTouchBegan(Touch *touch, Event *unused_event)
 {
+    
     return true;
 }
 void MainMenuScene::playClickCallBack(Ref* sender,cocos2d::ui::TouchEventType type)
@@ -245,6 +270,4 @@ void MainMenuScene::playClickCallBack(Ref* sender,cocos2d::ui::TouchEventType ty
         // run
         Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
     }
-    
-   
 }

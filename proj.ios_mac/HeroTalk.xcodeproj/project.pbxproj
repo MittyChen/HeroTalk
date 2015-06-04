@@ -33,6 +33,7 @@
 		1F75ED831B0C620A0053E55B /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F75ED7D1B0C620A0053E55B /* GameScene.cpp */; };
 		1F75ED841B0C620A0053E55B /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F75ED7F1B0C620A0053E55B /* MainMenuScene.cpp */; };
 		1F75ED851B0C620A0053E55B /* TalkScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F75ED811B0C620A0053E55B /* TalkScene.cpp */; };
+		1F7B26C61B202EAA00A2A691 /* OptionsPopup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B26C41B202EAA00A2A691 /* OptionsPopup.cpp */; };
 		1F95A8A21B17021200EBA3B1 /* FinishPopup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F95A8A01B17021200EBA3B1 /* FinishPopup.cpp */; };
 		1F95B5931AF1D3E700E39A91 /* LoudSpeaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F95B5911AF1D3E700E39A91 /* LoudSpeaker.cpp */; };
 		1FA2D6321AF0D7DB0093B18F /* StageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2D6301AF0D7DB0093B18F /* StageManager.cpp */; };
@@ -142,6 +143,8 @@
 		1F75ED801B0C620A0053E55B /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		1F75ED811B0C620A0053E55B /* TalkScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TalkScene.cpp; sourceTree = "<group>"; };
 		1F75ED821B0C620A0053E55B /* TalkScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkScene.h; sourceTree = "<group>"; };
+		1F7B26C41B202EAA00A2A691 /* OptionsPopup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OptionsPopup.cpp; sourceTree = "<group>"; };
+		1F7B26C51B202EAA00A2A691 /* OptionsPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsPopup.h; sourceTree = "<group>"; };
 		1F95A8A01B17021200EBA3B1 /* FinishPopup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FinishPopup.cpp; sourceTree = "<group>"; };
 		1F95A8A11B17021200EBA3B1 /* FinishPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishPopup.h; sourceTree = "<group>"; };
 		1F95B5911AF1D3E700E39A91 /* LoudSpeaker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoudSpeaker.cpp; sourceTree = "<group>"; };
@@ -379,6 +382,8 @@
 		1F95A89F1B17020200EBA3B1 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
+				1F7B26C41B202EAA00A2A691 /* OptionsPopup.cpp */,
+				1F7B26C51B202EAA00A2A691 /* OptionsPopup.h */,
 				1FBC29B11B1D7A1400FE1B28 /* PopupWithMask.cpp */,
 				1FBC29B21B1D7A1400FE1B28 /* PopupWithMask.h */,
 				1F95A8A01B17021200EBA3B1 /* FinishPopup.cpp */,
@@ -635,6 +640,7 @@
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				1F75ED781B0C2BA90053E55B /* HappyStartCell.cpp in Sources */,
 				1F43732C1B0DD7C600A7FD8D /* VideoScene.cpp in Sources */,
+				1F7B26C61B202EAA00A2A691 /* OptionsPopup.cpp in Sources */,
 				1F4373261B0DB90300A7FD8D /* LoadingScene.cpp in Sources */,
 				1FF29B0F1B1848E60017AA79 /* CCSpriteWithHue.cpp in Sources */,
 				1F66072E1B0EC3550001E3D8 /* README.md in Sources */,

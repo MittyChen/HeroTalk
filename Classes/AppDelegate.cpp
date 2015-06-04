@@ -2,6 +2,7 @@
 #include "GameScene.h"
 #include "SimpleAudioEngine.h"
 #include "LevelSelectScene.h"
+#include "VideoScene.h"
 
 USING_NS_CC;
 
@@ -59,7 +60,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     FileUtils::getInstance()->addSearchPath("res/clouds");
     
     // create a scene. it's an autorelease object
-    auto scene = LevelSelectScene::createScene(2);
+    auto scene =  VideoScene::createScene();
     
     // run
     director->runWithScene(scene);

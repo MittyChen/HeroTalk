@@ -1,10 +1,10 @@
-#ifndef _Main_Menu_Scene_
-#define _Main_Menu_Scene_
+#ifndef _OptionsPopupScene_
+#define _OptionsPopupScene_
 
 #include "cocos2d.h"
 
 #include "ui/CocosGUI.h"
-class MainMenuScene : public cocos2d::Layer
+class OptionsPopup : public cocos2d::Layer
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
@@ -14,11 +14,12 @@ public:
     virtual bool init();
     virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event); 
     // implement the "static create()" method manually
-    CREATE_FUNC(MainMenuScene);
-    void playClickCallBack(Ref* sender,cocos2d::ui::TouchEventType type);
-
+    CREATE_FUNC(OptionsPopup);
+    void checkAudio(cocos2d::Ref* object);
+    void checkEffect(cocos2d::Ref* object);
+    
 private:
     
 };
 
-#endif // _Main_Menu_Scene_
+#endif // OptionsPopup
