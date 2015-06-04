@@ -54,13 +54,14 @@ bool OptionsPopup::init()
     
     
     cocos2d::ui::CheckBox* audio_check = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(21);
-    
     audio_check->addClickEventListener(CC_CALLBACK_1(OptionsPopup::checkAudio,this));
-    
     cocos2d::ui::CheckBox* effect_check = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(22);
-    
     effect_check->addClickEventListener(CC_CALLBACK_1(OptionsPopup::checkEffect,this));
     
+    
+    cocos2d::ui::Button* levels =  (cocos2d::ui::Button*)rootNode->getChildByTag(12);
+    levels->addTouchEventListener(CC_CALLBACK_2(OptionsPopup::closeOptions, this) );
+
     return true;
 }
 bool OptionsPopup::onTouchBegan(Touch *touch, Event *unused_event)
@@ -90,3 +91,7 @@ void OptionsPopup::checkEffect(cocos2d::Ref* object)
     }
 }
 
+void OptionsPopup::closeOptions(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
+{
+    this->removeFromParent();
+}

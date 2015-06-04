@@ -12,6 +12,9 @@
         <Image Name="ball.png" />
         <Project Name="ColorSelectNode.csd" Type="Node" />
         <Project Name="OptionsLayer.csd" Type="Layer" />
+        <Image Name="CloseNormal.png" />
+        <Image Name="CloseSelected.png" />
+        <Project Name="ShopScene.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

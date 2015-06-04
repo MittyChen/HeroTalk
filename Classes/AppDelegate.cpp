@@ -59,6 +59,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     FileUtils::getInstance()->addSearchPath("res/clouds");
     
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("explod.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("colorfulmade.wav");
+    
+    
     // create a scene. it's an autorelease object
     auto scene =  VideoScene::createScene();
     

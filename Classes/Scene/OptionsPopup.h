@@ -17,7 +17,7 @@ public:
     CREATE_FUNC(OptionsPopup);
     void checkAudio(cocos2d::Ref* object);
     void checkEffect(cocos2d::Ref* object);
-    
+    void closeOptions(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
 private:
     
 };

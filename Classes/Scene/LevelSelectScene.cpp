@@ -92,8 +92,6 @@ bool LevelSelectScene::init()
     backbtn->addTouchEventListener(gotomain);
     
     
-    
-    
     Vec2 originPos = Vec2::ZERO;
     Vec2 destinPos = Vec2::ZERO;
     DrawNode * mylines = DrawNode::create();
@@ -104,7 +102,7 @@ bool LevelSelectScene::init()
     for (int i = 1; i < LEVEL_COUNT; i++) {
         LevelNode* lbn = LevelNode::create();
         int randomRate = cocos2d::random(-40, 40);
-        lbn->setPosition(Vec2(lbn->getContentSize().width/2 -visibleSize.width/2 + 200 * i, 50 + (i%2==0?100:-100) + randomRate ));
+        lbn->setPosition(Vec2(lbn->getContentSize().width/2 -visibleSize.width/2 + 200 * i, 50 + (i%2==0?50:-50) + randomRate ));
         lbn->setLevelCode(i);
         
         if(levelToUnlock >= i)
@@ -175,7 +173,7 @@ bool LevelSelectScene::init()
 //    ActionInterval* lens = Lens3D::create(10, Size(32, 24), Vec2(100, 180), 150);
     
     // create a Waved3D action
-    ActionInterval* waves = Waves3D::create(30, Size(15, 15), 20, 5);
+    ActionInterval* waves = Waves3D::create(30, Size(15, 15), 40, 10);
     auto nodeGrid = NodeGrid::create();
     nodeGrid->addChild(waterSpirit);
     nodeGrid->runAction(RepeatForever::create((Sequence*)Sequence::create(waves, NULL)));

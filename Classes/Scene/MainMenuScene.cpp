@@ -7,8 +7,6 @@
 
 USING_NS_CC;
 
-
-bool isoptions = false;
 using namespace ui;
 
 Scene* MainMenuScene::createScene()
@@ -213,16 +211,42 @@ bool MainMenuScene::init()
     options->setPosition(Vec2( -options->getContentSize().width/2  + visibleSize.width,visibleSize.height-options->getContentSize().height*2));
     this->addChild(options);
     
+    cocos2d::ui::Button * shopbtn = cocos2d::ui::Button::create("shopbtn.png");
+    shopbtn->setScale(0.17);
+    shopbtn->setPosition(Vec2(visibleSize.width - options->getPosition().x ,options->getPosition().y));
+    this->addChild(shopbtn);
+    
+    
+    auto gobackMain = [this](Ref* pSender ,cocos2d::ui::Widget::TouchEventType event){
+        auto scene = MainMenuScene::createScene();
+        // run
+        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        
+    };
+    
+    
+    auto gotShop = [this,gobackMain](Ref* pSender ,cocos2d::ui::Widget::TouchEventType event){
+ 
+        Scene* scene  = Scene::create();
+        auto shopscene = CSLoader::createNode("ShopScene.csb");
+        scene->addChild(shopscene);
+        
+        cocos2d::ui::Button* backbtn =  (cocos2d::ui::Button*)shopscene->getChildByTag(41);
+        backbtn->addTouchEventListener(gobackMain);
+    
+        // run
+        Director::getInstance()->pushScene(TransitionFade::create(2, scene));
+        
+    };
+    shopbtn->addTouchEventListener(gotShop);
+    
     
     auto gotoOptions = [this](Ref* pSender ,cocos2d::ui::Widget::TouchEventType event){
-        isoptions = true;
         OptionsPopup* op = OptionsPopup::create();
         
         this->addChild(op);
     };
     options->addTouchEventListener(gotoOptions);
-    
-    
     
     auto skipDrama = [=](Ref* obj,cocos2d::ui::Widget::TouchEventType event)
     {

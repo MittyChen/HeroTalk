@@ -92,14 +92,14 @@ bool GameScene::init()
     
     Vec2 uiPosition = btnBack->getPosition() + Vec2(40, 0);
     
-    float middleX = (uiPosition.x + visibleSize.width)/2;
+    float middleX = (uiPosition.x + visibleSize.width)*7/12;
     float middleY = visibleSize.height/2;
     
     
     
-    int mcount = 8;
+    int mcount = 6;
     
-    if(count >= 8)
+    if(count >= 6)
     {
         mcount = count;
         
@@ -107,7 +107,7 @@ bool GameScene::init()
     
     munitSize =(visibleSize.height < visibleSize.width?visibleSize.height:visibleSize.width )/mcount - 3;
 //    unitOriginPosition = origin + Vec2((visibleSize.width - (munitSize + 1) * mcount)*2/3 ,  (visibleSize.height - (munitSize + 1) * mcount )/2);
-    unitOriginPosition = Vec2(middleX - munitSize * count  / 2 ,middleY - munitSize*count/2);
+    unitOriginPosition = Vec2(middleX - (munitSize + 1) * count  / 2 ,middleY - (munitSize+1)*count/2);
     
     LayerColor* mlc = LayerColor::create(Color4B(100, 255, 100, 50), (munitSize + 1)* count + 10, (munitSize + 1) * count + 10);
     
@@ -149,9 +149,7 @@ bool GameScene::init()
     
     
     
-    
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("explod.wav");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("colorfulmade.wav");
+
     
     CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     auto removeLamda = [=](Ref* pSender)
@@ -651,9 +649,6 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         }
                         
                         
-                        
-                        
-                        
                         for(HappyStartCell* temp :templist)
                         {
                             cocos2d::ParticleSystem* ps = cocos2d::ParticleExplosion::create();
@@ -676,33 +671,8 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                                 allcells.erase(mpIterator);
                             }
                             removeChild((Node*)temp);
-                            
                            
-                            
-                            
-                            
-//                            Vec2 targetPos = unitOriginPosition +  mIt->second->getposIndex()  * (1 + munitSize) + Vec2(munitSize/2,munitSize/2);
-//                           
-//
-//                            
-//                            auto lamdaMove = [=](Ref* pSender){
-//                                if(mpIterator != allcells.end())
-//                                {
-//                                    allcells.erase(mpIterator);
-//                                }
-//                                removeChild((Node*)temp);
-//                                
-//                            };
-//                            auto callmove = CallFuncN::create(lamdaMove);
-//                            
-//                            ((Node*)temp)->runAction(Sequence::create(MoveTo::create(1.0f, targetPos),callmove, NULL)  );
-//                            
-                            
-                            
-                            
                         }
-                        
-                        
                         
                         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("explod.wav",  false,
                                                                                     1.0f,  0.0f,  0.2f);
@@ -1065,6 +1035,7 @@ bool firstTimeRun = true;
         if(firstTimeRun && getCountSameToThis(targetCell)> 0 )
         {
              cellsGet.push_back(targetCell);
+            targetCell->sethasFind(true);
             firstTimeRun = false;
         }
         
