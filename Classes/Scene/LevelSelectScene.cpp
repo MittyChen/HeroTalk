@@ -38,12 +38,9 @@ bool LevelSelectScene::init()
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     
-
-    
-    
-    std::string fullPath = FileUtils::getInstance()->fullPathForFilename("Levels.plist");
-    
-    __Dictionary* pdic = Dictionary::createWithContentsOfFile(fullPath.c_str());
+//    std::string fullPath = FileUtils::getInstance()->fullPathForFilename("Levels.plist");
+//    
+//    __Dictionary* pdic = Dictionary::createWithContentsOfFile(fullPath.c_str());
     
 
 //    Label* levelsec = Label::create("关卡", "Arial", 60);
@@ -51,6 +48,18 @@ bool LevelSelectScene::init()
 //    levelsec->setPosition( Vec2(20 + levelsec->getContentSize().width/2, -levelsec->getContentSize().height/2 + visibleSize.height -20));
 //    
 //    this->addChild(levelsec);
+    
+    Sprite * feiting = Sprite::create("qiting.png");
+    
+    
+    feiting->setPosition(Vec2(visibleSize.width+feiting->getContentSize().width/2, visibleSize.height*4/6) );
+    feiting->runAction( RepeatForever::create(Sequence::create(MoveTo::create(60, Vec2(-feiting->getContentSize().width/2 - 20,  visibleSize.height*5/6 )),RotateBy::create(0.02,Vec3(0, 180, 0)),MoveTo::create(60, Vec2(visibleSize.width+feiting->getContentSize().width/2, visibleSize.height*4/6)),RotateBy::create(0.02,Vec3(0, -180, 0)), NULL)));
+    feiting->setScale(0.2);
+    
+    
+    this->addChild(feiting);
+    
+    
     
     ui::ScrollView* m_scrollView =  ui::ScrollView::create();
     m_scrollView->setDirection( ui::ScrollView::Direction::HORIZONTAL);
@@ -69,8 +78,10 @@ bool LevelSelectScene::init()
     this->addChild(bgSpirit);
     bgSpirit->setZOrder(-300);
     
-    cocos2d::ui::Button* backbtn = cocos2d::ui::Button::create("Default/Button_Normal.png");
     
+  
+    
+    cocos2d::ui::Button* backbtn = cocos2d::ui::Button::create("Default/Button_Normal.png");
     backbtn->setAnchorPoint(Vec2(0.5, 0.5));
     
 //    backbtn->setPosition(backbtn->getContentSize()*2);
@@ -91,6 +102,8 @@ bool LevelSelectScene::init()
     
     backbtn->addTouchEventListener(gotomain);
     
+
+    
     
     Vec2 originPos = Vec2::ZERO;
     Vec2 destinPos = Vec2::ZERO;
@@ -102,8 +115,15 @@ bool LevelSelectScene::init()
     for (int i = 1; i < LEVEL_COUNT; i++) {
         LevelNode* lbn = LevelNode::create();
         int randomRate = cocos2d::random(-40, 40);
-        lbn->setPosition(Vec2(lbn->getContentSize().width/2 -visibleSize.width/2 + 200 * i, 50 + (i%2==0?50:-50) + randomRate ));
+        lbn->setPosition(Vec2(lbn->getContentSize().width/2 -visibleSize.width/2 + 200 * i + randomRate,  50 + (i%2==0?80:-50) + randomRate ));
         lbn->setLevelCode(i);
+        
+        if(i == 1)
+        {
+        
+            maxindexUnlocked = lbn;
+        
+        }
         
         if(levelToUnlock >= i)
         {
@@ -135,17 +155,27 @@ bool LevelSelectScene::init()
         cocos2d::ui::Button* btnlevelnode =  (cocos2d::ui::Button*) lbn->getChildByName(cc->getCString());
         btnlevelnode->addTouchEventListener(CC_CALLBACK_2(LevelSelectScene::selectLevelAction, this) );
         
-        auto isunlock = pdic->objectForKey(cc->getCString());
+//        auto isunlock = pdic->objectForKey(cc->getCString());
+//        if (isunlock != NULL) {
+//            if(strcmp(((__String*)isunlock)->getCString(), "ok") == 0)
+//            {
+//                lbn->unlockLevel();
+//                lbn->startRain();
+//                maxindexUnlocked = lbn;
+//            }
+//        }
         
         
-        if (isunlock != NULL) {
-            if(strcmp(((__String*)isunlock)->getCString(), "ok") == 0)
-            {
+        __String* sstemp = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",i);
+        bool isunlock = UserDefault::getInstance()->getBoolForKey(sstemp->getCString());
+        if (isunlock ) {
                 lbn->unlockLevel();
                 lbn->startRain();
                 maxindexUnlocked = lbn;
-            }
         }
+        
+        
+       
         
         originPos = lbn->getPosition();
         
@@ -159,29 +189,53 @@ bool LevelSelectScene::init()
             Vec2 pos = Vec2(maxindexUnlocked->getPosition().x, maxindexUnlocked->getPosition().y + maxindexUnlocked->getContentSize().height + userNode->getContentSize().height/2);
             userNode->setPosition(pos);
             userNode->setAnchorPoint(Vec2(0.5, 0.5));
-            this->addChild(userNode);
+            lbn->addChild(userNode);
         }
     }
    
+    SpriteFrameCache *frameCache=SpriteFrameCache::getInstance();
+    frameCache->addSpriteFramesWithFile("Animal_0008.plist");
+    Vector<SpriteFrame*> animations ;
+    char str[100]={0};
+    for(int i = 1; i< 26; i++)
+    {
+        sprintf(str,"Animal_0008_%02d.png",i);
+        SpriteFrame *frame = frameCache->getSpriteFrameByName(str);
+        animations.pushBack(frame);
+    }
+    Animation* animation = Animation::createWithSpriteFrames(animations,0.5f,-1);
+    AnimationCache::getInstance()->addAnimation(animation,"Animal_0008");
+    Animation* danceAnimation = CCAnimationCache::getInstance()->getAnimation("Animal_0008");
+    Animate* animate = CCAnimate::create(danceAnimation);
+    Sprite* grossini = Sprite::create();
+    SpriteFrame* frame = frameCache->getSpriteFrameByName("Animal_0008_01.png");
+    grossini->setDisplayFrame(frame);
+    addChild(grossini);
+    grossini->runAction(animate);
+    grossini->setPosition(20+grossini->getContentSize().width, grossini->getContentSize().height/2 + 15);
+ 
     
     
     auto waterSpirit = Sprite::create("water.png");
     waterSpirit->setPosition(Vec2(bgSpirit->getContentSize().width /2 ,  0));
-    waterSpirit->setScale(visibleSize.width/waterSpirit->getContentSize().width *10, visibleSize.height/waterSpirit->getContentSize().height /10 * maxindexUnlocked->getLevelCode());
+    waterSpirit->setScale(visibleSize.width/waterSpirit->getContentSize().width *10, visibleSize.height/waterSpirit->getContentSize().height /20 * maxindexUnlocked->getLevelCode());
     
     // create a Lens3D action
 //    ActionInterval* lens = Lens3D::create(10, Size(32, 24), Vec2(100, 180), 150);
     
     // create a Waved3D action
-    ActionInterval* waves = Waves3D::create(30, Size(15, 15), 40, 10);
+    ActionInterval* waves = Waves3D::create(30, Size(10, 10), 20, 20);
     auto nodeGrid = NodeGrid::create();
     nodeGrid->addChild(waterSpirit);
-    nodeGrid->runAction(RepeatForever::create((Sequence*)Sequence::create(waves, NULL)));
+    nodeGrid->runAction(RepeatForever::create(waves));
+    
+//    nodeGrid->runAction(RepeatForever::create(lens));
+    
     this->addChild(nodeGrid);
     
     
     auto waterpoolSpirit = Sprite::create("poolwater.png");
-    waterpoolSpirit->setPosition(Vec2(visibleSize.width /2 ,  0));
+    waterpoolSpirit->setPosition(Vec2(visibleSize.width /2 ,  waterpoolSpirit->getContentSize().height/2  - 5));
     
     waterpoolSpirit->setScale(visibleSize.width/waterpoolSpirit->getContentSize().width);
     
@@ -202,8 +256,8 @@ bool LevelSelectScene::init()
     };
     
     this->runAction(Sequence::create(DelayTime::create(2),CallFuncN::create(removeLamda), NULL) );
-    
 
+   
     return true;
 }
 

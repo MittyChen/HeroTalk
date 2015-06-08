@@ -1,5 +1,5 @@
 #include "MainMenuScene.h"
-#include "TalkScene.h"
+#include "StoryScene.h"
 #include "SimpleAudioEngine.h"
 #include "LevelSelectScene.h"
 #include "cocostudio/CocoStudio.h"
@@ -189,7 +189,7 @@ bool MainMenuScene::init()
 //    this->runAction(ta);
     
     Label* gameTitle = Label::create();
-    gameTitle->setString("度");
+    gameTitle->setString("高寒");
     gameTitle->setSystemFontName("Arial");
     gameTitle->setSystemFontSize(100);
     gameTitle->setAnchorPoint(Vec2(0.5,0.5));
@@ -197,9 +197,10 @@ bool MainMenuScene::init()
     this->addChild(gameTitle);
     cocos2d::ui::Button * skipbutton = cocos2d::ui::Button::create("Default/Button_Normal.png");
     skipbutton->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 1 / 3));
+    skipbutton->setScale(2);
     Label* skipLabel = Label::create();
     skipLabel->setString("开始");
-    skipLabel->setSystemFontSize(22);
+    skipLabel->setSystemFontSize(20);
     skipLabel->setAnchorPoint(Vec2(0.5,0.5));
     skipbutton->addChild(skipLabel);
     skipLabel->setPosition(skipbutton->getContentSize()/2);
@@ -252,7 +253,7 @@ bool MainMenuScene::init()
     {
         bool istalkSeen = UserDefault::getInstance()->getBoolForKey("UserSeenTalk");
         if (!istalkSeen) {
-            auto scene = TalkScene::createScene();
+            auto scene = StoryScene::createScene();
             // run
             Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
             
@@ -267,6 +268,8 @@ bool MainMenuScene::init()
     skipbutton->addTouchEventListener(skipDrama);
     this->addChild(skipbutton);
 
+     
+    
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("gamebg.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("playbg.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("levelselect.mp3");
@@ -284,7 +287,7 @@ void MainMenuScene::playClickCallBack(Ref* sender,cocos2d::ui::TouchEventType ty
 {
     bool istalkSeen = UserDefault::getInstance()->getBoolForKey("UserSeenTalk");
     if (!istalkSeen) {
-        auto scene = TalkScene::createScene();
+        auto scene = StoryScene::createScene();
         // run
         Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
     }

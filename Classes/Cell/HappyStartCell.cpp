@@ -113,39 +113,71 @@ void HappyStartCell::setType(enum CELL_TYPE mtype)
 //    this->setColor(cocos2d::Color3B(120,200,200));
     
     
-    if (mtype==TYPE_7COLORS) {
-         this->setTexture("ball.png");
-        Sprite* round7 = Sprite::create("ten.png");
-        this->addChild(round7);
-        round7->setAnchorPoint(Vec2(0.5,0.5));
-        round7->setPosition(this->getContentSize()/2);
-        round7->setTag(999);
-//        round7->runAction(RepeatForever::create(RotateBy::create(5, 360)));
-        float scalenow = round7->getScale();
-        this->setRotation3D(Vec3(0,90,0));
-        round7->runAction(RepeatForever::create(Sequence::create(ScaleTo::create(0.5,2.2*scalenow),ScaleTo::create(0.5,1.8*scalenow), NULL)  ));
-        this->setColor(cocos2d::Color3B(144,0,255));
-        this->runAction(RotateTo::create(1.0, Vec3(0,0,0)));
-    }else{
-        
-        if(this->getChildByTag(999))
+    
+    switch (mtype) {
+        case TYPE_7COLORS:
         {
-            this->removeChildByTag(999);
+            this->setTexture("ball.png");
+            Sprite* round7 = Sprite::create("ten.png");
+            this->addChild(round7);
+            round7->setAnchorPoint(Vec2(0.5,0.5));
+            round7->setPosition(this->getContentSize()/2);
+            round7->setTag(999);
+            //        round7->runAction(RepeatForever::create(RotateBy::create(5, 360)));
+            float scalenow = round7->getScale();
+            this->setRotation3D(Vec3(0,90,0));
+            round7->runAction(RepeatForever::create(Sequence::create(ScaleTo::create(0.5,2.2*scalenow),ScaleTo::create(0.5,1.8*scalenow), NULL)  ));
+            this->setColor(cocos2d::Color3B(225,118,0));
+            this->runAction(RotateTo::create(1.0, Vec3(0,0,0)));
+             break;
         }
-        
-        if(mtype ==TYPE_RED )
-        {
-            this->setColor(cocos2d::Color3B(249, 62, 79));
-        }else if(mtype == TYPE_GREEN)
-        {
-            this->setColor(cocos2d::Color3B(28, 241,183));
-        }else if(mtype == TYPE_BLUE)
-        {
+        case TYPE_BLUE:
+            if(this->getChildByTag(999))
+            {
+                this->removeChildByTag(999);
+            }
             this->setColor(cocos2d::Color3B(0,155,245));
-        }
-        
-//        this->setColor(cocos2d::Color3B(255 *( mtype & 4 ), 255 *( mtype & 2 ),255 *( mtype & 1 )));
+            break;
+        case TYPE_GREEN:
+            if(this->getChildByTag(999))
+            {
+                this->removeChildByTag(999);
+            }
+            this->setColor(cocos2d::Color3B(28, 241,183));
+            break;
+        case TYPE_GRAY:
+            if(this->getChildByTag(999))
+            {
+                this->removeChildByTag(999);
+            }
+            this->setColor(cocos2d::Color3B(246, 236,12));
+            break;
+        case TYPE_PINK:
+            if(this->getChildByTag(999))
+            {
+                this->removeChildByTag(999);
+            }
+            this->setColor(cocos2d::Color3B(224, 28 ,155));
+            break;
+        case TYPE_PURPLE:
+            if(this->getChildByTag(999))
+            {
+                this->removeChildByTag(999);
+            }
+            this->setColor(cocos2d::Color3B(100, 0 ,221));
+            break;
+        case TYPE_RED:
+            if(this->getChildByTag(999))
+            {
+                this->removeChildByTag(999);
+            }
+            this->setColor(cocos2d::Color3B(249, 62, 79));
+            break;
+        default:
+            break;
     }
+    
+    
     
 //    this->setRotation(45*mtype);
 }

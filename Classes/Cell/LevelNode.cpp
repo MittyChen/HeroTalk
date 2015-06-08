@@ -41,8 +41,8 @@ bool LevelNode::init()
     cloud->setAnchorPoint(Vec2(0.5, 0.5));
     cloud->setPosition(visibleSize/2);
     
-    levelcode = Label::create("第 1 关", "Arial", 20);
-    levelcode->setColor(Color3B(0,100,255));
+    levelcode = Label::create("1", "Arial", 60);
+    levelcode->setColor(Color3B(50,200,200));
     levelcode->setAnchorPoint(Vec2(0.5, 0.5));
     levelcode->setPosition(visibleSize/2);
     
@@ -93,7 +93,7 @@ void LevelNode::update(float delta)
 
 void LevelNode::setLevelCode(int code)
 {
-    __String* ss = __String::createWithFormat("第 %d 关",code);
+    __String* ss = __String::createWithFormat("%d",code);
     levelcode->setString(ss->getCString());
     
     __String* cc = __String::createWithFormat("LevelNode_%d",code);
@@ -130,26 +130,30 @@ bool LevelNode::onTouchBegan(Touch *touch, Event *unused_event)
 }
 void LevelNode::unlockLevel()
 {
-    std::string fullPath = FileUtils::getInstance()->fullPathForFilename("Levels.plist");
+//    std::string fullPath = FileUtils::getInstance()->fullPathForFilename("Levels.plist");
+//    
+//    __Dictionary* pdic = Dictionary::createWithContentsOfFile(fullPath.c_str());
+//    
+//    pdic->setObject(__String::create("ok"), cloud->getName());
+//    
+//    
+//    
+//    Value mval = Value("ok");
+//    ValueMap _levelsmap;
+////    _levelsmap.insert(make_pair(cloud->getName(),mval));
+//    
+//    for (int i = mcode; i>0; i--) {
+//        __String* ss = __String::createWithFormat("LevelNode_%d",i);
+//        
+//        _levelsmap.insert(std::make_pair(ss->getCString(),mval));
+//    }
+//    
+//    
+//    FileUtils::getInstance()->writeToFile(_levelsmap, fullPath);//放在包中的文件在重启会被覆盖 丢失数据
+
+    __String* ss = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",mcode);
+    UserDefault::getInstance()->setBoolForKey(ss->getCString(),true);
     
-    __Dictionary* pdic = Dictionary::createWithContentsOfFile(fullPath.c_str());
-    
-    pdic->setObject(__String::create("ok"), cloud->getName());
-    
-    
-    
-    Value mval = Value("ok");
-    ValueMap _levelsmap;
-//    _levelsmap.insert(make_pair(cloud->getName(),mval));
-    
-    for (int i = mcode; i>0; i--) {
-        __String* ss = __String::createWithFormat("LevelNode_%d",i);
-        
-        _levelsmap.insert(std::make_pair(ss->getCString(),mval));
-    }
-    
-    
-    FileUtils::getInstance()->writeToFile(_levelsmap, fullPath);//放在包中的文件在重启会被覆盖 丢失数据
     
     isLocked = false;
 }

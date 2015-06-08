@@ -20,10 +20,13 @@ USING_NS_CC;
 enum CELL_TYPE{
     
     TYPE_NORMAL = 0,
-    TYPE_RED = 4 ,
+    TYPE_RED = 1 ,
     TYPE_GREEN = 2,
-    TYPE_BLUE = 1,
-    TYPE_7COLORS = 3
+    TYPE_BLUE = 3,
+    TYPE_PINK = 4 ,
+    TYPE_GRAY = 5,
+    TYPE_PURPLE = 6,
+    TYPE_7COLORS = 7
 };
 
 

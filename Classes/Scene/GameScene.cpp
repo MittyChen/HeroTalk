@@ -105,7 +105,7 @@ bool GameScene::init()
         
     }
     
-    munitSize =(visibleSize.height < visibleSize.width?visibleSize.height:visibleSize.width )/mcount - 3;
+    munitSize =(visibleSize.height < visibleSize.width?visibleSize.height:visibleSize.width )/(mcount + 1);
 //    unitOriginPosition = origin + Vec2((visibleSize.width - (munitSize + 1) * mcount)*2/3 ,  (visibleSize.height - (munitSize + 1) * mcount )/2);
     unitOriginPosition = Vec2(middleX - (munitSize + 1) * count  / 2 ,middleY - (munitSize+1)*count/2);
     
@@ -146,10 +146,6 @@ bool GameScene::init()
 //    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener,mLayerMask);
 //    
     
-    
-    
-    
-
     
     CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     auto removeLamda = [=](Ref* pSender)
@@ -226,15 +222,13 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
         
         for (; mpIterator != allcells.end(); ++mpIterator)
         {
-            int typeFind = rand()%5;
+            int typeFind = random(1, 7);
             
-            if(typeFind == 0)
-            {
-                typeFind = 1;
+            if (typeFind == 7) {
+                
+               typeFind = random(1,100) > 90 ? 7 : random(1, 6);
             }
-            if (typeFind == 3) {
-                typeFind=4;
-            }
+            
             
             mpIterator->second->setType((CELL_TYPE)typeFind);
         }
@@ -300,14 +294,10 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     
     for (; mpIterator != allcells.end(); ++mpIterator)
     {
-        int typeFind = rand()%5;
-        
-        if(typeFind == 0)
-        {
-            typeFind = 1;
-        }
-        if (typeFind == 3) {
-            typeFind=4;
+        int typeFind = random(1, 7);
+        if (typeFind == 7) {
+            
+            typeFind = random(1,100) > 90 ? 7 : random(1, 6);
         }
         
         mpIterator->second->setType((CELL_TYPE)typeFind);
@@ -1144,6 +1134,16 @@ void GameScene::checkoutResult()
             
             cocos2d::ui::Button* btnExit =  (cocos2d::ui::Button*)rootNode->getChildByTag(16);
             btnExit->addTouchEventListener(CC_CALLBACK_2(GameScene::exitGame, this) );
+            
+            
+            cocos2d::ui::Text* helptext = (cocos2d::ui::Text*)rootNode->getChildByTag(53);
+            
+            std::string  storyArr[3] = {"使用随机变色道具，可能性价比很高哦~","要是你是个多疑的人，最好使用选择变色道具吧~","要是有个小东西挡住你的去路，用消除单个道具干掉他吧！！！"};
+            
+            int index = random(0, 2);
+            helptext->setString(storyArr[index]);
+            
+//             helptext->setString("afahfvkjv");
             
             isPaused = true;
             isGameFinish = true;

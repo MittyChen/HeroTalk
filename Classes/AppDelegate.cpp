@@ -59,9 +59,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     FileUtils::getInstance()->addSearchPath("res/clouds");
     
+    FileUtils::getInstance()->addSearchPath("res/Animals");
     
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("explod.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("colorfulmade.wav");
+    
+    __String* ss = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",1);
+    UserDefault::getInstance()->setBoolForKey(ss->getCString(),true);
+    
     
     
     // create a scene. it's an autorelease object

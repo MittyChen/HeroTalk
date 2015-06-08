@@ -15,6 +15,11 @@
         <Image Name="CloseNormal.png" />
         <Image Name="CloseSelected.png" />
         <Project Name="ShopScene.csd" Type="Scene" />
+        <Image Name="gamebg_683-hd.png" />
+        <Image Name="bg_shop00_bottom@2z.png" />
+        <Image Name="menu_shop_p-hd.png" />
+        <Image Name="4BOSSev_window-hd.png" />
+        <Image Name="window_get-hd.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

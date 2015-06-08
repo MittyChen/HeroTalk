@@ -44,6 +44,7 @@
 		1FA6F9721B16D9B7006CA13B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA6F9711B16D9B7006CA13B /* SystemConfiguration.framework */; };
 		1FAE98EE1B1408190073F3C7 /* CommonUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE98EC1B1408190073F3C7 /* CommonUtils.cpp */; };
 		1FBC29B31B1D7A1400FE1B28 /* PopupWithMask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FBC29B11B1D7A1400FE1B28 /* PopupWithMask.cpp */; };
+		1FCD4D8B1B21A0B70080AD15 /* StoryScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD4D891B21A0B70080AD15 /* StoryScene.cpp */; };
 		1FF29B0F1B1848E60017AA79 /* CCSpriteWithHue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF29B0D1B1848E60017AA79 /* CCSpriteWithHue.cpp */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		3F0F4FE7BFD23C718A7344DE /* res in Resources */ = {isa = PBXBuildFile; fileRef = 0F3A4B559B3019F2C7B0E080 /* res */; };
@@ -163,6 +164,8 @@
 		1FAE98F51B1418360073F3C7 /* StringComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringComparator.h; sourceTree = "<group>"; };
 		1FBC29B11B1D7A1400FE1B28 /* PopupWithMask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PopupWithMask.cpp; sourceTree = "<group>"; };
 		1FBC29B21B1D7A1400FE1B28 /* PopupWithMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupWithMask.h; sourceTree = "<group>"; };
+		1FCD4D891B21A0B70080AD15 /* StoryScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryScene.cpp; sourceTree = "<group>"; };
+		1FCD4D8A1B21A0B70080AD15 /* StoryScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryScene.h; sourceTree = "<group>"; };
 		1FF29B0D1B1848E60017AA79 /* CCSpriteWithHue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCSpriteWithHue.cpp; sourceTree = "<group>"; };
 		1FF29B0E1B1848E60017AA79 /* CCSpriteWithHue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSpriteWithHue.h; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -360,6 +363,8 @@
 		1F75ED7C1B0C620A0053E55B /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				1FCD4D891B21A0B70080AD15 /* StoryScene.cpp */,
+				1FCD4D8A1B21A0B70080AD15 /* StoryScene.h */,
 				1F72C2A11B1EA52F0030AF38 /* LevelSelectScene.cpp */,
 				1F72C2A21B1EA52F0030AF38 /* LevelSelectScene.h */,
 				1F95A89F1B17020200EBA3B1 /* Popup */,
@@ -663,6 +668,7 @@
 				1F5CAFAF1AEDE534000D3656 /* CharacterAction.cpp in Sources */,
 				1F75ED841B0C620A0053E55B /* MainMenuScene.cpp in Sources */,
 				1FA6F96B1B16D79E006CA13B /* CKIAPManager.mm in Sources */,
+				1FCD4D8B1B21A0B70080AD15 /* StoryScene.cpp in Sources */,
 				1F5CAFB51AEDE596000D3656 /* DramaDirector.cpp in Sources */,
 				1F5CAFB81AEDE740000D3656 /* Character.cpp in Sources */,
 				1FA6F96C1B16D79E006CA13B /* Reachability.m in Sources */,

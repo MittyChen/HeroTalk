@@ -6,15 +6,15 @@
       <ObjectData Name="Layer" Tag="15" ctype="GameLayerObjectData">
         <Size X="960.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="Sprite_2" ActionTag="-1262944018" Tag="18" IconVisible="False" LeftMargin="244.0000" RightMargin="244.0000" TopMargin="167.0000" BottomMargin="167.0000" ctype="SpriteObjectData">
-            <Size X="472.0000" Y="306.0000" />
+          <AbstractNodeData Name="Sprite_2" ActionTag="-1262944018" Tag="18" IconVisible="False" LeftMargin="187.9980" RightMargin="152.0020" TopMargin="111.0001" BottomMargin="36.9999" ctype="SpriteObjectData">
+            <Size X="620.0000" Y="492.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="480.0000" Y="320.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="4" G="184" B="59" />
-            <PrePosition X="0.5000" Y="0.5000" />
+            <Position X="497.9980" Y="282.9999" />
+            <Scale ScaleX="0.9548" ScaleY="0.7724" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5187" Y="0.4422" />
             <PreSize />
-            <FileData Type="Normal" Path="popup.png" Plist="" />
+            <FileData Type="Normal" Path="window_get-hd.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="Text_1" ActionTag="-1499706394" Tag="19" IconVisible="False" LeftMargin="402.0000" RightMargin="486.0000" TopMargin="263.0000" BottomMargin="335.0000" FontSize="36" LabelText="音乐" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
@@ -67,13 +67,13 @@
             <NodeNormalFileData Type="Default" Path="Default/CheckBoxNode_Normal.png" Plist="" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_1" ActionTag="-1722429253" Tag="12" IconVisible="False" LeftMargin="660.5000" RightMargin="259.5000" TopMargin="186.1943" BottomMargin="413.8057" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="11" BottomEage="11" Scale9OriginX="13" Scale9OriginY="11" Scale9Width="14" Scale9Height="18" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_1" ActionTag="-1722429253" Tag="12" IconVisible="False" LeftMargin="469.5000" RightMargin="450.5000" TopMargin="435.1943" BottomMargin="164.8057" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="11" BottomEage="11" Scale9OriginX="13" Scale9OriginY="11" Scale9Width="14" Scale9Height="18" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="40.0000" Y="40.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="680.5000" Y="433.8057" />
+            <Position X="489.5000" Y="184.8057" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7089" Y="0.6778" />
+            <PrePosition X="0.5099" Y="0.2888" />
             <PreSize X="0.0417" Y="0.0625" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Normal" Path="CloseSelected.png" Plist="" />

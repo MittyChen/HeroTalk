@@ -6,21 +6,21 @@
       <ObjectData Name="Scene" Tag="13" ctype="GameNodeObjectData">
         <Size X="960.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="popup_2" ActionTag="-1176287982" Tag="19" IconVisible="False" LeftMargin="244.5000" RightMargin="243.5000" TopMargin="129.0331" BottomMargin="204.9669" ctype="SpriteObjectData">
-            <Size X="472.0000" Y="306.0000" />
+          <AbstractNodeData Name="popup_2" ActionTag="-1176287982" Tag="19" IconVisible="False" LeftMargin="182.4989" RightMargin="157.5011" TopMargin="110.0338" BottomMargin="37.9662" ctype="SpriteObjectData">
+            <Size X="620.0000" Y="492.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="480.5000" Y="357.9669" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="492.4989" Y="283.9662" />
+            <Scale ScaleX="1.1065" ScaleY="1.1626" />
             <CColor A="255" R="220" G="229" B="232" />
-            <PrePosition X="0.5005" Y="0.5593" />
+            <PrePosition X="0.5130" Y="0.4437" />
             <PreSize />
-            <FileData Type="Normal" Path="popup.png" Plist="" />
+            <FileData Type="Normal" Path="window_get-hd.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="Button_1_0" ActionTag="-474206828" Tag="16" IconVisible="False" LeftMargin="451.4990" RightMargin="462.5010" TopMargin="324.5083" BottomMargin="279.4917" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="46.0000" Y="36.0000" />
             <Children>
-              <AbstractNodeData Name="Text_1_3" ActionTag="168430782" Tag="17" IconVisible="False" LeftMargin="3.5612" RightMargin="2.4388" TopMargin="7.8842" BottomMargin="5.1158" FontSize="20" LabelText="主菜单" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+              <AbstractNodeData Name="Text_1_3" ActionTag="168430782" Tag="17" IconVisible="False" LeftMargin="-6.4388" RightMargin="-7.5612" TopMargin="7.8842" BottomMargin="5.1158" FontSize="20" LabelText="主菜单" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
                 <Size X="60.0000" Y="23.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="23.5612" Y="16.6158" />
@@ -76,7 +76,7 @@
           <AbstractNodeData Name="Button_1_0_0" ActionTag="2062392701" Tag="31" IconVisible="False" LeftMargin="451.4990" RightMargin="462.5010" TopMargin="263.5082" BottomMargin="340.4918" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="46.0000" Y="36.0000" />
             <Children>
-              <AbstractNodeData Name="Text_1_3_3" ActionTag="1939270972" Tag="32" IconVisible="False" LeftMargin="3.5612" RightMargin="2.4388" TopMargin="7.8842" BottomMargin="5.1158" FontSize="20" LabelText="下一关" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+              <AbstractNodeData Name="Text_1_3_3" ActionTag="1939270972" Tag="32" IconVisible="False" LeftMargin="-6.4388" RightMargin="-7.5612" TopMargin="7.8842" BottomMargin="5.1158" FontSize="20" LabelText="下一关" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
                 <Size X="60.0000" Y="23.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="23.5612" Y="16.6158" />
@@ -98,6 +98,17 @@
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
             <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
             <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Text_2" ActionTag="-535824457" Tag="53" IconVisible="False" LeftMargin="413.0000" RightMargin="456.0000" TopMargin="480.9503" BottomMargin="136.0497" FontSize="20" LabelText="游戏指引位置" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+            <Size X="120.0000" Y="23.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="458.5000" Y="147.5497" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="8" G="181" B="88" />
+            <PrePosition X="0.4776" Y="0.2305" />
+            <PreSize />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
