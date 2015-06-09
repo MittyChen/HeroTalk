@@ -123,6 +123,7 @@ void HappyStartCell::setType(enum CELL_TYPE mtype)
             round7->setAnchorPoint(Vec2(0.5,0.5));
             round7->setPosition(this->getContentSize()/2);
             round7->setTag(999);
+            round7->setGlobalZOrder(this->getGlobalZOrder());
             //        round7->runAction(RepeatForever::create(RotateBy::create(5, 360)));
             float scalenow = round7->getScale();
             this->setRotation3D(Vec3(0,90,0));

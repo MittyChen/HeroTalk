@@ -49,16 +49,20 @@ bool LevelNode::init()
     
     ps = cocos2d::CCParticleRain::create();
     ps->setTexture(cocos2d::Director::getInstance()->getTextureCache()->addImage("whitedot.png"));
-    ps->setContentSize(cloud->getContentSize());
+//    ps->setContentSize(cloud->getContentSize());
     ps->setPosition (cloud->getPosition() );
-    ps->setStartSize(ps->getStartSize()*3);
+    
+    ps->setStartSize(ps->getStartSize()*1.5);
     ps->setStartColor(Color4F(0,100,255,255));
     ps->setTotalParticles(200);
-    ps->setLife(3.0);
+    ps->setLife(4.0);
     ps->setSpeed(20);
-    ps->setScaleX(cloud->getContentSize().width/visibleSize.width /2);
-    ps->setScaleY(2);
     
+    
+//    ps->setScaleX(cloud->getContentSize().width/visibleSize.width /2);
+//    ps->setScaleY(2);
+    
+    ps->setPosVar( Vec2(cloud->getContentSize().width/3, 0) );
     this->addChild(ps);
     this->addChild(cloud);
     this->addChild(levelcode);

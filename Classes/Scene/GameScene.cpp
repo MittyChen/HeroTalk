@@ -53,7 +53,12 @@ bool GameScene::init()
     _mMode = CELL_TOUCH_MODE::NORMAL_MODE;
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    this->addChild(LayerColor::create(Color4B(0,200,120,255),visibleSize.width,visibleSize.height));
+    
+    LayerColor* mlcbg = LayerColor::create(Color4B(0,200,120,255),visibleSize.width,visibleSize.height);
+    mlcbg->setGlobalZOrder(-100);
+    this->addChild(mlcbg);
+    
+    
     
     auto rootNode = CSLoader::createNode("MainScene.csb");
     
@@ -61,9 +66,9 @@ bool GameScene::init()
     
     cocos2d::ui::Button* btnPause =  (cocos2d::ui::Button*)rootNode->getChildByTag(78);
     btnPause->addTouchEventListener(CC_CALLBACK_2(GameScene::pauseGame, this) );
+
     
     Sprite* pauseRoot = (Sprite*)rootNode->getChildByTag(76);
-    
     cocos2d::ui::Button* btnReset =  (cocos2d::ui::Button*)pauseRoot->getChildByTag(8);
     btnReset->addTouchEventListener(CC_CALLBACK_2(GameScene::loadMap, this) );
     
@@ -122,11 +127,14 @@ bool GameScene::init()
     
     mlc->setPosition(unitOriginPosition - Vec2(5,5));
     mlc->setAnchorPoint(Vec2(0, 0));
+    mlc->setGlobalZOrder(-2);
     this->addChild(mlc);
+    
+    addChild(rootNode);
     
     loadMap(NULL,cocos2d::ui::Widget::TouchEventType::BEGAN);
     
-    addChild(rootNode);
+    
     
     auto _eventDispatcher = Director::getInstance()->getEventDispatcher();
     auto touchListener = EventListenerTouchOneByOne::create();
@@ -217,7 +225,7 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
         if (allcells.begin()->second != NULL) {
             allcells.clear();
         }
-        
+        Sprite* pauseRoot = (Sprite*)getChildByName("MainSceneRoot")->getChildByTag(76);
         for(int i = 0; i < count; ++i )
         {
             for(int j =0 ; j < count ; ++j)
@@ -226,6 +234,11 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
                 mm->setParameters(Color3B(25.5f * i,25.5f * j,10.f*(i+j)),unitOriginPosition,Size(munitSize,munitSize),Vec2(i,j),count);
                 allcells.insert(pair<Vec2, HappyStartCell*> (Vec2(i,j), mm));
                 addChild((Node*)mm);
+                
+                
+    
+                mm->setGlobalZOrder(pauseRoot->getGlobalZOrder() -1);
+                
             }
         }
         
@@ -261,9 +274,9 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
         }
     }
     
-    if (isPaused){
-        return;
-    }
+//    if (isPaused){
+//        return;
+//    }
     
     
     scoreLAbel->setString("SCORE : 0");
@@ -280,7 +293,7 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     if (allcells.begin()->second != NULL) {
           allcells.clear();
     }
-    
+    Sprite* pauseRoot = (Sprite*)getChildByName("MainSceneRoot")->getChildByTag(76);
     for(int i = 0; i < count; ++i )
     {
         for(int j =0 ; j < count ; ++j)
@@ -289,6 +302,7 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
             mm->setParameters(Color3B(25.5f * i,25.5f * j,10.f*(i+j)),unitOriginPosition,Size(munitSize,munitSize),Vec2(i,j),count);
             allcells.insert(pair<Vec2, HappyStartCell*> (Vec2(i,j), mm));
             addChild((Node*)mm);
+             mm->setGlobalZOrder(pauseRoot->getGlobalZOrder() -2);
         }
     }
     
@@ -404,9 +418,9 @@ void GameScene::backOneStep(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
     if (type != ui::Widget::TouchEventType::BEGAN) {
         return;
     }
-    if (isPaused){
-        return;
-    }
+//    if (isPaused){
+//        return;
+//    }
     
     switch (type) {
         case cocos2d::ui::Widget::TouchEventType::BEGAN:
@@ -439,6 +453,9 @@ void GameScene::backOneStep(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
                 mCell->setdownShouldGo(0.0f);
                 mCell->setleftShouldGo(0.0f);
                 this->addChild((Node*) mCell);
+                Sprite* pauseRoot = (Sprite*)getChildByName("MainSceneRoot")->getChildByTag(76);
+                
+                mCell->setGlobalZOrder(pauseRoot->getGlobalZOrder() -1);
                 allcells.insert((pair<Vec2, HappyStartCell*> (tempCell._posIndex,mCell)));
             }
             cellsCacheOne.clear();
@@ -456,12 +473,23 @@ void GameScene::pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventT
     if (type != ui::Widget::TouchEventType::BEGAN) {
         return;
     }
+    
     if (isPaused) {
         return;
     }
+    
+    
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
+    LayerColor* lco =  LayerColor::create(Color4B(0,0,0,100), visibleSize.width, visibleSize.height);
+    this->addChild(lco);
+    lco->setTag(-190);
+    
     Sprite* pauseRoot = (Sprite*)getChildByName("MainSceneRoot")->getChildByTag(76);
     
     pauseRoot->runAction(MoveBy::create(0.25, Vec2(-pauseRoot->getContentSize().height * pauseRoot->getScale() -10, 0)));
+    lco->setGlobalZOrder(pauseRoot->getGlobalZOrder()-1);
     
     isPaused = true;
 }
@@ -472,6 +500,7 @@ void GameScene::pauseGameBack(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
         return;
     }
     
+    this->removeChildByTag(-190);
     Sprite* pauseRoot = (Sprite*)getChildByName("MainSceneRoot")->getChildByTag(76);
     
     pauseRoot->runAction(MoveBy::create(0.25, Vec2(pauseRoot->getContentSize().height* pauseRoot->getScale()+10, 0)));
@@ -493,9 +522,10 @@ void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
     }
     
     
-    if (isPaused){
-        return;
-    }
+//    if (isPaused){
+//        return;
+//    }
+    
     auto scene = MainMenuScene::createScene();
     // run
     Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
@@ -518,9 +548,9 @@ void GameScene::gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::Touch
     }
     
     
-    if (isPaused){
-        return;
-    }
+//    if (isPaused){
+//        return;
+//    }
     auto scene =  LevelSelectScene::createScene(0);
     // run
     Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
@@ -542,6 +572,9 @@ void GameScene::deleteOneCell(cocos2d::Ref* object)
 
 void GameScene::changeTypeRandom(cocos2d::Ref* object)
 {
+        if (isPaused){
+            return;
+        }
     if (_mMode == CELL_TOUCH_MODE::NORMAL_MODE) {
         _mMode = CELL_TOUCH_MODE::CHANGE_COLOR_RANDOM;
     }else{
@@ -551,6 +584,9 @@ void GameScene::changeTypeRandom(cocos2d::Ref* object)
 
 void GameScene::changeType(cocos2d::Ref* object)
 {
+    if (isPaused){
+        return;
+    }
     if (_mMode == CELL_TOUCH_MODE::NORMAL_MODE) {
         _mMode = CELL_TOUCH_MODE::CHANGE_COLOR;
     }else{
@@ -701,6 +737,9 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                                         
                                         this->removeChild((Node*)mIt->second);
                                         templist.remove(temp);
+                                        Sprite* pauseRoot = (Sprite*)getChildByName("MainSceneRoot")->getChildByTag(76);
+                                        
+                                        tempcell7->setGlobalZOrder(pauseRoot->getGlobalZOrder() -1);
                                         
                                         mIt->second = tempcell7;
                                         tempcell7->setType(CELL_TYPE::TYPE_7COLORS);
