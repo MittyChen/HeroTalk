@@ -40,8 +40,8 @@ bool LevelNode::init()
     
     cloud->setAnchorPoint(Vec2(0.5, 0.5));
     cloud->setPosition(visibleSize/2);
-    
-    levelcode = Label::create("1", "Arial", 60);
+    cloud->setScale(1.0);
+    levelcode = Label::create("1", "Arial", 50);
     levelcode->setColor(Color3B(50,200,200));
     levelcode->setAnchorPoint(Vec2(0.5, 0.5));
     levelcode->setPosition(visibleSize/2);
@@ -62,13 +62,12 @@ bool LevelNode::init()
 //    ps->setScaleX(cloud->getContentSize().width/visibleSize.width /2);
 //    ps->setScaleY(2);
     
-    ps->setPosVar( Vec2(cloud->getContentSize().width/3, 0) );
+    ps->setPosVar( Vec2(cloud->getContentSize().width * cloud->getScale() /3, 0) );
     this->addChild(ps);
     this->addChild(cloud);
     this->addChild(levelcode);
     
     stopRain();
-
     
 //    auto listener = EventListenerTouchOneByOne::create();
 //    listener->onTouchBegan = CC_CALLBACK_2(LevelNode::onTouchBegan,this);

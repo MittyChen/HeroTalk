@@ -26,6 +26,7 @@
         <Image Name="cn_Menu_Buttonweixin_Pressed.png" />
         <Image Name="Menu_ButtonSina.png" />
         <Image Name="Menu_ButtonSinaPressed.png" />
+        <Project Name="CopyRightScene.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

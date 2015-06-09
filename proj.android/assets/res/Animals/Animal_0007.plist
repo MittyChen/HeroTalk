@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>frames</key>
+	<dict>
+		
+		<key>Animal_0007_01.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-9, -15}</string>
+			<key>spriteSize</key>
+			<string>{120, 90}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{244, 236}, {120, 90}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_02.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-9, -13}</string>
+			<key>spriteSize</key>
+			<string>{120, 94}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{122, 236}, {120, 94}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_03.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-9, -19}</string>
+			<key>spriteSize</key>
+			<string>{120, 82}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{0, 236}, {120, 82}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_04.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-19, -9}</string>
+			<key>spriteSize</key>
+			<string>{118, 102}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{120, 122}, {118, 102}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_05.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-4, -13}</string>
+			<key>spriteSize</key>
+			<string>{136, 94}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{0, 568}, {136, 94}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_06.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-13, -24}</string>
+			<key>spriteSize</key>
+			<string>{136, 72}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{276, 664}, {136, 72}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_07.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-13, -22}</string>
+			<key>spriteSize</key>
+			<string>{136, 76}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{276, 568}, {136, 76}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_08.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-13, -27}</string>
+			<key>spriteSize</key>
+			<string>{136, 66}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{138, 664}, {136, 66}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_09.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-16, -13}</string>
+			<key>spriteSize</key>
+			<string>{124, 94}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{0, 344}, {124, 94}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_10.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-3, -5}</string>
+			<key>spriteSize</key>
+			<string>{120, 106}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{366, 236}, {120, 106}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_11.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-18, -0}</string>
+			<key>spriteSize</key>
+			<string>{114, 120}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{230, 0}, {114, 120}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_12.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{15, -6}</string>
+			<key>spriteSize</key>
+			<string>{132, 90}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{266, 458}, {132, 90}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_13.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-7, 4}</string>
+			<key>spriteSize</key>
+			<string>{124, 112}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{126, 344}, {124, 112}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_14.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-16, -10}</string>
+			<key>spriteSize</key>
+			<string>{118, 100}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{0, 122}, {118, 100}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_15.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-16, 6}</string>
+			<key>spriteSize</key>
+			<string>{130, 108}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{0, 458}, {130, 108}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_16.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-16, -19}</string>
+			<key>spriteSize</key>
+			<string>{124, 82}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{252, 344}, {124, 82}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_17.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-22, -0}</string>
+			<key>spriteSize</key>
+			<string>{112, 120}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{0, 0}, {112, 120}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_18.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{8, -0}</string>
+			<key>spriteSize</key>
+			<string>{136, 90}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{138, 568}, {136, 90}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_19.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-16, -19}</string>
+			<key>spriteSize</key>
+			<string>{124, 82}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{378, 344}, {124, 82}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_20.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-18, -0}</string>
+			<key>spriteSize</key>
+			<string>{114, 120}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{346, 0}, {114, 120}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_21.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-19, -10}</string>
+			<key>spriteSize</key>
+			<string>{118, 100}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{240, 122}, {118, 100}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_22.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-18, -0}</string>
+			<key>spriteSize</key>
+			<string>{114, 120}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{114, 0}, {114, 120}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_23.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{2, -30}</string>
+			<key>spriteSize</key>
+			<string>{136, 60}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{0, 664}, {136, 60}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_24.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-9, -12}</string>
+			<key>spriteSize</key>
+			<string>{132, 96}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{132, 458}, {132, 96}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Animal_0007_25.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteOffset</key>
+			<string>{-22, -4}</string>
+			<key>spriteSize</key>
+			<string>{118, 112}</string>
+			<key>spriteSourceSize</key>
+			<string>{162, 120}</string>
+			<key>textureRect</key>
+			<string>{{360, 122}, {118, 112}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+	</dict>
+	<key>metadata</key>
+	<dict>
+		<key>format</key>
+		<integer>3</integer>
+		<key>textureFileName</key>
+		<string>Animal_0007.png</string>
+	</dict>
+</dict>
+</plist>

@@ -46,10 +46,15 @@ bool FinishPopup::init()
     
     
     auto rootNode = CSLoader::createNode("GameFinishScene.csb");
+    
+    rootNode->setContentSize(visibleSize);
+    ui::Helper::doLayout(rootNode);
+    
     rootNode->setAnchorPoint(Vec2(0.5,0.5));
     rootNode->setPosition(visibleSize/2);
     this->addChild(rootNode);
     rootNode->setName("FinishPopRoot");
+    
     rootNode->runAction(Sequence::create(ScaleTo::create(0.15,1.1),ScaleTo::create(0.15, 1.0), NULL));
     return true;
 }

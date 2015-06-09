@@ -64,6 +64,11 @@ bool GameScene::init()
     
     rootNode->setName("MainSceneRoot");
     
+    rootNode->setContentSize(visibleSize);
+    ui::Helper::doLayout(rootNode);
+    
+    
+    
     cocos2d::ui::Button* btnPause =  (cocos2d::ui::Button*)rootNode->getChildByTag(78);
     btnPause->addTouchEventListener(CC_CALLBACK_2(GameScene::pauseGame, this) );
 
@@ -132,7 +137,7 @@ bool GameScene::init()
     
     addChild(rootNode);
     
-    loadMap(NULL,cocos2d::ui::Widget::TouchEventType::BEGAN);
+    loadMap(NULL,cocos2d::ui::Widget::TouchEventType::ENDED);
     
     
     
@@ -196,7 +201,7 @@ bool GameScene::init()
 
 void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
-    if (type != ui::Widget::TouchEventType::BEGAN) {
+    if (type != ui::Widget::TouchEventType::ENDED) {
         return;
     }
     
@@ -364,11 +369,11 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
 
 void GameScene::seletctCellolor(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
-    if (type != ui::Widget::TouchEventType::BEGAN) {
+    if (type != ui::Widget::TouchEventType::ENDED) {
         return;
     }
     
-    if(type == cocos2d::ui::Widget::TouchEventType::BEGAN){
+    if(type == cocos2d::ui::Widget::TouchEventType::ENDED){
     
         Node* selectType = (Node*)object;
         
@@ -415,7 +420,7 @@ void GameScene::seletctCellolor(cocos2d::Ref* object, cocos2d::ui::Widget::Touch
 
 void GameScene::backOneStep(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
-    if (type != ui::Widget::TouchEventType::BEGAN) {
+    if (type != ui::Widget::TouchEventType::ENDED) {
         return;
     }
 //    if (isPaused){
@@ -423,7 +428,7 @@ void GameScene::backOneStep(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
 //    }
     
     switch (type) {
-        case cocos2d::ui::Widget::TouchEventType::BEGAN:
+        case cocos2d::ui::Widget::TouchEventType::ENDED:
         {
             if(cellsCacheOne.size() == 0 || (cellsCacheOne.size() == 4 && allcells.size()==count*count-1))
             {
@@ -470,7 +475,7 @@ void GameScene::backOneStep(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
 
 void GameScene::pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
-    if (type != ui::Widget::TouchEventType::BEGAN) {
+    if (type != ui::Widget::TouchEventType::ENDED) {
         return;
     }
     
@@ -496,7 +501,7 @@ void GameScene::pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventT
 
 void GameScene::pauseGameBack(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
-    if (type != ui::Widget::TouchEventType::BEGAN) {
+    if (type != ui::Widget::TouchEventType::ENDED) {
         return;
     }
     
@@ -510,7 +515,7 @@ void GameScene::pauseGameBack(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
 
 void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
-    if (type != ui::Widget::TouchEventType::BEGAN) {
+    if (type != ui::Widget::TouchEventType::ENDED) {
         return;
     }
     if(isGameFinish)
@@ -533,7 +538,7 @@ void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
 
 void GameScene::gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
-    if (type != ui::Widget::TouchEventType::BEGAN) {
+    if (type != ui::Widget::TouchEventType::ENDED) {
         return;
     }
     
@@ -1069,6 +1074,9 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         auto rootNode = CSLoader::createNode("ColorSelectNode.csb");
                         rootNode->setAnchorPoint(Vec2(0.5, 0.5));
                         
+                        rootNode->setContentSize(visibleSize);
+                        ui::Helper::doLayout(rootNode);
+                        
                         this->addChild(rootNode);
                         rootNode->setTag(1999);
                         
@@ -1119,13 +1127,13 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                 
             }
             
-        
+            const char * scoretext = String::createWithFormat("SCORE : %lu" , count*count - allcells.size())->getCString();
+            scoreLAbel->setString(scoretext);
+            scoreLAbel->runAction(Sequence::create(ScaleTo::create(0.15,1.1),ScaleTo::create(0.15, 1.0), NULL));
+            
         }
         
     }
-    const char * scoretext = String::createWithFormat("SCORE : %lu" , count*count - allcells.size())->getCString();
-    scoreLAbel->setString(scoretext);
-    
     
     return true;
 }

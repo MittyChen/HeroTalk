@@ -4,7 +4,7 @@
 #include "LevelSelectScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "OptionsPopup.h"
-
+#include "CopyRightScene.h"
 USING_NS_CC;
 
 using namespace ui;
@@ -217,7 +217,25 @@ bool MainMenuScene::init()
     shopbtn->setPosition(Vec2(visibleSize.width - options->getPosition().x ,options->getPosition().y));
     this->addChild(shopbtn);
     
+    cocos2d::ui::Button * copyrightbtn = cocos2d::ui::Button::create("copyright.png");
+    copyrightbtn->setScale(0.3);
+    copyrightbtn->setPosition(Vec2(options->getPosition().x ,options->getPosition().y + copyrightbtn->getContentSize().height*copyrightbtn->getScale()*2));
+    this->addChild(copyrightbtn);
     
+    auto gotoCopyRight = [](Ref* pSender,cocos2d::ui::Widget::TouchEventType type){
+    
+        auto scene = CopyRightScene::createScene();
+        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        
+    
+    }
+    ;
+    copyrightbtn->addTouchEventListener(gotoCopyRight);
+    
+    
+    
+    
+ 
     auto gobackMain = [this](Ref* pSender ,cocos2d::ui::Widget::TouchEventType event){
         auto scene = MainMenuScene::createScene();
         // run
@@ -226,11 +244,14 @@ bool MainMenuScene::init()
     };
     
     
-    auto gotShop = [this,gobackMain](Ref* pSender ,cocos2d::ui::Widget::TouchEventType event){
+    auto gotShop = [this,gobackMain,visibleSize](Ref* pSender ,cocos2d::ui::Widget::TouchEventType event){
  
         Scene* scene  = Scene::create();
         auto shopscene = CSLoader::createNode("ShopScene.csb");
         scene->addChild(shopscene);
+        
+        shopscene->setContentSize(visibleSize);
+        ui::Helper::doLayout(shopscene);
         
         cocos2d::ui::Button* backbtn =  (cocos2d::ui::Button*)shopscene->getChildByTag(41);
         backbtn->addTouchEventListener(gobackMain);

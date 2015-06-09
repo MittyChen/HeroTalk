@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 
-#define LEVEL_COUNT 13
+#define LEVEL_COUNT 10
 
 class LevelSelectScene : public cocos2d::Layer
 {

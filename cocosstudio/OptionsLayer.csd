@@ -6,7 +6,7 @@
       <ObjectData Name="Layer" Tag="15" ctype="GameLayerObjectData">
         <Size X="960.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="Sprite_2" ActionTag="-1262944018" Tag="18" IconVisible="False" LeftMargin="187.9980" RightMargin="152.0020" TopMargin="111.0001" BottomMargin="36.9999" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Sprite_2" ActionTag="-1262944018" Tag="18" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="187.9980" RightMargin="152.0020" TopMargin="111.0001" BottomMargin="36.9999" ctype="SpriteObjectData">
             <Size X="620.0000" Y="492.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="497.9980" Y="282.9999" />
@@ -17,7 +17,7 @@
             <FileData Type="Normal" Path="window_get-hd.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_1" ActionTag="-1499706394" Tag="19" IconVisible="False" LeftMargin="402.0000" RightMargin="486.0000" TopMargin="263.0000" BottomMargin="335.0000" FontSize="36" LabelText="音乐" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_1" ActionTag="-1499706394" Tag="19" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="402.0000" RightMargin="486.0000" TopMargin="263.0000" BottomMargin="335.0000" FontSize="36" LabelText="音乐" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="72.0000" Y="42.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="438.0000" Y="356.0000" />
@@ -28,7 +28,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_2" ActionTag="-2074997521" Tag="20" IconVisible="False" LeftMargin="402.0000" RightMargin="486.0000" TopMargin="329.0000" BottomMargin="269.0000" FontSize="36" LabelText="音效" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_2" ActionTag="-2074997521" Tag="20" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="402.0000" RightMargin="486.0000" TopMargin="329.0000" BottomMargin="269.0000" FontSize="36" LabelText="音效" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="72.0000" Y="42.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="438.0000" Y="290.0000" />
@@ -39,7 +39,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CheckBox_1" ActionTag="-1571830610" Tag="21" IconVisible="False" LeftMargin="534.0000" RightMargin="386.0000" TopMargin="259.0000" BottomMargin="341.0000" TouchEnable="True" CheckedState="True" ctype="CheckBoxObjectData">
+          <AbstractNodeData Name="CheckBox_1" ActionTag="-1571830610" Tag="21" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="534.0000" RightMargin="386.0000" TopMargin="259.0000" BottomMargin="341.0000" TouchEnable="True" CheckedState="True" ctype="CheckBoxObjectData">
             <Size X="40.0000" Y="40.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="554.0000" Y="361.0000" />
@@ -53,7 +53,7 @@
             <NodeNormalFileData Type="Default" Path="Default/CheckBoxNode_Normal.png" Plist="" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CheckBox_2" ActionTag="206168689" Tag="22" IconVisible="False" LeftMargin="534.0000" RightMargin="386.0000" TopMargin="331.0000" BottomMargin="269.0000" TouchEnable="True" CheckedState="True" ctype="CheckBoxObjectData">
+          <AbstractNodeData Name="CheckBox_2" ActionTag="206168689" Tag="22" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="534.0000" RightMargin="386.0000" TopMargin="331.0000" BottomMargin="269.0000" TouchEnable="True" CheckedState="True" ctype="CheckBoxObjectData">
             <Size X="40.0000" Y="40.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="554.0000" Y="289.0000" />
@@ -67,13 +67,13 @@
             <NodeNormalFileData Type="Default" Path="Default/CheckBoxNode_Normal.png" Plist="" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_1" ActionTag="-1722429253" Tag="12" IconVisible="False" LeftMargin="469.5000" RightMargin="450.5000" TopMargin="435.1943" BottomMargin="164.8057" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="11" BottomEage="11" Scale9OriginX="13" Scale9OriginY="11" Scale9Width="14" Scale9Height="18" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_1" ActionTag="-1722429253" Tag="12" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="741.7937" RightMargin="178.2063" TopMargin="165.5703" BottomMargin="434.4297" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="11" BottomEage="11" Scale9OriginX="13" Scale9OriginY="11" Scale9Width="14" Scale9Height="18" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="40.0000" Y="40.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="489.5000" Y="184.8057" />
+            <Position X="761.7937" Y="454.4297" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5099" Y="0.2888" />
+            <PrePosition X="0.7935" Y="0.7100" />
             <PreSize X="0.0417" Y="0.0625" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Normal" Path="CloseSelected.png" Plist="" />

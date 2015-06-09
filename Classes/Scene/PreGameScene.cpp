@@ -49,6 +49,9 @@ bool PreGameScene::init()
     this->addChild(rootNode);
     rootNode->setName("PreGameScene");
     
+    rootNode->setContentSize(visibleSize);
+    ui::Helper::doLayout(rootNode);
+    
     
     
     cocos2d::ui::Button* btnEasy =  (cocos2d::ui::Button*)rootNode->getChildByTag(57);
@@ -75,7 +78,7 @@ bool PreGameScene::onTouchBegan(Touch *touch, Event *unused_event)
 void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
     
-    if(type == cocos2d::ui::Widget::TouchEventType::BEGAN){
+    if(type == cocos2d::ui::Widget::TouchEventType::ENDED){
         
         Node* selectType = (Node*)object;
         

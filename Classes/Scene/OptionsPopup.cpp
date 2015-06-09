@@ -52,6 +52,9 @@ bool OptionsPopup::init()
     this->addChild(rootNode);
     rootNode->setName("opetions");
     
+    rootNode->setContentSize(visibleSize);
+    ui::Helper::doLayout(rootNode);
+    
     
     cocos2d::ui::CheckBox* audio_check = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(21);
     audio_check->addClickEventListener(CC_CALLBACK_1(OptionsPopup::checkAudio,this));

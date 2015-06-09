@@ -74,6 +74,8 @@ bool LevelSelectScene::init()
     
     auto bgSpirit = Sprite::create("selectbg.jpg");
     bgSpirit->setPosition(Vec2(bgSpirit->getContentSize().width /2 ,  bgSpirit->getContentSize().height/2));
+    bgSpirit->setScale(visibleSize.width / this->getContentSize().width) ;
+    
     this->addChild(bgSpirit);
     bgSpirit->setZOrder(-300);
     
@@ -143,10 +145,27 @@ bool LevelSelectScene::init()
         m_scrollView->addChild(lbn);
         destinPos = lbn->getPosition();
         
+//        if(originPos != Vec2::ZERO)
+//        {
+//            
+//            mylines->drawQuadBezier(originPos, i%2==0?Vec2(originPos.x, destinPos.y):Vec2(destinPos.x, originPos.y), destinPos, 20, Color4F(120, 120, 0, 100));
+//        }
+        
         if(originPos != Vec2::ZERO)
         {
-            mylines->drawQuadBezier(originPos, i%2==0?Vec2(originPos.x, destinPos.y):Vec2(destinPos.x, originPos.y), destinPos, 20, Color4F(120, 120, 0, 100));
+
+            Sprite* rainbow = Sprite::create("rainbow.png");
+            rainbow->setScale((destinPos - originPos).length()/rainbow->getContentSize().width);
+            //            rainbow->setAnchorPoint(Vec2(0, 0));
+            float anglex =(destinPos - originPos).getAngle()*180/3.141592653;
+            rainbow->setRotation(-anglex);
+            rainbow->setAnchorPoint(Vec2(0.5, 0));
+            rainbow->setPosition((destinPos+originPos)/2 + visibleSize/2  );
+            m_scrollView->addChild(rainbow);
+            rainbow->setZOrder(lbn->getZOrder()-1);
         }
+        
+        
 
         __String* cc = __String::createWithFormat("LevelNode_%d",i);
         
@@ -196,7 +215,7 @@ bool LevelSelectScene::init()
     frameCache->addSpriteFramesWithFile("Animal_0008.plist");
     Vector<SpriteFrame*> animations ;
     char str[100]={0};
-    for(int i = 1; i< 26; i++)
+    for(int i = 1; i< 6; i++)
     {
         sprintf(str,"Animal_0008_%02d.png",i);
         SpriteFrame *frame = frameCache->getSpriteFrameByName(str);
