@@ -1,7 +1,7 @@
 #include "LevelSelectScene.h"
 #include "MainMenuScene.h"
 #include "LevelNode.h"
-#include "GameScene.h"
+#include "PreGameScene.h"
 #include "SimpleAudioEngine.h"
 USING_NS_CC;
 
@@ -58,7 +58,6 @@ bool LevelSelectScene::init()
     
     
     this->addChild(feiting);
-    
     
     
     ui::ScrollView* m_scrollView =  ui::ScrollView::create();
@@ -270,11 +269,9 @@ void LevelSelectScene::selectLevelAction(cocos2d::Ref* pSender, cocos2d::ui::Wid
 {
     if (type == ui::Widget::TouchEventType::ENDED) {
         int mcode = ((LevelNode*)(((Node*) pSender)->getParent()))->getLevelCode();
-        CCLOG("关卡 %d 被选择",mcode);
-        
-        auto scene = GameScene::createScene(mcode);
-        Director::getInstance()->replaceScene(scene);
-        
+         
+        auto scene = PreGameScene::createScene(mcode);
+        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
     }
 }
 

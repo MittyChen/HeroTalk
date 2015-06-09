@@ -20,6 +20,12 @@
         <Image Name="menu_shop_p-hd.png" />
         <Image Name="4BOSSev_window-hd.png" />
         <Image Name="window_get-hd.png" />
+        <Project Name="PreGameScene.csd" Type="Scene" />
+        <Image Name="dec_0293-hd.png" />
+        <Image Name="cn_Menu_Buttonweixin.png" />
+        <Image Name="cn_Menu_Buttonweixin_Pressed.png" />
+        <Image Name="Menu_ButtonSina.png" />
+        <Image Name="Menu_ButtonSinaPressed.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

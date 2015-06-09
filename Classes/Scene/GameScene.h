@@ -19,7 +19,7 @@ class GameScene : public cocos2d::Layer
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
-    static cocos2d::Scene* createScene(int code);
+    static cocos2d::Scene* createScene(int code ,int difficultyp);
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
@@ -52,6 +52,10 @@ public:
     void changeType(cocos2d::Ref* object);
     
     void seletctCellolor(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
+    
+    void pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
+    
+    void pauseGameBack(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
     
 public:
 
