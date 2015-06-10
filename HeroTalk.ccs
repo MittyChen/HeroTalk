@@ -27,6 +27,10 @@
         <Image Name="Menu_ButtonSina.png" />
         <Image Name="Menu_ButtonSinaPressed.png" />
         <Project Name="CopyRightScene.csd" Type="Scene" />
+        <Image Name="goback.png" />
+        <Image Name="diffbtn.png" />
+        <Image Name="bloodstar.png" />
+        <Image Name="popupbg.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -10,7 +10,7 @@
 
 #include "PopupWithMask.h"
 #include "LevelSelectScene.h"
-
+#include "PreGameScene.h"
 USING_NS_CC;
 
 bool GameScene::isPaused  = false;
@@ -96,6 +96,11 @@ bool GameScene::init()
     
     scoreLAbel = (cocos2d::ui::Text*)rootNode->getChildByTag(7);
     
+    cocos2d::ui::Text* labelLevel = (cocos2d::ui::Text*)rootNode->getChildByTag(74);
+    
+    const char * Leveltext = String::createWithFormat("第 %d 关" , count)->getCString();
+    labelLevel->setString(Leveltext);
+    
     cocos2d::ui::CheckBox* mTool_OneShot = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(11);
     mTool_OneShot->addClickEventListener(CC_CALLBACK_1(GameScene::deleteOneCell,this));
     onShotButtonPos = mTool_OneShot->getPosition();
@@ -105,6 +110,8 @@ bool GameScene::init()
     
     cocos2d::ui::CheckBox* mTool_ChangeType = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(20);
     mTool_ChangeType->addClickEventListener(CC_CALLBACK_1(GameScene::changeType,this));
+    
+    
     
     
     actionPlaying = false;
@@ -559,7 +566,50 @@ void GameScene::gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::Touch
     auto scene =  LevelSelectScene::createScene(0);
     // run
     Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+
 }
+
+
+void GameScene::gotoLevelNext(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
+{
+    
+    if (type != ui::Widget::TouchEventType::ENDED) {
+        return;
+    }
+    
+    if(isGameFinish)
+    {
+        isGameFinish = false;
+        
+        auto scene =  PreGameScene::createScene(count);
+        // run
+        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        
+    }
+    
+    
+    __String* ss = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",count);
+    UserDefault::getInstance()->setBoolForKey(ss->getCString(),true);
+    
+    if (UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED") < count) {
+        UserDefault::getInstance()->setIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED",count);
+        
+    }
+   
+    
+    
+    //    if (isPaused){
+    //        return;
+    //    }
+    auto scene =  PreGameScene::createScene(count);
+    // run
+    Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+    
+    
+    
+}
+
+
 
 void GameScene::deleteOneCell(cocos2d::Ref* object)
 {
@@ -1290,7 +1340,7 @@ void GameScene::checkoutResult()
             btnRetry->addTouchEventListener(CC_CALLBACK_2(GameScene::loadMap, this) );
             
             cocos2d::ui::Button* btnNext =  (cocos2d::ui::Button*)rootNode->getChildByTag(31);
-            btnNext->addTouchEventListener(CC_CALLBACK_2(GameScene::gotoLevelSelect, this) );
+            btnNext->addTouchEventListener(CC_CALLBACK_2(GameScene::gotoLevelNext, this) );
             
             cocos2d::ui::Button* btnExit =  (cocos2d::ui::Button*)rootNode->getChildByTag(16);
             btnExit->addTouchEventListener(CC_CALLBACK_2(GameScene::exitGame, this) );
@@ -1298,7 +1348,7 @@ void GameScene::checkoutResult()
             
             cocos2d::ui::Text* helptext = (cocos2d::ui::Text*)rootNode->getChildByTag(53);
             
-            std::string  storyArr[3] = {"使用随机变色道具，可能性价比很高哦~","要是你是个多疑的人，最好使用选择变色道具吧~","要是有个小东西挡住你的去路，用消除单个道具干掉他吧！！！"};
+            std::string  storyArr[3] = {"使用随机变色道具，\n可能性价比很高哦~","要是你是个多疑的人，\n最好使用选择变色道具吧~","要是有个小东西挡住你的去路，\n用消除单个道具干掉他吧！！！"};
             
             int index = random(0, 2);
             helptext->setString(storyArr[index]);

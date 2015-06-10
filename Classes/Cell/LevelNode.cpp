@@ -10,6 +10,7 @@
 
 using namespace cocostudio::timeline;
 
+
 LevelNode::LevelNode()
 {
     
@@ -40,7 +41,7 @@ bool LevelNode::init()
     
     cloud->setAnchorPoint(Vec2(0.5, 0.5));
     cloud->setPosition(visibleSize/2);
-    cloud->setScale(1.0);
+    cloud->setScale(1.2);
     levelcode = Label::create("1", "Arial", 50);
     levelcode->setColor(Color3B(50,200,200));
     levelcode->setAnchorPoint(Vec2(0.5, 0.5));
@@ -67,8 +68,8 @@ bool LevelNode::init()
     this->addChild(cloud);
     this->addChild(levelcode);
     
-    stopRain();
     
+   
 //    auto listener = EventListenerTouchOneByOne::create();
 //    listener->onTouchBegan = CC_CALLBACK_2(LevelNode::onTouchBegan,this);
 //    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener,this);
@@ -103,6 +104,16 @@ void LevelNode::setLevelCode(int code)
     cloud->setName(cc->getCString());
     mcode = code;
     
+    __String* sstemp = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",mcode);
+    bool isunlock = UserDefault::getInstance()->getBoolForKey(sstemp->getCString());
+    if (isunlock) {
+        unlockLevel();
+        startRain();
+    }else{
+        stopRain();
+    }
+    
+    
 }
 
 int LevelNode::getLevelCode()
@@ -114,8 +125,6 @@ int LevelNode::getLevelCode()
 void LevelNode::startRain()
 {
 //    cloud->setColor(Color3B(255,255,255));
-    
-    cloud->runAction(TintTo::create(4, 255, 255, 255));
     
     cloud->setEnabled(true);
     ps->resetSystem();
@@ -157,6 +166,7 @@ void LevelNode::unlockLevel()
     __String* ss = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",mcode);
     UserDefault::getInstance()->setBoolForKey(ss->getCString(),true);
     
-    
+    UserDefault::getInstance()->setIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED",mcode);
     isLocked = false;
+    cloud->runAction(TintTo::create(4, 255, 255, 255));
 }

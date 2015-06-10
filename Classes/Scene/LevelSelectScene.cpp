@@ -49,6 +49,8 @@ bool LevelSelectScene::init()
 //    
 //    this->addChild(levelsec);
     
+    this->addChild(LayerColor::create(Color4B(0,200,120,255),visibleSize.width,visibleSize.height));
+    
     Sprite * feiting = Sprite::create("qiting.png");
     
     
@@ -72,24 +74,22 @@ bool LevelSelectScene::init()
     
     this->addChild(m_scrollView);
     
-    auto bgSpirit = Sprite::create("selectbg.jpg");
-    bgSpirit->setPosition(Vec2(bgSpirit->getContentSize().width /2 ,  bgSpirit->getContentSize().height/2));
-    bgSpirit->setScale(visibleSize.width / this->getContentSize().width) ;
-    
-    this->addChild(bgSpirit);
-    bgSpirit->setZOrder(-300);
+//    auto bgSpirit = Sprite::create("selectbg.jpg");
+//    bgSpirit->setPosition(Vec2(bgSpirit->getContentSize().width /2 ,  bgSpirit->getContentSize().height/2));
+//    bgSpirit->setScale(visibleSize.width / this->getContentSize().width  * 1.5) ;
+//    this->addChild(bgSpirit);
+//    bgSpirit->setZOrder(-300);
     
     
   
     
-    cocos2d::ui::Button* backbtn = cocos2d::ui::Button::create("Default/Button_Normal.png");
-    backbtn->setAnchorPoint(Vec2(0.5, 0.5));
+    cocos2d::ui::Button* backbtn = cocos2d::ui::Button::create("goback.png");
+   
     
 //    backbtn->setPosition(backbtn->getContentSize()*2);
-    backbtn->setPosition( Vec2(40 + backbtn->getContentSize().width, -backbtn->getContentSize().height/2 + visibleSize.height -40));
+    backbtn->setPosition( Vec2( backbtn->getContentSize().width /2  , -backbtn->getContentSize().height/2 + visibleSize.height));
     
-    backbtn->setScale(2);
-    backbtn->setTitleText("返回");
+    backbtn->setScale(0.5);
     backbtn->setTitleFontSize(20);
     backbtn->setTitleColor(Color3B(0,200,120));
     this->addChild(backbtn);
@@ -111,39 +111,37 @@ bool LevelSelectScene::init()
     DrawNode * mylines = DrawNode::create();
     m_scrollView->addChild(mylines);
     mylines->setPosition(visibleSize/2 );
-    LevelNode* maxindexUnlocked = NULL;
     
+    int maxlevel = UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED");
+
     for (int i = 1; i < LEVEL_COUNT; i++) {
         LevelNode* lbn = LevelNode::create();
         int randomRate = cocos2d::random(-40, 40);
-        lbn->setPosition(Vec2(lbn->getContentSize().width/2 -visibleSize.width/2 + 200 * i + randomRate,  50 + (i%2==0?80:-50) + randomRate ));
+        
+        Vec2 lbnPos = Vec2(lbn->getContentSize().width/2 -visibleSize.width/2 + 200 * i + randomRate,  50 + (i%2==0?80:-50) + randomRate );
+        lbn->setPosition(lbnPos);
+        
+         
         lbn->setLevelCode(i);
         
-        if(i == 1)
-        {
-        
-            maxindexUnlocked = lbn;
-        
-        }
-        
-        if(levelToUnlock >= i)
-        {
-            lbn->unlockLevel();
+        if(lbn->getLevelCode() == maxlevel){
             
-        }
-        if(levelToUnlock == i)
-        {
-            m_scrollView->scrollToPercentHorizontal( 100 * ((lbn->getPosition().x * (i+2)) / i) / (m_scrollView->getInnerContainerSize().width) , 2, true);
-        }
-        
-        //lbn->getPosition().x / (visibleSize.width * (LEVEL_COUNT / 4 ))
-        if(!(lbn->isLocked))
-        {
-            lbn->startRain();
+            
+            __String* cc = __String::createWithFormat("LevelNode_%d",maxlevel);
+            cocos2d::ui::Button* btnlevelnodeMax =  (cocos2d::ui::Button*) lbn->getChildByName(cc->getCString());
+            
+            m_scrollView->scrollToPercentHorizontal( 200 * ((lbn->getPosition().x * (maxlevel)) / i) / (m_scrollView->getInnerContainerSize().width) , 2, true);
+            Sprite* userNode = Sprite::create("hero5.png");
+            userNode->setScale(0.2);
+            userNode->setPosition(btnlevelnodeMax->getPosition() + Vec2(0,btnlevelnodeMax->getContentSize().height*2/3));
+            userNode->setLocalZOrder(btnlevelnodeMax->getLocalZOrder()-1);
+            lbn->addChild(userNode);
         }
         
         m_scrollView->addChild(lbn);
+
         destinPos = lbn->getPosition();
+    
         
 //        if(originPos != Vec2::ZERO)
 //        {
@@ -155,7 +153,7 @@ bool LevelSelectScene::init()
         {
 
             Sprite* rainbow = Sprite::create("rainbow.png");
-            rainbow->setScale((destinPos - originPos).length()/rainbow->getContentSize().width);
+            rainbow->setScale((destinPos - originPos).length()*9/10/rainbow->getContentSize().width);
             //            rainbow->setAnchorPoint(Vec2(0, 0));
             float anglex =(destinPos - originPos).getAngle()*180/3.141592653;
             rainbow->setRotation(-anglex);
@@ -168,47 +166,10 @@ bool LevelSelectScene::init()
         
 
         __String* cc = __String::createWithFormat("LevelNode_%d",i);
-        
-        
         cocos2d::ui::Button* btnlevelnode =  (cocos2d::ui::Button*) lbn->getChildByName(cc->getCString());
         btnlevelnode->addTouchEventListener(CC_CALLBACK_2(LevelSelectScene::selectLevelAction, this) );
         
-//        auto isunlock = pdic->objectForKey(cc->getCString());
-//        if (isunlock != NULL) {
-//            if(strcmp(((__String*)isunlock)->getCString(), "ok") == 0)
-//            {
-//                lbn->unlockLevel();
-//                lbn->startRain();
-//                maxindexUnlocked = lbn;
-//            }
-//        }
-        
-        
-        __String* sstemp = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",i);
-        bool isunlock = UserDefault::getInstance()->getBoolForKey(sstemp->getCString());
-        if (isunlock ) {
-                lbn->unlockLevel();
-                lbn->startRain();
-                maxindexUnlocked = lbn;
-        }
-        
-        
-       
-        
         originPos = lbn->getPosition();
-        
-        if (i==LEVEL_COUNT-1) {
-            
-            cocos2d::ui::Button* btnlevelnode =  (cocos2d::ui::Button*) lbn->getChildByName(cc->getCString());
-            btnlevelnode->addTouchEventListener(CC_CALLBACK_2(LevelSelectScene::selectLevelAction, this) );
-            
-            
-            Sprite* userNode = Sprite::create("whitedot.png");
-            Vec2 pos = Vec2(maxindexUnlocked->getPosition().x, maxindexUnlocked->getPosition().y + maxindexUnlocked->getContentSize().height + userNode->getContentSize().height/2);
-            userNode->setPosition(pos);
-            userNode->setAnchorPoint(Vec2(0.5, 0.5));
-            lbn->addChild(userNode);
-        }
     }
    
     SpriteFrameCache *frameCache=SpriteFrameCache::getInstance();
@@ -235,8 +196,8 @@ bool LevelSelectScene::init()
     
     
     auto waterSpirit = Sprite::create("water.png");
-    waterSpirit->setPosition(Vec2(bgSpirit->getContentSize().width /2 ,  0));
-    waterSpirit->setScale(visibleSize.width/waterSpirit->getContentSize().width *10, visibleSize.height/waterSpirit->getContentSize().height /20 * maxindexUnlocked->getLevelCode());
+    waterSpirit->setPosition(Vec2(waterSpirit->getContentSize().width /2 ,  0));
+    waterSpirit->setScale(visibleSize.width/waterSpirit->getContentSize().width *10, visibleSize.height/waterSpirit->getContentSize().height /20 * maxlevel);
     
     // create a Lens3D action
 //    ActionInterval* lens = Lens3D::create(10, Size(32, 24), Vec2(100, 180), 150);

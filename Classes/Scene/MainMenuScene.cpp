@@ -195,17 +195,17 @@ bool MainMenuScene::init()
     gameTitle->setAnchorPoint(Vec2(0.5,0.5));
     gameTitle->setPosition(Vec2(visibleSize.width/2,visibleSize.height*4/6));
     this->addChild(gameTitle);
-    cocos2d::ui::Button * skipbutton = cocos2d::ui::Button::create("Default/Button_Normal.png");
+    cocos2d::ui::Button * skipbutton = cocos2d::ui::Button::create("startBtn.png");
     skipbutton->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 1 / 3));
-    skipbutton->setScale(2);
-    Label* skipLabel = Label::create();
-    skipLabel->setString("开始");
-    skipLabel->setSystemFontSize(20);
-    skipLabel->setAnchorPoint(Vec2(0.5,0.5));
-    skipbutton->addChild(skipLabel);
-    skipLabel->setPosition(skipbutton->getContentSize()/2);
-    skipLabel->setTextColor(Color4B(0,200,150,255));
-    skipbutton->setScale(2.0);
+    skipbutton->setScale(0.5);
+//    Label* skipLabel = Label::create();
+//    skipLabel->setString("开始");
+//    skipLabel->setSystemFontSize(20);
+//    skipLabel->setAnchorPoint(Vec2(0.5,0.5));
+//    skipbutton->addChild(skipLabel);
+//    skipLabel->setPosition(skipbutton->getContentSize()/2);
+//    skipLabel->setTextColor(Color4B(0,200,150,255));
+//    skipbutton->setScale(2.0);
     
     cocos2d::ui::Button * options = cocos2d::ui::Button::create("settings.png");
     options->setScale(0.3);
@@ -247,8 +247,12 @@ bool MainMenuScene::init()
     auto gotShop = [this,gobackMain,visibleSize](Ref* pSender ,cocos2d::ui::Widget::TouchEventType event){
  
         Scene* scene  = Scene::create();
+        
         auto shopscene = CSLoader::createNode("ShopScene.csb");
+        scene->addChild(LayerColor::create(Color4B(0,200,120,255),visibleSize.width,visibleSize.height));
+        
         scene->addChild(shopscene);
+        
         
         shopscene->setContentSize(visibleSize);
         ui::Helper::doLayout(shopscene);

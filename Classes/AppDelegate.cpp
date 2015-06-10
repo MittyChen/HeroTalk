@@ -67,6 +67,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     __String* ss = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",1);
     UserDefault::getInstance()->setBoolForKey(ss->getCString(),true);
     
+    if (UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED") == 0) {
+        UserDefault::getInstance()->setIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED",1);
+        
+    }
     
     
     // create a scene. it's an autorelease object

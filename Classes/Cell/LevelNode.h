@@ -48,9 +48,6 @@ public:
     void unlockLevel();
     
     bool isLocked;
-    
-    
-    
 };
 
 #endif /* defined(LevelNode) */

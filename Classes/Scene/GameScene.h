@@ -57,6 +57,9 @@ public:
     
     void pauseGameBack(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
     
+    
+    void gotoLevelNext(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
+    
 public:
 
     float munitSize;
