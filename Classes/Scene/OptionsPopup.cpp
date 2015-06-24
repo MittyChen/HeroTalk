@@ -55,12 +55,29 @@ bool OptionsPopup::init()
     rootNode->setContentSize(visibleSize);
     ui::Helper::doLayout(rootNode);
     
+    rootNode->runAction(Sequence::create(ScaleTo::create(0.15,1.01),ScaleTo::create(0.15, 1.0), NULL));
     
     cocos2d::ui::CheckBox* audio_check = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(21);
     audio_check->addClickEventListener(CC_CALLBACK_1(OptionsPopup::checkAudio,this));
+    
+    if (UserDefault::getInstance()->getBoolForKey("HERO_TALK_AUDIO_ON") == true)
+    {
+        audio_check->setSelected(true);
+    }else{
+        audio_check->setSelected(false);
+    }
+    
+    
+    
     cocos2d::ui::CheckBox* effect_check = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(22);
     effect_check->addClickEventListener(CC_CALLBACK_1(OptionsPopup::checkEffect,this));
     
+    if (UserDefault::getInstance()->getBoolForKey("HERO_TALK_EFFECT_ON") == true)
+    {
+        effect_check->setSelected(true);
+    }else{
+        effect_check->setSelected(false);
+    }
     
     cocos2d::ui::Button* levels =  (cocos2d::ui::Button*)rootNode->getChildByTag(12);
     levels->addTouchEventListener(CC_CALLBACK_2(OptionsPopup::closeOptions, this) );
@@ -78,8 +95,10 @@ void OptionsPopup::checkAudio(cocos2d::Ref* object)
 {
     if (CocosDenshion::SimpleAudioEngine::getInstance()->getBackgroundMusicVolume() == 0)
     {
+        UserDefault::getInstance()->setBoolForKey("HERO_TALK_AUDIO_ON",true);
         CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(1.0f);
     }else{
+        UserDefault::getInstance()->setBoolForKey("HERO_TALK_AUDIO_ON",false);
         CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0);
     }
 }
@@ -88,8 +107,10 @@ void OptionsPopup::checkEffect(cocos2d::Ref* object)
 {
     if (CocosDenshion::SimpleAudioEngine::getInstance()->getEffectsVolume() == 0)
     {
+        UserDefault::getInstance()->setBoolForKey("HERO_TALK_EFFECT_ON",true);
         CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0);
     }else{
+        UserDefault::getInstance()->setBoolForKey("HERO_TALK_EFFECT_ON",false);
         CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(0);
     }
 }

@@ -3,6 +3,7 @@
 #include "LevelNode.h"
 #include "PreGameScene.h"
 #include "SimpleAudioEngine.h"
+#include "cocostudio/CocoStudio.h"
 USING_NS_CC;
 
 static int levelToUnlock = 0;
@@ -49,14 +50,20 @@ bool LevelSelectScene::init()
 //    
 //    this->addChild(levelsec);
     
-    this->addChild(LayerColor::create(Color4B(0,200,120,255),visibleSize.width,visibleSize.height));
+   
+    
+    Sprite * mapbg = Sprite::create("selectbg.png");
+    mapbg->setPosition(visibleSize/2);
+    mapbg->setContentSize(visibleSize);
+    this->addChild(mapbg);
+    
     
     Sprite * feiting = Sprite::create("qiting.png");
     
     
     feiting->setPosition(Vec2(visibleSize.width+feiting->getContentSize().width/2, visibleSize.height*4/6) );
     feiting->runAction( RepeatForever::create(Sequence::create(MoveTo::create(60, Vec2(-feiting->getContentSize().width/2 - 20,  visibleSize.height*5/6 )),RotateBy::create(0.02,Vec3(0, 180, 0)),MoveTo::create(60, Vec2(visibleSize.width+feiting->getContentSize().width/2, visibleSize.height*4/6)),RotateBy::create(0.02,Vec3(0, -180, 0)), NULL)));
-    feiting->setScale(0.2);
+    feiting->setScale(0.1);
     
     
     this->addChild(feiting);
@@ -74,7 +81,44 @@ bool LevelSelectScene::init()
     
     this->addChild(m_scrollView);
     
-//    auto bgSpirit = Sprite::create("selectbg.jpg");
+    LayerColor* lcc = LayerColor::create(Color4B(0,0,0,200),visibleSize.width,visibleSize.height);
+    
+    this->addChild(lcc);
+    
+    Sprite* door0 = Sprite::create("clouddoorside.png");
+    door0->setAnchorPoint(Vec2(0.5, 0));
+    door0->setScale(visibleSize.width/door0->getContentSize().width);
+    
+    
+    Sprite* door1 = Sprite::create("clouddoorside.png");
+    door1->setAnchorPoint(Vec2(0.5, 0));
+    door1->setRotation(180);
+    door1->setScale(visibleSize.width/door1->getContentSize().width);
+    
+    
+    door0->setPosition(Vec2(visibleSize.width/2, -door0->getContentSize().height));
+    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height));
+    
+    
+    
+    this->addChild(door0);
+    this->addChild(door1);
+    
+//    door0->runAction(MoveTo::create(6, Vec2(visibleSize.width/2, -door0->getContentSize().height)));
+//    door1->runAction(MoveTo::create(6, Vec2(visibleSize.width/2,  visibleSize.height+door1->getContentSize().height)));
+//
+
+    
+    auto rootNode = CSLoader::createNode("LevelSelectNode.csb");
+    m_scrollView->addChild(rootNode);
+    rootNode->setPosition(visibleSize/2);
+    rootNode->setName("LevelSelectNode");
+    
+    
+    
+
+    
+    //    auto bgSpirit = Sprite::create("selectbg.jpg");
 //    bgSpirit->setPosition(Vec2(bgSpirit->getContentSize().width /2 ,  bgSpirit->getContentSize().height/2));
 //    bgSpirit->setScale(visibleSize.width / this->getContentSize().width  * 1.5) ;
 //    this->addChild(bgSpirit);
@@ -94,6 +138,8 @@ bool LevelSelectScene::init()
     backbtn->setTitleColor(Color3B(0,200,120));
     this->addChild(backbtn);
     
+  
+    
     
     auto gotomain = [=](Ref* obj,cocos2d::ui::Widget::TouchEventType event)
     {
@@ -108,21 +154,41 @@ bool LevelSelectScene::init()
     
     Vec2 originPos = Vec2::ZERO;
     Vec2 destinPos = Vec2::ZERO;
-    DrawNode * mylines = DrawNode::create();
-    m_scrollView->addChild(mylines);
-    mylines->setPosition(visibleSize/2 );
+    
+    Node* maxlevelpos = NULL;
+//    DrawNode * mylines = DrawNode::create();
+//    m_scrollView->addChild(mylines);
+//    mylines->setPosition(visibleSize/2 );
     
     int maxlevel = UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED");
-
+    int zOrderFirst = 0;
     for (int i = 1; i < LEVEL_COUNT; i++) {
         LevelNode* lbn = LevelNode::create();
-        int randomRate = cocos2d::random(-40, 40);
+//        int randomRate = cocos2d::random(-40, 40);
         
-        Vec2 lbnPos = Vec2(lbn->getContentSize().width/2 -visibleSize.width/2 + 200 * i + randomRate,  50 + (i%2==0?80:-50) + randomRate );
-        lbn->setPosition(lbnPos);
+//        Vec2 lbnPos = Vec2(lbn->getContentSize().width/2 -visibleSize.width/2 + 100 * i + randomRate,  50 + (i%2==0?80:-50) + randomRate );
+//        lbn->setPosition(lbnPos);
         
          
         lbn->setLevelCode(i);
+        
+       
+        
+//        m_scrollView->addChild(lbn);
+      
+        
+        rootNode->getChildByTag(-1)->addChild((Node*)lbn);
+
+        if (i==1) {
+            zOrderFirst = lbn->getGlobalZOrder();
+        }
+        
+            lbn->setPosition(rootNode->getChildByTag(i)->getPosition());
+ 
+//        lbn->setGlobalZOrder(rootNode->getChildByTag(i)->getGlobalZOrder());
+        
+        destinPos = lbn->getPosition();
+    
         
         if(lbn->getLevelCode() == maxlevel){
             
@@ -130,18 +196,16 @@ bool LevelSelectScene::init()
             __String* cc = __String::createWithFormat("LevelNode_%d",maxlevel);
             cocos2d::ui::Button* btnlevelnodeMax =  (cocos2d::ui::Button*) lbn->getChildByName(cc->getCString());
             
-            m_scrollView->scrollToPercentHorizontal( 200 * ((lbn->getPosition().x * (maxlevel)) / i) / (m_scrollView->getInnerContainerSize().width) , 2, true);
+            m_scrollView->scrollToPercentHorizontal( 100 * ((lbn->getPosition().x * (maxlevel)) / i) / (m_scrollView->getInnerContainerSize().width) , 2, true);
             Sprite* userNode = Sprite::create("hero5.png");
             userNode->setScale(0.2);
-            userNode->setPosition(btnlevelnodeMax->getPosition() + Vec2(0,btnlevelnodeMax->getContentSize().height*2/3));
+            userNode->setPosition(btnlevelnodeMax->getPosition() + Vec2(0,btnlevelnodeMax->getContentSize().height*3/2));
             userNode->setLocalZOrder(btnlevelnodeMax->getLocalZOrder()-1);
             lbn->addChild(userNode);
+            maxlevelpos = (Node*)userNode;
         }
         
-        m_scrollView->addChild(lbn);
-
-        destinPos = lbn->getPosition();
-    
+        
         
 //        if(originPos != Vec2::ZERO)
 //        {
@@ -152,19 +216,18 @@ bool LevelSelectScene::init()
         if(originPos != Vec2::ZERO)
         {
 
-            Sprite* rainbow = Sprite::create("rainbow.png");
+            Sprite* rainbow = Sprite::create("route1.png");
             rainbow->setScale((destinPos - originPos).length()*9/10/rainbow->getContentSize().width);
             //            rainbow->setAnchorPoint(Vec2(0, 0));
             float anglex =(destinPos - originPos).getAngle()*180/3.141592653;
             rainbow->setRotation(-anglex);
             rainbow->setAnchorPoint(Vec2(0.5, 0));
             rainbow->setPosition((destinPos+originPos)/2 + visibleSize/2  );
-            m_scrollView->addChild(rainbow);
-            rainbow->setZOrder(lbn->getZOrder()-1);
+            rootNode->getChildByTag(-1)->addChild(rainbow);
+            rainbow->setGlobalZOrder(zOrderFirst-1);
         }
         
         
-
         __String* cc = __String::createWithFormat("LevelNode_%d",i);
         cocos2d::ui::Button* btnlevelnode =  (cocos2d::ui::Button*) lbn->getChildByName(cc->getCString());
         btnlevelnode->addTouchEventListener(CC_CALLBACK_2(LevelSelectScene::selectLevelAction, this) );
@@ -172,60 +235,126 @@ bool LevelSelectScene::init()
         originPos = lbn->getPosition();
     }
    
-    SpriteFrameCache *frameCache=SpriteFrameCache::getInstance();
-    frameCache->addSpriteFramesWithFile("Animal_0008.plist");
-    Vector<SpriteFrame*> animations ;
-    char str[100]={0};
-    for(int i = 1; i< 6; i++)
+    rootNode->getChildByTag(-1)->setGlobalZOrder(zOrderFirst-2);
+    rootNode->getChildByTag(-2)->setGlobalZOrder(zOrderFirst-2);
+    
+    
+    
+    auto gtouchScroll = [maxlevelpos,m_scrollView,door0,door1,lcc,visibleSize](Ref* obj,cocos2d::ui::ScrollView::EventType event)mutable
     {
-        sprintf(str,"Animal_0008_%02d.png",i);
-        SpriteFrame *frame = frameCache->getSpriteFrameByName(str);
-        animations.pushBack(frame);
-    }
-    Animation* animation = Animation::createWithSpriteFrames(animations,0.5f,-1);
-    AnimationCache::getInstance()->addAnimation(animation,"Animal_0008");
-    Animation* danceAnimation = CCAnimationCache::getInstance()->getAnimation("Animal_0008");
-    Animate* animate = CCAnimate::create(danceAnimation);
-    Sprite* grossini = Sprite::create();
-    SpriteFrame* frame = frameCache->getSpriteFrameByName("Animal_0008_01.png");
-    grossini->setDisplayFrame(frame);
-    addChild(grossini);
-    grossini->runAction(animate);
-    grossini->setPosition(20+grossini->getContentSize().width, grossini->getContentSize().height/2 + 15);
- 
+        switch (event) {
+            case cocos2d::ui::ScrollView::EventType::SCROLLING:
+            {
+//                
+//                float cc =  m_scrollView->getInnerContainer()->getPositionPercent().x;
+////                CCLOG("cc ===  %f",cc);
+//                
+//            
+//                
+//                if (cc > -1) {
+//                    lcc->setVisible(false);
+//                    
+//                    door0->setPosition(Vec2(visibleSize.width/2, 0-door0->getContentSize().height));
+//                    door1->setPosition(Vec2(visibleSize.width/2,  visibleSize.height + door1->getContentSize().height));
+//                    
+//                    
+//                }
+//                else if(cc < -1 && cc>-2){
+//                    lcc->setVisible(true);
+//                    lcc->runAction( TintTo::create(2,  255*(cc + 2), 0, 0));
+////                    
+//                    CCLOG("height0******** %f",-door0->getContentSize().height + (-1-cc)*door0->getContentSize().height);
+//                    CCLOG("height1******** %f",visibleSize.height + door1->getContentSize().height - (-1-cc)*(door1->getContentSize().height));
+//                    door0->setPosition(Vec2(visibleSize.width/2, -door0->getContentSize().height + (-1-cc)*door0->getContentSize().height));
+//                    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height - (-1-cc)*door1->getContentSize().height));
+//                }
+                
+                
+                if (m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x < 0  && m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x > -200) {
+                    
+                    float perce = (m_scrollView->getInnerContainer()->getPosition().x + maxlevelpos->getPosition().x) / 200;
+                    lcc->setVisible(true);
+                     CCLOG("perce ===  %f",perce);
+                    door0->setPosition(Vec2(visibleSize.width/2, -door0->getContentSize().height + (-perce)*door0->getContentSize().height));
+                    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height - (-perce)*door1->getContentSize().height));
+                    
+                    
+                }else if(m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x > 0){
+                
+                    lcc->setVisible(false);
+                }
+                
+                
+                break;
+            }
+                
+                
+            default:
+                break;
+        }
+    };
     
     
-    auto waterSpirit = Sprite::create("water.png");
-    waterSpirit->setPosition(Vec2(waterSpirit->getContentSize().width /2 ,  0));
-    waterSpirit->setScale(visibleSize.width/waterSpirit->getContentSize().width *10, visibleSize.height/waterSpirit->getContentSize().height /20 * maxlevel);
     
-    // create a Lens3D action
-//    ActionInterval* lens = Lens3D::create(10, Size(32, 24), Vec2(100, 180), 150);
-    
-    // create a Waved3D action
-    ActionInterval* waves = Waves3D::create(30, Size(10, 10), 20, 20);
-    auto nodeGrid = NodeGrid::create();
-    nodeGrid->addChild(waterSpirit);
-    nodeGrid->runAction(RepeatForever::create(waves));
-    
-//    nodeGrid->runAction(RepeatForever::create(lens));
-    
-    this->addChild(nodeGrid);
+    m_scrollView->addEventListener(gtouchScroll);
     
     
-    auto waterpoolSpirit = Sprite::create("poolwater.png");
-    waterpoolSpirit->setPosition(Vec2(visibleSize.width /2 ,  waterpoolSpirit->getContentSize().height/2  - 5));
-    
-    waterpoolSpirit->setScale(visibleSize.width/waterpoolSpirit->getContentSize().width);
-    
-    this->addChild(waterpoolSpirit);
-    
-    auto listener = EventListenerTouchOneByOne::create();
-    listener->onTouchBegan = CC_CALLBACK_2(LevelSelectScene::onTouchBegan,this);
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener,this);
-    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     
     
+//    SpriteFrameCache *frameCache=SpriteFrameCache::getInstance();
+//    frameCache->addSpriteFramesWithFile("Animal_0008.plist");
+//    Vector<SpriteFrame*> animations ;
+//    char str[100]={0};
+//    for(int i = 1; i< 6; i++)
+//    {
+//        sprintf(str,"Animal_0008_%02d.png",i);
+//        SpriteFrame *frame = frameCache->getSpriteFrameByName(str);
+//        animations.pushBack(frame);
+//    }
+//    Animation* animation = Animation::createWithSpriteFrames(animations,0.5f,-1);
+//    AnimationCache::getInstance()->addAnimation(animation,"Animal_0008");
+//    Animation* danceAnimation = CCAnimationCache::getInstance()->getAnimation("Animal_0008");
+//    Animate* animate = CCAnimate::create(danceAnimation);
+//    Sprite* grossini = Sprite::create();
+//    SpriteFrame* frame = frameCache->getSpriteFrameByName("Animal_0008_01.png");
+//    grossini->setDisplayFrame(frame);
+//    addChild(grossini);
+//    grossini->runAction(animate);
+//    grossini->setPosition(20+grossini->getContentSize().width, grossini->getContentSize().height/2 + 15);
+// 
+//    
+//    
+//    auto waterSpirit = Sprite::create("water.png");
+//    waterSpirit->setPosition(Vec2(waterSpirit->getContentSize().width /2 ,  0));
+//    waterSpirit->setScale(visibleSize.width/waterSpirit->getContentSize().width *10, visibleSize.height/waterSpirit->getContentSize().height /20 * maxlevel);
+//    
+//    // create a Lens3D action
+////    ActionInterval* lens = Lens3D::create(10, Size(32, 24), Vec2(100, 180), 150);
+//    
+//    // create a Waved3D action
+//    ActionInterval* waves = Waves3D::create(30, Size(10, 10), 20, 20);
+//    auto nodeGrid = NodeGrid::create();
+//    nodeGrid->addChild(waterSpirit);
+//    nodeGrid->runAction(RepeatForever::create(waves));
+//    
+////    nodeGrid->runAction(RepeatForever::create(lens));
+//    
+//    this->addChild(nodeGrid);
+//    
+//    
+//    auto waterpoolSpirit = Sprite::create("poolwater.png");
+//    waterpoolSpirit->setPosition(Vec2(visibleSize.width /2 ,  waterpoolSpirit->getContentSize().height/2  - 5));
+//    
+//    waterpoolSpirit->setScale(visibleSize.width/waterpoolSpirit->getContentSize().width);
+//    
+//    this->addChild(waterpoolSpirit);
+//    
+//    auto listener = EventListenerTouchOneByOne::create();
+//    listener->onTouchBegan = CC_CALLBACK_2(LevelSelectScene::onTouchBegan,this);
+//    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener,this);
+//    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+//    
+//    
     
     auto removeLamda = [=](Ref* pSender)
     {

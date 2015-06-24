@@ -418,7 +418,7 @@ void GameScene::seletctCellolor(cocos2d::Ref* object, cocos2d::ui::Widget::Touch
                 break;
         }
         isPauseFlag = true;
-        this->removeChildByTag(1999);
+        seletingCell->removeChildByTag(1999);
         seletingCell= NULL;
     }
 }
@@ -695,10 +695,13 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         
                         cellsGet.clear();
                         
-                        list<HappyStartCell*> templist = findTheGroupToRemove(mIt->second);
+//                        list<HappyStartCell*> templist = findTheGroupToRemove(mIt->second);
                         
                         
-                       
+                        list<HappyStartCell*> templist = getAllSameAround(mIt->second);
+                        
+                        
+                        
                         
                         for(HappyStartCell* temp :templist)
                         {
@@ -831,9 +834,9 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         
                         for(HappyStartCell* temp :templist)
                         {
+                            
                             cocos2d::ParticleSystem* ps = cocos2d::ParticleExplosion::create();
                             ps->setTexture(cocos2d::Director::getInstance()->getTextureCache()->addImage("whitedot.png"));
-                            
                             ps->setPosition( unitOriginPosition +  temp->getposIndex()  * (1 + munitSize) + Vec2(munitSize/2,munitSize/2) );
                             ps->setStartColor(Color4F(temp->getColor()));
                             
@@ -850,9 +853,16 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                             {
                                 allcells.erase(mpIterator);
                             }
-                            removeChild((Node*)temp);
                            
                         }
+                        
+                        for(HappyStartCell* temp :templist)
+                        {
+                            removeChild((Node*)temp);
+                            
+                        }
+                        
+                        
                         
                         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("explod.wav",  false,
                                                                                     1.0f,  0.0f,  0.2f);
@@ -1124,15 +1134,15 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         auto rootNode = CSLoader::createNode("ColorSelectNode.csb");
                         rootNode->setAnchorPoint(Vec2(0.5, 0.5));
                         
-                        rootNode->setContentSize(visibleSize);
-                        ui::Helper::doLayout(rootNode);
+//                        rootNode->setContentSize(visibleSize);
+//                        ui::Helper::doLayout(rootNode);
                         
-                        this->addChild(rootNode);
+                        mIt->second->addChild(rootNode);
                         rootNode->setTag(1999);
                         
-                        rootNode->setPosition(mIt->second->getPosition());
+                        rootNode->setPosition(mIt->second->getContentSize()/2);
                         rootNode->setScale(0.01);
-                        rootNode->runAction(ScaleTo::create(0.2, 1.0));
+                        rootNode->runAction(ScaleTo::create(0.2, 10));
                         
                         cocos2d::ui::Button* btnRed =  (cocos2d::ui::Button*)rootNode->getChildByTag(32);//红
                         btnRed->addTouchEventListener(CC_CALLBACK_2(GameScene::seletctCellolor, this) );
@@ -1198,6 +1208,40 @@ void GameScene::deleteTargetCell(map<Vec2,HappyStartCell*>::iterator   targetCel
 }
 
 bool firstTimeRun = true;
+
+
+
+list<HappyStartCell*> GameScene::getAllSameAround(HappyStartCell* targetCell)
+{
+
+    list<HappyStartCell*> templist = findTheGroupToRemove(targetCell);
+    
+    
+    list<HappyStartCell*> templistslantleft = getCellsSameToThisSlantLeft(targetCell);
+    
+    
+    list<HappyStartCell*> templistslantright = getCellsSameToThisSlantRight(targetCell);
+    
+    for (HappyStartCell* tempcell: templistslantleft) {
+        if(tempcell->getposIndex() != targetCell->getposIndex())
+        {
+            templist.push_back(tempcell);
+        }
+    }
+    
+    for (HappyStartCell* tempcell: templistslantright) {
+        if(tempcell->getposIndex() != targetCell->getposIndex())
+        {
+            templist.push_back(tempcell);
+        }
+    }
+    
+    return templist;
+}
+
+
+
+
 
 //递归遍历查询所有临近的方块
  list<HappyStartCell*> GameScene::findTheGroupToRemove(HappyStartCell* targetCell)
@@ -1300,6 +1344,92 @@ int GameScene::getCountSameToThis(HappyStartCell* targetCell)
     
     return doCount; 
 }
+
+
+ list<HappyStartCell*>  GameScene::getCellsSameToThisSlantLeft(HappyStartCell* targetCell)
+{
+    enum CELL_TYPE targetType = targetCell->getType();
+     list<HappyStartCell*> mcellsAround;
+    if(targetCell)
+    {
+        //        targetCell->sethasFind(true);
+        
+        int targetposX =  targetCell->getposIndex().x;
+        int targetposY =  targetCell->getposIndex().y;
+        for (int i = targetposX-1;i >= 0; i--) {
+            if( allcells.find(Vec2(i ,targetposY + targetposX -i )) != allcells.end()  && !allcells.find(Vec2(i ,targetposY + targetposX -i ))->second->gethasFind()){
+            
+                if(allcells.find(Vec2(i ,targetposY + targetposX -i ))->second->getType() != targetType )
+                {
+                    break;
+                }
+                allcells.find(Vec2(i ,targetposY + targetposX -i  ))->second->sethasFind(true);
+                mcellsAround.push_back(allcells.find(Vec2(i ,targetposY + targetposX -i ))->second);
+            }
+        }
+        
+        
+        for (int i = targetposX+1; i < count; i++) {
+            if( allcells.find(Vec2(i ,targetposY + targetposX -i )) != allcells.end() && !allcells.find(Vec2(i ,targetposY + targetposX -i ))->second->gethasFind()){
+                
+                if(allcells.find(Vec2(i ,targetposY + targetposX -i ))->second->getType() != targetType )
+                {
+                    break;
+                }
+                allcells.find(Vec2(i ,targetposY + targetposX -i  ))->second->sethasFind(true);
+                mcellsAround.push_back(allcells.find(Vec2(i ,targetposY + targetposX -i ))->second);
+            }
+        }
+        if (mcellsAround.size() >0) {
+            mcellsAround.push_back(targetCell);
+        }
+    }
+    
+    return mcellsAround;
+}
+list<HappyStartCell*>  GameScene::getCellsSameToThisSlantRight(HappyStartCell* targetCell)
+{
+    enum CELL_TYPE targetType = targetCell->getType();
+    list<HappyStartCell*> mcellsAround;
+    if(targetCell)
+    {
+        //        targetCell->sethasFind(true);
+        
+        int targetposX =  targetCell->getposIndex().x;
+        for (int i = targetposX-1;i >= 0; i--) {
+            if( allcells.find(Vec2(i ,i )) != allcells.end() && !allcells.find(Vec2(i ,i ))->second->gethasFind()){
+                
+                if(allcells.find(Vec2(i ,i ))->second->getType() != targetType )
+                {
+                    break;
+                }
+                allcells.find(Vec2(i ,i ))->second->sethasFind(true);
+                mcellsAround.push_back(allcells.find(Vec2(i ,i ))->second);
+            }
+        }
+        
+        
+        for (int i = targetposX+1; i < count; i++) {
+            if( allcells.find(Vec2(i ,i )) != allcells.end() && !allcells.find(Vec2(i ,i ))->second->gethasFind()){
+                
+                if(allcells.find(Vec2(i ,i ))->second->getType() != targetType )
+                {
+                    break;
+                }
+                allcells.find(Vec2(i ,i ))->second->sethasFind(true);
+                mcellsAround.push_back(allcells.find(Vec2(i ,i ))->second);
+            }
+        }
+        
+        if (mcellsAround.size() >0) {
+            mcellsAround.push_back(targetCell);
+        }
+    }
+    
+    return mcellsAround;
+}
+
+
 //查询结果
 void GameScene::checkoutResult()
 {
@@ -1354,6 +1484,11 @@ void GameScene::checkoutResult()
             helptext->setString(storyArr[index]);
             
 //             helptext->setString("afahfvkjv");
+            
+            cocos2d::ui::Text* scorete = (cocos2d::ui::Text*)rootNode->getChildByTag(77);
+            
+            const char * scoretext = String::createWithFormat("得分 : %lu" , count*count - allcells.size())->getCString();
+            scorete->setString(scoretext);
             
             isPaused = true;
             isGameFinish = true;

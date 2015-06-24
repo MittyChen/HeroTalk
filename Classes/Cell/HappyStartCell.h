@@ -61,6 +61,9 @@ public:
     CC_SYNTHESIZE(cocos2d::Size, _unitSize, unitSize);
     CC_SYNTHESIZE(cocos2d::Vec2, _originPos, originPos);
     CC_SYNTHESIZE(list<int> , _cellsToFind, cellsToFind);
+    CC_SYNTHESIZE(list<int> , _cellsToFindSlantLeft, cellsToFindSlantLeft);
+    CC_SYNTHESIZE(list<int> , _cellsToFindSlantright, cellsToFindSlantright);
+    
     CC_SYNTHESIZE(float, _downShouldGo, downShouldGo);
     CC_SYNTHESIZE(float, _leftShouldGo, leftShouldGo);
     CC_SYNTHESIZE(float, _timeToDelay, timeToDelay);

@@ -189,7 +189,7 @@ bool MainMenuScene::init()
 //    this->runAction(ta);
     
     Label* gameTitle = Label::create();
-    gameTitle->setString("高寒");
+    gameTitle->setString("极简消除");
     gameTitle->setSystemFontName("Arial");
     gameTitle->setSystemFontSize(100);
     gameTitle->setAnchorPoint(Vec2(0.5,0.5));
@@ -223,7 +223,9 @@ bool MainMenuScene::init()
     this->addChild(copyrightbtn);
     
     auto gotoCopyRight = [](Ref* pSender,cocos2d::ui::Widget::TouchEventType type){
-    
+        if (type != ui::Widget::TouchEventType::ENDED) {
+            return;
+        }
         auto scene = CopyRightScene::createScene();
         Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
         
@@ -237,6 +239,10 @@ bool MainMenuScene::init()
     
  
     auto gobackMain = [this](Ref* pSender ,cocos2d::ui::Widget::TouchEventType event){
+        if (event != ui::Widget::TouchEventType::ENDED) {
+            return;
+        }
+        
         auto scene = MainMenuScene::createScene();
         // run
         Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
@@ -245,7 +251,9 @@ bool MainMenuScene::init()
     
     
     auto gotShop = [this,gobackMain,visibleSize](Ref* pSender ,cocos2d::ui::Widget::TouchEventType event){
- 
+        if (event != ui::Widget::TouchEventType::ENDED) {
+            return;
+        }
         Scene* scene  = Scene::create();
         
         auto shopscene = CSLoader::createNode("ShopScene.csb");
@@ -268,14 +276,22 @@ bool MainMenuScene::init()
     
     
     auto gotoOptions = [this](Ref* pSender ,cocos2d::ui::Widget::TouchEventType event){
-        OptionsPopup* op = OptionsPopup::create();
+        if (event != ui::Widget::TouchEventType::ENDED) {
+            return;
+        }
         
+        OptionsPopup* op = OptionsPopup::create();
         this->addChild(op);
     };
     options->addTouchEventListener(gotoOptions);
     
     auto skipDrama = [=](Ref* obj,cocos2d::ui::Widget::TouchEventType event)
     {
+        
+        if (event != ui::Widget::TouchEventType::ENDED) {
+            return;
+        }
+        
         bool istalkSeen = UserDefault::getInstance()->getBoolForKey("UserSeenTalk");
         if (!istalkSeen) {
             auto scene = StoryScene::createScene();

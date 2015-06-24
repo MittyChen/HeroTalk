@@ -34,6 +34,7 @@
           <FilePathData Path="ShopScene.csd" />
           <FilePathData Path="PreGameScene.csd" />
           <FilePathData Path="CopyRightScene.csd" />
+          <FilePathData Path="LevelSelectNode.csd" />
         </OpenedDocuments>
         <ActiveDocument Path="MainScene.csd" />
       </Value>

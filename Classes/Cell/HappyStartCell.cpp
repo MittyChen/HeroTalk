@@ -30,6 +30,15 @@ void HappyStartCell::setParameters(cocos2d::Color3B mcolor,cocos2d::Vec2 originP
     _cellsToFind.push_back( posIndex.x +  (posIndex.y+1)* count);
     _cellsToFind.push_back( posIndex.x + (posIndex.y-1) * count);
 
+    _cellsToFindSlantLeft.push_back((posIndex.x-1) + (posIndex.y+1) * count);
+    _cellsToFindSlantLeft.push_back((posIndex.x+1) + (posIndex.y-1) * count);
+    
+    
+    _cellsToFindSlantright.push_back((posIndex.x-1) + (posIndex.y-1) * count);
+    _cellsToFindSlantright.push_back((posIndex.x+1) + (posIndex.y+1) * count);
+    
+    
+    
     this->initWithFile("ball.png");
     
     this->setScale(unitSize.width/this->getContentSize().width, unitSize.height /this->getContentSize().height);

@@ -31,6 +31,14 @@
         <Image Name="diffbtn.png" />
         <Image Name="bloodstar.png" />
         <Image Name="popupbg.png" />
+        <Image Name="goon.png" />
+        <Image Name="mainscene.png" />
+        <Image Name="tryagain.png" />
+        <Project Name="LevelSelectNode.csd" Type="Node" />
+        <Image Name="mapbg.png" />
+        <Image Name="mapback.png" />
+        <Image Name="mapbg2.png" />
+        <Image Name="81bOOOPIC46_1024.jpg" />
       </RootFolder>
     </Group>
   </SolutionFolder>

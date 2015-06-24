@@ -72,9 +72,21 @@ bool AppDelegate::applicationDidFinishLaunching() {
         
     }
     
+    if (UserDefault::getInstance()->getBoolForKey("HERO_TALK_AUDIO_ON") == false)
+    {
+        CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.0f);
+    }else{
+        CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(1.0f);
+    }
+    if (UserDefault::getInstance()->getBoolForKey("HERO_TALK_EFFECT_ON") == false)
+    {
+        CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(0.0);
+    }else{
+        CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0);
+    }
     
     // create a scene. it's an autorelease object
-    auto scene =  VideoScene::createScene();
+    auto scene =  LevelSelectScene::createScene(3);
     
     // run
     director->runWithScene(scene);

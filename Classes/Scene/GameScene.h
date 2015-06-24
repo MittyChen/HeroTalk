@@ -30,7 +30,14 @@ public:
     
     
     int getCountSameToThis(HappyStartCell* targetCell);
-    list<HappyStartCell*> findTheGroupToRemove(HappyStartCell* targetCell);
+    list<HappyStartCell*> getCellsSameToThisSlantLeft(HappyStartCell* targetCell);//反斜向
+    list<HappyStartCell*> getCellsSameToThisSlantRight(HappyStartCell* targetCell);//正斜向
+    list<HappyStartCell*> findTheGroupToRemove(HappyStartCell* targetCell);//横竖向
+    
+    list<HappyStartCell*> getAllSameAround(HappyStartCell* targetCell);//横竖向
+    
+    
+    
     
     void loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type) ;
     
