@@ -189,7 +189,7 @@ bool MainMenuScene::init()
 //    this->runAction(ta);
     
     Label* gameTitle = Label::create();
-    gameTitle->setString("极简消除");
+    gameTitle->setString("悠悠幼游");
     gameTitle->setSystemFontName("Arial");
     gameTitle->setSystemFontSize(100);
     gameTitle->setAnchorPoint(Vec2(0.5,0.5));
@@ -227,7 +227,7 @@ bool MainMenuScene::init()
             return;
         }
         auto scene = CopyRightScene::createScene();
-        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
         
     
     }
@@ -245,7 +245,7 @@ bool MainMenuScene::init()
         
         auto scene = MainMenuScene::createScene();
         // run
-        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
         
     };
     
@@ -269,7 +269,7 @@ bool MainMenuScene::init()
         backbtn->addTouchEventListener(gobackMain);
     
         // run
-        Director::getInstance()->pushScene(TransitionFade::create(2, scene));
+        Director::getInstance()->pushScene(TransitionFade::create(1, scene));
         
     };
     shopbtn->addTouchEventListener(gotShop);
@@ -280,9 +280,10 @@ bool MainMenuScene::init()
             return;
         }
         
-        OptionsPopup* op = OptionsPopup::create();
-        this->addChild(op);
+        Scene* op = OptionsPopup::createScene();
+        Director::getInstance()->pushScene(TransitionFade::create(1, op));
     };
+    
     options->addTouchEventListener(gotoOptions);
     
     auto skipDrama = [=](Ref* obj,cocos2d::ui::Widget::TouchEventType event)
@@ -296,14 +297,14 @@ bool MainMenuScene::init()
         if (!istalkSeen) {
             auto scene = StoryScene::createScene();
             // run
-            Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+            Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
             
         }
         else
         {
             auto scene = LevelSelectScene::createScene(0);
             // run
-            Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+            Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
         }
     };
     skipbutton->addTouchEventListener(skipDrama);
@@ -330,12 +331,12 @@ void MainMenuScene::playClickCallBack(Ref* sender,cocos2d::ui::TouchEventType ty
     if (!istalkSeen) {
         auto scene = StoryScene::createScene();
         // run
-        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
     }
     else
     {
         auto scene = LevelSelectScene::createScene(0);
         // run
-        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
     }
 }

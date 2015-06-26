@@ -101,7 +101,7 @@ bool StoryScene::init()
         }else{
             auto scene = TalkScene::createScene();
             // run
-            Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+            Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
         }
     };
     

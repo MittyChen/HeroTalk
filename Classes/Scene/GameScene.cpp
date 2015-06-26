@@ -603,7 +603,7 @@ void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
         isGameFinish = false;
         auto scene = MainMenuScene::createScene();
         // run
-        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
     }
     
     
@@ -613,7 +613,7 @@ void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
     
     auto scene = MainMenuScene::createScene();
     // run
-    Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+    Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
 }
 
 void GameScene::gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
@@ -628,7 +628,7 @@ void GameScene::gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::Touch
 
         auto scene =  LevelSelectScene::createScene(count);
         // run
-        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
         
     }
     
@@ -638,7 +638,7 @@ void GameScene::gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::Touch
 //    }
     auto scene =  LevelSelectScene::createScene(0);
     // run
-    Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+    Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
 
 }
 
@@ -656,7 +656,7 @@ void GameScene::gotoLevelNext(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
         
         auto scene =  PreGameScene::createScene(count);
         // run
-        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
         
     }
     
@@ -676,7 +676,7 @@ void GameScene::gotoLevelNext(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
     //    }
     auto scene =  PreGameScene::createScene(count);
     // run
-    Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+    Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
     
     
     
@@ -789,10 +789,12 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         
                         cellsGet.clear();
                         
-                        list<HappyStartCell*> templist = getCellsSameToThisVertical(mIt->second);
+                        list<HappyStartCell*> templist = findTheGroupToRemove(mIt->second);//相邻所有
                         
                         
-//                        list<HappyStartCell*> templist = getAllSameAround(mIt->second);
+//                        list<HappyStartCell*> templist = getAllSameAround(mIt->second);//依据横竖斜向连线
+                        
+                        
                         for(HappyStartCell* temp :templist)
                         {
                             if (temp->getType() == CELL_TYPE::TYPE_7COLORS) {
@@ -1325,13 +1327,36 @@ bool firstTimeRun = true;
 list<HappyStartCell*> GameScene::getAllSameAround(HappyStartCell* targetCell)
 {
 
-    list<HappyStartCell*> templist = findTheGroupToRemove(targetCell);
+    list<HappyStartCell*> templist;// = findTheGroupToRemove(targetCell);
+    
+    
+    
+    list<HappyStartCell*> templistH = getCellsSameToThisHorizental(targetCell);
+    
+    
+    list<HappyStartCell*> templistV= getCellsSameToThisVertical(targetCell);
     
     
     list<HappyStartCell*> templistslantleft = getCellsSameToThisSlantLeft(targetCell);
     
     
     list<HappyStartCell*> templistslantright = getCellsSameToThisSlantRight(targetCell);
+    
+    
+    for (HappyStartCell* tempcell: templistH) {
+        if(tempcell->getposIndex() != targetCell->getposIndex())
+        {
+            templist.push_back(tempcell);
+        }
+    }
+    
+    for (HappyStartCell* tempcell: templistV) {
+        if(tempcell->getposIndex() != targetCell->getposIndex())
+        {
+            templist.push_back(tempcell);
+        }
+    }
+    
     
     for (HappyStartCell* tempcell: templistslantleft) {
         if(tempcell->getposIndex() != targetCell->getposIndex())
@@ -1347,6 +1372,8 @@ list<HappyStartCell*> GameScene::getAllSameAround(HappyStartCell* targetCell)
         }
     }
     
+    
+    templist.push_back(targetCell);
     return templist;
 }
 

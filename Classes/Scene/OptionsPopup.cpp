@@ -38,8 +38,8 @@ bool OptionsPopup::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    LayerColor* lco =  LayerColor::create(Color4B(0,0,0,100), visibleSize.width, visibleSize.height);
-    this->addChild(lco);
+    this->addChild(LayerColor::create(Color4B(0,200,120,255),visibleSize.width,visibleSize.height));
+    
     
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(OptionsPopup::onTouchBegan,this);
@@ -55,7 +55,7 @@ bool OptionsPopup::init()
     rootNode->setContentSize(visibleSize);
     ui::Helper::doLayout(rootNode);
     
-    rootNode->runAction(Sequence::create(ScaleTo::create(0.15,1.01),ScaleTo::create(0.15, 1.0), NULL));
+//    rootNode->runAction(Sequence::create(ScaleTo::create(0.15,1.01),ScaleTo::create(0.15, 1.0), NULL));
     
     cocos2d::ui::CheckBox* audio_check = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(21);
     audio_check->addClickEventListener(CC_CALLBACK_1(OptionsPopup::checkAudio,this));
@@ -117,5 +117,6 @@ void OptionsPopup::checkEffect(cocos2d::Ref* object)
 
 void OptionsPopup::closeOptions(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
-    this->removeFromParent();
+//    this->removeFromParent();
+    Director::getInstance()->popScene();
 }

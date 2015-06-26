@@ -115,7 +115,7 @@ void VideoScene::onEnter()
     {
         auto scene = MainMenuScene::createScene();
                 // run
-        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
 
     };
     
@@ -169,7 +169,7 @@ void VideoScene::onEnter()
             {
                 auto scene = MainMenuScene::createScene();
                 // run
-                Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+                Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
                 break;
             }
             default:

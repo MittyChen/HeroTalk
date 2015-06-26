@@ -90,7 +90,7 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
             {
             
                 auto scene = GameScene::createScene(levelSelected,0);
-                Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+                Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
                 
                 break;
             }
@@ -100,7 +100,7 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
             {
                 
                 auto scene = GameScene::createScene(levelSelected,1);
-                Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+                Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
                 
                 break;
                 
@@ -110,7 +110,7 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
             {
                 
                 auto scene = GameScene::createScene(levelSelected,2);
-                Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+                Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
                 
                 break;
             }
@@ -119,7 +119,7 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
             {
                 
                 auto scene = LevelSelectScene::createScene(0);
-                Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+                Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
                 
                 break;
             }

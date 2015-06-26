@@ -95,7 +95,7 @@ bool CopyRightScene::onTouchBegan(Touch *touch, Event *unused_event)
 void CopyRightScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
     auto scene = MainMenuScene::createScene();
-    Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+    Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
     
 }
 

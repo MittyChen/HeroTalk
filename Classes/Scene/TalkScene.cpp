@@ -49,7 +49,7 @@ bool TalkScene::init()
         auto scene = LevelSelectScene::createScene(0);
         // run
 
-        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
 
         UserDefault::getInstance()->setBoolForKey("UserSeenTalk", true);
 
@@ -74,7 +74,7 @@ void TalkScene::playClickCallBack(Ref* sender,cocos2d::ui::TouchEventType type)
 {
 //    auto scene = GameScene::createScene();
     // run
-//    Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+//    Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
     
     Director::getInstance()->pushScene(LoadingScene::createScene());
 }

@@ -380,7 +380,7 @@ void LevelSelectScene::selectLevelAction(cocos2d::Ref* pSender, cocos2d::ui::Wid
         int mcode = ((LevelNode*)(((Node*) pSender)->getParent()))->getLevelCode();
          
         auto scene = PreGameScene::createScene(mcode);
-        Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
+        Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
     }
 }
 
