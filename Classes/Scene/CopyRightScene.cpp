@@ -2,6 +2,16 @@
 #include "MainMenuScene.h"
 #include "LevelSelectScene.h"
 #include "cocostudio/CocoStudio.h"
+
+
+#include "Movie.h"
+#include "GIFMovie.h"
+#include "CacheGif.h"
+#include "InstantGif.h"
+#include "GifBase.h"
+
+
+
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -20,7 +30,9 @@ Scene* CopyRightScene::createScene()
     // return the scene
     return scene;
 }
-
+void CopyRightScene::update(float delta)
+{
+}
 // on "init" you need to initialize your instance
 bool CopyRightScene::init()
 {
@@ -36,8 +48,8 @@ bool CopyRightScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    LayerColor* lco =  LayerColor::create(Color4B(0,0,0,100), visibleSize.width, visibleSize.height);
-    this->addChild(lco);
+    this->addChild(LayerColor::create(Color4B(0,200,120,255),visibleSize.width,visibleSize.height));
+    
     
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(CopyRightScene::onTouchBegan,this);
@@ -56,6 +68,23 @@ bool CopyRightScene::init()
     btnback->addTouchEventListener(CC_CALLBACK_2(CopyRightScene::gotoGame, this) );
 
  
+    
+    
+//    std::string info = Director::getInstance()->getTextureCache()->getCachedTextureInfo();
+//    std::string name = FileUtils::getInstance()->fullPathForFilename("girl1312.gif");
+//    GifBase *gif = InstantGif::create(name.c_str());
+//    if(gif == NULL)
+//    {
+//        CCLOG("%s","create gif failed");
+//        return  true;
+//    }
+//    gif->setAnchorPoint(Point(0,0));
+//    this->addChild(gif);
+//    gif->setPosition(Point(0,0));
+//    gif->setTag(1000);
+//    info = Director::getInstance()->getTextureCache()->getCachedTextureInfo();
+
+    
     return true;
 }
 bool CopyRightScene::onTouchBegan(Touch *touch, Event *unused_event)
@@ -69,3 +98,4 @@ void CopyRightScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
     Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
     
 }
+

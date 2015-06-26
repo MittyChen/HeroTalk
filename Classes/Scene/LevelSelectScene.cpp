@@ -237,7 +237,7 @@ bool LevelSelectScene::init()
    
     rootNode->getChildByTag(-1)->setGlobalZOrder(zOrderFirst-2);
     rootNode->getChildByTag(-2)->setGlobalZOrder(zOrderFirst-2);
-    
+    rootNode->getChildByTag(91)->setGlobalZOrder(zOrderFirst-2);
     
     
     auto gtouchScroll = [maxlevelpos,m_scrollView,door0,door1,lcc,visibleSize](Ref* obj,cocos2d::ui::ScrollView::EventType event)mutable
@@ -269,10 +269,10 @@ bool LevelSelectScene::init()
 //                    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height - (-1-cc)*door1->getContentSize().height));
 //                }
                 
-                
-                if (m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x < 0  && m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x > -200) {
+                float controlWidth = visibleSize.width/3;
+                if (m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x < 0  && m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x > -controlWidth) {
                     
-                    float perce = (m_scrollView->getInnerContainer()->getPosition().x + maxlevelpos->getPosition().x) / 200;
+                    float perce = (m_scrollView->getInnerContainer()->getPosition().x + maxlevelpos->getPosition().x) / controlWidth;
                     lcc->setVisible(true);
                      CCLOG("perce ===  %f",perce);
                     door0->setPosition(Vec2(visibleSize.width/2, -door0->getContentSize().height + (-perce)*door0->getContentSize().height));

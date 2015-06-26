@@ -10,6 +10,19 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		1E4146BB8C923CA52DB7FFF8 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C64C27B51AFFE8FF5464D4 /* libcocos2d iOS.a */; };
+		1F0869571B3BE63F00A99CFF /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F08693F1B3BE63F00A99CFF /* Bitmap.cpp */; };
+		1F0869581B3BE63F00A99CFF /* CacheGif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F0869411B3BE63F00A99CFF /* CacheGif.cpp */; };
+		1F0869591B3BE63F00A99CFF /* dgif_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0869441B3BE63F00A99CFF /* dgif_lib.c */; };
+		1F08695A1B3BE63F00A99CFF /* gif_err.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0869451B3BE63F00A99CFF /* gif_err.c */; };
+		1F08695B1B3BE63F00A99CFF /* gif_font.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0869461B3BE63F00A99CFF /* gif_font.c */; };
+		1F08695C1B3BE63F00A99CFF /* gif_hash.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0869471B3BE63F00A99CFF /* gif_hash.c */; };
+		1F08695D1B3BE63F00A99CFF /* gifalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F08694B1B3BE63F00A99CFF /* gifalloc.c */; };
+		1F08695E1B3BE63F00A99CFF /* quantize.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F08694C1B3BE63F00A99CFF /* quantize.c */; };
+		1F08695F1B3BE63F00A99CFF /* GifBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F08694D1B3BE63F00A99CFF /* GifBase.cpp */; };
+		1F0869601B3BE63F00A99CFF /* GifMovie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F0869501B3BE63F00A99CFF /* GifMovie.cpp */; };
+		1F0869611B3BE63F00A99CFF /* InstantGif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F0869531B3BE63F00A99CFF /* InstantGif.cpp */; };
+		1F0869621B3BE63F00A99CFF /* Movie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F0869551B3BE63F00A99CFF /* Movie.cpp */; };
+		1F0869671B3C037000A99CFF /* SPCScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F0869651B3C037000A99CFF /* SPCScene.cpp */; };
 		1F4373261B0DB90300A7FD8D /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F4373241B0DB90300A7FD8D /* LoadingScene.cpp */; };
 		1F4373291B0DBB9400A7FD8D /* BaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F4373271B0DBB9400A7FD8D /* BaseScene.cpp */; };
 		1F43732C1B0DD7C600A7FD8D /* VideoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F43732A1B0DD7C600A7FD8D /* VideoScene.cpp */; };
@@ -100,6 +113,31 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* HeroTalk iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HeroTalk iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1F08693F1B3BE63F00A99CFF /* Bitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bitmap.cpp; sourceTree = "<group>"; };
+		1F0869401B3BE63F00A99CFF /* Bitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bitmap.h; sourceTree = "<group>"; };
+		1F0869411B3BE63F00A99CFF /* CacheGif.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CacheGif.cpp; sourceTree = "<group>"; };
+		1F0869421B3BE63F00A99CFF /* CacheGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheGif.h; sourceTree = "<group>"; };
+		1F0869441B3BE63F00A99CFF /* dgif_lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dgif_lib.c; sourceTree = "<group>"; };
+		1F0869451B3BE63F00A99CFF /* gif_err.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gif_err.c; sourceTree = "<group>"; };
+		1F0869461B3BE63F00A99CFF /* gif_font.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gif_font.c; sourceTree = "<group>"; };
+		1F0869471B3BE63F00A99CFF /* gif_hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gif_hash.c; sourceTree = "<group>"; };
+		1F0869481B3BE63F00A99CFF /* gif_hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gif_hash.h; sourceTree = "<group>"; };
+		1F0869491B3BE63F00A99CFF /* gif_lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gif_lib.h; sourceTree = "<group>"; };
+		1F08694A1B3BE63F00A99CFF /* gif_lib_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gif_lib_private.h; sourceTree = "<group>"; };
+		1F08694B1B3BE63F00A99CFF /* gifalloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gifalloc.c; sourceTree = "<group>"; };
+		1F08694C1B3BE63F00A99CFF /* quantize.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = quantize.c; sourceTree = "<group>"; };
+		1F08694D1B3BE63F00A99CFF /* GifBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GifBase.cpp; sourceTree = "<group>"; };
+		1F08694E1B3BE63F00A99CFF /* GifBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifBase.h; sourceTree = "<group>"; };
+		1F08694F1B3BE63F00A99CFF /* GifMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifMacros.h; sourceTree = "<group>"; };
+		1F0869501B3BE63F00A99CFF /* GifMovie.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GifMovie.cpp; sourceTree = "<group>"; };
+		1F0869511B3BE63F00A99CFF /* GIFMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIFMovie.h; sourceTree = "<group>"; };
+		1F0869521B3BE63F00A99CFF /* GifUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifUtils.h; sourceTree = "<group>"; };
+		1F0869531B3BE63F00A99CFF /* InstantGif.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InstantGif.cpp; sourceTree = "<group>"; };
+		1F0869541B3BE63F00A99CFF /* InstantGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstantGif.h; sourceTree = "<group>"; };
+		1F0869551B3BE63F00A99CFF /* Movie.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Movie.cpp; sourceTree = "<group>"; };
+		1F0869561B3BE63F00A99CFF /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		1F0869651B3C037000A99CFF /* SPCScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SPCScene.cpp; sourceTree = "<group>"; };
+		1F0869661B3C037000A99CFF /* SPCScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCScene.h; sourceTree = "<group>"; };
 		1F4373241B0DB90300A7FD8D /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingScene.cpp; sourceTree = "<group>"; };
 		1F4373251B0DB90300A7FD8D /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
 		1F4373271B0DBB9400A7FD8D /* BaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseScene.cpp; sourceTree = "<group>"; };
@@ -304,6 +342,44 @@
 			name = CKIAPLib;
 			sourceTree = "<group>";
 		};
+		1F08693E1B3BE63F00A99CFF /* Gif */ = {
+			isa = PBXGroup;
+			children = (
+				1F08693F1B3BE63F00A99CFF /* Bitmap.cpp */,
+				1F0869401B3BE63F00A99CFF /* Bitmap.h */,
+				1F0869411B3BE63F00A99CFF /* CacheGif.cpp */,
+				1F0869421B3BE63F00A99CFF /* CacheGif.h */,
+				1F0869431B3BE63F00A99CFF /* gif_lib */,
+				1F08694D1B3BE63F00A99CFF /* GifBase.cpp */,
+				1F08694E1B3BE63F00A99CFF /* GifBase.h */,
+				1F08694F1B3BE63F00A99CFF /* GifMacros.h */,
+				1F0869501B3BE63F00A99CFF /* GifMovie.cpp */,
+				1F0869511B3BE63F00A99CFF /* GIFMovie.h */,
+				1F0869521B3BE63F00A99CFF /* GifUtils.h */,
+				1F0869531B3BE63F00A99CFF /* InstantGif.cpp */,
+				1F0869541B3BE63F00A99CFF /* InstantGif.h */,
+				1F0869551B3BE63F00A99CFF /* Movie.cpp */,
+				1F0869561B3BE63F00A99CFF /* Movie.h */,
+			);
+			path = Gif;
+			sourceTree = "<group>";
+		};
+		1F0869431B3BE63F00A99CFF /* gif_lib */ = {
+			isa = PBXGroup;
+			children = (
+				1F0869441B3BE63F00A99CFF /* dgif_lib.c */,
+				1F0869451B3BE63F00A99CFF /* gif_err.c */,
+				1F0869461B3BE63F00A99CFF /* gif_font.c */,
+				1F0869471B3BE63F00A99CFF /* gif_hash.c */,
+				1F0869481B3BE63F00A99CFF /* gif_hash.h */,
+				1F0869491B3BE63F00A99CFF /* gif_lib.h */,
+				1F08694A1B3BE63F00A99CFF /* gif_lib_private.h */,
+				1F08694B1B3BE63F00A99CFF /* gifalloc.c */,
+				1F08694C1B3BE63F00A99CFF /* quantize.c */,
+			);
+			path = gif_lib;
+			sourceTree = "<group>";
+		};
 		1F5CAFA31AEDE4E2000D3656 /* ScriptEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +439,8 @@
 		1F75ED7C1B0C620A0053E55B /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				1F0869651B3C037000A99CFF /* SPCScene.cpp */,
+				1F0869661B3C037000A99CFF /* SPCScene.h */,
 				1FA053B41B26C76700A771CD /* CopyRightScene.cpp */,
 				1FA053B51B26C76700A771CD /* CopyRightScene.h */,
 				1FA053AF1B26870F00A771CD /* PreGameScene.cpp */,
@@ -464,6 +542,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1F08693E1B3BE63F00A99CFF /* Gif */,
 				1F02BE701B17175F00C8D936 /* CKIAPLib */,
 				1FAE98EB1B1408190073F3C7 /* common */,
 				1F6607201B0EC3550001E3D8 /* playmp4 */,
@@ -624,8 +703,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F08695B1B3BE63F00A99CFF /* gif_font.c in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				1F75ED781B0C2BA90053E55B /* HappyStartCell.cpp in Sources */,
+				1F0869601B3BE63F00A99CFF /* GifMovie.cpp in Sources */,
+				1F0869571B3BE63F00A99CFF /* Bitmap.cpp in Sources */,
 				1FA053B61B26C76700A771CD /* CopyRightScene.cpp in Sources */,
 				1F43732C1B0DD7C600A7FD8D /* VideoScene.cpp in Sources */,
 				1F7B26C61B202EAA00A2A691 /* OptionsPopup.cpp in Sources */,
@@ -634,17 +716,22 @@
 				1F66072E1B0EC3550001E3D8 /* README.md in Sources */,
 				1F66072B1B0EC3550001E3D8 /* LHVideoPlayer.mm in Sources */,
 				1F5CAFB21AEDE577000D3656 /* ScriptLoader.cpp in Sources */,
+				1F08695D1B3BE63F00A99CFF /* gifalloc.c in Sources */,
 				1F5CAFA91AEDE515000D3656 /* Curtain.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				1F5CAFA61AEDE503000D3656 /* Drama.cpp in Sources */,
 				1F72C2A01B1E9E1E0030AF38 /* LevelNode.cpp in Sources */,
 				1F4373291B0DBB9400A7FD8D /* BaseScene.cpp in Sources */,
+				1F08695E1B3BE63F00A99CFF /* quantize.c in Sources */,
 				1F75ED831B0C620A0053E55B /* GameScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				1F08695F1B3BE63F00A99CFF /* GifBase.cpp in Sources */,
 				1F72C2A31B1EA52F0030AF38 /* LevelSelectScene.cpp in Sources */,
 				1F66072D1B0EC3550001E3D8 /* LHVideoPlayerImplCpp.mm in Sources */,
 				1F5CAFBB1AEDE75F000D3656 /* Plot.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				1F0869671B3C037000A99CFF /* SPCScene.cpp in Sources */,
+				1F08695A1B3BE63F00A99CFF /* gif_err.c in Sources */,
 				1FA2D6321AF0D7DB0093B18F /* StageManager.cpp in Sources */,
 				1F5CAFAC1AEDE527000D3656 /* Paragraph.cpp in Sources */,
 				1F66072C1B0EC3550001E3D8 /* LHVideoPlayerImpl.m in Sources */,
@@ -653,15 +740,20 @@
 				1FA6F96B1B16D79E006CA13B /* CKIAPManager.mm in Sources */,
 				1FCD4D8B1B21A0B70080AD15 /* StoryScene.cpp in Sources */,
 				1F5CAFB51AEDE596000D3656 /* DramaDirector.cpp in Sources */,
+				1F0869621B3BE63F00A99CFF /* Movie.cpp in Sources */,
+				1F08695C1B3BE63F00A99CFF /* gif_hash.c in Sources */,
+				1F0869591B3BE63F00A99CFF /* dgif_lib.c in Sources */,
 				1F5CAFB81AEDE740000D3656 /* Character.cpp in Sources */,
 				1FA6F96C1B16D79E006CA13B /* Reachability.m in Sources */,
 				1F66072A1B0EC3550001E3D8 /* LHVideoOverlayView.m in Sources */,
 				1FAE98EE1B1408190073F3C7 /* CommonUtils.cpp in Sources */,
 				1F75ED851B0C620A0053E55B /* TalkScene.cpp in Sources */,
+				1F0869611B3BE63F00A99CFF /* InstantGif.cpp in Sources */,
 				1FA053B11B26870F00A771CD /* PreGameScene.cpp in Sources */,
 				1F95B5931AF1D3E700E39A91 /* LoudSpeaker.cpp in Sources */,
 				1FBC29B31B1D7A1400FE1B28 /* PopupWithMask.cpp in Sources */,
 				1F95A8A21B17021200EBA3B1 /* FinishPopup.cpp in Sources */,
+				1F0869581B3BE63F00A99CFF /* CacheGif.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

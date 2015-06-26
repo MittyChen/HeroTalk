@@ -1,8 +1,7 @@
 #ifndef CopyRightScene_scene
 #define CopyRightScene_scene
 
-#include "cocos2d.h"
-
+#include "cocos2d.h" 
 #include "ui/CocosGUI.h"
 class CopyRightScene : public cocos2d::Layer
 {
@@ -15,7 +14,7 @@ public:
     virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event); 
     // implement the "static create()" method manually
     CREATE_FUNC(CopyRightScene);
-    
+    virtual void update(float delta);
     void gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
     
 private:

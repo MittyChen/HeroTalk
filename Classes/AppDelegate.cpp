@@ -3,6 +3,7 @@
 #include "SimpleAudioEngine.h"
 #include "LevelSelectScene.h"
 #include "VideoScene.h"
+#include "SPCScene.h"
 
 USING_NS_CC;
 
@@ -86,7 +87,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
     
     // create a scene. it's an autorelease object
-    auto scene =  LevelSelectScene::createScene(3);
+    auto scene =  GameScene::createScene(3,2);
     
     // run
     director->runWithScene(scene);

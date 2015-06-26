@@ -69,6 +69,7 @@ public:
     CC_SYNTHESIZE(float, _timeToDelay, timeToDelay);
     enum CELL_TYPE _mType;
     cocos2d::GLProgramState* _glprogramstate;
+    CC_SYNTHESIZE(bool, _isLocked, Locked);
     
 public:
     HappyStartCell();

@@ -6,10 +6,21 @@
       <ObjectData Name="Node" Tag="80" ctype="GameNodeObjectData">
         <Size />
         <Children>
-          <AbstractNodeData Name="mapbg_1" ActionTag="-656009750" Tag="-1" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-506.1801" RightMargin="-493.8199" TopMargin="-317.0501" BottomMargin="-340.9499" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Sprite_7" ActionTag="88078738" Tag="91" IconVisible="False" LeftMargin="549.8848" RightMargin="-1457.8848" TopMargin="-29.6891" BottomMargin="-129.3109" ctype="SpriteObjectData">
+            <Size X="908.0000" Y="159.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="1003.8848" Y="-49.8109" />
+            <Scale ScaleX="3.6632" ScaleY="4.7414" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize />
+            <FileData Type="Normal" Path="6148353_120105013333_2.jpg" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="mapbg_1" ActionTag="-656009750" Tag="-1" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-500.0000" RightMargin="-500.0000" TopMargin="-329.0000" BottomMargin="-329.0000" ctype="SpriteObjectData">
             <Size X="1000.0000" Y="658.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-6.1801" Y="-11.9499" />
+            <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -17,15 +28,15 @@
             <FileData Type="Normal" Path="mapbg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mapbg_1_0" ActionTag="1564779715" Tag="-2" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="437.7554" RightMargin="-1437.7554" TopMargin="-212.1953" BottomMargin="-445.8047" ctype="SpriteObjectData">
+          <AbstractNodeData Name="mapbg_1_0" ActionTag="1564779715" Tag="-2" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="203.4103" RightMargin="-1203.4103" TopMargin="-340.1219" BottomMargin="-317.8781" ctype="SpriteObjectData">
             <Size X="1000.0000" Y="658.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="937.7554" Y="-116.8047" />
+            <Position X="703.4103" Y="11.1219" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
+            <CColor A="255" R="170" G="212" B="170" />
             <PrePosition />
             <PreSize />
-            <FileData Type="Normal" Path="mapbg2.png" Plist="" />
+            <FileData Type="Normal" Path="mapbg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="Node_1" ActionTag="-1446738188" Tag="1" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-357.9316" RightMargin="357.9316" TopMargin="112.0996" BottomMargin="-112.0996" ctype="SingleNodeObjectData">
@@ -109,82 +120,82 @@
             <PrePosition />
             <PreSize />
           </AbstractNodeData>
-          <AbstractNodeData Name="Node_1_0" ActionTag="-333853157" Tag="10" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="505.0898" RightMargin="-505.0898" TopMargin="107.0990" BottomMargin="-107.0990" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="Node_1_0" ActionTag="-333853157" Tag="10" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="428.1262" RightMargin="-428.1262" TopMargin="-4.0732" BottomMargin="4.0732" ctype="SingleNodeObjectData">
             <Size />
             <AnchorPoint />
-            <Position X="505.0898" Y="-107.0990" />
+            <Position X="428.1262" Y="4.0732" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
           </AbstractNodeData>
-          <AbstractNodeData Name="Node_2_0" ActionTag="-1283384391" Tag="11" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="574.0850" RightMargin="-574.0850" TopMargin="48.0984" BottomMargin="-48.0984" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="Node_2_0" ActionTag="-1283384391" Tag="11" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="497.1219" RightMargin="-497.1219" TopMargin="-63.0736" BottomMargin="63.0736" ctype="SingleNodeObjectData">
             <Size />
             <AnchorPoint />
-            <Position X="574.0850" Y="-48.0984" />
+            <Position X="497.1219" Y="63.0736" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
           </AbstractNodeData>
-          <AbstractNodeData Name="Node_3_0" ActionTag="-631079259" Tag="12" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="621.0862" RightMargin="-621.0862" TopMargin="-45.9064" BottomMargin="45.9064" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="Node_3_0" ActionTag="-631079259" Tag="12" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="544.1241" RightMargin="-544.1241" TopMargin="-157.0785" BottomMargin="157.0785" ctype="SingleNodeObjectData">
             <Size />
             <AnchorPoint />
-            <Position X="621.0862" Y="45.9064" />
+            <Position X="544.1241" Y="157.0785" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
           </AbstractNodeData>
-          <AbstractNodeData Name="Node_4_0" ActionTag="-323985587" Tag="13" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="697.0889" RightMargin="-697.0889" TopMargin="-87.9072" BottomMargin="87.9072" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="Node_4_0" ActionTag="-323985587" Tag="13" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="620.1262" RightMargin="-620.1262" TopMargin="-199.0792" BottomMargin="199.0792" ctype="SingleNodeObjectData">
             <Size />
             <AnchorPoint />
-            <Position X="697.0889" Y="87.9072" />
+            <Position X="620.1262" Y="199.0792" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
           </AbstractNodeData>
-          <AbstractNodeData Name="Node_5_0" ActionTag="-407995001" Tag="14" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="809.0898" RightMargin="-809.0898" TopMargin="-76.9089" BottomMargin="76.9089" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="Node_5_0" ActionTag="-407995001" Tag="14" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="732.1279" RightMargin="-732.1279" TopMargin="-188.0804" BottomMargin="188.0804" ctype="SingleNodeObjectData">
             <Size />
             <AnchorPoint />
-            <Position X="809.0898" Y="76.9089" />
+            <Position X="732.1279" Y="188.0804" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
           </AbstractNodeData>
-          <AbstractNodeData Name="Node_6_0" ActionTag="-964342733" Tag="15" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="894.0913" RightMargin="-894.0913" TopMargin="-10.9037" BottomMargin="10.9037" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="Node_6_0" ActionTag="-964342733" Tag="15" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="817.1301" RightMargin="-817.1301" TopMargin="-122.0758" BottomMargin="122.0758" ctype="SingleNodeObjectData">
             <Size />
             <AnchorPoint />
-            <Position X="894.0913" Y="10.9037" />
+            <Position X="817.1301" Y="122.0758" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
           </AbstractNodeData>
-          <AbstractNodeData Name="Node_7_0" ActionTag="2111337523" Tag="16" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="851.0881" RightMargin="-851.0881" TopMargin="90.0989" BottomMargin="-90.0989" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="Node_7_0" ActionTag="2111337523" Tag="16" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="774.1265" RightMargin="-774.1265" TopMargin="-21.0732" BottomMargin="21.0732" ctype="SingleNodeObjectData">
             <Size />
             <AnchorPoint />
-            <Position X="851.0881" Y="-90.0989" />
+            <Position X="774.1265" Y="21.0732" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
           </AbstractNodeData>
-          <AbstractNodeData Name="Node_8_0" ActionTag="1065920112" Tag="17" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="815.0900" RightMargin="-815.0900" TopMargin="161.1005" BottomMargin="-161.1005" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="Node_8_0" ActionTag="1065920112" Tag="17" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="738.1284" RightMargin="-738.1284" TopMargin="49.9284" BottomMargin="-49.9284" ctype="SingleNodeObjectData">
             <Size />
             <AnchorPoint />
-            <Position X="815.0900" Y="-161.1005" />
+            <Position X="738.1284" Y="-49.9284" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
           </AbstractNodeData>
-          <AbstractNodeData Name="Node_9_0" ActionTag="-1846153767" Tag="18" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="913.0913" RightMargin="-913.0913" TopMargin="252.1024" BottomMargin="-252.1024" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="Node_9_0" ActionTag="-1846153767" Tag="18" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="836.1304" RightMargin="-836.1304" TopMargin="140.9300" BottomMargin="-140.9300" ctype="SingleNodeObjectData">
             <Size />
             <AnchorPoint />
-            <Position X="913.0913" Y="-252.1024" />
+            <Position X="836.1304" Y="-140.9300" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />

@@ -38,7 +38,7 @@ void HappyStartCell::setParameters(cocos2d::Color3B mcolor,cocos2d::Vec2 originP
     _cellsToFindSlantright.push_back((posIndex.x+1) + (posIndex.y+1) * count);
     
     
-    
+   
     this->initWithFile("ball.png");
     
     this->setScale(unitSize.width/this->getContentSize().width, unitSize.height /this->getContentSize().height);
@@ -67,6 +67,7 @@ bool HappyStartCell::init()
     }
     this->scheduleUpdate();
     this->initShaders();
+     _isLocked =false;
     return true;
 
 }
@@ -121,9 +122,18 @@ void HappyStartCell::setType(enum CELL_TYPE mtype)
 //    this->setTexture(filename);
 //    this->setColor(cocos2d::Color3B(120,200,200));
     
-    
+    if (_isLocked) {
+        return;
+    }
     
     switch (mtype) {
+        case TYPE_NORMAL:
+            if(this->getChildByTag(999))
+            {
+                this->removeChildByTag(999);
+            }
+            this->setColor(cocos2d::Color3B(255,255,255));
+            break;
         case TYPE_7COLORS:
         {
             this->setTexture("ball.png");

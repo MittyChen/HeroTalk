@@ -13,6 +13,7 @@ enum CELL_TOUCH_MODE{
     DELETE_ONE_MODE = 1,
     CHANGE_COLOR = 2,
     CHANGE_COLOR_RANDOM = 3,
+    CHESS_MODE = 4,
 };
 
 class GameScene : public cocos2d::Layer
@@ -25,6 +26,7 @@ public:
     virtual bool init();
     virtual void update(float delta);
      virtual bool  onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
+    virtual void onEnter();
     // implement the "static create()" method manually
     CREATE_FUNC(GameScene);
     
@@ -36,8 +38,8 @@ public:
     
     list<HappyStartCell*> getAllSameAround(HappyStartCell* targetCell);//横竖向
     
-    
-    
+    list<HappyStartCell*>  getCellsSameToThisHorizental(HappyStartCell* targetCell);
+    list<HappyStartCell*>  getCellsSameToThisVertical(HappyStartCell* targetCell);
     
     void loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type) ;
     
@@ -59,6 +61,9 @@ public:
     void changeType(cocos2d::Ref* object);
     
     void seletctCellolor(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
+    
+    void startSPC(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
+    
     
     void pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
     
@@ -87,6 +92,7 @@ public:
     
     static bool isGameFinish;
     
+    cocos2d::ui::Text* spcdes;
 };
 
 #endif // __GAME_SCENE_H__

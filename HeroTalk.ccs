@@ -39,6 +39,11 @@
         <Image Name="mapback.png" />
         <Image Name="mapbg2.png" />
         <Image Name="81bOOOPIC46_1024.jpg" />
+        <Image Name="6400131_160108528000_2.jpg" />
+        <Image Name="6148353_120105013333_2.jpg" />
+        <Project Name="AddScoreLayer.csd" Type="Layer" />
+        <Image Name="330292-140416193I222.jpg" />
+        <Image Name="winbg.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

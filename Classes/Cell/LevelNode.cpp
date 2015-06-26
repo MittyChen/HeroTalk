@@ -130,7 +130,8 @@ void LevelNode::startRain()
 //    cloud->setColor(Color3B(255,255,255));
     
     cloud->setEnabled(true);
-    ps->resetSystem();
+//    ps->resetSystem();
+     ps->stopSystem();
 }
 
 void LevelNode::stopRain()
