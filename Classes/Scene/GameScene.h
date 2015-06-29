@@ -14,6 +14,7 @@ enum CELL_TOUCH_MODE{
     CHANGE_COLOR = 2,
     CHANGE_COLOR_RANDOM = 3,
     CHESS_MODE = 4,
+    UNLIMITED_MODE=5
 };
 
 class GameScene : public cocos2d::Layer
@@ -72,6 +73,11 @@ public:
     
     void gotoLevelNext(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
     
+    
+    void produceCells(Node* psender);
+    
+    void gameWin();
+    
 public:
 
     float munitSize;
@@ -93,6 +99,11 @@ public:
     static bool isGameFinish;
     
     cocos2d::ui::Text* spcdes;
+    
+    
+    int redCount;
+    int greenCount;
+    int blueCount;
 };
 
 #endif // __GAME_SCENE_H__

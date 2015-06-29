@@ -52,29 +52,28 @@ bool LevelSelectScene::init()
     
    
     
-    Sprite * mapbg = Sprite::create("selectbg.png");
-    mapbg->setPosition(visibleSize/2);
-    mapbg->setContentSize(visibleSize);
-    this->addChild(mapbg);
-    
-    
-    Sprite * feiting = Sprite::create("qiting.png");
-    
-    
-    feiting->setPosition(Vec2(visibleSize.width+feiting->getContentSize().width/2, visibleSize.height*4/6) );
-    feiting->runAction( RepeatForever::create(Sequence::create(MoveTo::create(60, Vec2(-feiting->getContentSize().width/2 - 20,  visibleSize.height*5/6 )),RotateBy::create(0.02,Vec3(0, 180, 0)),MoveTo::create(60, Vec2(visibleSize.width+feiting->getContentSize().width/2, visibleSize.height*4/6)),RotateBy::create(0.02,Vec3(0, -180, 0)), NULL)));
-    feiting->setScale(0.1);
-    
-    
-    this->addChild(feiting);
+//    Sprite * mapbg = Sprite::create("selectbg.png");
+//    mapbg->setPosition(visibleSize/2);
+//    mapbg->setContentSize(visibleSize);
+//    this->addChild(mapbg);
+//    
+//    
+//    Sprite * feiting = Sprite::create("qiting.png");
+//    
+//    
+//    feiting->setPosition(Vec2(visibleSize.width+feiting->getContentSize().width/2, visibleSize.height*4/6) );
+//    feiting->runAction( RepeatForever::create(Sequence::create(MoveTo::create(60, Vec2(-feiting->getContentSize().width/2 - 20,  visibleSize.height*5/6 )),RotateBy::create(0.02,Vec3(0, 180, 0)),MoveTo::create(60, Vec2(visibleSize.width+feiting->getContentSize().width/2, visibleSize.height*4/6)),RotateBy::create(0.02,Vec3(0, -180, 0)), NULL)));
+//    feiting->setScale(0.1);
+//    
+//    
+//    this->addChild(feiting);
     
     
     ui::ScrollView* m_scrollView =  ui::ScrollView::create();
     m_scrollView->setDirection( ui::ScrollView::Direction::HORIZONTAL);
     m_scrollView->setAnchorPoint(Point::ZERO);
     m_scrollView->setPosition(Vec2::ZERO);
-    m_scrollView->setInnerContainerSize(Size(visibleSize.width * (LEVEL_COUNT / 4 ), visibleSize.height));
-
+    m_scrollView->setInnerContainerSize(Size(visibleSize.width * (LEVEL_COUNT / 9 ), visibleSize.height));
     
     m_scrollView->setContentSize(visibleSize);
     m_scrollView->setSwallowTouches(false);
@@ -117,7 +116,8 @@ bool LevelSelectScene::init()
     
     
 
-    
+    m_scrollView->setInnerContainerSize(Size(rootNode->getChildByTag(91)->getContentSize().width, visibleSize.height));
+
     //    auto bgSpirit = Sprite::create("selectbg.jpg");
 //    bgSpirit->setPosition(Vec2(bgSpirit->getContentSize().width /2 ,  bgSpirit->getContentSize().height/2));
 //    bgSpirit->setScale(visibleSize.width / this->getContentSize().width  * 1.5) ;
@@ -137,8 +137,6 @@ bool LevelSelectScene::init()
     backbtn->setTitleFontSize(20);
     backbtn->setTitleColor(Color3B(0,200,120));
     this->addChild(backbtn);
-    
-  
     
     
     auto gotomain = [=](Ref* obj,cocos2d::ui::Widget::TouchEventType event)
@@ -177,7 +175,7 @@ bool LevelSelectScene::init()
 //        m_scrollView->addChild(lbn);
       
         
-        rootNode->getChildByTag(-1)->addChild((Node*)lbn);
+        rootNode->getChildByTag(91)->addChild((Node*)lbn);
 
         if (i==1) {
             zOrderFirst = lbn->getGlobalZOrder();
@@ -223,7 +221,8 @@ bool LevelSelectScene::init()
             rainbow->setRotation(-anglex);
             rainbow->setAnchorPoint(Vec2(0.5, 0));
             rainbow->setPosition((destinPos+originPos)/2 + visibleSize/2  );
-            rootNode->getChildByTag(-1)->addChild(rainbow);
+             
+            rootNode->getChildByTag(91)->addChild(rainbow);
             rainbow->setGlobalZOrder(zOrderFirst-1);
         }
         
@@ -238,7 +237,6 @@ bool LevelSelectScene::init()
     rootNode->getChildByTag(-1)->setGlobalZOrder(zOrderFirst-2);
     rootNode->getChildByTag(-2)->setGlobalZOrder(zOrderFirst-2);
     rootNode->getChildByTag(91)->setGlobalZOrder(zOrderFirst-2);
-    
     
     auto gtouchScroll = [maxlevelpos,m_scrollView,door0,door1,lcc,visibleSize](Ref* obj,cocos2d::ui::ScrollView::EventType event)mutable
     {
@@ -268,18 +266,20 @@ bool LevelSelectScene::init()
 //                    door0->setPosition(Vec2(visibleSize.width/2, -door0->getContentSize().height + (-1-cc)*door0->getContentSize().height));
 //                    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height - (-1-cc)*door1->getContentSize().height));
 //                }
-                
-                float controlWidth = visibleSize.width/3;
-                if (m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x < 0  && m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x > -controlWidth) {
-                    
-                    float perce = (m_scrollView->getInnerContainer()->getPosition().x + maxlevelpos->getPosition().x) / controlWidth;
-                    lcc->setVisible(true);
-                     CCLOG("perce ===  %f",perce);
-                    door0->setPosition(Vec2(visibleSize.width/2, -door0->getContentSize().height + (-perce)*door0->getContentSize().height));
-                    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height - (-perce)*door1->getContentSize().height));
-                    
-                    
-                }else if(m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x > 0){
+
+                //is right
+//                float controlWidth = visibleSize.width/3;
+//                if (m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x < 0  && m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x > -controlWidth) {
+//                    
+//                    float perce = (m_scrollView->getInnerContainer()->getPosition().x + maxlevelpos->getPosition().x) / controlWidth;
+//                    lcc->setVisible(true);
+//                     CCLOG("perce ===  %f",perce);
+//                    door0->setPosition(Vec2(visibleSize.width/2, -door0->getContentSize().height + (-perce)*door0->getContentSize().height));
+//                    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height - (-perce)*door1->getContentSize().height));
+//                    
+//                    
+//                }else if(m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x > 0)
+                {
                 
                     lcc->setVisible(false);
                 }
@@ -365,7 +365,10 @@ bool LevelSelectScene::init()
     
     this->runAction(Sequence::create(DelayTime::create(2),CallFuncN::create(removeLamda), NULL) );
 
-   
+    
+//    m_scrollView->runAction(Sequence::create(DelayTime::create(1),TintTo::create(0.2,Color3B(255,0,0)),TintTo::create(0.2,Color3B(255,255,255)), NULL) );
+ 
+    
     return true;
 }
 

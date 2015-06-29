@@ -44,6 +44,8 @@
         <Project Name="AddScoreLayer.csd" Type="Layer" />
         <Image Name="330292-140416193I222.jpg" />
         <Image Name="winbg.png" />
+        <Image Name="chesspanel.png" />
+        <Image Name="01064364N-1.jpg" />
       </RootFolder>
     </Group>
   </SolutionFolder>

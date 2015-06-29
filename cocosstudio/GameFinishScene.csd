@@ -6,13 +6,13 @@
       <ObjectData Name="Scene" Tag="13" ctype="GameNodeObjectData">
         <Size X="960.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="popup_2" ActionTag="-1176287982" Tag="19" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="241.4989" RightMargin="218.5011" TopMargin="207.0338" BottomMargin="132.9662" ctype="SpriteObjectData">
+          <AbstractNodeData Name="popup_2" ActionTag="-1176287982" Tag="19" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="243.1396" RightMargin="216.8604" TopMargin="195.5576" BottomMargin="144.4424" ctype="SpriteObjectData">
             <Size X="500.0000" Y="300.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="491.4989" Y="282.9662" />
-            <Scale ScaleX="1.1065" ScaleY="1.1626" />
+            <Position X="493.1396" Y="294.4424" />
+            <Scale ScaleX="1.3360" ScaleY="1.4525" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5120" Y="0.4421" />
+            <PrePosition X="0.5137" Y="0.4601" />
             <PreSize />
             <FileData Type="Normal" Path="popupbg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />

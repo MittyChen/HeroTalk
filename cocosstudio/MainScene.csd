@@ -43,24 +43,24 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_1" ActionTag="-1881677975" Tag="7" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="37.9041" RightMargin="724.0959" TopMargin="160.4078" BottomMargin="437.5922" FontSize="36" LabelText="SCORE:100" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_1" ActionTag="-1881677975" Tag="7" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="37.9055" RightMargin="724.0945" TopMargin="116.5667" BottomMargin="481.4333" FontSize="36" LabelText="SCORE:100" ctype="TextObjectData">
             <Size X="198.0000" Y="42.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="136.9041" Y="458.5922" />
+            <Position X="136.9055" Y="502.4333" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1426" Y="0.7166" />
+            <PrePosition X="0.1426" Y="0.7851" />
             <PreSize />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CheckBox_1" ActionTag="-417127203" Tag="11" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="181.7500" RightMargin="738.2500" TopMargin="308.0000" BottomMargin="292.0000" TouchEnable="True" ctype="CheckBoxObjectData">
+          <AbstractNodeData Name="CheckBox_1" ActionTag="-417127203" Tag="11" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="190.5175" RightMargin="729.4824" TopMargin="173.5520" BottomMargin="426.4480" TouchEnable="True" ctype="CheckBoxObjectData">
             <Size X="40.0000" Y="40.0000" />
             <AnchorPoint ScaleX="0.5250" ScaleY="0.4750" />
-            <Position X="202.7500" Y="311.0000" />
+            <Position X="211.5175" Y="445.4480" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2112" Y="0.4859" />
+            <PrePosition X="0.2203" Y="0.6960" />
             <PreSize />
             <NormalBackFileData Type="Default" Path="Default/CheckBox_Normal.png" Plist="" />
             <PressedBackFileData Type="Default" Path="Default/CheckBox_Press.png" Plist="" />
@@ -79,13 +79,13 @@
             <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CheckBox_1_0" ActionTag="345078781" Tag="19" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="181.7500" RightMargin="738.2500" TopMargin="364.0000" BottomMargin="236.0000" TouchEnable="True" ctype="CheckBoxObjectData">
+          <AbstractNodeData Name="CheckBox_1_0" ActionTag="345078781" Tag="19" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="190.5175" RightMargin="729.4824" TopMargin="229.5519" BottomMargin="370.4481" TouchEnable="True" ctype="CheckBoxObjectData">
             <Size X="40.0000" Y="40.0000" />
             <AnchorPoint ScaleX="0.5250" ScaleY="0.4750" />
-            <Position X="202.7500" Y="255.0000" />
+            <Position X="211.5175" Y="389.4481" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2112" Y="0.3984" />
+            <PrePosition X="0.2203" Y="0.6085" />
             <PreSize />
             <NormalBackFileData Type="Default" Path="Default/CheckBox_Normal.png" Plist="" />
             <PressedBackFileData Type="Default" Path="Default/CheckBox_Press.png" Plist="" />
@@ -93,13 +93,13 @@
             <NodeNormalFileData Type="Default" Path="Default/CheckBoxNode_Normal.png" Plist="" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CheckBox_1_0_0" ActionTag="-151881358" Tag="20" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="181.7500" RightMargin="738.2500" TopMargin="417.0000" BottomMargin="183.0000" TouchEnable="True" ctype="CheckBoxObjectData">
+          <AbstractNodeData Name="CheckBox_1_0_0" ActionTag="-151881358" Tag="20" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="190.5175" RightMargin="729.4824" TopMargin="282.5517" BottomMargin="317.4483" TouchEnable="True" ctype="CheckBoxObjectData">
             <Size X="40.0000" Y="40.0000" />
             <AnchorPoint ScaleX="0.5250" ScaleY="0.4750" />
-            <Position X="202.7500" Y="202.0000" />
+            <Position X="211.5175" Y="336.4483" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2112" Y="0.3156" />
+            <PrePosition X="0.2203" Y="0.5257" />
             <PreSize />
             <NormalBackFileData Type="Default" Path="Default/CheckBox_Normal.png" Plist="" />
             <PressedBackFileData Type="Default" Path="Default/CheckBox_Press.png" Plist="" />
@@ -107,40 +107,40 @@
             <NodeNormalFileData Type="Default" Path="Default/CheckBoxNode_Normal.png" Plist="" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_5" ActionTag="-435378273" Tag="21" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="30.5000" RightMargin="785.5000" TopMargin="309.1280" BottomMargin="288.8720" FontSize="36" LabelText="消除单个" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_5" ActionTag="-435378273" Tag="21" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="39.2681" RightMargin="776.7319" TopMargin="174.6806" BottomMargin="423.3194" FontSize="36" LabelText="消除单个" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="144.0000" Y="42.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="102.5000" Y="309.8720" />
+            <Position X="111.2681" Y="444.3194" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1068" Y="0.4842" />
+            <PrePosition X="0.1159" Y="0.6942" />
             <PreSize />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_6" ActionTag="2119023899" Tag="22" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="30.5000" RightMargin="785.5000" TopMargin="362.1280" BottomMargin="235.8720" FontSize="36" LabelText="随机变色" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_6" ActionTag="2119023899" Tag="22" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="39.2681" RightMargin="776.7319" TopMargin="227.6797" BottomMargin="370.3203" FontSize="36" LabelText="随机变色" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="144.0000" Y="42.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="102.5000" Y="256.8720" />
+            <Position X="111.2681" Y="391.3203" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1068" Y="0.4014" />
+            <PrePosition X="0.1159" Y="0.6114" />
             <PreSize />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_7" ActionTag="-2127358312" Tag="23" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="30.5000" RightMargin="785.5000" TopMargin="418.1280" BottomMargin="179.8720" FontSize="36" LabelText="选择变色" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_7" ActionTag="-2127358312" Tag="23" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="39.2681" RightMargin="776.7319" TopMargin="283.6797" BottomMargin="314.3203" FontSize="36" LabelText="选择变色" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="144.0000" Y="42.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="102.5000" Y="200.8720" />
+            <Position X="111.2681" Y="335.3203" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1068" Y="0.3139" />
+            <PrePosition X="0.1159" Y="0.5239" />
             <PreSize />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Sprite_1" ActionTag="-966754186" Tag="76" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="880.6454" RightMargin="-240.6454" TopMargin="291.4714" BottomMargin="280.5286" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Sprite_1" ActionTag="-966754186" Tag="76" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="881.0068" RightMargin="-241.0068" TopMargin="286.5536" BottomMargin="285.4464" ctype="SpriteObjectData">
             <Size X="320.0000" Y="68.0000" />
             <Children>
               <AbstractNodeData Name="Button_exit" ActionTag="-1828578234" Tag="9" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="24.9680" RightMargin="249.0320" TopMargin="17.0336" BottomMargin="14.9664" TouchEnable="True" FontSize="12" Scale9Enable="True" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
@@ -285,21 +285,21 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="1040.6454" Y="314.5286" />
+            <Position X="1041.0068" Y="319.4464" />
             <Scale ScaleX="2.0125" ScaleY="2.2941" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="1.0840" Y="0.4915" />
+            <PrePosition X="1.0844" Y="0.4991" />
             <PreSize X="0.3333" Y="0.1063" />
             <FileData Type="Normal" Path="bg_shop00_bottom@2z.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_1_0" ActionTag="47943298" Tag="74" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="80.9041" RightMargin="767.0959" TopMargin="53.4078" BottomMargin="544.5922" FontSize="36" LabelText="第 1 关" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_1_0" ActionTag="47943298" Tag="74" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="54.5997" RightMargin="793.4003" TopMargin="37.3325" BottomMargin="560.6675" FontSize="36" LabelText="第 1 关" ctype="TextObjectData">
             <Size X="112.0000" Y="42.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="136.9041" Y="565.5922" />
+            <Position X="110.5997" Y="581.6675" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1426" Y="0.8837" />
+            <PrePosition X="0.1152" Y="0.9089" />
             <PreSize />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -329,6 +329,72 @@
             <PreSize />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Text_1_1" ActionTag="242132853" Tag="123" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="78.8412" RightMargin="773.1588" TopMargin="341.4879" BottomMargin="256.5121" FontSize="36" LabelText="  x 100" ctype="TextObjectData">
+            <Size X="108.0000" Y="42.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="132.8412" Y="277.5121" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.1384" Y="0.4336" />
+            <PreSize X="0.2062" Y="0.0656" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Text_1_1_0" ActionTag="1791110393" Tag="126" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="77.4112" RightMargin="774.5888" TopMargin="390.8525" BottomMargin="207.1475" FontSize="36" LabelText="  x 100" ctype="TextObjectData">
+            <Size X="108.0000" Y="42.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="131.4112" Y="228.1475" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.1369" Y="0.3565" />
+            <PreSize X="0.2062" Y="0.0656" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Text_1_1_0_0" ActionTag="-1732332484" Tag="127" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="78.1262" RightMargin="773.8738" TopMargin="438.7869" BottomMargin="159.2131" FontSize="36" LabelText="  x 100" ctype="TextObjectData">
+            <Size X="108.0000" Y="42.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="132.1262" Y="180.2131" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.1376" Y="0.2816" />
+            <PreSize X="0.2062" Y="0.0656" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="whitedot_15" ActionTag="972469064" Tag="128" IconVisible="False" LeftMargin="43.5235" RightMargin="884.4764" TopMargin="351.1655" BottomMargin="256.8345" ctype="SpriteObjectData">
+            <Size X="32.0000" Y="32.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="59.5235" Y="272.8345" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="247" G="0" B="79" />
+            <PrePosition X="0.0620" Y="0.4263" />
+            <PreSize />
+            <FileData Type="Normal" Path="whitedot.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="whitedot_15_0" ActionTag="638011573" Tag="129" IconVisible="False" LeftMargin="43.5235" RightMargin="884.4764" TopMargin="399.4300" BottomMargin="208.5700" ctype="SpriteObjectData">
+            <Size X="32.0000" Y="32.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="59.5235" Y="224.5700" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="0" G="255" B="219" />
+            <PrePosition X="0.0620" Y="0.3509" />
+            <PreSize />
+            <FileData Type="Normal" Path="whitedot.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="whitedot_15_1" ActionTag="92611038" Tag="130" IconVisible="False" LeftMargin="43.5235" RightMargin="884.4764" TopMargin="447.6944" BottomMargin="160.3056" ctype="SpriteObjectData">
+            <Size X="32.0000" Y="32.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="59.5235" Y="176.3056" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="0" G="174" B="247" />
+            <PrePosition X="0.0620" Y="0.2755" />
+            <PreSize />
+            <FileData Type="Normal" Path="whitedot.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
       </ObjectData>
