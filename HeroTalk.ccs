@@ -46,6 +46,7 @@
         <Image Name="winbg.png" />
         <Image Name="chesspanel.png" />
         <Image Name="01064364N-1.jpg" />
+        <Project Name="LevelSelectLayer.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>

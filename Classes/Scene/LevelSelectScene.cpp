@@ -95,8 +95,8 @@ bool LevelSelectScene::init()
     door1->setScale(visibleSize.width/door1->getContentSize().width);
     
     
-    door0->setPosition(Vec2(visibleSize.width/2, -door0->getContentSize().height));
-    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height));
+    door0->setPosition(Vec2(visibleSize.width/2, -door0->getContentSize().height * door0->getScale()));
+    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height * door0->getScale()));
     
     
     
@@ -115,9 +115,16 @@ bool LevelSelectScene::init()
     
     
     
+    
+    rootNode->getChildByTag(91)->setScale(visibleSize.height/rootNode->getChildByTag(91)->getContentSize().height);
+    rootNode->getChildByTag(91)->setPosition(-1 * visibleSize/2);
+    
+    
+    
+    
+    m_scrollView->setInnerContainerSize( Size(rootNode->getChildByTag(91)->getContentSize().width * rootNode->getChildByTag(91)->getScale(), visibleSize.height));
 
-    m_scrollView->setInnerContainerSize(Size(rootNode->getChildByTag(91)->getContentSize().width, visibleSize.height));
-
+    
     //    auto bgSpirit = Sprite::create("selectbg.jpg");
 //    bgSpirit->setPosition(Vec2(bgSpirit->getContentSize().width /2 ,  bgSpirit->getContentSize().height/2));
 //    bgSpirit->setScale(visibleSize.width / this->getContentSize().width  * 1.5) ;
@@ -130,8 +137,8 @@ bool LevelSelectScene::init()
     cocos2d::ui::Button* backbtn = cocos2d::ui::Button::create("goback.png");
    
     
-//    backbtn->setPosition(backbtn->getContentSize()*2);
-    backbtn->setPosition( Vec2( backbtn->getContentSize().width /2  , -backbtn->getContentSize().height/2 + visibleSize.height));
+    backbtn->setPosition(backbtn->getContentSize()/2 );
+//    backbtn->setPosition( Vec2( backbtn->getContentSize().width /2  , -backbtn->getContentSize().height/2 + visibleSize.height));
     
     backbtn->setScale(0.5);
     backbtn->setTitleFontSize(20);
@@ -181,7 +188,7 @@ bool LevelSelectScene::init()
             zOrderFirst = lbn->getGlobalZOrder();
         }
         
-            lbn->setPosition(rootNode->getChildByTag(i)->getPosition());
+        lbn->setPosition(rootNode->getChildByTag(91)->getChildByTag(i)->getPosition() - visibleSize/2);
  
 //        lbn->setGlobalZOrder(rootNode->getChildByTag(i)->getGlobalZOrder());
         
@@ -195,12 +202,21 @@ bool LevelSelectScene::init()
             cocos2d::ui::Button* btnlevelnodeMax =  (cocos2d::ui::Button*) lbn->getChildByName(cc->getCString());
             
             m_scrollView->scrollToPercentHorizontal( 100 * ((lbn->getPosition().x * (maxlevel)) / i) / (m_scrollView->getInnerContainerSize().width) , 2, true);
-            Sprite* userNode = Sprite::create("hero5.png");
-            userNode->setScale(0.2);
-            userNode->setPosition(btnlevelnodeMax->getPosition() + Vec2(0,btnlevelnodeMax->getContentSize().height*3/2));
+            Sprite* userNode = Sprite::create("luffy.png");
+            userNode->setScale(0.5);
+            userNode->setPosition(btnlevelnodeMax->getPosition() + Vec2(0,btnlevelnodeMax->getContentSize().height*2));
             userNode->setLocalZOrder(btnlevelnodeMax->getLocalZOrder()-1);
             lbn->addChild(userNode);
-            maxlevelpos = (Node*)userNode;
+            
+            Sprite* lightp = Sprite::create("whitedotlight.png");
+            lightp->setPosition(btnlevelnodeMax->getPosition() + Vec2(0,0));
+            lightp->setScale(2);
+            lightp->setLocalZOrder(btnlevelnodeMax->getLocalZOrder()-1);
+            lbn->addChild(lightp);
+            lightp->runAction(RepeatForever::create(Blink::create(1, 1)));
+            
+            
+            maxlevelpos = (Node*)lbn;
         }
         
         
@@ -238,62 +254,44 @@ bool LevelSelectScene::init()
     rootNode->getChildByTag(-2)->setGlobalZOrder(zOrderFirst-2);
     rootNode->getChildByTag(91)->setGlobalZOrder(zOrderFirst-2);
     
-    auto gtouchScroll = [maxlevelpos,m_scrollView,door0,door1,lcc,visibleSize](Ref* obj,cocos2d::ui::ScrollView::EventType event)mutable
-    {
-        switch (event) {
-            case cocos2d::ui::ScrollView::EventType::SCROLLING:
-            {
-//                
-//                float cc =  m_scrollView->getInnerContainer()->getPositionPercent().x;
-////                CCLOG("cc ===  %f",cc);
-//                
-//            
-//                
-//                if (cc > -1) {
-//                    lcc->setVisible(false);
-//                    
-//                    door0->setPosition(Vec2(visibleSize.width/2, 0-door0->getContentSize().height));
-//                    door1->setPosition(Vec2(visibleSize.width/2,  visibleSize.height + door1->getContentSize().height));
-//                    
-//                    
-//                }
-//                else if(cc < -1 && cc>-2){
-//                    lcc->setVisible(true);
-//                    lcc->runAction( TintTo::create(2,  255*(cc + 2), 0, 0));
-////                    
-//                    CCLOG("height0******** %f",-door0->getContentSize().height + (-1-cc)*door0->getContentSize().height);
-//                    CCLOG("height1******** %f",visibleSize.height + door1->getContentSize().height - (-1-cc)*(door1->getContentSize().height));
-//                    door0->setPosition(Vec2(visibleSize.width/2, -door0->getContentSize().height + (-1-cc)*door0->getContentSize().height));
-//                    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height - (-1-cc)*door1->getContentSize().height));
-//                }
-
-                //is right
-//                float controlWidth = visibleSize.width/3;
-//                if (m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x < 0  && m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x > -controlWidth) {
-//                    
-//                    float perce = (m_scrollView->getInnerContainer()->getPosition().x + maxlevelpos->getPosition().x) / controlWidth;
-//                    lcc->setVisible(true);
-//                     CCLOG("perce ===  %f",perce);
-//                    door0->setPosition(Vec2(visibleSize.width/2, -door0->getContentSize().height + (-perce)*door0->getContentSize().height));
-//                    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height - (-perce)*door1->getContentSize().height));
-//                    
-//                    
-//                }else if(m_scrollView->getInnerContainer()->getPositionX()+ maxlevelpos->getPosition().x > 0)
-                {
-                
-                    lcc->setVisible(false);
-                }
-                
-                
-                break;
-            }
-                
-                
-            default:
-                break;
-        }
-    };
+   
+    float nodeMaxPosX = visibleSize.width *  m_scrollView->getInnerContainer()->getPositionPercent().x + maxlevelpos->getPosition().x;
+    float controlWidth =  nodeMaxPosX - visibleSize.width;
     
+    auto gtouchScroll = [nodeMaxPosX,controlWidth,maxlevelpos,m_scrollView,door0,door1,lcc,visibleSize](Ref* obj,cocos2d::ui::ScrollView::EventType event)mutable
+    {
+        
+//        float nodeMaxPosXNow = visibleSize.width *  m_scrollView->getInnerContainer()->getPositionPercent().x + maxlevelpos->getPosition().x;
+//        CCLOG("controlWidth  ------  %f",controlWidth);
+//        CCLOG("nodeMaxPosXNow ======  %f",nodeMaxPosXNow);
+//        switch (event) {
+//            case cocos2d::ui::ScrollView::EventType::SCROLLING:
+//            {
+//                if (nodeMaxPosXNow < visibleSize.width   &&  nodeMaxPosXNow > visibleSize.width - controlWidth) {
+//                    float perce = (visibleSize.width - nodeMaxPosXNow) / controlWidth;
+//                    lcc->setVisible(true);
+//                    
+//                    door0->setPosition(Vec2(visibleSize.width/2,  (-1+perce)*door0->getContentSize().height * door0->getScale()));
+//
+//                    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height * door0->getScale() - (perce)*door1->getContentSize().height * door0->getScale()));
+//                    
+//                    
+//                }else
+//                {
+//                
+//                    lcc->setVisible(false);
+//                }
+//                
+//                
+//                break;
+//            }
+//                
+//                
+//            default:
+//                break;
+//        }
+    };
+    lcc->setVisible(false);
     
     
     m_scrollView->addEventListener(gtouchScroll);

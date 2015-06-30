@@ -580,7 +580,7 @@ void GameScene::pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventT
     
     Sprite* pauseRoot = (Sprite*)getChildByName("MainSceneRoot")->getChildByTag(76);
     
-    pauseRoot->runAction(MoveBy::create(0.25, Vec2(-pauseRoot->getContentSize().height * pauseRoot->getScale() -10, 0)));
+    pauseRoot->runAction(MoveTo::create(0.25, Vec2(visibleSize.width-pauseRoot->getContentSize().height/2, visibleSize.height/2)));
     lco->setGlobalZOrder(pauseRoot->getGlobalZOrder()-1);
     
     isPaused = true;
@@ -592,10 +592,11 @@ void GameScene::pauseGameBack(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
         return;
     }
     
+    Size visibleSize = Director::getInstance()->getVisibleSize();
     this->removeChildByTag(-190);
     Sprite* pauseRoot = (Sprite*)getChildByName("MainSceneRoot")->getChildByTag(76);
     
-    pauseRoot->runAction(MoveBy::create(0.25, Vec2(pauseRoot->getContentSize().height* pauseRoot->getScale()+10, 0)));
+    pauseRoot->runAction(MoveBy::create(0.25, Vec2(Vec2(visibleSize.width+pauseRoot->getContentSize().height/2, pauseRoot->getContentSize().height/2) ) ));
     isPauseFlag = true;
 }
 

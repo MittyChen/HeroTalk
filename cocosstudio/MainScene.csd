@@ -54,7 +54,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CheckBox_1" ActionTag="-417127203" Tag="11" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="190.5175" RightMargin="729.4824" TopMargin="173.5520" BottomMargin="426.4480" TouchEnable="True" ctype="CheckBoxObjectData">
+          <AbstractNodeData Name="CheckBox_1" ActionTag="-417127203" Tag="11" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="190.5175" RightMargin="729.4825" TopMargin="173.5520" BottomMargin="426.4480" TouchEnable="True" ctype="CheckBoxObjectData">
             <Size X="40.0000" Y="40.0000" />
             <AnchorPoint ScaleX="0.5250" ScaleY="0.4750" />
             <Position X="211.5175" Y="445.4480" />
@@ -79,7 +79,7 @@
             <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CheckBox_1_0" ActionTag="345078781" Tag="19" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="190.5175" RightMargin="729.4824" TopMargin="229.5519" BottomMargin="370.4481" TouchEnable="True" ctype="CheckBoxObjectData">
+          <AbstractNodeData Name="CheckBox_1_0" ActionTag="345078781" Tag="19" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="190.5175" RightMargin="729.4825" TopMargin="229.5519" BottomMargin="370.4481" TouchEnable="True" ctype="CheckBoxObjectData">
             <Size X="40.0000" Y="40.0000" />
             <AnchorPoint ScaleX="0.5250" ScaleY="0.4750" />
             <Position X="211.5175" Y="389.4481" />
@@ -93,7 +93,7 @@
             <NodeNormalFileData Type="Default" Path="Default/CheckBoxNode_Normal.png" Plist="" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CheckBox_1_0_0" ActionTag="-151881358" Tag="20" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="190.5175" RightMargin="729.4824" TopMargin="282.5517" BottomMargin="317.4483" TouchEnable="True" ctype="CheckBoxObjectData">
+          <AbstractNodeData Name="CheckBox_1_0_0" ActionTag="-151881358" Tag="20" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="190.5175" RightMargin="729.4825" TopMargin="282.5517" BottomMargin="317.4483" TouchEnable="True" ctype="CheckBoxObjectData">
             <Size X="40.0000" Y="40.0000" />
             <AnchorPoint ScaleX="0.5250" ScaleY="0.4750" />
             <Position X="211.5175" Y="336.4483" />
@@ -140,10 +140,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Sprite_1" ActionTag="-966754186" Tag="76" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="881.0068" RightMargin="-241.0068" TopMargin="286.5536" BottomMargin="285.4464" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Sprite_1" ActionTag="-966754186" Tag="76" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="879.1987" RightMargin="-239.1987" TopMargin="290.1610" BottomMargin="281.8390" ctype="SpriteObjectData">
             <Size X="320.0000" Y="68.0000" />
             <Children>
-              <AbstractNodeData Name="Button_exit" ActionTag="-1828578234" Tag="9" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="24.9680" RightMargin="249.0320" TopMargin="17.0336" BottomMargin="14.9664" TouchEnable="True" FontSize="12" Scale9Enable="True" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_exit" ActionTag="-1828578234" Tag="9" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="27.6157" RightMargin="246.3843" TopMargin="20.3522" BottomMargin="11.6478" TouchEnable="True" FontSize="12" Scale9Enable="True" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
                 <Size X="46.0000" Y="36.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_2_0" ActionTag="-1449983853" Tag="14" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-28.9112" RightMargin="-30.0888" TopMargin="-2.0000" BottomMargin="-2.0000" FontSize="35" LabelText="主菜单" ctype="TextObjectData">
@@ -159,10 +159,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="47.9680" Y="32.9664" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="50.6157" Y="29.6478" />
+                <Scale ScaleX="0.9674" ScaleY="0.9674" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.1499" Y="0.4848" />
+                <PrePosition X="0.1582" Y="0.4360" />
                 <PreSize />
                 <TextColor A="255" R="26" G="198" B="123" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
@@ -171,7 +171,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Button_reset" ActionTag="-1698618178" CallBackType="Touch" CallBackName="loadMap" Tag="8" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="184.9040" RightMargin="89.0960" TopMargin="17.0336" BottomMargin="14.9664" TouchEnable="True" FontSize="12" Scale9Enable="True" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_reset" ActionTag="-1698618178" CallBackType="Touch" CallBackName="loadMap" Tag="8" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="182.3348" RightMargin="91.6652" TopMargin="20.3507" BottomMargin="11.6493" TouchEnable="True" FontSize="12" Scale9Enable="True" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
                 <Size X="46.0000" Y="36.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_2_0" ActionTag="-294942215" Tag="13" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-12.4094" RightMargin="-11.5906" TopMargin="-0.4988" BottomMargin="-3.5012" FontSize="35" LabelText="重置" ctype="TextObjectData">
@@ -187,10 +187,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="207.9040" Y="32.9664" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="205.3348" Y="29.6493" />
+                <Scale ScaleX="0.9674" ScaleY="0.9674" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.6497" Y="0.4848" />
+                <PrePosition X="0.6417" Y="0.4360" />
                 <PreSize />
                 <TextColor A="255" R="26" G="198" B="123" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
@@ -199,7 +199,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Button_reset_0" ActionTag="1816471387" CallBackType="Touch" CallBackName="loadMap" Tag="44" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="131.5920" RightMargin="142.4080" TopMargin="17.0336" BottomMargin="14.9664" TouchEnable="True" FontSize="12" Scale9Enable="True" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_reset_0" ActionTag="1816471387" CallBackType="Touch" CallBackName="loadMap" Tag="44" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="130.7634" RightMargin="143.2366" TopMargin="20.3510" BottomMargin="11.6490" TouchEnable="True" FontSize="12" Scale9Enable="True" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
                 <Size X="46.0000" Y="36.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_2_0_4" ActionTag="-1761986852" Tag="24" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-12.4094" RightMargin="-11.5906" TopMargin="-0.4988" BottomMargin="-3.5012" FontSize="35" LabelText="关卡" ctype="TextObjectData">
@@ -215,10 +215,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="154.5920" Y="32.9664" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="153.7634" Y="29.6490" />
+                <Scale ScaleX="0.9674" ScaleY="0.9674" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4831" Y="0.4848" />
+                <PrePosition X="0.4805" Y="0.4360" />
                 <PreSize />
                 <TextColor A="255" R="26" G="198" B="123" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
@@ -227,7 +227,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Button_back" ActionTag="2087348566" Tag="10" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="78.2800" RightMargin="195.7200" TopMargin="17.0336" BottomMargin="14.9664" TouchEnable="True" FontSize="12" Scale9Enable="True" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_back" ActionTag="2087348566" Tag="10" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="79.1896" RightMargin="194.8104" TopMargin="20.3520" BottomMargin="11.6480" TouchEnable="True" FontSize="12" Scale9Enable="True" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
                 <Size X="46.0000" Y="36.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_2" ActionTag="1402431164" Tag="12" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-12.9108" RightMargin="-11.0892" TopMargin="-2.0000" BottomMargin="-2.0000" FontSize="35" LabelText="后退" ctype="TextObjectData">
@@ -243,10 +243,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="101.2800" Y="32.9664" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="102.1896" Y="29.6480" />
+                <Scale ScaleX="0.9674" ScaleY="0.9674" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.3165" Y="0.4848" />
+                <PrePosition X="0.3193" Y="0.4360" />
                 <PreSize />
                 <TextColor A="255" R="26" G="198" B="123" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
@@ -255,7 +255,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Button_reset_1" ActionTag="2126674199" CallBackType="Touch" CallBackName="loadMap" Tag="79" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="238.2160" RightMargin="35.7840" TopMargin="17.0336" BottomMargin="14.9664" TouchEnable="True" FontSize="12" Scale9Enable="True" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_reset_1" ActionTag="2126674199" CallBackType="Touch" CallBackName="loadMap" Tag="79" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="233.9071" RightMargin="40.0929" TopMargin="20.3498" BottomMargin="11.6502" TouchEnable="True" FontSize="12" Scale9Enable="True" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
                 <Size X="46.0000" Y="36.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_2_0_5" ActionTag="749118023" Tag="80" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-12.4094" RightMargin="-11.5906" TopMargin="-0.4988" BottomMargin="-3.5012" FontSize="35" LabelText="恢复" ctype="TextObjectData">
@@ -271,10 +271,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="261.2160" Y="32.9664" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="256.9071" Y="29.6502" />
+                <Scale ScaleX="0.9674" ScaleY="0.9674" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.8163" Y="0.4848" />
+                <PrePosition X="0.8028" Y="0.4360" />
                 <PreSize />
                 <TextColor A="255" R="26" G="198" B="123" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
@@ -285,10 +285,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="1041.0068" Y="319.4464" />
-            <Scale ScaleX="2.0125" ScaleY="2.2941" />
+            <Position X="1039.1987" Y="315.8390" />
+            <Scale ScaleX="2.0525" ScaleY="2.3397" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="1.0844" Y="0.4991" />
+            <PrePosition X="1.0825" Y="0.4935" />
             <PreSize X="0.3333" Y="0.1063" />
             <FileData Type="Normal" Path="bg_shop00_bottom@2z.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
@@ -363,7 +363,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="whitedot_15" ActionTag="972469064" Tag="128" IconVisible="False" LeftMargin="43.5235" RightMargin="884.4764" TopMargin="351.1655" BottomMargin="256.8345" ctype="SpriteObjectData">
+          <AbstractNodeData Name="whitedot_15" ActionTag="972469064" Tag="128" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BothEdge" LeftMargin="43.5235" RightMargin="884.4765" TopMargin="351.1655" BottomMargin="256.8345" ctype="SpriteObjectData">
             <Size X="32.0000" Y="32.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="59.5235" Y="272.8345" />
@@ -374,7 +374,7 @@
             <FileData Type="Normal" Path="whitedot.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="whitedot_15_0" ActionTag="638011573" Tag="129" IconVisible="False" LeftMargin="43.5235" RightMargin="884.4764" TopMargin="399.4300" BottomMargin="208.5700" ctype="SpriteObjectData">
+          <AbstractNodeData Name="whitedot_15_0" ActionTag="638011573" Tag="129" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BothEdge" LeftMargin="43.5235" RightMargin="884.4765" TopMargin="399.4300" BottomMargin="208.5700" ctype="SpriteObjectData">
             <Size X="32.0000" Y="32.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="59.5235" Y="224.5700" />
@@ -385,7 +385,7 @@
             <FileData Type="Normal" Path="whitedot.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="whitedot_15_1" ActionTag="92611038" Tag="130" IconVisible="False" LeftMargin="43.5235" RightMargin="884.4764" TopMargin="447.6944" BottomMargin="160.3056" ctype="SpriteObjectData">
+          <AbstractNodeData Name="whitedot_15_1" ActionTag="92611038" Tag="130" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BothEdge" LeftMargin="43.5235" RightMargin="884.4765" TopMargin="447.6944" BottomMargin="160.3056" ctype="SpriteObjectData">
             <Size X="32.0000" Y="32.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="59.5235" Y="176.3056" />

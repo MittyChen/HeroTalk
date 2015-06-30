@@ -65,7 +65,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("explod.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("colorfulmade.wav");
     
-    __String* ss = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",1);
+    __String* ss = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",7);
     UserDefault::getInstance()->setBoolForKey(ss->getCString(),true);
     
     if (UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED") == 0) {
