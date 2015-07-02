@@ -1,5 +1,5 @@
 #include "SPCscene.h"
-
+#include "CommonUtils.h"
 USING_NS_CC;
 
 
@@ -35,14 +35,29 @@ bool SPCScene::init()
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     
-    this->addChild(LayerColor::create(Color4B(0,200,120,255),visibleSize.width,visibleSize.height));
+    Sprite* fengye = Sprite::create("fengye.png");
+    fengye->setPosition(visibleSize/2);
+    fengye->setAnchorPoint(Vec2(0.5,0.5));
+    fengye->runAction(FadeTo::create(0.001, 255));
+    
+    float scaleX = visibleSize.width/fengye->getContentSize().width;
+    float scaleY = visibleSize.height/fengye->getContentSize().height;
+    float scaleFactor = scaleX>scaleY?scaleX:scaleY;
+    fengye->setScale(scaleFactor);
+    //出现一次 淡化至透明
+    fengye->runAction(FadeTo::create(0.5, 255));
+    
+    this->addChild(fengye);
+    
+    this->addChild(LayerColor::create(GAMEBG_COLOR,visibleSize.width,visibleSize.height));
     
 
+    
     Label* la = Label::create();
     la->setPosition(Vec2(visibleSize.width/2, visibleSize.height *6/7 - la->getContentSize().height * 2));
     la->setString("猜拳大战!");
     la->setSystemFontSize(72);
-    la->setTextColor(Color4B(255, 100, 100, 255));
+    la->setTextColor(Color4B(100, 200, 20, 255));
     this->addChild(la);
     
     scheduleUpdate();

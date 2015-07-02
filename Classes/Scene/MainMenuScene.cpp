@@ -5,6 +5,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "OptionsPopup.h"
 #include "CopyRightScene.h"
+#include "CommonUtils.h"
 USING_NS_CC;
 
 using namespace ui;
@@ -46,26 +47,18 @@ bool MainMenuScene::init()
     
     
     
-    this->addChild(LayerColor::create(Color4B(0,200,120,255),visibleSize.width,visibleSize.height));
+    this->addChild(LayerColor::create(GAMEBG_COLOR,visibleSize.width,visibleSize.height));
    
     Sprite* fengye = Sprite::create("fengye.png");
     fengye->setPosition(visibleSize/2);
     fengye->setAnchorPoint(Vec2(0.5,0.5));
     fengye->runAction(FadeTo::create(0.001, 255));
-   
-    
-
-    
     float scaleX = visibleSize.width/fengye->getContentSize().width;
     float scaleY = visibleSize.height/fengye->getContentSize().height;
-    
     float scaleFactor = scaleX>scaleY?scaleX:scaleY;
-    
     fengye->setScale(scaleFactor);
-    
-    
     //出现一次 淡化至透明
-     fengye->runAction(Sequence::create(ScaleTo::create(0.001, scaleFactor*1.2),ScaleTo::create(2.5, scaleFactor*1),FadeTo::create(5, 50), NULL) );
+     fengye->runAction(Sequence::create(ScaleTo::create(0.001, scaleFactor*1.2),ScaleTo::create(1.5, scaleFactor*1),FadeTo::create(1, 50), NULL) );
     //循环进行播放
 //    fengye->runAction(RepeatForever::create(Sequence::create(FadeTo::create(5, 0),ScaleTo::create(0.01, 1.2),FadeTo::create(0.5, 200),ScaleTo::create(2.5, 1), NULL) ));
     
@@ -189,7 +182,7 @@ bool MainMenuScene::init()
 //    this->runAction(ta);
     
     Label* gameTitle = Label::create();
-    gameTitle->setString("悠悠幼游");
+    gameTitle->setString("色彩消除");
     gameTitle->setSystemFontName("Arial");
     gameTitle->setSystemFontSize(100);
     gameTitle->setAnchorPoint(Vec2(0.5,0.5));
@@ -257,7 +250,21 @@ bool MainMenuScene::init()
         Scene* scene  = Scene::create();
         
         auto shopscene = CSLoader::createNode("ShopScene.csb");
-        scene->addChild(LayerColor::create(Color4B(0,200,120,255),visibleSize.width,visibleSize.height));
+        
+        Sprite* fengye = Sprite::create("fengye.png");
+        fengye->setPosition(visibleSize/2);
+        fengye->setAnchorPoint(Vec2(0.5,0.5));
+        fengye->runAction(FadeTo::create(0.001, 255));
+        
+        float scaleX = visibleSize.width/fengye->getContentSize().width;
+        float scaleY = visibleSize.height/fengye->getContentSize().height;
+        float scaleFactor = scaleX>scaleY?scaleX:scaleY;
+        fengye->setScale(scaleFactor);
+        //出现一次 淡化至透明
+        fengye->runAction(FadeTo::create(0.5, 255));
+        scene->addChild(fengye);
+        
+        scene->addChild(LayerColor::create(GAMEBG_COLOR,visibleSize.width,visibleSize.height));
         
         scene->addChild(shopscene);
         

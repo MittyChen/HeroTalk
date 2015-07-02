@@ -40,7 +40,7 @@ bool LevelNode::init()
     
     cloud = cocos2d::ui::Button::create("whitedot.png");
     cloud->setName("LevelNode_1");
-    
+    cloud->setColor(Color3B(255,150,150));
     cloud->setAnchorPoint(Vec2(0.5, 0.5));
     cloud->setPosition(visibleSize/2);
     cloud->setScale(2);

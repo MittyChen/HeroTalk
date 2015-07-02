@@ -39,6 +39,22 @@ bool LevelSelectScene::init()
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     
+    
+    Sprite* fengye = Sprite::create("fengye.png");
+    fengye->setPosition(visibleSize/2);
+    fengye->setAnchorPoint(Vec2(0.5,0.5));
+    fengye->runAction(FadeTo::create(0.001, 255));
+    
+    float scaleX = visibleSize.width/fengye->getContentSize().width;
+    float scaleY = visibleSize.height/fengye->getContentSize().height;
+    float scaleFactor = scaleX>scaleY?scaleX:scaleY;
+    fengye->setScale(scaleFactor);
+    //出现一次 淡化至透明
+    fengye->runAction(FadeTo::create(0.5, 255));
+   
+    this->addChild(fengye);
+    
+    
 //    std::string fullPath = FileUtils::getInstance()->fullPathForFilename("Levels.plist");
 //    
 //    __Dictionary* pdic = Dictionary::createWithContentsOfFile(fullPath.c_str());
@@ -84,6 +100,10 @@ bool LevelSelectScene::init()
     
     this->addChild(lcc);
     
+
+    
+    
+    
     Sprite* door0 = Sprite::create("clouddoorside.png");
     door0->setAnchorPoint(Vec2(0.5, 0));
     door0->setScale(visibleSize.width/door0->getContentSize().width);
@@ -114,7 +134,7 @@ bool LevelSelectScene::init()
     rootNode->setName("LevelSelectNode");
     
     
-    
+    rootNode->runAction(FadeTo::create(0.5, 150));
     
     rootNode->getChildByTag(91)->setScale(visibleSize.height/rootNode->getChildByTag(91)->getContentSize().height);
     rootNode->getChildByTag(91)->setPosition(-1 * visibleSize/2);
@@ -137,8 +157,8 @@ bool LevelSelectScene::init()
     cocos2d::ui::Button* backbtn = cocos2d::ui::Button::create("goback.png");
    
     
-    backbtn->setPosition(backbtn->getContentSize()/2 );
-//    backbtn->setPosition( Vec2( backbtn->getContentSize().width /2  , -backbtn->getContentSize().height/2 + visibleSize.height));
+//    backbtn->setPosition(backbtn->getContentSize()/2 );
+    backbtn->setPosition( Vec2( backbtn->getContentSize().width /2  , -backbtn->getContentSize().height/2 + visibleSize.height));
     
     backbtn->setScale(0.5);
     backbtn->setTitleFontSize(20);
@@ -211,7 +231,7 @@ bool LevelSelectScene::init()
             Sprite* lightp = Sprite::create("whitedotlight.png");
             lightp->setPosition(btnlevelnodeMax->getPosition() + Vec2(0,0));
             lightp->setScale(2);
-            lightp->setLocalZOrder(btnlevelnodeMax->getLocalZOrder()-1);
+//            lightp->setLocalZOrder(btnlevelnodeMax->getLocalZOrder()-1);
             lbn->addChild(lightp);
             lightp->runAction(RepeatForever::create(Blink::create(1, 1)));
             
@@ -230,14 +250,30 @@ bool LevelSelectScene::init()
         if(originPos != Vec2::ZERO)
         {
 
-            Sprite* rainbow = Sprite::create("route1.png");
-            rainbow->setScale((destinPos - originPos).length()*9/10/rainbow->getContentSize().width);
-            //            rainbow->setAnchorPoint(Vec2(0, 0));
+//            Sprite* rainbow = Sprite::create("route1.png");
+//            rainbow->setScale((destinPos - originPos).length()*9/10/rainbow->getContentSize().width);
+//            //            rainbow->setAnchorPoint(Vec2(0, 0));
+//            float anglex =(destinPos - originPos).getAngle()*180/3.141592653;
+//            rainbow->setRotation(-anglex);
+//            
+//            rainbow->setAnchorPoint(Vec2(0.5, 0));
+//            rainbow->setPosition((destinPos+originPos)/2 + visibleSize/2  );
+//             
+//            rootNode->getChildByTag(91)->addChild(rainbow);
+//            rainbow->setGlobalZOrder(zOrderFirst-1);
+
+        
+            
+            Sprite* rainbow = Sprite::create("levellink.png");
+            rainbow->setScale((destinPos-originPos).length()/rainbow->getContentSize().width
+                              ,0.4);
+            
             float anglex =(destinPos - originPos).getAngle()*180/3.141592653;
             rainbow->setRotation(-anglex);
-            rainbow->setAnchorPoint(Vec2(0.5, 0));
+            
+            rainbow->setAnchorPoint(Vec2(0.5, 0.5));
             rainbow->setPosition((destinPos+originPos)/2 + visibleSize/2  );
-             
+            
             rootNode->getChildByTag(91)->addChild(rainbow);
             rainbow->setGlobalZOrder(zOrderFirst-1);
         }
@@ -293,7 +329,7 @@ bool LevelSelectScene::init()
     };
     lcc->setVisible(false);
     
-    
+//    m_scrollView->setBounceEnabled(true);
     m_scrollView->addEventListener(gtouchScroll);
     
     

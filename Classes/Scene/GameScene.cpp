@@ -12,6 +12,8 @@
 #include "LevelSelectScene.h"
 #include "PreGameScene.h"
 #include "SPCScene.h"
+#include "CommonUtils.h"
+
 USING_NS_CC;
 
 bool GameScene::isPaused  = false;
@@ -62,7 +64,8 @@ bool GameScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    LayerColor* mlcbg = LayerColor::create(Color4B(0,200,120,255),visibleSize.width,visibleSize.height);
+    LayerColor* mlcbg = LayerColor::create(GAMEBG_COLOR_NO_TRANSPARENT,visibleSize.width,visibleSize.height);
+    
     mlcbg->setGlobalZOrder(-100);
     this->addChild(mlcbg);
     
@@ -81,7 +84,7 @@ bool GameScene::init()
     btnPause->addTouchEventListener(CC_CALLBACK_2(GameScene::pauseGame, this) );
 
     
-    cocos2d::ui::Button* btnSPC =  (cocos2d::ui::Button*)rootNode->getChildByTag(61);
+    cocos2d::ui::Button* btnSPC =  (cocos2d::ui::Button*)rootNode->getChildByTag(76)->getChildByTag(61);
     btnSPC->addTouchEventListener(CC_CALLBACK_2(GameScene::startSPC, this) );
 
     
@@ -580,7 +583,7 @@ void GameScene::pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventT
     
     Sprite* pauseRoot = (Sprite*)getChildByName("MainSceneRoot")->getChildByTag(76);
     
-    pauseRoot->runAction(MoveTo::create(0.25, Vec2(visibleSize.width-pauseRoot->getContentSize().height/2, visibleSize.height/2)));
+    pauseRoot->runAction(MoveTo::create(0.25, Vec2(visibleSize.width - pauseRoot->getScaleY() *pauseRoot->getContentSize().height/2, visibleSize.height/2)));
     lco->setGlobalZOrder(pauseRoot->getGlobalZOrder()-1);
     
     isPaused = true;
@@ -596,7 +599,7 @@ void GameScene::pauseGameBack(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
     this->removeChildByTag(-190);
     Sprite* pauseRoot = (Sprite*)getChildByName("MainSceneRoot")->getChildByTag(76);
     
-    pauseRoot->runAction(MoveBy::create(0.25, Vec2(Vec2(visibleSize.width+pauseRoot->getContentSize().height/2, pauseRoot->getContentSize().height/2) ) ));
+    pauseRoot->runAction(MoveBy::create(0.25, Vec2(Vec2(visibleSize.width + pauseRoot->getScaleY() * pauseRoot->getContentSize().height/2, pauseRoot->getContentSize().height/2) ) ));
     isPauseFlag = true;
 }
 
@@ -872,7 +875,7 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                             
                             for(HappyStartCell* temp :templist)
                             {
-                                temp->runAction(Blink::create(0.3, 1));
+                                temp->runAction(Blink::create(0.5, 2));
                             }
                         };
                         
@@ -1081,7 +1084,7 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                             produceCells(pSender);
                         };
                         
-                        this->runAction(Sequence::create(CallFuncN::create(blinkLamdas),DelayTime::create(0.2),CallFuncN::create(removeLoseLamdas),DelayTime::create(1),CallFuncN::create(produceCell), NULL));
+                        this->runAction(Sequence::create(CallFuncN::create(blinkLamdas),DelayTime::create(0.5),CallFuncN::create(removeLoseLamdas),DelayTime::create(1),CallFuncN::create(produceCell), NULL));
                         
                         break;
                     
@@ -2014,17 +2017,17 @@ void GameScene::gameWin()
         this->addChild(ly);
         ly->setName("GameFinish");
         auto rootNode = ly->getChildByName("FinishPopRoot");
-        cocos2d::ui::Button* btnRetry =  (cocos2d::ui::Button*)rootNode->getChildByTag(14);
+        cocos2d::ui::Button* btnRetry =  (cocos2d::ui::Button*)rootNode->getChildByTag(19)->getChildByTag(14);
         btnRetry->addTouchEventListener(CC_CALLBACK_2(GameScene::loadMap, this) );
         
-        cocos2d::ui::Button* btnNext =  (cocos2d::ui::Button*)rootNode->getChildByTag(31);
+        cocos2d::ui::Button* btnNext =  (cocos2d::ui::Button*)rootNode->getChildByTag(19)->getChildByTag(31);
         btnNext->addTouchEventListener(CC_CALLBACK_2(GameScene::gotoLevelNext, this) );
         
-        cocos2d::ui::Button* btnExit =  (cocos2d::ui::Button*)rootNode->getChildByTag(16);
+        cocos2d::ui::Button* btnExit =  (cocos2d::ui::Button*)rootNode->getChildByTag(19)->getChildByTag(16);
         btnExit->addTouchEventListener(CC_CALLBACK_2(GameScene::exitGame, this) );
         
         
-        cocos2d::ui::Text* helptext = (cocos2d::ui::Text*)rootNode->getChildByTag(53);
+        cocos2d::ui::Text* helptext = (cocos2d::ui::Text*)rootNode->getChildByTag(19)->getChildByTag(53);
         
         std::string  storyArr[3] = {"使用随机变色道具，\n可能性价比很高哦~","要是你是个多疑的人，\n最好使用选择变色道具吧~","要是有个小东西挡住你的去路，\n用消除单个道具干掉他吧！！！"};
         
@@ -2033,7 +2036,7 @@ void GameScene::gameWin()
         
         //             helptext->setString("afahfvkjv");
         
-        cocos2d::ui::Text* scorete = (cocos2d::ui::Text*)rootNode->getChildByTag(77);
+        cocos2d::ui::Text* scorete = (cocos2d::ui::Text*)rootNode->getChildByTag(19)->getChildByTag(77);
         
         const char * scoretext = String::createWithFormat("得分 : %lu" , count*count - allcells.size())->getCString();
         scorete->setString(scoretext);

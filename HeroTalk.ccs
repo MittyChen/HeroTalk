@@ -4,22 +4,15 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Project Name="MainScene.csd" Type="Scene" />
-        <Image Name="HelloWorld.png" />
         <Project Name="GameFinishScene.csd" Type="Scene" />
-        <Image Name="popup.png" />
         <Project Name="ColorSelectScene.csd" Type="Scene" />
         <Image Name="whitedot.png" />
         <Image Name="ball.png" />
         <Project Name="ColorSelectNode.csd" Type="Node" />
         <Project Name="OptionsLayer.csd" Type="Layer" />
         <Image Name="CloseNormal.png" />
-        <Image Name="CloseSelected.png" />
         <Project Name="ShopScene.csd" Type="Scene" />
-        <Image Name="gamebg_683-hd.png" />
         <Image Name="bg_shop00_bottom@2z.png" />
-        <Image Name="menu_shop_p-hd.png" />
-        <Image Name="4BOSSev_window-hd.png" />
-        <Image Name="window_get-hd.png" />
         <Project Name="PreGameScene.csd" Type="Scene" />
         <Image Name="dec_0293-hd.png" />
         <Image Name="cn_Menu_Buttonweixin.png" />
@@ -39,14 +32,13 @@
         <Image Name="mapback.png" />
         <Image Name="mapbg2.png" />
         <Image Name="81bOOOPIC46_1024.jpg" />
-        <Image Name="6400131_160108528000_2.jpg" />
-        <Image Name="6148353_120105013333_2.jpg" />
         <Project Name="AddScoreLayer.csd" Type="Layer" />
-        <Image Name="330292-140416193I222.jpg" />
         <Image Name="winbg.png" />
         <Image Name="chesspanel.png" />
         <Image Name="01064364N-1.jpg" />
         <Project Name="LevelSelectLayer.csd" Type="Layer" />
+        <Image Name="testboard.png" />
+        <Image Name="fengye.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -2,6 +2,7 @@
 #include "GameScene.h"
 #include "LevelSelectScene.h"
 #include "cocostudio/CocoStudio.h"
+#include "CommonUtils.h"
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -40,7 +41,24 @@ bool PreGameScene::init()
     
 //    LayerColor* lco =  LayerColor::create(Color4B(0,0,0,100), visibleSize.width, visibleSize.height);
 //    this->addChild(lco);
-    this->addChild(LayerColor::create(Color4B(0,200,120,255),visibleSize.width,visibleSize.height));
+    
+    
+    Sprite* fengye = Sprite::create("fengye.png");
+    fengye->setPosition(visibleSize/2);
+    fengye->setAnchorPoint(Vec2(0.5,0.5));
+    fengye->runAction(FadeTo::create(0.001, 255));
+    
+    float scaleX = visibleSize.width/fengye->getContentSize().width;
+    float scaleY = visibleSize.height/fengye->getContentSize().height;
+    float scaleFactor = scaleX>scaleY?scaleX:scaleY;
+    fengye->setScale(scaleFactor);
+    //出现一次 淡化至透明
+    fengye->runAction(FadeTo::create(0.5, 255));
+    
+    this->addChild(fengye);
+    
+    this->addChild(LayerColor::create(GAMEBG_COLOR,visibleSize.width,visibleSize.height));
+    
     
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(PreGameScene::onTouchBegan,this);

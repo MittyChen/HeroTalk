@@ -4,7 +4,7 @@
 #include "LevelSelectScene.h"
 #include "VideoScene.h"
 #include "SPCScene.h"
-
+#include "CommonUtils.h"
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -65,7 +65,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("explod.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("colorfulmade.wav");
     
-    __String* ss = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",7);
+    __String* ss = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",1);
     UserDefault::getInstance()->setBoolForKey(ss->getCString(),true);
     
     if (UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED") == 0) {
@@ -87,8 +87,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
     
     // create a scene. it's an autorelease object
-    auto scene =  GameScene::createScene(6,2);
-    
+//    auto scene =  GameScene::createScene(6,2);
+      auto scene =  VideoScene::createScene();
     // run
     director->runWithScene(scene);
     

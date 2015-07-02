@@ -18,6 +18,7 @@ ALLFILES = $(call walk, $(LOCAL_PATH)/../../Classes)
 FILE_LIST := hellocpp/main.cpp
 # 从所有文件中提取出所有.cpp文件
 FILE_LIST += $(filter %.cpp, $(ALLFILES))
+FILE_LIST += $(filter %.c, $(ALLFILES))
 
 LOCAL_SRC_FILES := $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
@@ -27,7 +28,8 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/Cell
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/Scene
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ScriptEngine
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/common
-
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/Gif
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/Gif/gif_lib
 
 
 LOCAL_STATIC_LIBRARIES := cocos2dx_static

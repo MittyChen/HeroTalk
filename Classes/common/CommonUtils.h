@@ -13,7 +13,9 @@
 #include <sstream>
 #include <string>
 USING_NS_CC;
-
+//255
+#define GAMEBG_COLOR Color4B(255,117,117,150)
+#define GAMEBG_COLOR_NO_TRANSPARENT Color4B(255,117,117,255)
 class CommonUtils
 {
 public:
