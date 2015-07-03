@@ -100,7 +100,7 @@ SpriteFrame* CacheGif::getGifSpriteFrame(Bitmap* bm, int index)
 		Texture2D* texture = createTexture(bm,index,true);
 		CC_BREAK_IF(! texture);
 
-		spriteFrame = SpriteFrame::createWithTexture(texture, Rect(0,0,texture->getContentSize().width, texture->getContentSize().height));
+		spriteFrame = SpriteFrame::createWithTexture(texture, cocos2d::Rect(0,0,texture->getContentSize().width, texture->getContentSize().height));
 		CC_BREAK_IF(! spriteFrame);
 
 		SpriteFrameCache::getInstance()->addSpriteFrame(spriteFrame, gifFrameName.c_str());

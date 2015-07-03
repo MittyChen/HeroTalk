@@ -32,7 +32,7 @@ bool LevelNode::init()
     mcode = 1;
     isLocked = true;
     int indexz = random(0, 4);
-    Size visibleSize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
 //    __String* ss = __String::createWithFormat("cloud_%d.png",indexz);
@@ -40,7 +40,7 @@ bool LevelNode::init()
     
     cloud = cocos2d::ui::Button::create("whitedot.png");
     cloud->setName("LevelNode_1");
-    cloud->setColor(Color3B(255,150,150));
+    cloud->setColor(Color3B(255,255,255));
     cloud->setAnchorPoint(Vec2(0.5, 0.5));
     cloud->setPosition(visibleSize/2);
     cloud->setScale(2);
@@ -138,14 +138,16 @@ void LevelNode::stopRain()
 {
     cloud->setEnabled(false);
     
-    
+    cloud->setColor(Color3B(0,0,0));
 //    cloud->setColor(Color3B(180,180,180));
     
-    float redr = random(180, 200);
-    float greenr = random(110, 120);
-    float bluer = random(150, 180);
+//    float redr = random(180, 200);
+//    float greenr = random(110, 120);
+//    float bluer = random(150, 180);
+//    
+//    cloud->setColor(Color3B(redr,greenr,bluer));
+
     
-    cloud->setColor(Color3B(redr,greenr,bluer));
     
      ps->stopSystem();
 }

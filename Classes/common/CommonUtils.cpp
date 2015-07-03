@@ -12,7 +12,7 @@
 
 void CommonUtils::showToastOnIOS(Node& pdelegate,const char* message)
 {
-    Size visibleSize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
 
     Label* text = Label::create();
     text->setString(message);
@@ -21,7 +21,7 @@ void CommonUtils::showToastOnIOS(Node& pdelegate,const char* message)
 
     LayerColor* lc =LayerColor::create(Color4B(50,50,50,10));
     lc->setAnchorPoint(Vec2(0.5,0.5));
-    lc->setContentSize(Size(text->getContentSize().width+20,text->getContentSize().height+20));
+    lc->setContentSize(cocos2d::Size(text->getContentSize().width+20,text->getContentSize().height+20));
     lc->setPosition(Vec2(visibleSize.width/2 - lc->getContentSize().width/2,visibleSize.height/6));
 
     text->setPosition(lc->getContentSize()/2);

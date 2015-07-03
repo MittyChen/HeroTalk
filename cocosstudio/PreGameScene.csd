@@ -156,24 +156,24 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_8" ActionTag="1861939297" Tag="69" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="92.5000" RightMargin="675.5000" TopMargin="54.8386" BottomMargin="531.1614" FontSize="48" LabelText="难度选择" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_8" ActionTag="1861939297" Tag="69" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="533.3584" RightMargin="234.6416" TopMargin="44.9063" BottomMargin="541.0938" FontSize="48" LabelText="难度选择" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="192.0000" Y="54.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="188.5000" Y="558.1614" />
+            <Position X="629.3584" Y="568.0938" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1964" Y="0.8721" />
+            <PrePosition X="0.6556" Y="0.8876" />
             <PreSize />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_4" ActionTag="-1000507819" Tag="72" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="721.5000" RightMargin="-17.5000" TopMargin="4.1281" BottomMargin="507.8719" TouchEnable="True" FontSize="36" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="226" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_4" ActionTag="-1000507819" Tag="72" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="7.4291" RightMargin="696.5709" TopMargin="12.8221" BottomMargin="499.1779" TouchEnable="True" FontSize="36" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="226" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="256.0000" Y="128.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="849.5000" Y="571.8719" />
+            <Position X="135.4291" Y="563.1779" />
             <Scale ScaleX="0.5000" ScaleY="0.5000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8849" Y="0.8935" />
+            <PrePosition X="0.1411" Y="0.8800" />
             <PreSize X="0.2667" Y="0.2000" />
             <TextColor A="255" R="144" G="238" B="144" />
             <DisabledFileData Type="Normal" Path="goback.png" Plist="" />

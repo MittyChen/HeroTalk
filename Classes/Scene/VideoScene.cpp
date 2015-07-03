@@ -119,8 +119,8 @@ void VideoScene::onEnter()
 
     };
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    LHVideoPlayerImplCpp::playMP4WithName("res/Audio/splashvideo", Rect(0, 0, visibleSize.width, visibleSize.height),lambastartgame);
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
+    LHVideoPlayerImplCpp::playMP4WithName("res/Audio/splashvideo", cocos2d::Rect(0, 0, visibleSize.width, visibleSize.height),lambastartgame);
     LHVideoPlayerImplCpp::setSkipTitle("跳过");
 #endif
     

@@ -51,6 +51,7 @@
 		1F95B5931AF1D3E700E39A91 /* LoudSpeaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F95B5911AF1D3E700E39A91 /* LoudSpeaker.cpp */; };
 		1FA053B11B26870F00A771CD /* PreGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FA053AF1B26870F00A771CD /* PreGameScene.cpp */; };
 		1FA053B61B26C76700A771CD /* CopyRightScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FA053B41B26C76700A771CD /* CopyRightScene.cpp */; };
+		1FA1DC391B466A9700DB95A6 /* ShopScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FA1DC371B466A9700DB95A6 /* ShopScene.cpp */; };
 		1FA2D6321AF0D7DB0093B18F /* StageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2D6301AF0D7DB0093B18F /* StageManager.cpp */; };
 		1FA6F96B1B16D79E006CA13B /* CKIAPManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FA6F9681B16D79E006CA13B /* CKIAPManager.mm */; };
 		1FA6F96C1B16D79E006CA13B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA6F96A1B16D79E006CA13B /* Reachability.m */; };
@@ -192,6 +193,8 @@
 		1FA053B01B26870F00A771CD /* PreGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreGameScene.h; sourceTree = "<group>"; };
 		1FA053B41B26C76700A771CD /* CopyRightScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CopyRightScene.cpp; sourceTree = "<group>"; };
 		1FA053B51B26C76700A771CD /* CopyRightScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CopyRightScene.h; sourceTree = "<group>"; };
+		1FA1DC371B466A9700DB95A6 /* ShopScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShopScene.cpp; sourceTree = "<group>"; };
+		1FA1DC381B466A9700DB95A6 /* ShopScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopScene.h; sourceTree = "<group>"; };
 		1FA2D6301AF0D7DB0093B18F /* StageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StageManager.cpp; sourceTree = "<group>"; };
 		1FA2D6311AF0D7DB0093B18F /* StageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "\U0010StageManager.h"; sourceTree = "<group>"; };
 		1FA6F9671B16D79E006CA13B /* CKIAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKIAPManager.h; sourceTree = "<group>"; };
@@ -439,6 +442,8 @@
 		1F75ED7C1B0C620A0053E55B /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				1FA1DC371B466A9700DB95A6 /* ShopScene.cpp */,
+				1FA1DC381B466A9700DB95A6 /* ShopScene.h */,
 				1F0869651B3C037000A99CFF /* SPCScene.cpp */,
 				1F0869661B3C037000A99CFF /* SPCScene.h */,
 				1FA053B41B26C76700A771CD /* CopyRightScene.cpp */,
@@ -709,6 +714,7 @@
 				1F0869601B3BE63F00A99CFF /* GifMovie.cpp in Sources */,
 				1F0869571B3BE63F00A99CFF /* Bitmap.cpp in Sources */,
 				1FA053B61B26C76700A771CD /* CopyRightScene.cpp in Sources */,
+				1FA1DC391B466A9700DB95A6 /* ShopScene.cpp in Sources */,
 				1F43732C1B0DD7C600A7FD8D /* VideoScene.cpp in Sources */,
 				1F7B26C61B202EAA00A2A691 /* OptionsPopup.cpp in Sources */,
 				1F4373261B0DB90300A7FD8D /* LoadingScene.cpp in Sources */,
@@ -776,6 +782,7 @@
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -812,6 +819,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: ceshithree chukong (H7T4Z77YHW)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (

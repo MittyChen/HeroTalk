@@ -6,6 +6,7 @@
 #include "OptionsPopup.h"
 #include "CopyRightScene.h"
 #include "CommonUtils.h"
+#include "ShopScene.h"
 USING_NS_CC;
 
 using namespace ui;
@@ -37,7 +38,7 @@ bool MainMenuScene::init()
 
     scheduleUpdate();
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     
@@ -52,7 +53,7 @@ bool MainMenuScene::init()
     Sprite* fengye = Sprite::create("fengye.png");
     fengye->setPosition(visibleSize/2);
     fengye->setAnchorPoint(Vec2(0.5,0.5));
-    fengye->runAction(FadeTo::create(0.001, 255));
+    fengye->runAction(FadeTo::create(0.001, 200));
     float scaleX = visibleSize.width/fengye->getContentSize().width;
     float scaleY = visibleSize.height/fengye->getContentSize().height;
     float scaleFactor = scaleX>scaleY?scaleX:scaleY;
@@ -247,33 +248,7 @@ bool MainMenuScene::init()
         if (event != ui::Widget::TouchEventType::ENDED) {
             return;
         }
-        Scene* scene  = Scene::create();
-        
-        auto shopscene = CSLoader::createNode("ShopScene.csb");
-        
-        Sprite* fengye = Sprite::create("fengye.png");
-        fengye->setPosition(visibleSize/2);
-        fengye->setAnchorPoint(Vec2(0.5,0.5));
-        fengye->runAction(FadeTo::create(0.001, 255));
-        
-        float scaleX = visibleSize.width/fengye->getContentSize().width;
-        float scaleY = visibleSize.height/fengye->getContentSize().height;
-        float scaleFactor = scaleX>scaleY?scaleX:scaleY;
-        fengye->setScale(scaleFactor);
-        //出现一次 淡化至透明
-        fengye->runAction(FadeTo::create(0.5, 255));
-        scene->addChild(fengye);
-        
-        scene->addChild(LayerColor::create(GAMEBG_COLOR,visibleSize.width,visibleSize.height));
-        
-        scene->addChild(shopscene);
-        
-        
-        shopscene->setContentSize(visibleSize);
-        ui::Helper::doLayout(shopscene);
-        
-        cocos2d::ui::Button* backbtn =  (cocos2d::ui::Button*)shopscene->getChildByTag(41);
-        backbtn->addTouchEventListener(gobackMain);
+        Scene* scene  = ShopScene::createScene();
     
         // run
         Director::getInstance()->pushScene(TransitionFade::create(1, scene));

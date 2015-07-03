@@ -3,7 +3,7 @@
 #include "SimpleAudioEngine.h"
 #include "LevelSelectScene.h"
 #include "VideoScene.h"
-#include "SPCScene.h"
+#include "ShopScene.h"
 #include "CommonUtils.h"
 USING_NS_CC;
 
@@ -29,13 +29,13 @@ void AppDelegate::initGLContextAttrs()
 
 bool AppDelegate::applicationDidFinishLaunching() {
 
-    Size originsize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size originsize = Director::getInstance()->getVisibleSize();
 
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::createWithRect("HeroTalk", Rect(0, 0, originsize.width , originsize.height));
+        glview = GLViewImpl::createWithRect("HeroTalk", cocos2d::Rect(0, 0, originsize.width , originsize.height));
         director->setOpenGLView(glview);
     }
     
@@ -88,7 +88,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     // create a scene. it's an autorelease object
 //    auto scene =  GameScene::createScene(6,2);
-      auto scene =  VideoScene::createScene();
+      auto scene =  ShopScene::createScene();
     // run
     director->runWithScene(scene);
     

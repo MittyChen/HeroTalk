@@ -82,7 +82,7 @@ bool StoryScene::init()
 
     
     
-    const char*  storyArr[3] = {"高寒者","非高冷至极也","乃高处不胜寒是也"};
+    const char*  storyArr[3] = {"人生不只有黑白","从现在开始","你需要色彩"};
     
     Label* storyLabel = Label::create();
     storyLabel->setSystemFontSize(36);
@@ -98,7 +98,11 @@ bool StoryScene::init()
        
         if (currentLine <= 2 ) {
             storyLabel->setString(storyArr[currentLine]);
-        }else{
+        }else
+        {
+            
+            
+            
             auto scene = TalkScene::createScene();
             // run
             Director::getInstance()->replaceScene(TransitionFade::create(1, scene));

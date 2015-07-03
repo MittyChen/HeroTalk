@@ -11,7 +11,7 @@
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-0.0005" />
             <Scale ScaleX="0.2637" ScaleY="0.2616" />
-            <CColor A="255" R="255" G="255" B="255" />
+            <CColor A="255" R="238" G="116" B="169" />
             <PrePosition />
             <PreSize />
             <FileData Type="Normal" Path="ball.png" Plist="" />

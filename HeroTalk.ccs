@@ -39,6 +39,13 @@
         <Project Name="LevelSelectLayer.csd" Type="Layer" />
         <Image Name="testboard.png" />
         <Image Name="fengye.png" />
+        <Image Name="shophead.png" />
+        <Image Name="shop_frame.png" />
+        <Image Name="shop_random.png" />
+        <Image Name="store_selectcolor.png" />
+        <Image Name="store_single.png" />
+        <Image Name="mittylogo.png" />
+        <Image Name="pause.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

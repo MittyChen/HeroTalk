@@ -61,7 +61,7 @@ bool GameScene::init()
     
     
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     LayerColor* mlcbg = LayerColor::create(GAMEBG_COLOR_NO_TRANSPARENT,visibleSize.width,visibleSize.height);
@@ -276,7 +276,7 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
             for(int j =0 ; j < count ; ++j)
             {
                 HappyStartCell* mm =  HappyStartCell::create();
-                mm->setParameters(Color3B(25.5f * i,25.5f * j,10.f*(i+j)),unitOriginPosition,Size(munitSize,munitSize),Vec2(i,j),count);
+                mm->setParameters(Color3B(25.5f * i,25.5f * j,10.f*(i+j)),unitOriginPosition,cocos2d::Size(munitSize,munitSize),Vec2(i,j),count);
                 allcells.insert(pair<Vec2, HappyStartCell*> (Vec2(i,j), mm));
                 addChild((Node*)mm);
                 
@@ -365,7 +365,7 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
         for(int j =0 ; j < count ; ++j)
         {
             HappyStartCell* mm =  HappyStartCell::create();
-            mm->setParameters(Color3B(25.5f * i,25.5f * j,10.f*(i+j)),unitOriginPosition,Size(munitSize,munitSize),Vec2(i,j),count);
+            mm->setParameters(Color3B(25.5f * i,25.5f * j,10.f*(i+j)),unitOriginPosition,cocos2d::Size(munitSize,munitSize),Vec2(i,j),count);
             allcells.insert(pair<Vec2, HappyStartCell*> (Vec2(i,j), mm));
             addChild((Node*)mm);
              mm->setGlobalZOrder(pauseRoot->getGlobalZOrder() -2);
@@ -534,7 +534,7 @@ void GameScene::backOneStep(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
             {
                 
                 HappyStartCell* mCell = HappyStartCell::create();
-                mCell->setParameters(Color3B(0,0,0),unitOriginPosition,Size(munitSize,munitSize),tempCell._posIndex,count);
+                mCell->setParameters(Color3B(0,0,0),unitOriginPosition,cocos2d::Size(munitSize,munitSize),tempCell._posIndex,count);
                 mCell->setType((CELL_TYPE) tempCell._mType);
                 
                 mCell->setdownShouldGo(0.0f);
@@ -574,7 +574,7 @@ void GameScene::pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventT
     }
     
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     LayerColor* lco =  LayerColor::create(Color4B(0,0,0,100), visibleSize.width, visibleSize.height);
@@ -595,7 +595,7 @@ void GameScene::pauseGameBack(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
         return;
     }
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     this->removeChildByTag(-190);
     Sprite* pauseRoot = (Sprite*)getChildByName("MainSceneRoot")->getChildByTag(76);
     
@@ -1808,7 +1808,7 @@ void GameScene::produceCells(Node* psender)
                 if (allcells.find(Vec2(i, j)) == allcells.end()) {
                     
                     HappyStartCell* mm =  HappyStartCell::create();
-                    mm->setParameters(Color3B(25.5f * i,25.5f * j,10.f*(i+j)),unitOriginPosition,Size(munitSize,munitSize),Vec2(i,j),count);
+                    mm->setParameters(Color3B(25.5f * i,25.5f * j,10.f*(i+j)),unitOriginPosition,cocos2d::Size(munitSize,munitSize),Vec2(i,j),count);
                     allcells.insert(pair<Vec2, HappyStartCell*> (Vec2(i,j), mm));
                     addChild((Node*)mm);
                     mm->setGlobalZOrder(pauseRoot->getGlobalZOrder() -2);
@@ -1920,7 +1920,7 @@ void GameScene::checkoutResult()
                     auto gotoFinish = [=](Ref* pSender)
                     {
                         
-                        Size visibleSize = Director::getInstance()->getVisibleSize();
+                        cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
                         auto rootNode = CSLoader::createNode("AddScoreLayer.csb");
                         rootNode->setAnchorPoint(Vec2(0.5,0.5));
                        

@@ -35,7 +35,7 @@ bool LevelSelectScene::init()
         return false;
     }
     scheduleUpdate();
-    Size visibleSize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     
@@ -87,9 +87,9 @@ bool LevelSelectScene::init()
     
     ui::ScrollView* m_scrollView =  ui::ScrollView::create();
     m_scrollView->setDirection( ui::ScrollView::Direction::HORIZONTAL);
-    m_scrollView->setAnchorPoint(Point::ZERO);
+    m_scrollView->setAnchorPoint(cocos2d::Point::ZERO);
     m_scrollView->setPosition(Vec2::ZERO);
-    m_scrollView->setInnerContainerSize(Size(visibleSize.width * (LEVEL_COUNT / 9 ), visibleSize.height));
+    m_scrollView->setInnerContainerSize(cocos2d::Size(visibleSize.width * (LEVEL_COUNT / 9 ), visibleSize.height));
     
     m_scrollView->setContentSize(visibleSize);
     m_scrollView->setSwallowTouches(false);
@@ -142,7 +142,7 @@ bool LevelSelectScene::init()
     
     
     
-    m_scrollView->setInnerContainerSize( Size(rootNode->getChildByTag(91)->getContentSize().width * rootNode->getChildByTag(91)->getScale(), visibleSize.height));
+    m_scrollView->setInnerContainerSize( cocos2d::Size(rootNode->getChildByTag(91)->getContentSize().width * rootNode->getChildByTag(91)->getScale(), visibleSize.height));
 
     
     //    auto bgSpirit = Sprite::create("selectbg.jpg");

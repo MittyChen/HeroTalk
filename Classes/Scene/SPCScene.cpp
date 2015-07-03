@@ -31,7 +31,7 @@ bool SPCScene::init()
     }
 
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     
@@ -45,7 +45,7 @@ bool SPCScene::init()
     float scaleFactor = scaleX>scaleY?scaleX:scaleY;
     fengye->setScale(scaleFactor);
     //出现一次 淡化至透明
-    fengye->runAction(FadeTo::create(0.5, 255));
+    fengye->runAction(FadeTo::create(0.5, 200));
     
     this->addChild(fengye);
     
@@ -57,7 +57,7 @@ bool SPCScene::init()
     la->setPosition(Vec2(visibleSize.width/2, visibleSize.height *6/7 - la->getContentSize().height * 2));
     la->setString("猜拳大战!");
     la->setSystemFontSize(72);
-    la->setTextColor(Color4B(100, 200, 20, 255));
+    la->setTextColor(Color4B(255, 255, 255, 255));
     this->addChild(la);
     
     scheduleUpdate();

@@ -52,15 +52,15 @@ int Character::getID()
 void Character::showPortraitAtPosition(int posindex,Node& parent)
 {
     positionIndex = posindex;
-    Vec2 originpos = Director::getInstance()->getVisibleOrigin();
-    Size originsize = Director::getInstance()->getVisibleSize();
+    cocos2d::Vec2 originpos = Director::getInstance()->getVisibleOrigin();
+    cocos2d::Size originsize = Director::getInstance()->getVisibleSize();
     
     if(!parent.getChildByTag(STAGE_TALK_CONTENT_TAG))
     {
         talkContent->setAnchorPoint(Vec2(0.5,0.5));
         talkContent->setString( DramaDirector::currentTalkcontent);
         talkContent->setSystemFontSize(36);
-        talkContent->setPosition( Vec2(originpos.x + originsize.width/2, originpos.y + originsize.height/5) );
+        talkContent->setPosition( cocos2d::Vec2(originpos.x + originsize.width/2, originpos.y + originsize.height/5) );
         talkContent->setZOrder(STAGE_MASK_ZORDER + 11);
         talkContent->setTag(STAGE_TALK_CONTENT_TAG);
         parent.addChild(talkContent);

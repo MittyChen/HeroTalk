@@ -22,7 +22,7 @@ bool StageManager::init()
     stagemask->setTag(STAGE_MASK_TAG);
     stagemask->setZOrder(STAGE_MASK_ZORDER);
     Vec2 originpos = Director::getInstance()->getVisibleOrigin();
-    Size originsize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size originsize = Director::getInstance()->getVisibleSize();
 
     
     talkframe = Sprite::create("talkframe.png");
@@ -54,7 +54,7 @@ void StageManager::setDelegate(Node& delegate)
 void StageManager::setBackTexture(const char* _backTexture)
 {
     Vec2 originpos = Director::getInstance()->getVisibleOrigin();
-    Size originsize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size originsize = Director::getInstance()->getVisibleSize();
 
     this->_backTexture = _backTexture;
     backTexture->setTexture(_backTexture);

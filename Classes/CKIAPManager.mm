@@ -14,6 +14,10 @@
 #define kVerifyTransactionTimeout 30.0
 #define debug_bypassInAppPurchase 0
 
+@class CKIAPManager;
+
+
+
 @implementation CKIAPManager
 
 @synthesize enabled = _enabled;

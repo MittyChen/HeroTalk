@@ -36,7 +36,7 @@ bool OptionsPopup::init()
 
     scheduleUpdate();
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     Sprite* fengye = Sprite::create("fengye.png");
@@ -49,7 +49,7 @@ bool OptionsPopup::init()
     float scaleFactor = scaleX>scaleY?scaleX:scaleY;
     fengye->setScale(scaleFactor);
     //出现一次 淡化至透明
-    fengye->runAction(FadeTo::create(0.5, 255));
+    fengye->runAction(FadeTo::create(0.5, 200));
     
     this->addChild(fengye);
     

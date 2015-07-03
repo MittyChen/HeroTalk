@@ -66,7 +66,7 @@ void DramaDirector::setDelegate(Node& delegate,const char* bgmusic,const char* s
     delegate.addChild(this);
     
     Vec2 originpos = Director::getInstance()->getVisibleOrigin();
-    Size originsize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size originsize = Director::getInstance()->getVisibleSize();
     
     
     Label* skipLabel = Label::create();
