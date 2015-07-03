@@ -17,19 +17,19 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ScrollView_1" ActionTag="1297671048" Tag="83" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="273.5858" RightMargin="186.4142" TopMargin="201.5262" BottomMargin="38.4738" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" ClipAble="True" BackColorAlpha="99" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="Vertical" ctype="ScrollViewObjectData">
+          <AbstractNodeData Name="ScrollView_1" ActionTag="1297671048" Tag="83" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="273.5858" RightMargin="186.4142" TopMargin="201.5262" BottomMargin="38.4738" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" ClipAble="True" BackColorAlpha="135" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="Vertical" ctype="ScrollViewObjectData">
             <Size X="500.0000" Y="400.0000" />
             <Children>
-              <AbstractNodeData Name="Text_2" ActionTag="-948610044" Tag="84" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="61.5000" RightMargin="58.5000" TopMargin="24.9600" BottomMargin="230.0400" FontSize="20" LabelText="AFB公司对其发行的或与合作公司共同发行&#xA;的包括但不限于产品或服务的全部内容及腾&#xA;讯网站上的材料拥有版权等知识产权，受法&#xA;律保护。&#xA;未经本公司书面许可，任何单位及个人不得&#xA;以任何方式或理由对上述产品、服务、信&#xA;息、材料的任何部分进行使用、复制、修&#xA;改、抄录、传播或与其它产品捆绑使用、销&#xA;售。&#xA;&#xA;凡侵犯本公司版权等知识产权的，本公司必&#xA;依法追究其法律责任。&#xA;&#xA;本公司法律事务部受本公司指示，特此郑重&#xA;法律声明！" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
-                <Size X="380.0000" Y="345.0000" />
+              <AbstractNodeData Name="Text_2" ActionTag="-948610044" Tag="84" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="23.5004" RightMargin="20.4996" TopMargin="25.5038" BottomMargin="154.4962" FontSize="24" LabelText="AFB公司对其发行的或与合作公司共同发行&#xA;的包括但不限于产品或服务的全部内容及腾&#xA;讯网站上的材料拥有版权等知识产权，受法&#xA;律保护。&#xA;未经本公司书面许可，任何单位及个人不得&#xA;以任何方式或理由对上述产品、服务、信&#xA;息、材料的任何部分进行使用、复制、修&#xA;改、抄录、传播或与其它产品捆绑使用、销&#xA;售。&#xA;&#xA;凡侵犯本公司版权等知识产权的，本公司必&#xA;依法追究其法律责任。&#xA;&#xA;本公司法律事务部受本公司指示，特此郑重&#xA;法律声明！" OutlineSize="1" ShadowOffsetY="-1" ctype="TextObjectData">
+                <Size X="456.0000" Y="420.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="251.5000" Y="402.5400" />
+                <Position X="251.5004" Y="364.4962" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5030" Y="0.6709" />
+                <PrePosition X="0.5030" Y="0.6075" />
                 <PreSize X="3.0400" Y="0.1533" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
+                <ShadowColor A="255" R="126" G="255" B="132" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint />

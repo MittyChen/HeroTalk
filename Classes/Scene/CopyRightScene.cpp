@@ -58,16 +58,13 @@ bool CopyRightScene::init()
     float scaleFactor = scaleX>scaleY?scaleX:scaleY;
     fengye->setScale(scaleFactor);
     //出现一次 淡化至透明
-    fengye->runAction(FadeTo::create(0.5, 200));
+    fengye->runAction(FadeTo::create(0.5, 180));
     
     this->addChild(fengye);
     
     
     this->addChild(LayerColor::create(GAMEBG_COLOR,visibleSize.width,visibleSize.height));
 //    Color4B(0,200,120,255) 、、grreen
-    
-   
-    
     
     
     auto listener = EventListenerTouchOneByOne::create();

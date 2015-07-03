@@ -263,7 +263,7 @@ bool MainMenuScene::init()
         }
         
         Scene* op = OptionsPopup::createScene();
-        Director::getInstance()->pushScene(TransitionFade::create(1, op));
+        Director::getInstance()->replaceScene(TransitionFade::create(1, op));
     };
     
     options->addTouchEventListener(gotoOptions);

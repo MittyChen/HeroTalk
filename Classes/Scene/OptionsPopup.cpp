@@ -1,5 +1,5 @@
 #include "OptionsPopup.h"
-#include "GameScene.h"
+#include "MainMenuScene.h"
 
 #include "SimpleAudioEngine.h"
 #include "cocostudio/CocoStudio.h"
@@ -134,6 +134,10 @@ void OptionsPopup::checkEffect(cocos2d::Ref* object)
 
 void OptionsPopup::closeOptions(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
-//    this->removeFromParent();
-    Director::getInstance()->popScene();
+    if (type != ui::Widget::TouchEventType::ENDED) {
+        return;
+    }
+    
+    Scene* op = MainMenuScene::createScene();
+    Director::getInstance()->replaceScene(TransitionFade::create(1, op));
 }
