@@ -134,7 +134,7 @@ bool LevelSelectScene::init()
     rootNode->setName("LevelSelectNode");
     
     
-    rootNode->runAction(FadeTo::create(0.5, 150));
+    rootNode->runAction(FadeTo::create(0.5, 180));
     
     rootNode->getChildByTag(91)->setScale(visibleSize.height/rootNode->getChildByTag(91)->getContentSize().height);
     rootNode->getChildByTag(91)->setPosition(-1 * visibleSize/2);
@@ -222,11 +222,15 @@ bool LevelSelectScene::init()
             cocos2d::ui::Button* btnlevelnodeMax =  (cocos2d::ui::Button*) lbn->getChildByName(cc->getCString());
             
             m_scrollView->scrollToPercentHorizontal( 100 * ((lbn->getPosition().x * (maxlevel)) / i) / (m_scrollView->getInnerContainerSize().width) , 2, true);
-            Sprite* userNode = Sprite::create("luffy.png");
-            userNode->setScale(0.5);
+            Sprite* userNode = Sprite::create("diamond.png");
+            userNode->setScale(0.4);
             userNode->setPosition(btnlevelnodeMax->getPosition() + Vec2(0,btnlevelnodeMax->getContentSize().height*2));
             userNode->setLocalZOrder(btnlevelnodeMax->getLocalZOrder()-1);
             lbn->addChild(userNode);
+//            userNode->runAction(RepeatForever::create(RotateBy::create(1,  Vec3(0,60,0))));
+            
+            userNode->runAction(RepeatForever::create(JumpTo::create(1, btnlevelnodeMax->getPosition() + Vec2(0,btnlevelnodeMax->getContentSize().height*2) , 15, 1)));
+            
             
             Sprite* lightp = Sprite::create("whitedotlight.png");
             lightp->setPosition(btnlevelnodeMax->getPosition() + Vec2(0,0));
@@ -366,12 +370,12 @@ bool LevelSelectScene::init()
 ////    ActionInterval* lens = Lens3D::create(10, Size(32, 24), Vec2(100, 180), 150);
 //    
 //    // create a Waved3D action
-//    ActionInterval* waves = Waves3D::create(30, Size(10, 10), 20, 20);
+//    ActionInterval* waves = Waves3D::create(30, cocos2d::Size(10, 10), 20, 20);
 //    auto nodeGrid = NodeGrid::create();
 //    nodeGrid->addChild(waterSpirit);
 //    nodeGrid->runAction(RepeatForever::create(waves));
 //    
-////    nodeGrid->runAction(RepeatForever::create(lens));
+////  nodeGrid->runAction(RepeatForever::create(lens));
 //    
 //    this->addChild(nodeGrid);
 //    
@@ -387,8 +391,8 @@ bool LevelSelectScene::init()
 //    listener->onTouchBegan = CC_CALLBACK_2(LevelSelectScene::onTouchBegan,this);
 //    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener,this);
 //    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
-//    
-//    
+    
+    
     
     auto removeLamda = [=](Ref* pSender)
     {

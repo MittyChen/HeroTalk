@@ -79,7 +79,7 @@
             <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CheckBox_1_0" ActionTag="345078781" Tag="19" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-32.2337" RightMargin="736.2338" TopMargin="282.1535" BottomMargin="101.8465" TouchEnable="True" ctype="CheckBoxObjectData">
+          <AbstractNodeData Name="CheckBox_1_0" ActionTag="345078781" Tag="19" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-32.2337" RightMargin="736.2337" TopMargin="282.1535" BottomMargin="101.8465" TouchEnable="True" ctype="CheckBoxObjectData">
             <Size X="256.0000" Y="256.0000" />
             <AnchorPoint ScaleX="0.5250" ScaleY="0.4750" />
             <Position X="102.1663" Y="223.4465" />
@@ -93,7 +93,7 @@
             <NodeNormalFileData Type="Normal" Path="shop_frame.png" Plist="" />
             <NodeDisableFileData Type="Normal" Path="shop_frame.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CheckBox_1_0_0" ActionTag="-151881358" Tag="20" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-32.2337" RightMargin="736.2338" TopMargin="373.0883" BottomMargin="10.9117" TouchEnable="True" ctype="CheckBoxObjectData">
+          <AbstractNodeData Name="CheckBox_1_0_0" ActionTag="-151881358" Tag="20" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-32.2337" RightMargin="736.2337" TopMargin="373.0883" BottomMargin="10.9117" TouchEnable="True" ctype="CheckBoxObjectData">
             <Size X="256.0000" Y="256.0000" />
             <AnchorPoint ScaleX="0.5250" ScaleY="0.4750" />
             <Position X="102.1663" Y="132.5117" />
@@ -297,8 +297,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_1_1" ActionTag="242132853" Tag="123" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="98.4429" RightMargin="753.5571" TopMargin="139.1613" BottomMargin="458.8387" FontSize="36" LabelText="  x 100" ctype="TextObjectData">
-            <Size X="108.0000" Y="42.0000" />
+          <AbstractNodeData Name="Text_1_1" ActionTag="242132853" Tag="123" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="98.4429" RightMargin="753.5571" TopMargin="139.1613" BottomMargin="458.8387" FontSize="36" LabelText="  x 0" ctype="TextObjectData">
+            <Size X="68.0000" Y="42.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="152.4429" Y="479.8387" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -308,8 +308,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_1_1_0" ActionTag="1791110393" Tag="126" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="97.0131" RightMargin="754.9869" TopMargin="188.5258" BottomMargin="409.4742" FontSize="36" LabelText="  x 100" ctype="TextObjectData">
-            <Size X="108.0000" Y="42.0000" />
+          <AbstractNodeData Name="Text_1_1_0" ActionTag="1791110393" Tag="126" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="97.0131" RightMargin="754.9869" TopMargin="188.5258" BottomMargin="409.4742" FontSize="36" LabelText="  x 0" ctype="TextObjectData">
+            <Size X="68.0000" Y="42.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="151.0131" Y="430.4742" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -319,8 +319,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_1_1_0_0" ActionTag="-1732332484" Tag="127" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="97.7278" RightMargin="754.2722" TopMargin="236.4603" BottomMargin="361.5397" FontSize="36" LabelText="  x 100" ctype="TextObjectData">
-            <Size X="108.0000" Y="42.0000" />
+          <AbstractNodeData Name="Text_1_1_0_0" ActionTag="-1732332484" Tag="127" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="97.7278" RightMargin="754.2722" TopMargin="236.4603" BottomMargin="361.5397" FontSize="36" LabelText="  x 0" ctype="TextObjectData">
+            <Size X="68.0000" Y="42.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="151.7278" Y="382.5397" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />

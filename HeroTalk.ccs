@@ -46,6 +46,7 @@
         <Image Name="store_single.png" />
         <Image Name="mittylogo.png" />
         <Image Name="pause.png" />
+        <Image Name="buybtn.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -21,7 +21,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ScrollView_3" CanEdit="False" ActionTag="411937129" Tag="17" Alpha="224" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="111.0121" RightMargin="368.9879" TopMargin="263.1117" BottomMargin="176.8883" TouchEnable="True" ClipAble="True" BackColorAlpha="204" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="320" Scale9Height="68" IsBounceEnabled="True" ScrollDirectionType="Horizontal" ctype="ScrollViewObjectData">
+          <AbstractNodeData Name="ScrollView_3" ActionTag="411937129" Tag="17" Alpha="224" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="98.0121" RightMargin="381.9879" TopMargin="287.1117" BottomMargin="152.8883" TouchEnable="True" ClipAble="True" BackColorAlpha="204" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="320" Scale9Height="68" IsBounceEnabled="True" ScrollDirectionType="Horizontal" ctype="ScrollViewObjectData">
             <Size X="480.0000" Y="200.0000" />
             <Children>
               <AbstractNodeData Name="CheckBox_1" ActionTag="-818937019" UserData="com.mitty.iap.singledelete" Tag="113" IconVisible="False" LeftMargin="-40.2260" RightMargin="424.2260" TopMargin="-40.1048" BottomMargin="-15.8952" TouchEnable="True" ctype="CheckBoxObjectData">
@@ -51,7 +51,7 @@
                 <NodeNormalFileData Type="Normal" Path="shop_frame.png" Plist="" />
                 <NodeDisableFileData Type="Normal" Path="shop_frame.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="CheckBox_1_0" ActionTag="861914606" UserData="com.mitty.iap.selecttype" Tag="114" IconVisible="False" LeftMargin="112.8982" RightMargin="271.1017" TopMargin="-40.1048" BottomMargin="-15.8952" TouchEnable="True" ctype="CheckBoxObjectData">
+              <AbstractNodeData Name="CheckBox_1_0" ActionTag="861914606" UserData="com.mitty.iap.selecttype" Tag="114" IconVisible="False" LeftMargin="112.8982" RightMargin="271.1018" TopMargin="-40.1048" BottomMargin="-15.8952" TouchEnable="True" ctype="CheckBoxObjectData">
                 <Size X="256.0000" Y="256.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_11_0" ActionTag="1025945172" Tag="128" IconVisible="False" LeftMargin="36.8615" RightMargin="27.1385" TopMargin="-70.0517" BottomMargin="272.0517" FontSize="48" LabelText="万花轮回" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
@@ -107,10 +107,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint />
-            <Position X="111.0121" Y="176.8883" />
+            <Position X="98.0121" Y="152.8883" />
             <Scale ScaleX="1.6026" ScaleY="1.6026" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1156" Y="0.2764" />
+            <PrePosition X="0.1021" Y="0.2389" />
             <PreSize X="0.5000" Y="0.3125" />
             <SingleColor A="255" R="255" G="255" B="255" />
             <FirstColor A="255" R="255" G="150" B="100" />
@@ -118,29 +118,14 @@
             <ColorVector ScaleY="1.0000" />
             <InnerNodeSize Width="640" Height="200" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_2" ActionTag="-926240408" Tag="26" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="384.0000" RightMargin="384.0000" TopMargin="399.6682" BottomMargin="203.3318" FontSize="32" LabelText="商品用途说明" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_2" ActionTag="-926240408" Tag="26" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="371.0000" RightMargin="397.0000" TopMargin="423.6682" BottomMargin="179.3318" FontSize="32" LabelText="商品用途说明" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="192.0000" Y="37.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="480.0000" Y="221.8318" />
+            <Position X="467.0000" Y="197.8318" />
             <Scale ScaleX="0.9799" ScaleY="0.9500" />
             <CColor A="255" R="255" G="0" B="0" />
-            <PrePosition X="0.5000" Y="0.3466" />
+            <PrePosition X="0.4865" Y="0.3091" />
             <PreSize />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="Button_2" ActionTag="-280714680" Tag="27" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="399.3187" RightMargin="410.6813" TopMargin="527.3859" BottomMargin="52.6141" TouchEnable="True" FontSize="48" ButtonText="买" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
-            <Size X="150.0000" Y="60.0000" />
-            <AnchorPoint ScaleX="0.4816" ScaleY="0.4482" />
-            <Position X="471.5603" Y="79.5077" />
-            <Scale ScaleX="1.1958" ScaleY="1.1862" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4912" Y="0.1242" />
-            <PreSize X="0.1563" Y="0.0938" />
-            <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -154,6 +139,32 @@
             <PreSize />
             <FileData Type="Normal" Path="shophead.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Text_6" ActionTag="-1528024067" Tag="51" IconVisible="False" LeftMargin="408.0000" RightMargin="408.0000" TopMargin="53.8554" BottomMargin="505.1446" FontSize="72" LabelText="商店" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+            <Size X="144.0000" Y="81.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="480.0000" Y="545.6446" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5000" Y="0.8526" />
+            <PreSize />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Button_8" ActionTag="1704613927" Tag="27" IconVisible="False" LeftMargin="323.4999" RightMargin="316.5001" TopMargin="499.7726" BottomMargin="12.2273" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="290" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+            <Size X="320.0000" Y="128.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="483.4999" Y="76.2273" />
+            <Scale ScaleX="0.6000" ScaleY="0.6000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5036" Y="0.1191" />
+            <PreSize X="0.3333" Y="0.2000" />
+            <TextColor A="255" R="65" G="65" B="70" />
+            <DisabledFileData Type="Normal" Path="buybtn.png" Plist="" />
+            <PressedFileData Type="Normal" Path="buybtn.png" Plist="" />
+            <NormalFileData Type="Normal" Path="buybtn.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

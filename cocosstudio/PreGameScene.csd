@@ -6,10 +6,10 @@
       <ObjectData Name="Scene" Tag="52" ctype="GameNodeObjectData">
         <Size X="960.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="Button_1" ActionTag="1763731622" Tag="57" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="BottomEdge" LeftMargin="387.9996" RightMargin="60.0004" TopMargin="150.5920" BottomMargin="361.4080" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="482" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_1" ActionTag="1763731622" Tag="57" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" LeftMargin="-41.0005" RightMargin="489.0005" TopMargin="503.1714" BottomMargin="8.8286" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="482" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="512.0000" Y="128.0000" />
             <Children>
-              <AbstractNodeData Name="Text_1" ActionTag="166247125" Tag="61" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="82.9888" RightMargin="357.0112" TopMargin="40.5296" BottomMargin="45.4704" FontSize="36" LabelText="简单" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+              <AbstractNodeData Name="Text_1" ActionTag="166247125" Tag="61" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="82.9888" RightMargin="357.0112" TopMargin="40.5296" BottomMargin="45.4704" FontSize="36" LabelText="简单" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
                 <Size X="72.0000" Y="42.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="118.9888" Y="66.4704" />
@@ -20,23 +20,23 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="bloodstar_2" ActionTag="-317738201" Tag="75" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-87.1936" RightMargin="-424.8064" TopMargin="-451.8656" BottomMargin="-444.1344" ctype="SpriteObjectData">
+              <AbstractNodeData Name="bloodstar_2" ActionTag="-317738201" Tag="75" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-298.6575" RightMargin="-213.3425" TopMargin="-446.0418" BottomMargin="-449.9582" ctype="SpriteObjectData">
                 <Size X="1024.0000" Y="1024.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="424.8064" Y="67.8656" />
+                <Position X="213.3425" Y="62.0418" />
                 <Scale ScaleX="0.0489" ScaleY="0.0491" />
                 <CColor A="255" R="255" G="0" B="72" />
-                <PrePosition X="0.8297" Y="0.5302" />
+                <PrePosition X="0.4167" Y="0.4847" />
                 <PreSize X="0.5000" Y="2.0000" />
                 <FileData Type="Normal" Path="ball.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="643.9996" Y="425.4080" />
+            <Position X="214.9995" Y="72.8286" />
             <Scale ScaleX="0.7417" ScaleY="0.6868" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.6708" Y="0.6647" />
+            <PrePosition X="0.2240" Y="0.1138" />
             <PreSize X="0.5333" Y="0.2000" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Normal" Path="diffbtn.png" Plist="" />
@@ -45,10 +45,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_1_0" ActionTag="-1210877017" Tag="59" IconVisible="False" HorizontalEdge="RightEdge" LeftMargin="387.9996" RightMargin="60.0004" TopMargin="288.6450" BottomMargin="223.3550" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="482" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_1_0" ActionTag="-1210877017" Tag="59" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" HorizontalEdge="RightEdge" LeftMargin="242.9982" RightMargin="205.0018" TopMargin="442.1716" BottomMargin="69.8284" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="482" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="512.0000" Y="128.0000" />
             <Children>
-              <AbstractNodeData Name="Text_1_0" ActionTag="1876253926" Tag="64" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="85.3952" RightMargin="354.6048" TopMargin="47.8384" BottomMargin="38.1616" FontSize="36" LabelText="正常" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+              <AbstractNodeData Name="Text_1_0" ActionTag="1876253926" Tag="64" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="85.3952" RightMargin="354.6048" TopMargin="47.8384" BottomMargin="38.1616" FontSize="36" LabelText="正常" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
                 <Size X="72.0000" Y="42.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="121.3952" Y="59.1616" />
@@ -59,34 +59,34 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="bloodstar_2_0" ActionTag="-1565875051" Tag="76" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-177.2032" RightMargin="-334.7968" TopMargin="-447.2704" BottomMargin="-448.7296" ctype="SpriteObjectData">
+              <AbstractNodeData Name="bloodstar_2_0" ActionTag="-1565875051" Tag="76" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-298.6576" RightMargin="-213.3424" TopMargin="-450.1830" BottomMargin="-445.8170" ctype="SpriteObjectData">
                 <Size X="1024.0000" Y="1024.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="334.7968" Y="63.2704" />
+                <Position X="213.3424" Y="66.1830" />
                 <Scale ScaleX="0.0500" ScaleY="0.0500" />
                 <CColor A="255" R="255" G="0" B="72" />
-                <PrePosition X="0.6539" Y="0.4943" />
+                <PrePosition X="0.4167" Y="0.5171" />
                 <PreSize />
                 <FileData Type="Normal" Path="ball.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="bloodstar_2_1" ActionTag="-1126099292" Tag="77" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-87.1936" RightMargin="-424.8064" TopMargin="-446.4768" BottomMargin="-449.5232" ctype="SpriteObjectData">
+              <AbstractNodeData Name="bloodstar_2_1" ActionTag="-1126099292" Tag="77" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-215.1155" RightMargin="-296.8845" TopMargin="-453.7570" BottomMargin="-442.2430" ctype="SpriteObjectData">
                 <Size X="1024.0000" Y="1024.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="424.8064" Y="62.4768" />
+                <Position X="296.8845" Y="69.7570" />
                 <Scale ScaleX="0.0500" ScaleY="0.0500" />
                 <CColor A="255" R="255" G="0" B="72" />
-                <PrePosition X="0.8297" Y="0.4881" />
+                <PrePosition X="0.5799" Y="0.5450" />
                 <PreSize />
                 <FileData Type="Normal" Path="ball.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="643.9996" Y="287.3550" />
+            <Position X="498.9982" Y="133.8284" />
             <Scale ScaleX="0.7417" ScaleY="0.6868" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.6708" Y="0.4490" />
+            <PrePosition X="0.5198" Y="0.2091" />
             <PreSize X="0.5333" Y="0.2000" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Normal" Path="diffbtn.png" Plist="" />
@@ -95,10 +95,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_1_1" ActionTag="1233601556" Tag="60" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="BottomEdge" LeftMargin="387.9995" RightMargin="60.0005" TopMargin="426.6980" BottomMargin="85.3020" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="482" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_1_1" ActionTag="1233601556" Tag="60" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="BottomEdge" LeftMargin="513.9996" RightMargin="-65.9996" TopMargin="386.1716" BottomMargin="125.8284" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="482" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="512.0000" Y="128.0000" />
             <Children>
-              <AbstractNodeData Name="Text_1_0_0" ActionTag="1920418887" Tag="67" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="81.0944" RightMargin="358.9056" TopMargin="39.4032" BottomMargin="46.5968" FontSize="36" LabelText="困难" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+              <AbstractNodeData Name="Text_1_0_0" ActionTag="1920418887" Tag="67" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="81.0944" RightMargin="358.9056" TopMargin="39.4032" BottomMargin="46.5968" FontSize="36" LabelText="困难" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
                 <Size X="72.0000" Y="42.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="117.0944" Y="67.5968" />
@@ -109,45 +109,45 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="bloodstar_2_2" ActionTag="39640034" Tag="78" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-265.0624" RightMargin="-246.9376" TopMargin="-451.4048" BottomMargin="-444.5952" ctype="SpriteObjectData">
+              <AbstractNodeData Name="bloodstar_2_2" ActionTag="39640034" Tag="78" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-298.6575" RightMargin="-213.3425" TopMargin="-452.8615" BottomMargin="-443.1385" ctype="SpriteObjectData">
                 <Size X="1024.0000" Y="1024.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="246.9376" Y="67.4048" />
+                <Position X="213.3425" Y="68.8615" />
                 <Scale ScaleX="0.0500" ScaleY="0.0553" />
                 <CColor A="255" R="255" G="0" B="72" />
-                <PrePosition X="0.4823" Y="0.5266" />
+                <PrePosition X="0.4167" Y="0.5380" />
                 <PreSize />
                 <FileData Type="Normal" Path="ball.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="bloodstar_2_3" ActionTag="-936877322" Tag="79" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-177.2032" RightMargin="-334.7968" TopMargin="-453.0560" BottomMargin="-442.9440" ctype="SpriteObjectData">
+              <AbstractNodeData Name="bloodstar_2_3" ActionTag="-936877322" Tag="79" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-215.1155" RightMargin="-296.8845" TopMargin="-451.6002" BottomMargin="-444.3998" ctype="SpriteObjectData">
                 <Size X="1024.0000" Y="1024.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="334.7968" Y="69.0560" />
+                <Position X="296.8845" Y="67.6002" />
                 <Scale ScaleX="0.0500" ScaleY="0.0500" />
                 <CColor A="255" R="255" G="0" B="72" />
-                <PrePosition X="0.6539" Y="0.5395" />
+                <PrePosition X="0.5799" Y="0.5281" />
                 <PreSize />
                 <FileData Type="Normal" Path="ball.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="bloodstar_2_4" ActionTag="-883009732" Tag="80" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-87.1936" RightMargin="-424.8064" TopMargin="-453.0560" BottomMargin="-442.9440" ctype="SpriteObjectData">
+              <AbstractNodeData Name="bloodstar_2_4" ActionTag="-883009732" Tag="80" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-134.3822" RightMargin="-377.6178" TopMargin="-454.5122" BottomMargin="-441.4878" ctype="SpriteObjectData">
                 <Size X="1024.0000" Y="1024.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="424.8064" Y="69.0560" />
+                <Position X="377.6178" Y="70.5122" />
                 <Scale ScaleX="0.0500" ScaleY="0.0500" />
                 <CColor A="255" R="255" G="0" B="72" />
-                <PrePosition X="0.8297" Y="0.5395" />
+                <PrePosition X="0.7375" Y="0.5509" />
                 <PreSize />
                 <FileData Type="Normal" Path="ball.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="643.9995" Y="149.3020" />
+            <Position X="769.9996" Y="189.8284" />
             <Scale ScaleX="0.7417" ScaleY="0.6868" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.6708" Y="0.2333" />
+            <PrePosition X="0.8021" Y="0.2966" />
             <PreSize X="0.5333" Y="0.2000" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Normal" Path="diffbtn.png" Plist="" />
@@ -156,13 +156,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_8" ActionTag="1861939297" Tag="69" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="533.3584" RightMargin="234.6416" TopMargin="44.9063" BottomMargin="541.0938" FontSize="48" LabelText="难度选择" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_8" ActionTag="1861939297" Tag="69" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="381.3584" RightMargin="386.6416" TopMargin="53.9062" BottomMargin="532.0938" FontSize="48" LabelText="难度选择" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="192.0000" Y="54.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="629.3584" Y="568.0938" />
+            <Position X="477.3584" Y="559.0938" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.6556" Y="0.8876" />
+            <PrePosition X="0.4972" Y="0.8736" />
             <PreSize />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -181,83 +181,6 @@
             <NormalFileData Type="Normal" Path="goback.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="ball_8_0" ActionTag="838033992" Tag="124" Alpha="127" IconVisible="False" LeftMargin="-317.9413" RightMargin="253.9413" TopMargin="-171.7551" BottomMargin="-212.2449" ctype="SpriteObjectData">
-            <Size X="1024.0000" Y="1024.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="194.0587" Y="299.7551" />
-            <Scale ScaleX="0.1000" ScaleY="0.1000" />
-            <CColor A="255" R="0" G="0" B="0" />
-            <PrePosition X="0.2021" Y="0.4684" />
-            <PreSize />
-            <FileData Type="Normal" Path="ball.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="ball_8_0_0" ActionTag="-1753973280" Tag="125" IconVisible="False" LeftMargin="-396.5108" RightMargin="332.5108" TopMargin="-167.9659" BottomMargin="-216.0341" ctype="SpriteObjectData">
-            <Size X="1024.0000" Y="1024.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="115.4892" Y="295.9659" />
-            <Scale ScaleX="0.0300" ScaleY="0.0300" />
-            <CColor A="255" R="255" G="0" B="88" />
-            <PrePosition X="0.1203" Y="0.4624" />
-            <PreSize />
-            <FileData Type="Normal" Path="ball.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="ball_8_0_1" ActionTag="-1511619703" Tag="126" IconVisible="False" LeftMargin="-245.7761" RightMargin="181.7761" TopMargin="-166.4654" BottomMargin="-217.5346" ctype="SpriteObjectData">
-            <Size X="1024.0000" Y="1024.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="266.2239" Y="294.4654" />
-            <Scale ScaleX="0.0300" ScaleY="0.0300" />
-            <CColor A="255" R="0" G="255" B="105" />
-            <PrePosition X="0.2773" Y="0.4601" />
-            <PreSize />
-            <FileData Type="Normal" Path="ball.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="ball_8_0_1_0" ActionTag="-593616648" Tag="127" IconVisible="False" LeftMargin="-353.5149" RightMargin="289.5149" TopMargin="-101.7199" BottomMargin="-282.2801" ctype="SpriteObjectData">
-            <Size X="1024.0000" Y="1024.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="158.4851" Y="229.7199" />
-            <Scale ScaleX="0.0300" ScaleY="0.0300" />
-            <CColor A="255" R="237" G="110" B="218" />
-            <PrePosition X="0.1651" Y="0.3589" />
-            <PreSize />
-            <FileData Type="Normal" Path="ball.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="ball_8_0_1_0_0" ActionTag="-705600333" Tag="128" IconVisible="False" LeftMargin="-280.5211" RightMargin="216.5211" TopMargin="-103.7185" BottomMargin="-280.2815" ctype="SpriteObjectData">
-            <Size X="1024.0000" Y="1024.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="231.4789" Y="231.7185" />
-            <Scale ScaleX="0.0300" ScaleY="0.0300" />
-            <CColor A="255" R="0" G="142" B="255" />
-            <PrePosition X="0.2411" Y="0.3621" />
-            <PreSize />
-            <FileData Type="Normal" Path="ball.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="ball_8_0_1_0_1" ActionTag="1694398240" Tag="134" IconVisible="False" LeftMargin="-366.7626" RightMargin="302.7626" TopMargin="-234.2059" BottomMargin="-149.7941" ctype="SpriteObjectData">
-            <Size X="1024.0000" Y="1024.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="145.2374" Y="362.2059" />
-            <Scale ScaleX="0.0300" ScaleY="0.0300" />
-            <CColor A="255" R="255" G="216" B="0" />
-            <PrePosition X="0.1513" Y="0.5659" />
-            <PreSize />
-            <FileData Type="Normal" Path="ball.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="ball_8_0_1_0_2" ActionTag="1888045525" Tag="135" IconVisible="False" LeftMargin="-284.2963" RightMargin="220.2963" TopMargin="-242.5972" BottomMargin="-141.4028" ctype="SpriteObjectData">
-            <Size X="1024.0000" Y="1024.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="227.7037" Y="370.5972" />
-            <Scale ScaleX="0.0300" ScaleY="0.0300" />
-            <CColor A="255" R="255" G="152" B="0" />
-            <PrePosition X="0.2372" Y="0.5791" />
-            <PreSize />
-            <FileData Type="Normal" Path="ball.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

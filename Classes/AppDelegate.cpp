@@ -5,6 +5,7 @@
 #include "VideoScene.h"
 #include "ShopScene.h"
 #include "CommonUtils.h"
+#include "PreGameScene.h"
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -88,7 +89,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     // create a scene. it's an autorelease object
 //    auto scene =  GameScene::createScene(6,2);
-      auto scene =  ShopScene::createScene();
+      auto scene =  PreGameScene::createScene(1);
     // run
     director->runWithScene(scene);
     

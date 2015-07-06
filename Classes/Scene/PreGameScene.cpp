@@ -87,6 +87,25 @@ bool PreGameScene::init()
     cocos2d::ui::Button* btnBack =  (cocos2d::ui::Button*)rootNode->getChildByTag(72);
     btnBack->addTouchEventListener(CC_CALLBACK_2(PreGameScene::gotoGame, this) );
  
+    auto waterSpirit = Sprite::create("water.png");
+    waterSpirit->setPosition(Vec2(waterSpirit->getContentSize().width /2 ,  0));
+    waterSpirit->setScale(visibleSize.width/waterSpirit->getContentSize().width * 20, visibleSize.height/waterSpirit->getContentSize().height /3);
+    
+    // create a Waved3D action
+    ActionInterval* waves = Waves3D::create(30, cocos2d::Size(10, 10), 15, 20);
+    auto nodeGrid = NodeGrid::create();
+    nodeGrid->addChild(waterSpirit);
+    nodeGrid->runAction(RepeatForever::create(waves));
+    this->addChild(nodeGrid);
+    
+    
+    auto waterpoolSpirit = Sprite::create("poolwater.png");
+    waterpoolSpirit->setAnchorPoint(Vec2(0, 0));
+    waterpoolSpirit->setScale(visibleSize.width/waterpoolSpirit->getContentSize().width);
+    
+    this->addChild(waterpoolSpirit);
+    
+    
     return true;
 }
 bool PreGameScene::onTouchBegan(Touch *touch, Event *unused_event)
