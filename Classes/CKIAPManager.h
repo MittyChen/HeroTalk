@@ -11,14 +11,14 @@
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
 
-#import "JGProgressHUD.h"
+//#import "JGProgressHUD.h"
 
 @interface CKIAPManager : NSObject <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 {
     NSString* purchasesProductID;
     NSArray* productInfoArray;
     SKProductsRequest* skProductRequest;
-    JGProgressHUD *HUD ;
+//    JGProgressHUD *HUD ;
 }
 
 // informational variables

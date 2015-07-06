@@ -51,14 +51,6 @@
 		1F95B5931AF1D3E700E39A91 /* LoudSpeaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F95B5911AF1D3E700E39A91 /* LoudSpeaker.cpp */; };
 		1FA053B11B26870F00A771CD /* PreGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FA053AF1B26870F00A771CD /* PreGameScene.cpp */; };
 		1FA053B61B26C76700A771CD /* CopyRightScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FA053B41B26C76700A771CD /* CopyRightScene.cpp */; };
-		1FA059451B4A2E7600410632 /* JGProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA059361B4A2E7600410632 /* JGProgressHUD.m */; };
-		1FA059461B4A2E7600410632 /* JGProgressHUDAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA059381B4A2E7600410632 /* JGProgressHUDAnimation.m */; };
-		1FA059471B4A2E7600410632 /* JGProgressHUDFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0593A1B4A2E7600410632 /* JGProgressHUDFadeAnimation.m */; };
-		1FA059481B4A2E7600410632 /* JGProgressHUDFadeZoomAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0593C1B4A2E7600410632 /* JGProgressHUDFadeZoomAnimation.m */; };
-		1FA059491B4A2E7600410632 /* JGProgressHUDIndeterminateIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0593E1B4A2E7600410632 /* JGProgressHUDIndeterminateIndicatorView.m */; };
-		1FA0594A1B4A2E7600410632 /* JGProgressHUDIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA059401B4A2E7600410632 /* JGProgressHUDIndicatorView.m */; };
-		1FA0594B1B4A2E7600410632 /* JGProgressHUDPieIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA059421B4A2E7600410632 /* JGProgressHUDPieIndicatorView.m */; };
-		1FA0594C1B4A2E7600410632 /* JGProgressHUDRingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA059441B4A2E7600410632 /* JGProgressHUDRingIndicatorView.m */; };
 		1FA1DC391B466A9700DB95A6 /* ShopScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FA1DC371B466A9700DB95A6 /* ShopScene.cpp */; };
 		1FA2D6321AF0D7DB0093B18F /* StageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2D6301AF0D7DB0093B18F /* StageManager.cpp */; };
 		1FA6F96B1B16D79E006CA13B /* CKIAPManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FA6F9681B16D79E006CA13B /* CKIAPManager.mm */; };
@@ -201,22 +193,6 @@
 		1FA053B01B26870F00A771CD /* PreGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreGameScene.h; sourceTree = "<group>"; };
 		1FA053B41B26C76700A771CD /* CopyRightScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CopyRightScene.cpp; sourceTree = "<group>"; };
 		1FA053B51B26C76700A771CD /* CopyRightScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CopyRightScene.h; sourceTree = "<group>"; };
-		1FA059351B4A2E7600410632 /* JGProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUD.h; sourceTree = "<group>"; };
-		1FA059361B4A2E7600410632 /* JGProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUD.m; sourceTree = "<group>"; };
-		1FA059371B4A2E7600410632 /* JGProgressHUDAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDAnimation.h; sourceTree = "<group>"; };
-		1FA059381B4A2E7600410632 /* JGProgressHUDAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDAnimation.m; sourceTree = "<group>"; };
-		1FA059391B4A2E7600410632 /* JGProgressHUDFadeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDFadeAnimation.h; sourceTree = "<group>"; };
-		1FA0593A1B4A2E7600410632 /* JGProgressHUDFadeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDFadeAnimation.m; sourceTree = "<group>"; };
-		1FA0593B1B4A2E7600410632 /* JGProgressHUDFadeZoomAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDFadeZoomAnimation.h; sourceTree = "<group>"; };
-		1FA0593C1B4A2E7600410632 /* JGProgressHUDFadeZoomAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDFadeZoomAnimation.m; sourceTree = "<group>"; };
-		1FA0593D1B4A2E7600410632 /* JGProgressHUDIndeterminateIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDIndeterminateIndicatorView.h; sourceTree = "<group>"; };
-		1FA0593E1B4A2E7600410632 /* JGProgressHUDIndeterminateIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDIndeterminateIndicatorView.m; sourceTree = "<group>"; };
-		1FA0593F1B4A2E7600410632 /* JGProgressHUDIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDIndicatorView.h; sourceTree = "<group>"; };
-		1FA059401B4A2E7600410632 /* JGProgressHUDIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDIndicatorView.m; sourceTree = "<group>"; };
-		1FA059411B4A2E7600410632 /* JGProgressHUDPieIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDPieIndicatorView.h; sourceTree = "<group>"; };
-		1FA059421B4A2E7600410632 /* JGProgressHUDPieIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDPieIndicatorView.m; sourceTree = "<group>"; };
-		1FA059431B4A2E7600410632 /* JGProgressHUDRingIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDRingIndicatorView.h; sourceTree = "<group>"; };
-		1FA059441B4A2E7600410632 /* JGProgressHUDRingIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDRingIndicatorView.m; sourceTree = "<group>"; };
 		1FA1DC371B466A9700DB95A6 /* ShopScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShopScene.cpp; sourceTree = "<group>"; };
 		1FA1DC381B466A9700DB95A6 /* ShopScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopScene.h; sourceTree = "<group>"; };
 		1FA2D6301AF0D7DB0093B18F /* StageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StageManager.cpp; sourceTree = "<group>"; };
@@ -361,7 +337,6 @@
 		1F02BE701B17175F00C8D936 /* CKIAPLib */ = {
 			isa = PBXGroup;
 			children = (
-				1FA059341B4A2E7600410632 /* JGProgressHUD */,
 				1FA6F9671B16D79E006CA13B /* CKIAPManager.h */,
 				1FA6F9681B16D79E006CA13B /* CKIAPManager.mm */,
 				1FA6F9691B16D79E006CA13B /* Reachability.h */,
@@ -507,29 +482,6 @@
 				1F95A8A11B17021200EBA3B1 /* FinishPopup.h */,
 			);
 			name = Popup;
-			sourceTree = "<group>";
-		};
-		1FA059341B4A2E7600410632 /* JGProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				1FA059351B4A2E7600410632 /* JGProgressHUD.h */,
-				1FA059361B4A2E7600410632 /* JGProgressHUD.m */,
-				1FA059371B4A2E7600410632 /* JGProgressHUDAnimation.h */,
-				1FA059381B4A2E7600410632 /* JGProgressHUDAnimation.m */,
-				1FA059391B4A2E7600410632 /* JGProgressHUDFadeAnimation.h */,
-				1FA0593A1B4A2E7600410632 /* JGProgressHUDFadeAnimation.m */,
-				1FA0593B1B4A2E7600410632 /* JGProgressHUDFadeZoomAnimation.h */,
-				1FA0593C1B4A2E7600410632 /* JGProgressHUDFadeZoomAnimation.m */,
-				1FA0593D1B4A2E7600410632 /* JGProgressHUDIndeterminateIndicatorView.h */,
-				1FA0593E1B4A2E7600410632 /* JGProgressHUDIndeterminateIndicatorView.m */,
-				1FA0593F1B4A2E7600410632 /* JGProgressHUDIndicatorView.h */,
-				1FA059401B4A2E7600410632 /* JGProgressHUDIndicatorView.m */,
-				1FA059411B4A2E7600410632 /* JGProgressHUDPieIndicatorView.h */,
-				1FA059421B4A2E7600410632 /* JGProgressHUDPieIndicatorView.m */,
-				1FA059431B4A2E7600410632 /* JGProgressHUDRingIndicatorView.h */,
-				1FA059441B4A2E7600410632 /* JGProgressHUDRingIndicatorView.m */,
-			);
-			path = JGProgressHUD;
 			sourceTree = "<group>";
 		};
 		1FAE98EB1B1408190073F3C7 /* common */ = {
@@ -759,15 +711,12 @@
 				1F08695B1B3BE63F00A99CFF /* gif_font.c in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				1F75ED781B0C2BA90053E55B /* HappyStartCell.cpp in Sources */,
-				1FA0594B1B4A2E7600410632 /* JGProgressHUDPieIndicatorView.m in Sources */,
 				1F0869601B3BE63F00A99CFF /* GifMovie.cpp in Sources */,
 				1F0869571B3BE63F00A99CFF /* Bitmap.cpp in Sources */,
 				1FA053B61B26C76700A771CD /* CopyRightScene.cpp in Sources */,
 				1FA1DC391B466A9700DB95A6 /* ShopScene.cpp in Sources */,
 				1F43732C1B0DD7C600A7FD8D /* VideoScene.cpp in Sources */,
-				1FA059471B4A2E7600410632 /* JGProgressHUDFadeAnimation.m in Sources */,
 				1F7B26C61B202EAA00A2A691 /* OptionsPopup.cpp in Sources */,
-				1FA0594A1B4A2E7600410632 /* JGProgressHUDIndicatorView.m in Sources */,
 				1F4373261B0DB90300A7FD8D /* LoadingScene.cpp in Sources */,
 				1FF29B0F1B1848E60017AA79 /* CCSpriteWithHue.cpp in Sources */,
 				1F66072E1B0EC3550001E3D8 /* README.md in Sources */,
@@ -778,7 +727,6 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				1F5CAFA61AEDE503000D3656 /* Drama.cpp in Sources */,
 				1F72C2A01B1E9E1E0030AF38 /* LevelNode.cpp in Sources */,
-				1FA059491B4A2E7600410632 /* JGProgressHUDIndeterminateIndicatorView.m in Sources */,
 				1F4373291B0DBB9400A7FD8D /* BaseScene.cpp in Sources */,
 				1F08695E1B3BE63F00A99CFF /* quantize.c in Sources */,
 				1F75ED831B0C620A0053E55B /* GameScene.cpp in Sources */,
@@ -790,7 +738,6 @@
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1F0869671B3C037000A99CFF /* SPCScene.cpp in Sources */,
 				1F08695A1B3BE63F00A99CFF /* gif_err.c in Sources */,
-				1FA059451B4A2E7600410632 /* JGProgressHUD.m in Sources */,
 				1FA2D6321AF0D7DB0093B18F /* StageManager.cpp in Sources */,
 				1F5CAFAC1AEDE527000D3656 /* Paragraph.cpp in Sources */,
 				1F66072C1B0EC3550001E3D8 /* LHVideoPlayerImpl.m in Sources */,
@@ -805,10 +752,7 @@
 				1F5CAFB81AEDE740000D3656 /* Character.cpp in Sources */,
 				1FA6F96C1B16D79E006CA13B /* Reachability.m in Sources */,
 				1F66072A1B0EC3550001E3D8 /* LHVideoOverlayView.m in Sources */,
-				1FA059481B4A2E7600410632 /* JGProgressHUDFadeZoomAnimation.m in Sources */,
 				1FAE98EE1B1408190073F3C7 /* CommonUtils.cpp in Sources */,
-				1FA059461B4A2E7600410632 /* JGProgressHUDAnimation.m in Sources */,
-				1FA0594C1B4A2E7600410632 /* JGProgressHUDRingIndicatorView.m in Sources */,
 				1F75ED851B0C620A0053E55B /* TalkScene.cpp in Sources */,
 				1F0869611B3BE63F00A99CFF /* InstantGif.cpp in Sources */,
 				1FA053B11B26870F00A771CD /* PreGameScene.cpp in Sources */,

@@ -158,15 +158,15 @@
 ///请求商品信息
 - (void)purchasesProduct:(NSString*)productID {
     
-    //显示菊花
-    // add by mcn
-    if (!HUD) {
-        HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
-        HUD.textLabel.text = @"Loading";
-    }
+//    //显示菊花
+//    // add by mcn
+//    if (!HUD) {
+//        HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+//        HUD.textLabel.text = @"Loading";
+//    }
     
-    UIViewController *vc = [(UINavigationController *)[[UIApplication sharedApplication].delegate window].rootViewController visibleViewController];
-    [HUD showInView: vc.view];
+//    UIViewController *vc = [(UINavigationController *)[[UIApplication sharedApplication].delegate window].rootViewController visibleViewController];
+//    [HUD showInView: vc.view];
     
     
     Reachability* curReach = [Reachability reachabilityForInternetConnection];
@@ -293,7 +293,7 @@
             case SKPaymentTransactionStatePurchased:
             {
                 //隐藏菊花
-                 [HUD dismissAfterDelay:1];
+//                 [HUD dismissAfterDelay:1];
                 
                 purchasing = NO;
                 
@@ -307,7 +307,7 @@
                 
                 purchasing = NO;
                 [queue  finishTransaction:transaction];
-                 [HUD dismissAfterDelay:1];
+//                 [HUD dismissAfterDelay:1];
                 
                 //购买失败的游戏逻辑
                 
@@ -319,7 +319,7 @@
             case SKPaymentTransactionStateRestored: {
                  //隐藏菊花
                 
-                 [HUD dismissAfterDelay:1];
+//                 [HUD dismissAfterDelay:1];
                 purchasing = NO;
                 [queue finishTransaction:transaction];
                 //恢复购买的游戏逻辑
