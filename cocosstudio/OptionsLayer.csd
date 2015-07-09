@@ -56,13 +56,13 @@
             <NodeNormalFileData Type="Default" Path="Default/CheckBoxNode_Normal.png" Plist="" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_1" ActionTag="-1722429253" Tag="12" IconVisible="False" HorizontalEdge="LeftEdge" LeftMargin="-14.3606" RightMargin="718.3606" TopMargin="17.9156" BottomMargin="494.0844" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="11" BottomEage="11" Scale9OriginX="13" Scale9OriginY="11" Scale9Width="230" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_1" ActionTag="-1722429253" Tag="12" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="-15.3606" RightMargin="719.3606" TopMargin="9.9159" BottomMargin="502.0841" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="11" BottomEage="11" Scale9OriginX="13" Scale9OriginY="11" Scale9Width="230" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="256.0000" Y="128.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="113.6394" Y="558.0844" />
+            <Position X="112.6394" Y="566.0841" />
             <Scale ScaleX="0.4531" ScaleY="0.4531" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1184" Y="0.8720" />
+            <PrePosition X="0.1173" Y="0.8845" />
             <PreSize X="0.2667" Y="0.2000" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Normal" Path="goback.png" Plist="" />
@@ -71,7 +71,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_3" ActionTag="-1697302217" Tag="71" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BothEdge" LeftMargin="229.2470" RightMargin="634.7530" TopMargin="325.4883" BottomMargin="260.5117" FontSize="48" LabelText="声音" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_3" ActionTag="-1697302217" Tag="71" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="229.2470" RightMargin="634.7530" TopMargin="325.4883" BottomMargin="260.5117" FontSize="48" LabelText="声音" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="96.0000" Y="54.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="277.2470" Y="287.5117" />
@@ -82,13 +82,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_3_0" ActionTag="-2022048481" Tag="73" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" LeftMargin="410.8016" RightMargin="405.1984" TopMargin="107.2643" BottomMargin="451.7357" FontSize="72" LabelText="设置" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_3_0" ActionTag="-2022048481" Tag="73" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" LeftMargin="401.8016" RightMargin="414.1984" TopMargin="87.2643" BottomMargin="471.7357" FontSize="72" LabelText="设置" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="144.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="482.8016" Y="492.2357" />
+            <Position X="473.8016" Y="512.2357" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5029" Y="0.7691" />
+            <PrePosition X="0.4935" Y="0.8004" />
             <PreSize X="0.0750" Y="0.0656" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />

@@ -31,6 +31,12 @@
                   android:screenOrientation="landscape"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
                   android:configChanges="orientation">
+                  
+                  <intent-filter>
+                      <action android:name="android.intent.action.MAIN" />
+                  </intent-filter>
+                  
+                  
         </activity>
         
          

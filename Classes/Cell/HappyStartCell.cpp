@@ -71,6 +71,8 @@ bool HappyStartCell::init()
     this->scheduleUpdate();
     this->initShaders();
      _isLocked =false;
+    _mType = TYPE_NORMAL;
+    _posIndex = Vec2(0, 0);
     return true;
 
 }
@@ -115,7 +117,7 @@ void HappyStartCell::update(float delta)
 
 enum CELL_TYPE HappyStartCell::getType()
 {
-    return _mType;
+        return _mType;
 }
 
 void HappyStartCell::setType(enum CELL_TYPE mtype)

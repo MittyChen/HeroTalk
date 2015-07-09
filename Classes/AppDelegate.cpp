@@ -5,7 +5,6 @@
 #include "VideoScene.h"
 #include "ShopScene.h"
 #include "CommonUtils.h"
-#include "PreGameScene.h"
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -43,7 +42,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->getOpenGLView()->setDesignResolutionSize( originsize.width , originsize.height, ResolutionPolicy::SHOW_ALL);
     
     // turn on display FPS
-    director->setDisplayStats(true);
+//    director->setDisplayStats(true);
     
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
@@ -88,8 +87,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
     
     // create a scene. it's an autorelease object
-//    auto scene =  GameScene::createScene(6,2);
-      auto scene =  PreGameScene::createScene(1);
+    auto scene =  GameScene::createScene(6,0);
+//      auto scene =  VideoScene::createScene();
     // run
     director->runWithScene(scene);
     
@@ -110,6 +109,7 @@ void AppDelegate::applicationWillEnterForeground() {
     
     // if you use SimpleAudioEngine, it must resume here
      CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+     
 }
 
 

@@ -275,14 +275,14 @@ bool MainMenuScene::init()
             return;
         }
         
-        bool istalkSeen = UserDefault::getInstance()->getBoolForKey("UserSeenTalk");
-        if (!istalkSeen) {
-            auto scene = StoryScene::createScene();
-            // run
-            Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
-            
-        }
-        else
+//        bool istalkSeen = UserDefault::getInstance()->getBoolForKey("UserSeenTalk");
+//        if (!istalkSeen) {
+//            auto scene = StoryScene::createScene();
+//            // run
+//            Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
+//            
+//        }
+//        else
         {
             auto scene = LevelSelectScene::createScene(0);
             // run

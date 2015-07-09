@@ -312,6 +312,7 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
 
         Cocos2dxHelper.onResume();
         this.mGLSurfaceView.onResume();
+         
     }
 
     @Override
@@ -320,6 +321,7 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
         
         Cocos2dxHelper.onPause();
         this.mGLSurfaceView.onPause();
+        mVideoHelper.restartVideo(0);
     }
     
     @Override

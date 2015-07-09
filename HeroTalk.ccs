@@ -47,6 +47,7 @@
         <Image Name="mittylogo.png" />
         <Image Name="pause.png" />
         <Image Name="buybtn.png" />
+        <Project Name="PauseGameLayer.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -30,7 +30,11 @@ public:
     void selectProduct(cocos2d::Ref* object);
 private:
     const char* productId;
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     CKIAPManager* IAPManager;
+#endif
+    
+    
 };
 
 #endif // PreGameScene_scene

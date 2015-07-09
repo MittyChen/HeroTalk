@@ -270,7 +270,7 @@ bool LevelSelectScene::init()
             
             Sprite* rainbow = Sprite::create("levellink.png");
             rainbow->setScale((destinPos-originPos).length()/rainbow->getContentSize().width
-                              ,0.4);
+                              );
             
             float anglex =(destinPos - originPos).getAngle()*180/3.141592653;
             rainbow->setRotation(-anglex);
@@ -280,6 +280,8 @@ bool LevelSelectScene::init()
             
             rootNode->getChildByTag(91)->addChild(rainbow);
             rainbow->setGlobalZOrder(zOrderFirst-1);
+            
+            rainbow->setColor(lbn->cloud->getColor());
         }
         
         

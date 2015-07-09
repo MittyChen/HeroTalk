@@ -138,7 +138,7 @@ void LevelNode::stopRain()
 {
     cloud->setEnabled(false);
     
-    cloud->setColor(Color3B(0,0,0));
+    cloud->setColor(Color3B(0,200,150));
 //    cloud->setColor(Color3B(180,180,180));
     
 //    float redr = random(180, 200);

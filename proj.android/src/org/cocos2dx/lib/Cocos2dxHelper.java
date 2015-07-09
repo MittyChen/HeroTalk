@@ -283,6 +283,8 @@ public class Cocos2dxHelper {
         if (Cocos2dxHelper.sAccelerometerEnabled) {
             Cocos2dxHelper.sCocos2dxAccelerometer.enable();
         }
+        
+        
     }
 
     public static void onPause() {

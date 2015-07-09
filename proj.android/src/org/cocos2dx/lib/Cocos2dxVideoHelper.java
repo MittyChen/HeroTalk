@@ -31,6 +31,7 @@ import org.cocos2dx.lib.Cocos2dxVideoView.OnVideoEventListener;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -315,6 +316,7 @@ public class Cocos2dxVideoHelper {
         Cocos2dxVideoView videoView = sVideoViews.get(index);
         if (videoView != null) {
             videoView.start();
+            
         }
     }
     
@@ -337,12 +339,15 @@ public class Cocos2dxVideoHelper {
         msg.what = VideoTaskResume;
         msg.arg1 = index;
         mVideoHandler.sendMessage(msg);
+        Log.d("video helper", "resume");
     }
     
     private void _resumeVideo(int index) {
         Cocos2dxVideoView videoView = sVideoViews.get(index);
         if (videoView != null) {
             videoView.resume();
+
+            Log.d("video helper", "_resumeVideo");
         }
     }
     
@@ -351,12 +356,15 @@ public class Cocos2dxVideoHelper {
         msg.what = VideoTaskStop;
         msg.arg1 = index;
         mVideoHandler.sendMessage(msg);
+
+        Log.d("video helper", "stopVideo");
     }
     
     private void _stopVideo(int index) {
         Cocos2dxVideoView videoView = sVideoViews.get(index);
         if (videoView != null) {
             videoView.stop();
+            Log.d("video helper", "_stopVideo");
         }
     }
     
@@ -365,6 +373,7 @@ public class Cocos2dxVideoHelper {
         msg.what = VideoTaskRestart;
         msg.arg1 = index;
         mVideoHandler.sendMessage(msg);
+        Log.d("video helper", "restartVideo");
     }
     
     private void _restartVideo(int index) {
