@@ -4,53 +4,53 @@
     <Content>
       <Animation Duration="0" Speed="1.0000" />
       <ObjectData Name="Scene" Tag="81" ctype="GameNodeObjectData">
-        <Size X="960.0000" Y="640.0000" />
+        <Size X="640.0000" Y="960.0000" />
         <Children>
-          <AbstractNodeData Name="Text_1" ActionTag="-943948174" Tag="82" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" LeftMargin="353.6764" RightMargin="318.3236" TopMargin="12.1978" BottomMargin="546.8022" FontSize="72" LabelText="版权声明" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_1" ActionTag="-943948174" Tag="82" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" LeftMargin="171.3167" RightMargin="180.6833" TopMargin="130.6748" BottomMargin="748.3252" FontSize="72" LabelText="版权声明" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="288.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="497.6764" Y="587.3022" />
+            <Position X="315.3167" Y="788.8252" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5184" Y="0.9177" />
+            <PrePosition X="0.4927" Y="0.8217" />
             <PreSize />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ScrollView_1" ActionTag="1297671048" Tag="83" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="BothEdge" LeftMargin="273.5858" RightMargin="186.4142" TopMargin="201.5262" BottomMargin="38.4738" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" ClipAble="True" BackColorAlpha="135" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="Vertical" ctype="ScrollViewObjectData">
-            <Size X="500.0000" Y="400.0000" />
+          <AbstractNodeData Name="ScrollView_1" ActionTag="1297671048" Tag="83" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" TopMargin="230.0000" BottomMargin="230.0000" TouchEnable="True" StretchWidthEnable="True" ClipAble="True" BackColorAlpha="135" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="Vertical" ctype="ScrollViewObjectData">
+            <Size X="640.0000" Y="500.0000" />
             <Children>
-              <AbstractNodeData Name="Text_2" ActionTag="-948610044" Tag="84" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="25.9883" RightMargin="18.0117" TopMargin="45.4110" BottomMargin="134.5890" FontSize="24" LabelText="AFB公司对其发行的或与合作公司共同发行&#xA;的包括但不限于产品或服务的全部内容及腾&#xA;讯网站上的材料拥有版权等知识产权，受法&#xA;律保护。&#xA;未经本公司书面许可，任何单位及个人不得&#xA;以任何方式或理由对上述产品、服务、信&#xA;息、材料的任何部分进行使用、复制、修&#xA;改、抄录、传播或与其它产品捆绑使用、销&#xA;售。&#xA;&#xA;凡侵犯本公司版权等知识产权的，本公司必&#xA;依法追究其法律责任。&#xA;&#xA;本公司法律事务部受本公司指示，特此郑重&#xA;法律声明！" OutlineSize="1" ShadowOffsetY="-1" ctype="TextObjectData">
-                <Size X="456.0000" Y="420.0000" />
+              <AbstractNodeData Name="Text_2" ActionTag="-948610044" Tag="84" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="92.0000" RightMargin="92.0000" TopMargin="37.3437" BottomMargin="182.6563" FontSize="27" LabelText="AFB公司对其发行的或与合作公司共同发行&#xA;的包括但不限于产品或服务的全部内容及腾&#xA;讯网站上的材料拥有版权等知识产权，受法&#xA;律保护。&#xA;未经本公司书面许可，任何单位及个人不得&#xA;以任何方式或理由对上述产品、服务、信&#xA;息、材料的任何部分进行使用、复制、修&#xA;改、抄录、传播或与其它产品捆绑使用、销&#xA;售。&#xA;&#xA;凡侵犯本公司版权等知识产权的，本公司必&#xA;依法追究其法律责任。&#xA;&#xA;本公司法律事务部受本公司指示，特此郑重&#xA;法律声明！" OutlineSize="1" ShadowOffsetY="-1" ctype="TextObjectData">
+                <Size X="513.0000" Y="465.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="253.9883" Y="344.5890" />
+                <Position X="320.0000" Y="392.6563" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5080" Y="0.5743" />
+                <PrePosition X="0.5000" Y="0.6135" />
                 <PreSize X="3.0400" Y="0.1533" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="126" G="255" B="132" />
               </AbstractNodeData>
             </Children>
-            <AnchorPoint />
-            <Position X="273.5858" Y="38.4738" />
-            <Scale ScaleX="1.2056" ScaleY="1.2056" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="320.0000" Y="480.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2850" Y="0.0601" />
-            <PreSize X="0.5208" Y="0.6250" />
+            <PrePosition X="0.5000" Y="0.5000" />
+            <PreSize X="1.0000" Y="0.5208" />
             <SingleColor A="255" R="255" G="251" B="251" />
             <FirstColor A="255" R="231" G="67" B="74" />
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
-            <InnerNodeSize Width="500" Height="600" />
+            <InnerNodeSize Width="640" Height="640" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_1" ActionTag="-1157978898" Tag="86" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="-16.3835" RightMargin="720.3835" TopMargin="7.2391" BottomMargin="504.7609" TouchEnable="True" FontSize="36" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="226" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_1" ActionTag="-1157978898" Tag="86" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="-18.3541" RightMargin="402.3541" TopMargin="6.3875" BottomMargin="825.6125" TouchEnable="True" FontSize="36" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="226" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="256.0000" Y="128.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="111.6165" Y="568.7609" />
+            <Position X="109.6459" Y="889.6125" />
             <Scale ScaleX="0.5000" ScaleY="0.5000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1163" Y="0.8887" />
+            <PrePosition X="0.1713" Y="0.9267" />
             <PreSize X="0.2667" Y="0.2000" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Normal" Path="goback.png" Plist="" />
@@ -59,13 +59,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mittylogo_3" ActionTag="-322669212" Tag="123" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BothEdge" LeftMargin="-115.5276" RightMargin="563.5276" TopMargin="83.4096" BottomMargin="44.5904" ctype="SpriteObjectData">
+          <AbstractNodeData Name="mittylogo_3" ActionTag="-322669212" Tag="123" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="BottomEdge" LeftMargin="245.5451" RightMargin="-117.5451" TopMargin="609.9415" BottomMargin="-161.9415" ctype="SpriteObjectData">
             <Size X="512.0000" Y="512.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="140.4724" Y="300.5904" />
+            <Position X="501.5451" Y="94.0585" />
             <Scale ScaleX="0.4561" ScaleY="0.3882" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1463" Y="0.4697" />
+            <PrePosition X="0.7837" Y="0.0980" />
             <PreSize />
             <FileData Type="Normal" Path="mittylogo.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />

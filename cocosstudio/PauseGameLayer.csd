@@ -4,18 +4,18 @@
     <Content>
       <Animation Duration="0" Speed="1.0000" />
       <ObjectData Name="Layer" Tag="48" ctype="GameLayerObjectData">
-        <Size X="960.0000" Y="640.0000" />
+        <Size X="640.0000" Y="960.0000" />
         <Children>
-          <AbstractNodeData Name="Sprite_1" ActionTag="-1769344087" Tag="49" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="879.1995" RightMargin="-239.1995" TopMargin="295.0297" BottomMargin="276.9703" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Sprite_1" ActionTag="-1769344087" Tag="49" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" HorizontalEdge="RightEdge" LeftMargin="588.8746" RightMargin="-268.8746" TopMargin="446.0412" BottomMargin="445.9588" ctype="SpriteObjectData">
             <Size X="320.0000" Y="68.0000" />
             <Children>
               <AbstractNodeData Name="Button_exit_2" ActionTag="91109022" Tag="50" Rotation="-90.0000" RotationSkewX="-90.0000" RotationSkewY="-90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="10.1520" RightMargin="263.8480" TopMargin="15.9864" BottomMargin="16.0136" TouchEnable="True" FontSize="12" Scale9Enable="True" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
                 <Size X="46.0000" Y="36.0000" />
                 <Children>
-                  <AbstractNodeData Name="Text_2_0_2" ActionTag="887997341" Tag="51" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-29.6355" RightMargin="-29.3645" TopMargin="-2.0000" BottomMargin="-2.0000" FontSize="35" LabelText="主菜单" ctype="TextObjectData">
+                  <AbstractNodeData Name="Text_2_0_2" ActionTag="887997341" Tag="51" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-29.6334" RightMargin="-29.3666" TopMargin="-2.0000" BottomMargin="-2.0000" FontSize="35" LabelText="主菜单" ctype="TextObjectData">
                     <Size X="105.0000" Y="40.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="22.8645" Y="18.0000" />
+                    <Position X="22.8666" Y="18.0000" />
                     <Scale ScaleX="0.3674" ScaleY="0.3865" />
                     <CColor A="255" R="215" G="68" B="68" />
                     <PrePosition X="0.4971" Y="0.5000" />
@@ -153,7 +153,7 @@
                 <Size X="100.0000" Y="50.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="285.9520" Y="34.6664" />
-                <Scale ScaleX="0.4479" ScaleY="0.5595" />
+                <Scale ScaleX="0.4791" ScaleY="0.5595" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.8936" Y="0.5098" />
                 <PreSize X="0.1042" Y="0.0781" />
@@ -166,10 +166,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="1039.1995" Y="310.9703" />
-            <Scale ScaleX="2.0525" ScaleY="2.3397" />
+            <Position X="748.8746" Y="479.9588" />
+            <Scale ScaleX="3.0112" ScaleY="3.1001" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="1.0825" Y="0.4859" />
+            <PrePosition X="1.1701" Y="0.5000" />
             <PreSize X="0.3333" Y="0.1063" />
             <FileData Type="Normal" Path="bg_shop00_bottom@2z.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />

@@ -42,6 +42,12 @@ public:
     list<HappyStartCell*>  getCellsSameToThisHorizental(HappyStartCell* targetCell);
     list<HappyStartCell*>  getCellsSameToThisVertical(HappyStartCell* targetCell);
     
+    
+    list<HappyStartCell*>  getCellsHorizentalFor7Color(HappyStartCell* targetCell);
+    list<HappyStartCell*>  getCellsVerticalFor7Color(HappyStartCell* targetCell);
+    
+    
+    
     void loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type) ;
     
     
@@ -78,6 +84,7 @@ public:
     
     void gameWin();
     
+    int testScoreDegree(float score);
 public:
 
     float munitSize;

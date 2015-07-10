@@ -190,7 +190,7 @@ bool MainMenuScene::init()
     gameTitle->setPosition(Vec2(visibleSize.width/2,visibleSize.height*4/6));
     this->addChild(gameTitle);
     cocos2d::ui::Button * skipbutton = cocos2d::ui::Button::create("startBtn.png");
-    skipbutton->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 1 / 3));
+    skipbutton->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 5 / 12));
     skipbutton->setScale(0.5);
 //    Label* skipLabel = Label::create();
 //    skipLabel->setString("开始");
@@ -203,7 +203,7 @@ bool MainMenuScene::init()
     
     cocos2d::ui::Button * options = cocos2d::ui::Button::create("settings.png");
     options->setScale(0.3);
-    options->setPosition(Vec2( -options->getContentSize().width/2  + visibleSize.width,visibleSize.height-options->getContentSize().height*2));
+    options->setPosition(Vec2( -options->getContentSize().width / 3  + visibleSize.width,  options->getContentSize().height/2));
     this->addChild(options);
     
     cocos2d::ui::Button * shopbtn = cocos2d::ui::Button::create("shopbtn.png");
@@ -222,16 +222,9 @@ bool MainMenuScene::init()
         }
         auto scene = CopyRightScene::createScene();
         Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
-        
-    
-    }
-    ;
+    };
     copyrightbtn->addTouchEventListener(gotoCopyRight);
     
-    
-    
-    
- 
     auto gobackMain = [this](Ref* pSender ,cocos2d::ui::Widget::TouchEventType event){
         if (event != ui::Widget::TouchEventType::ENDED) {
             return;

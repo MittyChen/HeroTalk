@@ -110,10 +110,8 @@ bool GameScene::init()
     
     Vec2 uiPosition = btnPause->getPosition() + Vec2(40, 0);
     
-    float middleX = (uiPosition.x + visibleSize.width)*7/12;
+    
     float middleY = visibleSize.height/2;
-    
-    
     
     int mcount = 6;
     
@@ -123,9 +121,15 @@ bool GameScene::init()
         
     }
     
-    munitSize =(visibleSize.height < visibleSize.width?visibleSize.height:visibleSize.width )/(mcount + 1);
+    
+    
+    
+    float targetHeight = rootNode->getChildByTag(123)->getPositionY() - rootNode->getChildByTag(123)->getContentSize().height - onShotButtonPos.y - mTool_OneShot->getContentSize().height*mTool_ChangeType->getScale();
+    
+    munitSize =(targetHeight < visibleSize.width? (targetHeight - 60 ):(visibleSize.width - 60) )/(mcount + 1);
+    float startX = (targetHeight < visibleSize.width? (targetHeight - munitSize*(count+1) )/2 : 30;
 //    unitOriginPosition = origin + Vec2((visibleSize.width - (munitSize + 1) * mcount)*2/3 ,  (visibleSize.height - (munitSize + 1) * mcount )/2);
-    unitOriginPosition = Vec2(middleX - (munitSize + 1) * count  / 2 ,middleY - (munitSize+1)*count/2);
+    unitOriginPosition = Vec2( 30 , onShotButtonPos.y + mTool_OneShot->getContentSize().height*mTool_ChangeType->getScale());
     
     LayerColor* mlc = LayerColor::create(Color4B(100, 255, 100, 50), (munitSize + 1)* count + 10, (munitSize + 1) * count + 10);
     
@@ -193,12 +197,6 @@ bool GameScene::init()
 //        alien->setHue(2 * M_PI * CCRANDOM_0_1());
 //        this->addChild(alien,1);
 //    }
-    
-    
-    
-  
-    
-    
     return true;
 }
 void GameScene::onEnter(){
@@ -216,6 +214,24 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     if (type != ui::Widget::TouchEventType::ENDED) {
         return;
     }
+    
+    redCount = 0;
+    greenCount = 0;
+    blueCount=0;
+    
+    auto rootNode = this->getChildByName("MainSceneRoot");
+    cocos2d::ui::Text* redCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(123);
+    const char * scoretext = String::createWithFormat(" x %d " ,  redCount)->getCString();
+    redCountt->setString(scoretext);
+    
+    cocos2d::ui::Text* greenCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(126);
+    const char * greenT = String::createWithFormat(" x %d " ,greenCount)->getCString();
+    greenCountt->setString(greenT);
+    
+    cocos2d::ui::Text* blueCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(127);
+    const char * blueT = String::createWithFormat(" x %d " ,blueCount)->getCString();
+    blueCountt->setString(blueT);
+    
     isGameWin = false;
     
     if(isGameFinish)
@@ -568,7 +584,9 @@ void GameScene::pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventT
     pauselayer->setName("Pause_Game_Layer");
     
     Sprite* pauseRoot = (Sprite*)pauselayer->getChildByTag(49);
-
+    pauseRoot->setPosition(Vec2( pauseRoot->getContentSize().width/2 + visibleSize.width, visibleSize.height/2 ));
+    pauseRoot->setScale(visibleSize.height * 2 / 3 / pauseRoot->getContentSize().width);
+    
     pauseRoot->runAction(MoveTo::create(0.1, Vec2(visibleSize.width - pauseRoot->getScaleY() *pauseRoot->getContentSize().height/2, visibleSize.height/2)));
     
     
@@ -746,9 +764,13 @@ void GameScene::deleteOneCell(cocos2d::Ref* object)
     
     if (_mMode == CELL_TOUCH_MODE::NORMAL_MODE) {
         _mMode = CELL_TOUCH_MODE::DELETE_ONE_MODE;
+        ((cocos2d::ui::CheckBox*)object)->runAction(RepeatForever::create(Sequence::create( ScaleTo::create(0.5, 1.1 * ((Node*)object)->getScale()),ScaleTo::create(0.5, 1.0 * ((Node*)object)->getScale() ),nil)));
     }else{
         _mMode = CELL_TOUCH_MODE::NORMAL_MODE;
+        ((cocos2d::ui::CheckBox*)object)->stopAllActions();
     }
+    
+    
 }
 
 void GameScene::changeTypeRandom(cocos2d::Ref* object)
@@ -758,8 +780,12 @@ void GameScene::changeTypeRandom(cocos2d::Ref* object)
         }
     if (_mMode == CELL_TOUCH_MODE::NORMAL_MODE) {
         _mMode = CELL_TOUCH_MODE::CHANGE_COLOR_RANDOM;
+        
+        ((cocos2d::ui::CheckBox*)object)->runAction(RepeatForever::create(Sequence::create( ScaleTo::create(0.5, 1.1 * ((Node*)object)->getScale()),ScaleTo::create(0.5, 1.0 * ((Node*)object)->getScale() ),nil)));
     }else{
         _mMode = CELL_TOUCH_MODE::NORMAL_MODE;
+        
+        ((cocos2d::ui::CheckBox*)object)->stopAllActions();
     }
 }
 
@@ -770,8 +796,12 @@ void GameScene::changeType(cocos2d::Ref* object)
     }
     if (_mMode == CELL_TOUCH_MODE::NORMAL_MODE) {
         _mMode = CELL_TOUCH_MODE::CHANGE_COLOR;
+        
+        ((cocos2d::ui::CheckBox*)object)->runAction(RepeatForever::create(Sequence::create( ScaleTo::create(0.5, 1.1 * ((Node*)object)->getScale()),ScaleTo::create(0.5, 1.0 * ((Node*)object)->getScale() ),nil)));
     }else{
         _mMode = CELL_TOUCH_MODE::NORMAL_MODE;
+        
+        ((cocos2d::ui::CheckBox*)object)->stopAllActions();
     }
 }
 
@@ -815,7 +845,7 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
             if(mIt->second)
             {
 //                 mIt->second->_glprogramstate->setUniformFloat("nightDegree",1.0);
-                
+                 Vec2 touchpos = mIt->second->getposIndex();
                 switch (_mMode) {
                     case CELL_TOUCH_MODE::CHESS_MODE:
                     {
@@ -877,6 +907,7 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                                         mmcell->sethasFind(true);
                                     }
                                 }
+                                
                             }
                         }
                         
@@ -1060,8 +1091,22 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                             
                             for(HappyStartCell* temp :templist)
                             {
-                                removeChild((Node*)temp);
-                                
+//                                
+//                                if (temp->getType() == CELL_TYPE::TYPE_7COLORS) {
+//                                    
+//                                    if ( temp->getposIndex() != touchpos) {
+//                                        
+//                                        Touch* mTouch = new Touch();
+//                                        mTouch->setTouchInfo(0, temp->getPositionX(), temp->getPositionY());
+//                                        onTouchBegan(mTouch,NULL);
+//                                    }else{
+//                                        removeChild((Node*)temp);
+//                                    }
+//                                    
+//                                }else
+                                {
+                                    removeChild((Node*)temp);
+                                }
                             }
                             
                             
@@ -1320,6 +1365,10 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                             }
                              actionPlaying = false;
                             checkoutResult();
+                            
+                            produceCells(NULL);
+                            
+                            
                         };
                         auto blinklamda = [=](Node* pSender){
                             
@@ -1402,11 +1451,7 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                 }
                 
             }
-            
-            const char * scoretext = String::createWithFormat("SCORE : %lu" , count*count - allcells.size())->getCString();
-            scoreLAbel->setString(scoretext);
-            scoreLAbel->runAction(Sequence::create(ScaleTo::create(0.15,1.1),ScaleTo::create(0.15, 1.0), NULL));
-            
+           
         }
         
     }
@@ -1519,7 +1564,7 @@ list<HappyStartCell*> GameScene::getAllSameAround(HappyStartCell* targetCell)
         }
         if(firstTimeRun && getCountSameToThis(targetCell)> 0 )
         {
-             cellsGet.push_back(targetCell);
+            cellsGet.push_back(targetCell);
             targetCell->sethasFind(true);
             firstTimeRun = false;
         }
@@ -1849,6 +1894,112 @@ list<HappyStartCell*>  GameScene::getCellsSameToThisVertical(HappyStartCell* tar
 }
 
 
+list<HappyStartCell*>  GameScene::getCellsHorizentalFor7Color(HappyStartCell* targetCell)
+{
+    map<Vec2, HappyStartCell*>::iterator  mpIteratort = allcells.begin();
+    
+    for (; mpIteratort != allcells.end(); ++mpIteratort)
+    {
+        mpIteratort->second->sethasFind(false);
+    }
+    
+    
+    list<HappyStartCell*> mcellsAround;
+    if(targetCell)
+    {
+        //        targetCell->sethasFind(true);
+        
+        int targetposX =  targetCell->getposIndex().x;
+        int targetposY =  targetCell->getposIndex().y;
+      
+        for (int i = targetposX-1;i >= 0; i--) {
+            if( allcells.find(Vec2(i ,targetposY  )) != allcells.end() && !allcells.find(Vec2(i ,targetposY ))->second->gethasFind()){
+                allcells.find(Vec2(i ,targetposY ))->second->sethasFind(true);
+                mcellsAround.push_back(allcells.find(Vec2(i ,targetposY ))->second);
+            }
+        }
+        
+        
+        for (int i = targetposX+1; i < count; i++) {
+            if( allcells.find(Vec2(i ,targetposY  )) != allcells.end() && !allcells.find(Vec2(i ,targetposY ))->second->gethasFind()){
+                allcells.find(Vec2(i ,targetposY ))->second->sethasFind(true);
+                mcellsAround.push_back(allcells.find(Vec2(i ,targetposY ))->second);
+            }
+        }
+        
+        if (mcellsAround.size() >0) {
+            mcellsAround.push_back(targetCell);
+        }
+    }
+    mpIteratort = allcells.begin();
+    
+    
+    for (; mpIteratort != allcells.end(); ++mpIteratort)
+    {
+        mpIteratort->second->sethasFind(false);
+    }
+    
+    return mcellsAround;
+    
+    
+}
+
+
+list<HappyStartCell*>  GameScene::getCellsVerticalFor7Color(HappyStartCell* targetCell)
+{
+    
+    map<Vec2, HappyStartCell*>::iterator  mpIteratort = allcells.begin();
+    
+    for (; mpIteratort != allcells.end(); ++mpIteratort)
+    {
+        mpIteratort->second->sethasFind(false);
+    }
+    
+    
+    list<HappyStartCell*> mcellsAround;
+    if(targetCell)
+    {
+        //        targetCell->sethasFind(true);
+        
+        int targetposX =  targetCell->getposIndex().x;
+        int targetposY =  targetCell->getposIndex().y;
+        for (int i = targetposY-1;i >= 0; i--) {
+            if( allcells.find(Vec2(targetposX ,i )) != allcells.end() && !allcells.find(Vec2(targetposX ,i))->second->gethasFind()){
+                
+                
+                allcells.find(Vec2(targetposX,i ))->second->sethasFind(true);
+                mcellsAround.push_back(allcells.find(Vec2(targetposX,i ))->second);
+            }
+        }
+        
+        
+        for (int i = targetposY+1; i < count; i++) {
+            if( allcells.find(Vec2(targetposX ,i )) != allcells.end() && !allcells.find(Vec2(targetposX ,i ))->second->gethasFind()){
+                allcells.find(Vec2(targetposX ,i ))->second->sethasFind(true);
+                mcellsAround.push_back(allcells.find(Vec2(targetposX ,i ))->second);
+            }
+        }
+        
+        if (mcellsAround.size() >0) {
+            mcellsAround.push_back(targetCell);
+        }
+    }
+    
+    mpIteratort = allcells.begin();
+    
+    
+    for (; mpIteratort != allcells.end(); ++mpIteratort)
+    {
+        mpIteratort->second->sethasFind(false);
+    }
+    
+    return mcellsAround;
+}
+
+
+
+
+
 void GameScene::produceCells(Node* psender)
 {
 
@@ -1889,6 +2040,7 @@ void GameScene::produceCells(Node* psender)
                                 
                             case CELL_TOUCH_MODE::NORMAL_MODE:
                             case CHANGE_COLOR_RANDOM:
+                            case CELL_TOUCH_MODE::DELETE_ONE_MODE:
                             case CHANGE_COLOR:
                             {
                                 int typeFind = 1;
@@ -1949,6 +2101,12 @@ void GameScene::checkoutResult()
     const char * blueT = String::createWithFormat(" x %d " ,blueCount)->getCString();
     blueCountt->setString(blueT);
     
+    const char * scotext = String::createWithFormat("SCORE : %d" , redCount*10 + greenCount*20 + blueCount*30 )->getCString();
+    scoreLAbel->setString(scotext);
+    scoreLAbel->runAction(Sequence::create(ScaleTo::create(0.15,1.1),ScaleTo::create(0.15, 1.0), NULL));
+    
+    
+    
     switch (_mMode) {
         case CELL_TOUCH_MODE::CHESS_MODE:
         {
@@ -1960,10 +2118,10 @@ void GameScene::checkoutResult()
                 if (mpIterator->second->getType() == CELL_TYPE::TYPE_NORMAL) {
                     continue;
                 }
-                int countsizeRight  = getCellsSameToThisSlantRight(mpIterator->second).size();
-                int countsizeH  =  getCellsSameToThisHorizental(mpIterator->second).size();
-                int countsizeV = getCellsSameToThisVertical(mpIterator->second).size();
-                int countsizeleft  = getCellsSameToThisSlantLeft(mpIterator->second).size();
+                unsigned long countsizeRight  = getCellsSameToThisSlantRight(mpIterator->second).size();
+                unsigned long countsizeH  =  getCellsSameToThisHorizental(mpIterator->second).size();
+                unsigned long countsizeV = getCellsSameToThisVertical(mpIterator->second).size();
+                unsigned long countsizeleft  = getCellsSameToThisSlantLeft(mpIterator->second).size();
                
                 isPauseFlag = true;
                 if (countsizeRight >= 3 || countsizeH >= 3 || countsizeV >= 3 ||countsizeleft >= 3 ) {
@@ -2149,8 +2307,14 @@ void GameScene::gameWin()
         
         cocos2d::ui::Text* scorete = (cocos2d::ui::Text*)rootNode->getChildByTag(19)->getChildByTag(77);
         
-        const char * scoretext = String::createWithFormat("得分 : %lu" , count*count - allcells.size())->getCString();
+        const char * scoretext = String::createWithFormat("得分 : %d" , redCount*10 + greenCount*20 + blueCount*30 )->getCString();
         scorete->setString(scoretext);
+        
+        cocos2d::ui::Text* scoretee = (cocos2d::ui::Text*)rootNode->getChildByTag(19)->getChildByTag(121);
+        
+        const char * sctext = String::createWithFormat("击败了 %d %%的玩家" , testScoreDegree(redCount*10 + greenCount*20 + blueCount*30) )->getCString();
+        scoretee->setString(sctext);
+        
         
         isPaused = true;
         isGameFinish = true;
@@ -2160,4 +2324,15 @@ void GameScene::gameWin()
 
 }
 
+int GameScene::testScoreDegree(float score){
 
+    int scoreTarget[10] = {0,1000,2000,3000,4000,5000,6000,7000,8000,9000};
+    
+    for (int i = 0;i < 10 ;i++) {
+        if(score < scoreTarget[i]){
+            return  (i-1) * 10;
+        }
+    }
+    
+    return 0;
+}

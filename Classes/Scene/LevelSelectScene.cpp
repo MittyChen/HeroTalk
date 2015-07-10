@@ -86,23 +86,18 @@ bool LevelSelectScene::init()
     
     
     ui::ScrollView* m_scrollView =  ui::ScrollView::create();
-    m_scrollView->setDirection( ui::ScrollView::Direction::HORIZONTAL);
+    m_scrollView->setDirection( ui::ScrollView::Direction::VERTICAL);
     m_scrollView->setAnchorPoint(cocos2d::Point::ZERO);
     m_scrollView->setPosition(Vec2::ZERO);
-    m_scrollView->setInnerContainerSize(cocos2d::Size(visibleSize.width * (LEVEL_COUNT / 9 ), visibleSize.height));
+    m_scrollView->setInnerContainerSize(cocos2d::Size(visibleSize.width,visibleSize.height * (LEVEL_COUNT / 9)));
     
     m_scrollView->setContentSize(visibleSize);
     m_scrollView->setSwallowTouches(false);
-    
     this->addChild(m_scrollView);
     
     LayerColor* lcc = LayerColor::create(Color4B(0,0,0,200),visibleSize.width,visibleSize.height);
     
     this->addChild(lcc);
-    
-
-    
-    
     
     Sprite* door0 = Sprite::create("clouddoorside.png");
     door0->setAnchorPoint(Vec2(0.5, 0));
@@ -136,13 +131,13 @@ bool LevelSelectScene::init()
     
     rootNode->runAction(FadeTo::create(0.5, 180));
     
-    rootNode->getChildByTag(91)->setScale(visibleSize.height/rootNode->getChildByTag(91)->getContentSize().height);
+    rootNode->getChildByTag(91)->setScale(visibleSize.width/rootNode->getChildByTag(91)->getContentSize().width);
     rootNode->getChildByTag(91)->setPosition(-1 * visibleSize/2);
     
     
     
     
-    m_scrollView->setInnerContainerSize( cocos2d::Size(rootNode->getChildByTag(91)->getContentSize().width * rootNode->getChildByTag(91)->getScale(), visibleSize.height));
+    m_scrollView->setInnerContainerSize( cocos2d::Size(visibleSize.width, rootNode->getChildByTag(91)->getContentSize().height*rootNode->getChildByTag(91)->getScale()));
 
     
     //    auto bgSpirit = Sprite::create("selectbg.jpg");
@@ -187,6 +182,9 @@ bool LevelSelectScene::init()
     
     int maxlevel = UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED");
     int zOrderFirst = 0;
+    float maxY = 0;
+    float allY = 0;
+    Sprite* userNode = Sprite::create("diamond.png");
     for (int i = 1; i < LEVEL_COUNT; i++) {
         LevelNode* lbn = LevelNode::create();
 //        int randomRate = cocos2d::random(-40, 40);
@@ -208,7 +206,7 @@ bool LevelSelectScene::init()
             zOrderFirst = lbn->getGlobalZOrder();
         }
         
-        lbn->setPosition(rootNode->getChildByTag(91)->getChildByTag(i)->getPosition() - visibleSize/2);
+        lbn->setPosition(rootNode->getChildByTag(i)->getPosition() - visibleSize/2);
  
 //        lbn->setGlobalZOrder(rootNode->getChildByTag(i)->getGlobalZOrder());
         
@@ -220,10 +218,10 @@ bool LevelSelectScene::init()
             
             __String* cc = __String::createWithFormat("LevelNode_%d",maxlevel);
             cocos2d::ui::Button* btnlevelnodeMax =  (cocos2d::ui::Button*) lbn->getChildByName(cc->getCString());
+            maxY = lbn->getPosition().y;
+//            m_scrollView->scrollToPercentVertical( 100 * ( 1 - lbn->getPosition().y) / (m_scrollView->getInnerContainerSize().height) , 1, true);
             
-            m_scrollView->scrollToPercentHorizontal( 100 * ((lbn->getPosition().x * (maxlevel)) / i) / (m_scrollView->getInnerContainerSize().width) , 2, true);
-            Sprite* userNode = Sprite::create("diamond.png");
-            userNode->setScale(0.4);
+            userNode->setScale(0.3);
             userNode->setPosition(btnlevelnodeMax->getPosition() + Vec2(0,btnlevelnodeMax->getContentSize().height*2));
             userNode->setLocalZOrder(btnlevelnodeMax->getLocalZOrder()-1);
             lbn->addChild(userNode);
@@ -290,6 +288,17 @@ bool LevelSelectScene::init()
         btnlevelnode->addTouchEventListener(CC_CALLBACK_2(LevelSelectScene::selectLevelAction, this) );
         
         originPos = lbn->getPosition();
+        
+        
+        if (i == LEVEL_COUNT-1) {
+            allY = lbn->getPositionY();
+            m_scrollView->scrollToPercentVertical( 100 * ( 1 - maxY / allY) , 1, true);
+            userNode->setGlobalZOrder(lbn->getGlobalZOrder()+1);
+        }
+        
+        
+        
+        
     }
    
     rootNode->getChildByTag(-1)->setGlobalZOrder(zOrderFirst-2);
