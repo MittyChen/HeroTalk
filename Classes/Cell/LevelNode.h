@@ -16,6 +16,20 @@
 
 USING_NS_CC;
 
+struct LEVEL_DESIGN_FIND_COLOR{
+    const char * type = "FIND_COLOR";
+    int index;
+    int bluecount;
+    int redcount;
+    int greencount;
+};
+
+struct LEVEL_DESIGN_GET_SCORE{
+    const char * type = "GET_SCORE";
+    int index;
+    int score;
+};
+
 
 class LevelNode: public cocos2d::Sprite
 {
@@ -48,6 +62,15 @@ public:
     void unlockLevel();
     
     bool isLocked;
+    
+    
+    CC_SYNTHESIZE(int, address, AddressName);
+    
+    const char * type;
+    int score;
+    int bluecount;
+    int redcount;
+    int greencount;
 };
 
 #endif /* defined(LevelNode) */

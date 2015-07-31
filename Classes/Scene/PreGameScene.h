@@ -2,13 +2,13 @@
 #define PreGameScene_scene
 
 #include "cocos2d.h"
-
+#include "LevelNode.h"
 #include "ui/CocosGUI.h"
 class PreGameScene : public cocos2d::Layer
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
-    static cocos2d::Scene* createScene(int code);
+    static cocos2d::Scene* createScene(LevelNode* node);
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
@@ -19,7 +19,7 @@ public:
     void gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
     
 private:
-    
+    static LevelNode* selectNode;
 };
 
 #endif // PreGameScene_scene

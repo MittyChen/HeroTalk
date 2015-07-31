@@ -24,5 +24,17 @@
         <LastRunType Value="Mac" />
       </Value>
     </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="PreGameScene.csd" />
+          <FilePathData Path="LevelSelectLayer.csd" />
+          <FilePathData Path="LevelSelectNode.csd" />
+          <FilePathData Path="MainScene.csd" />
+          <FilePathData Path="GameFinishScene.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="GameFinishScene.csd" />
+      </Value>
+    </Item>
   </Properties>
 </UserData>

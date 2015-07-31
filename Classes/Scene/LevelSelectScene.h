@@ -3,8 +3,8 @@
 
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
-
-#define LEVEL_COUNT 29
+#include "LevelNode.h"
+#define LEVEL_COUNT 27
 
 class LevelSelectScene : public cocos2d::Layer
 {
@@ -20,7 +20,9 @@ public:
     CREATE_FUNC(LevelSelectScene);
     void selectLevelAction(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType type);
     
+    static cocos2d::Vector<Ref*>  mLevelStr;
     
+    LevelNode* selectNode;
 };
 
 #endif // __LEVELSELECT_SCENE_H__

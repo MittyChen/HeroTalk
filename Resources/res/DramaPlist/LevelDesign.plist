@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1</key>
+	<string>FIND_COLOR:3:3:3</string>
+	<key>2</key>
+	<string>FIND_COLOR:6:6:6</string>
+	<key>3</key>
+	<string>FIND_COLOR:9:9:9</string>
+	<key>4</key>
+	<string>FIND_COLOR:12:12:12</string>
+	<key>5</key>
+	<string>FIND_COLOR:15:15:15</string>
+	<key>6</key>
+	<string>FIND_COLOR:18:18:18</string>
+	<key>7</key>
+	<string>FIND_COLOR:21:21:21</string>
+	<key>8</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>9</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>10</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>11</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>12</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>13</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>14</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>15</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>16</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>17</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>18</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>19</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>20</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>21</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>22</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>23</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>24</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>25</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>26</key>
+	<string>FIND_COLOR:24:24:24</string>
+	<key>27</key>
+	<string>FIND_COLOR:24:24:24</string>
+</dict>
+</plist>

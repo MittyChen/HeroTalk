@@ -7,9 +7,9 @@
 #include "cocostudio/CocoStudio.h"
 #include "cocostudio/WidgetCallBackHandlerProtocol.h"
 
-#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
-#import "CKIAPManager.h"
-#endif
+//#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+//#import "CKIAPManager.h"
+//#endif
 
 class ShopScene : public cocos2d::Layer
 {
@@ -30,9 +30,9 @@ public:
     void selectProduct(cocos2d::Ref* object);
 private:
     const char* productId;
-#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
-    CKIAPManager* IAPManager;
-#endif
+//#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+//    CKIAPManager* IAPManager;
+//#endif
     
     
 };

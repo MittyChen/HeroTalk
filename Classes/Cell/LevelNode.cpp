@@ -7,7 +7,7 @@
 //
 #include "cocostudio/CocoStudio.h"
 #include "LevelNode.h"
-
+#include "LevelSelectScene.h"
 using namespace cocostudio::timeline;
 
 
@@ -29,6 +29,15 @@ bool LevelNode::init()
         return false;
     }
 //    this->scheduleUpdate();
+    
+     type = "";
+     score = 0;
+     bluecount = 0;
+     redcount = 0;
+     greencount = 0;
+    
+    
+    
     mcode = 1;
     isLocked = true;
     int indexz = random(0, 4);
@@ -115,6 +124,63 @@ void LevelNode::setLevelCode(int code)
     }else{
         stopRain();
     }
+    
+    
+    __String* mstring = (__String*) (LevelSelectScene::mLevelStr.at(code-1));
+    
+    
+    char* mchars =  const_cast<char*>(mstring->getCString());
+    int j = 0;
+    char* marry [4];
+    const char * split = ":";
+    char * p;
+    p = strtok (mchars,split);
+    
+    while(p!=NULL) {
+        marry[j] = p;
+        j++;
+        p = strtok(NULL,split);
+    }
+    
+    char* currentActionType = marry[0];
+    
+    if ( strncasecmp(currentActionType,"FIND_COLOR", 10 )  == 0) {
+        
+        
+        CCLOG("currentActionType:  %s --- ", currentActionType);
+        
+        bluecount = atoi(marry[1]);
+        if ( bluecount == 0) {
+            return;
+        }
+        CCLOG("bluecount:  %d --- ", bluecount);
+        redcount = atoi(marry[2]);
+        if ( redcount == 0) {
+            return;
+        }
+        CCLOG("redcount:  %d --- ", redcount);
+        greencount = atoi(marry[3]);
+        if ( greencount == 0) {
+            return;
+        }
+        CCLOG("greencount:  %d --- ", greencount);
+        
+        return;
+    }else{
+    
+        
+        CCLOG("currentActionType:  %s --- ", currentActionType);
+        
+        score = atoi(marry[1]);
+        
+        if ( score == 0) {
+            return;
+        }
+        
+        CCLOG("score:  %d --- ", score);
+        
+    }
+    
     
     
 }

@@ -4,9 +4,13 @@
 #include "PreGameScene.h"
 #include "SimpleAudioEngine.h"
 #include "cocostudio/CocoStudio.h"
+#include "CommonUtils.h"
 USING_NS_CC;
 
 static int levelToUnlock = 0;
+
+
+cocos2d::Vector<Ref*>  LevelSelectScene::mLevelStr;
 
 Scene* LevelSelectScene::createScene(int unclockLevel)
 {
@@ -35,10 +39,25 @@ bool LevelSelectScene::init()
         return false;
     }
     scheduleUpdate();
+    
+    
+    mLevelStr.clear();
+    
+    for (int i = 1; i < LEVEL_COUNT; i++) {
+        std::string fullPath = FileUtils::getInstance()->fullPathForFilename("LevelDesign.plist");
+        
+        __Dictionary* pdic = Dictionary::createWithContentsOfFile(fullPath.c_str());
+        std::string mkey = CommonUtils::IntToCString(i);
+        
+        auto* value = pdic->objectForKey(mkey);
+        mLevelStr.pushBack(value);
+    }
+    
+    
+    
+    
     cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    
     
     Sprite* fengye = Sprite::create("fengye.png");
     fengye->setPosition(visibleSize/2);
@@ -94,6 +113,7 @@ bool LevelSelectScene::init()
     m_scrollView->setContentSize(visibleSize);
     m_scrollView->setSwallowTouches(false);
     this->addChild(m_scrollView);
+    m_scrollView->setName("ScrollViewNode");
     
     LayerColor* lcc = LayerColor::create(Color4B(0,0,0,200),visibleSize.width,visibleSize.height);
     
@@ -138,21 +158,9 @@ bool LevelSelectScene::init()
     
     
     m_scrollView->setInnerContainerSize( cocos2d::Size(visibleSize.width, rootNode->getChildByTag(91)->getContentSize().height*rootNode->getChildByTag(91)->getScale()));
-
-    
-    //    auto bgSpirit = Sprite::create("selectbg.jpg");
-//    bgSpirit->setPosition(Vec2(bgSpirit->getContentSize().width /2 ,  bgSpirit->getContentSize().height/2));
-//    bgSpirit->setScale(visibleSize.width / this->getContentSize().width  * 1.5) ;
-//    this->addChild(bgSpirit);
-//    bgSpirit->setZOrder(-300);
-    
-    
-  
     
     cocos2d::ui::Button* backbtn = cocos2d::ui::Button::create("goback.png");
-   
-    
-//    backbtn->setPosition(backbtn->getContentSize()/2 );
+
     backbtn->setPosition( Vec2( backbtn->getContentSize().width /2  , -backbtn->getContentSize().height/2 + visibleSize.height));
     
     backbtn->setScale(0.5);
@@ -181,25 +189,22 @@ bool LevelSelectScene::init()
 //    mylines->setPosition(visibleSize/2 );
     
     int maxlevel = UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED");
+    if (maxlevel  < levelToUnlock) {
+        __String* ss = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",levelToUnlock);
+        UserDefault::getInstance()->setBoolForKey(ss->getCString(),true);
+        UserDefault::getInstance()->setIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED",levelToUnlock);
+        maxlevel = levelToUnlock;
+    }
+    
     int zOrderFirst = 0;
     float maxY = 0;
     float allY = 0;
     Sprite* userNode = Sprite::create("diamond.png");
     for (int i = 1; i < LEVEL_COUNT; i++) {
         LevelNode* lbn = LevelNode::create();
-//        int randomRate = cocos2d::random(-40, 40);
-        
-//        Vec2 lbnPos = Vec2(lbn->getContentSize().width/2 -visibleSize.width/2 + 100 * i + randomRate,  50 + (i%2==0?80:-50) + randomRate );
-//        lbn->setPosition(lbnPos);
-        
-         
-        lbn->setLevelCode(i);
-        
        
-        
-//        m_scrollView->addChild(lbn);
-      
-        
+        lbn->setLevelCode(i);
+    
         rootNode->getChildByTag(91)->addChild((Node*)lbn);
 
         if (i==1) {
@@ -208,8 +213,7 @@ bool LevelSelectScene::init()
         
         lbn->setPosition(rootNode->getChildByTag(i)->getPosition() - visibleSize/2);
  
-//        lbn->setGlobalZOrder(rootNode->getChildByTag(i)->getGlobalZOrder());
-        
+        lbn->setTag(-1*i);
         destinPos = lbn->getPosition();
     
         
@@ -252,20 +256,6 @@ bool LevelSelectScene::init()
         if(originPos != Vec2::ZERO)
         {
 
-//            Sprite* rainbow = Sprite::create("route1.png");
-//            rainbow->setScale((destinPos - originPos).length()*9/10/rainbow->getContentSize().width);
-//            //            rainbow->setAnchorPoint(Vec2(0, 0));
-//            float anglex =(destinPos - originPos).getAngle()*180/3.141592653;
-//            rainbow->setRotation(-anglex);
-//            
-//            rainbow->setAnchorPoint(Vec2(0.5, 0));
-//            rainbow->setPosition((destinPos+originPos)/2 + visibleSize/2  );
-//             
-//            rootNode->getChildByTag(91)->addChild(rainbow);
-//            rainbow->setGlobalZOrder(zOrderFirst-1);
-
-        
-            
             Sprite* rainbow = Sprite::create("levellink.png");
             rainbow->setScale((destinPos-originPos).length()/rainbow->getContentSize().width
                               );
@@ -297,19 +287,20 @@ bool LevelSelectScene::init()
         }
         
         
-        
-        
     }
    
     rootNode->getChildByTag(-1)->setGlobalZOrder(zOrderFirst-2);
     rootNode->getChildByTag(-2)->setGlobalZOrder(zOrderFirst-2);
     rootNode->getChildByTag(91)->setGlobalZOrder(zOrderFirst-2);
     
-   
-    float nodeMaxPosX = visibleSize.width *  m_scrollView->getInnerContainer()->getPositionPercent().x + maxlevelpos->getPosition().x;
-    float controlWidth =  nodeMaxPosX - visibleSize.width;
+    if(maxlevelpos!=NULL)
+    {
+        float nodeMaxPosX = visibleSize.width *  m_scrollView->getInnerContainer()->getPositionPercent().x + maxlevelpos->getPosition().x;
+        float controlWidth =  nodeMaxPosX - visibleSize.width;
+        
+    }
     
-    auto gtouchScroll = [nodeMaxPosX,controlWidth,maxlevelpos,m_scrollView,door0,door1,lcc,visibleSize](Ref* obj,cocos2d::ui::ScrollView::EventType event)mutable
+    auto gtouchScroll = [maxlevelpos,m_scrollView,door0,door1,lcc,visibleSize](Ref* obj,cocos2d::ui::ScrollView::EventType event)mutable
     {
         
 //        float nodeMaxPosXNow = visibleSize.width *  m_scrollView->getInnerContainer()->getPositionPercent().x + maxlevelpos->getPosition().x;
@@ -428,10 +419,13 @@ void LevelSelectScene::update(float delta)
 
 void LevelSelectScene::selectLevelAction(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType type)
 {
+    
     if (type == ui::Widget::TouchEventType::ENDED) {
+        
         int mcode = ((LevelNode*)(((Node*) pSender)->getParent()))->getLevelCode();
-         
-        auto scene = PreGameScene::createScene(mcode);
+        
+       
+        auto scene = PreGameScene::createScene(((LevelNode*)(((Node*) pSender)->getParent())));
         Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
     }
 }

@@ -52,9 +52,9 @@ bool ShopScene::init()
     productId = "initValue";
     scheduleUpdate();
     
-#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
-    IAPManager = [[CKIAPManager alloc]init];
-#endif
+//#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+//    IAPManager = [[CKIAPManager alloc]init];
+//#endif
    
     
     cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -165,9 +165,9 @@ void ShopScene::buyItem(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     if (type != ui::Widget::TouchEventType::ENDED) {
         return;
     }
-#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
-    NSString* stringId = [NSString stringWithUTF8String:productId];
-    [IAPManager purchasesProduct:stringId];
-#endif
+//#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+//    NSString* stringId = [NSString stringWithUTF8String:productId];
+//    [IAPManager purchasesProduct:stringId];
+//#endif
     
 }

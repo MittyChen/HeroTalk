@@ -5,13 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>色彩消除</string>
+	<string>呆墨.消除</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>Icon-57.png</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.punchboxstudios.wangemaoxian</string>
+	<string>com.mitty.herotalk</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

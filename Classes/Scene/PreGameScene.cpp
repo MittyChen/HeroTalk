@@ -8,9 +8,16 @@ USING_NS_CC;
 using namespace cocostudio::timeline;
 using namespace ui;
 static int levelSelected = 0;
-Scene* PreGameScene::createScene(int code)
+LevelNode* PreGameScene::selectNode = NULL;
+
+Scene* PreGameScene::createScene(LevelNode* node)
 {
-    levelSelected = code;
+    levelSelected = node->getLevelCode() ;
+    
+    selectNode = node;
+    
+    selectNode->retain();
+    
     // 'scene' is an autorelease object
     auto scene = Scene::create();
     
@@ -71,6 +78,10 @@ bool PreGameScene::init()
     rootNode->setContentSize(visibleSize);
     ui::Helper::doLayout(rootNode);
     
+    auto waterpoolSpirit = Sprite::create("poolwater.png");
+    waterpoolSpirit->setAnchorPoint(Vec2(0, 0));
+    waterpoolSpirit->setScale(visibleSize.width/waterpoolSpirit->getContentSize().width);
+    
     
     
     cocos2d::ui::Button* btnEasy =  (cocos2d::ui::Button*)rootNode->getChildByTag(57);
@@ -89,7 +100,7 @@ bool PreGameScene::init()
  
     auto waterSpirit = Sprite::create("water.png");
     waterSpirit->setPosition(Vec2(waterSpirit->getContentSize().width /2 ,  0));
-    waterSpirit->setScale(visibleSize.width/waterSpirit->getContentSize().width * 20, visibleSize.height/waterSpirit->getContentSize().height /3);
+    waterSpirit->setScale(visibleSize.width/waterSpirit->getContentSize().width * 20, (waterpoolSpirit->getContentSize().height *waterpoolSpirit->getScaleY()  - 10)/waterSpirit->getContentSize().height );
     
     // create a Waved3D action
     ActionInterval* waves = Waves3D::create(30, cocos2d::Size(10, 10), 15, 20);
@@ -99,10 +110,7 @@ bool PreGameScene::init()
     this->addChild(nodeGrid);
     
     
-    auto waterpoolSpirit = Sprite::create("poolwater.png");
-    waterpoolSpirit->setAnchorPoint(Vec2(0, 0));
-    waterpoolSpirit->setScale(visibleSize.width/waterpoolSpirit->getContentSize().width);
-    
+   
     this->addChild(waterpoolSpirit);
     
     
@@ -126,7 +134,7 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
             case 57:
             {
             
-                auto scene = GameScene::createScene(levelSelected,0);
+                auto scene = GameScene::createScene(selectNode);
                 Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
                 
                 break;
@@ -135,8 +143,7 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
             case 59:
                 
             {
-                
-                auto scene = GameScene::createScene(levelSelected,1);
+                auto scene = GameScene::createScene(selectNode);
                 Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
                 
                 break;
@@ -145,8 +152,7 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
             case 60:
                 
             {
-                
-                auto scene = GameScene::createScene(levelSelected,2);
+                auto scene = GameScene::createScene(selectNode);
                 Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
                 
                 break;
@@ -155,7 +161,7 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
                 
             {
                 
-                auto scene = LevelSelectScene::createScene(0);
+                auto scene = LevelSelectScene::createScene(selectNode->getLevelCode());
                 Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
                 
                 break;
@@ -164,5 +170,7 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
             default:
                 break;
         }
+        selectNode->release();
+        selectNode = NULL;
     }
 }

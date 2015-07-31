@@ -8,6 +8,8 @@
 #include "ui/CocosGUI.h"
 #include "CommonUtils.h"
 
+#include "LevelNode.h"
+
 enum CELL_TOUCH_MODE{
     NORMAL_MODE = -1,
     DELETE_ONE_MODE = 1,
@@ -21,7 +23,7 @@ class GameScene : public cocos2d::Layer
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
-    static cocos2d::Scene* createScene(int code ,int difficultyp);
+    static Scene* createScene(LevelNode* mLevel);
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
@@ -55,6 +57,8 @@ public:
     
     void exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type) ;
     
+    void shareScore(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
+    
     void gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
     
     void deleteOneCell(cocos2d::Ref* object);
@@ -85,6 +89,9 @@ public:
     void gameWin();
     
     int testScoreDegree(float score);
+    
+    
+    virtual void onExit();
 public:
 
     float munitSize;
@@ -111,6 +118,7 @@ public:
     int redCount;
     int greenCount;
     int blueCount;
+    static LevelNode* lv;
 };
 
 #endif // __GAME_SCENE_H__

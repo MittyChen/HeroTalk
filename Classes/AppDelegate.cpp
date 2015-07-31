@@ -5,6 +5,8 @@
 #include "VideoScene.h"
 #include "ShopScene.h"
 #include "CommonUtils.h"
+#include "PluginChannel.h"
+#include "Analytics.h"
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -86,9 +88,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
         CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0);
     }
     
+    PluginChannel::getInstance()->loadPlugins();
+    
+    int maxlevel =  UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED");
     // create a scene. it's an autorelease object
-    auto scene =  GameScene::createScene(19,0);
-    //auto scene =  VideoScene::createScene();
+//    auto scene =  GameScene::createScene(8,0);
+    auto scene =  LevelSelectScene::createScene(maxlevel);
+//    auto scene =  VideoScene::createScene();
     // run
     director->runWithScene(scene);
     
@@ -98,7 +104,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground() {
     Director::getInstance()->stopAnimation();
-    
+     Analytics::getInstance()->stopSession();
     // if you use SimpleAudioEngine, it must be pause
      CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
 }
@@ -106,7 +112,7 @@ void AppDelegate::applicationDidEnterBackground() {
 // this function will be called when the app is active again
 void AppDelegate::applicationWillEnterForeground() {
     Director::getInstance()->startAnimation();
-    
+    Analytics::getInstance()->startSession();
     // if you use SimpleAudioEngine, it must resume here
      CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
      

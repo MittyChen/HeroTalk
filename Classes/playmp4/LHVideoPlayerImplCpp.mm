@@ -9,11 +9,11 @@
 
 #include "LHVideoPlayerImplCpp.h"
 #import "LHVideoPlayerImpl.h"
-#import "CKIAPManager.h"
+//#import "CKIAPManager.h"
 
 int LHVideoPlayerImplCpp::touchcount = 0 ;
 std::function<void()> LHVideoPlayerImplCpp::finishcallback;
-static CKIAPManager* IAPmanager = NULL;
+//static CKIAPManager* IAPmanager = NULL;
 void LHVideoPlayerImplCpp::playMP4WithName(const char* name, cocos2d::Rect frameRect,const std::function<void()>& callback )
 {
     frameRect.origin =frameRect.origin * .5;
@@ -21,7 +21,7 @@ void LHVideoPlayerImplCpp::playMP4WithName(const char* name, cocos2d::Rect frame
     [LHVideoPlayerImpl playMP4WithName:[NSString stringWithUTF8String:name] VideoFrame:CGRectMake(frameRect.origin.x, frameRect.origin.y, frameRect.size.width, frameRect.size.height)];
     finishcallback = callback;
     
-    IAPmanager = [[CKIAPManager alloc]init];
+//    IAPmanager = [[CKIAPManager alloc]init];
 }
 
 void LHVideoPlayerImplCpp::setSkipTitle(const char* title)

@@ -7,6 +7,7 @@
 #include "CopyRightScene.h"
 #include "CommonUtils.h"
 #include "ShopScene.h"
+#include "Ads.h"
 USING_NS_CC;
 
 using namespace ui;
@@ -59,7 +60,7 @@ bool MainMenuScene::init()
     float scaleFactor = scaleX>scaleY?scaleX:scaleY;
     fengye->setScale(scaleFactor);
     //出现一次 淡化至透明
-     fengye->runAction(Sequence::create(ScaleTo::create(0.001, scaleFactor*1.2),ScaleTo::create(1.5, scaleFactor*1),FadeTo::create(1, 50), NULL) );
+     fengye->runAction(Sequence::create(ScaleTo::create(0.001, scaleFactor*1.2),ScaleTo::create(1.5, scaleFactor*1), NULL) );
     //循环进行播放
 //    fengye->runAction(RepeatForever::create(Sequence::create(FadeTo::create(5, 0),ScaleTo::create(0.01, 1.2),FadeTo::create(0.5, 200),ScaleTo::create(2.5, 1), NULL) ));
     
@@ -182,16 +183,25 @@ bool MainMenuScene::init()
 //    TargetedAction* ta = TargetedAction::create(dotP2, ReverseTime::create(actionb));
 //    this->runAction(ta);
     
-    Label* gameTitle = Label::create();
-    gameTitle->setString("色彩消除");
-    gameTitle->setSystemFontName("Arial");
-    gameTitle->setSystemFontSize(100);
+//    Label* gameTitle = Label::create();
+//    gameTitle->setString("彩");
+//    gameTitle->setSystemFontName("Arial");
+//    gameTitle->setSystemFontSize(100);
+//    gameTitle->setAnchorPoint(Vec2(0.5,0.5));
+//    gameTitle->setPosition(Vec2(visibleSize.width/2,visibleSize.height*4/6));
+//    this->addChild(gameTitle);
+    
+    Sprite* gameTitle = Sprite::create("cai.png");
     gameTitle->setAnchorPoint(Vec2(0.5,0.5));
     gameTitle->setPosition(Vec2(visibleSize.width/2,visibleSize.height*4/6));
+    gameTitle->setScale(1);
     this->addChild(gameTitle);
+    
+    
+    
     cocos2d::ui::Button * skipbutton = cocos2d::ui::Button::create("startBtn.png");
     skipbutton->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 5 / 12));
-    skipbutton->setScale(0.5);
+    skipbutton->setScale(0.7);
 //    Label* skipLabel = Label::create();
 //    skipLabel->setString("开始");
 //    skipLabel->setSystemFontSize(20);
@@ -292,6 +302,8 @@ bool MainMenuScene::init()
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("levelselect.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("gamebg.mp3",true);
     
+//    Ads::getInstance()->showAds(AdsType::AD_TYPE_BANNER);
+    
     
     return true;
 }
@@ -310,7 +322,8 @@ void MainMenuScene::playClickCallBack(Ref* sender,cocos2d::ui::TouchEventType ty
     }
     else
     {
-        auto scene = LevelSelectScene::createScene(0);
+        int maxlevel =  UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED");
+        auto scene = LevelSelectScene::createScene(maxlevel);
         // run
         Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
     }

@@ -13,7 +13,7 @@
 #include "PreGameScene.h"
 #include "SPCScene.h"
 #include "CommonUtils.h"
-
+#include "Share.h"
 USING_NS_CC;
 
 bool isGameWin = false;
@@ -27,12 +27,20 @@ bool isPauseFlag = false;
 int framecount = 0;
 
 static int mdifficult = 0;
-Scene* GameScene::createScene(int code ,int difficultyp)
+LevelNode* GameScene::lv = NULL;
+
+Scene* GameScene::createScene(LevelNode* mLevel)
 {
     auto scene = Scene::create();
     
-    count = code+1;
-    mdifficult = difficultyp;
+    lv = mLevel;
+    
+    lv->retain();
+    
+    count = 10;
+    
+    mdifficult = 2;
+    
     auto layer = GameScene::create();
 
     scene->addChild(layer);
@@ -40,7 +48,13 @@ Scene* GameScene::createScene(int code ,int difficultyp)
     return scene;
 }
 
+void GameScene::onExit(){
+    if(lv){
+        lv->release();
+        lv=NULL;
+    }
 
+}
 // on "init" you need to initialize your instance
 bool GameScene::init()
 {
@@ -90,7 +104,7 @@ bool GameScene::init()
     
     cocos2d::ui::Text* labelLevel = (cocos2d::ui::Text*)rootNode->getChildByTag(74);
     
-    const char * Leveltext = String::createWithFormat("第 %d 关" , count)->getCString();
+    const char * Leveltext = String::createWithFormat("第 %d 关" , lv->getLevelCode())->getCString();
     labelLevel->setString(Leveltext);
     
     cocos2d::ui::CheckBox* mTool_OneShot = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(11);
@@ -121,15 +135,18 @@ bool GameScene::init()
         
     }
     
-    
-    
-    
     float targetHeight = rootNode->getChildByTag(123)->getPositionY() - rootNode->getChildByTag(123)->getContentSize().height - onShotButtonPos.y - mTool_OneShot->getContentSize().height*mTool_ChangeType->getScale();
     
+  
     munitSize =(targetHeight < visibleSize.width? (targetHeight - 60 ):(visibleSize.width - 60) )/(mcount + 1);
-    float startX = (targetHeight < visibleSize.width? (targetHeight - munitSize*(count+1) )/2 : 30;
-//    unitOriginPosition = origin + Vec2((visibleSize.width - (munitSize + 1) * mcount)*2/3 ,  (visibleSize.height - (munitSize + 1) * mcount )/2);
-    unitOriginPosition = Vec2( 30 , onShotButtonPos.y + mTool_OneShot->getContentSize().height*mTool_ChangeType->getScale());
+    
+    float middleYY = (rootNode->getChildByTag(123)->getPositionY() + onShotButtonPos.y) / 2;
+    
+    float startY = middleYY - munitSize*count/2;
+    
+    float planB =  (visibleSize.width - (munitSize * count)) / 2;
+    
+    unitOriginPosition = Vec2( planB , startY);
     
     LayerColor* mlc = LayerColor::create(Color4B(100, 255, 100, 50), (munitSize + 1)* count + 10, (munitSize + 1) * count + 10);
     
@@ -215,21 +232,21 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
         return;
     }
     
-    redCount = 0;
+    redCount =0;
     greenCount = 0;
-    blueCount=0;
+    blueCount = 0;
     
     auto rootNode = this->getChildByName("MainSceneRoot");
     cocos2d::ui::Text* redCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(123);
-    const char * scoretext = String::createWithFormat(" x %d " ,  redCount)->getCString();
+    const char * scoretext = String::createWithFormat(" x %d " ,  lv->redcount)->getCString();
     redCountt->setString(scoretext);
     
     cocos2d::ui::Text* greenCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(126);
-    const char * greenT = String::createWithFormat(" x %d " ,greenCount)->getCString();
+    const char * greenT = String::createWithFormat(" x %d " ,lv->greencount)->getCString();
     greenCountt->setString(greenT);
     
     cocos2d::ui::Text* blueCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(127);
-    const char * blueT = String::createWithFormat(" x %d " ,blueCount)->getCString();
+    const char * blueT = String::createWithFormat(" x %d " ,lv->bluecount)->getCString();
     blueCountt->setString(blueT);
     
     isGameWin = false;
@@ -330,6 +347,7 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
             };
 
         }
+         return;
     }
     
 //    if (isPaused){
@@ -674,6 +692,7 @@ void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
         auto scene = MainMenuScene::createScene();
         // run
         Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
+         return;
     }
     
     
@@ -686,6 +705,12 @@ void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
     Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
 }
 
+
+void GameScene::shareScore(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
+{
+    Share::getInstance()->share();
+}
+
 void GameScene::gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
     if (type != ui::Widget::TouchEventType::ENDED) {
@@ -696,10 +721,10 @@ void GameScene::gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::Touch
     {
         isGameFinish = false;
 
-        auto scene =  LevelSelectScene::createScene(count);
+        auto scene =  LevelSelectScene::createScene(lv->getLevelCode());
         // run
         Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
-        
+         return;
     }
     
     
@@ -725,10 +750,13 @@ void GameScene::gotoLevelNext(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
     {
         isGameFinish = false;
         
-        auto scene =  PreGameScene::createScene(count);
+        LevelNode* lbn = LevelNode::create();
+        lbn->setLevelCode(lv->getLevelCode()+1);
+        
+        auto scene =  PreGameScene::createScene(lbn);
         // run
         Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
-        
+        return;
     }
     
     
@@ -737,7 +765,6 @@ void GameScene::gotoLevelNext(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
     
     if (UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED") < count) {
         UserDefault::getInstance()->setIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED",count);
-        
     }
    
     
@@ -745,11 +772,12 @@ void GameScene::gotoLevelNext(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
     //    if (isPaused){
     //        return;
     //    }
-    auto scene =  PreGameScene::createScene(count);
+    LevelNode* lbn = LevelNode::create();
+    lbn->setLevelCode(lv->getLevelCode()+1);
+
+    auto scene =  PreGameScene::createScene(lbn);
     // run
     Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
-    
-    
     
 }
 
@@ -2088,17 +2116,33 @@ void GameScene::checkoutResult()
 {
     isPaused = true;
     
+    
+    int finalred = lv->redcount - redCount ;
+    if (finalred < 0) {
+        finalred = 0;
+    }
+    int finalgreen = lv->greencount - greenCount ;
+    if (finalgreen < 0) {
+        finalgreen = 0;
+    }
+    int finalblue = lv->bluecount - blueCount ;
+    if (finalblue < 0) {
+        finalblue = 0;
+    }
+    
     auto rootNode = this->getChildByName("MainSceneRoot");
     cocos2d::ui::Text* redCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(123);
-    const char * scoretext = String::createWithFormat(" x %d " ,  redCount)->getCString();
+    const char * scoretext = String::createWithFormat(" x %d " , finalred)->getCString();
     redCountt->setString(scoretext);
     
+    
+    
     cocos2d::ui::Text* greenCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(126);
-    const char * greenT = String::createWithFormat(" x %d " ,greenCount)->getCString();
+    const char * greenT = String::createWithFormat(" x %d " ,finalgreen)->getCString();
     greenCountt->setString(greenT);
     
     cocos2d::ui::Text* blueCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(127);
-    const char * blueT = String::createWithFormat(" x %d " ,blueCount)->getCString();
+    const char * blueT = String::createWithFormat(" x %d " ,finalblue)->getCString();
     blueCountt->setString(blueT);
     
     const char * scotext = String::createWithFormat("SCORE : %d" , redCount*10 + greenCount*20 + blueCount*30 )->getCString();
@@ -2186,7 +2230,7 @@ void GameScene::checkoutResult()
         case CHANGE_COLOR:
         {
             
-            if (redCount >= 20 && greenCount>=20 && blueCount>=20 ) {
+            if (redCount >= lv->redcount && greenCount>=lv->greencount && blueCount>=lv->bluecount ) {
                 gameWin();
                 return;
             }
@@ -2289,6 +2333,9 @@ void GameScene::gameWin()
         cocos2d::ui::Button* btnExit =  (cocos2d::ui::Button*)rootNode->getChildByTag(19)->getChildByTag(16);
         btnExit->addTouchEventListener(CC_CALLBACK_2(GameScene::exitGame, this) );
         
+        cocos2d::ui::Button* btnShare =  (cocos2d::ui::Button*)rootNode->getChildByTag(19)->getChildByTag(75);
+        btnShare->addTouchEventListener(CC_CALLBACK_2(GameScene::shareScore, this) );
+        
         
         cocos2d::ui::Text* helptext = (cocos2d::ui::Text*)rootNode->getChildByTag(19)->getChildByTag(53);
         
@@ -2326,6 +2373,8 @@ void GameScene::gameWin()
 
 int GameScene::testScoreDegree(float score){
 
+    
+    
     int scoreTarget[10] = {0,1000,2000,3000,4000,5000,6000,7000,8000,9000};
     
     for (int i = 0;i < 10 ;i++) {
