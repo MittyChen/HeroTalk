@@ -139,8 +139,6 @@ bool SPCScene::init()
             };
             
             this->runAction(Sequence::create(DelayTime::create(2), CallFuncN::create(backtoScnee) ,NULL));
-            
-            
         }
     };
     

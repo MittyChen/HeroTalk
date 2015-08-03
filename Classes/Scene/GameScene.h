@@ -30,9 +30,12 @@ public:
     virtual void update(float delta);
      virtual bool  onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
     virtual void onEnter();
+    
     // implement the "static create()" method manually
     CREATE_FUNC(GameScene);
     
+    GameScene();
+    ~GameScene();
     
     int getCountSameToThis(HappyStartCell* targetCell);
     list<HappyStartCell*> getCellsSameToThisSlantLeft(HappyStartCell* targetCell);//反斜向
