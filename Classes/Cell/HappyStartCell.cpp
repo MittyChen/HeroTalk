@@ -137,7 +137,7 @@ void HappyStartCell::setType(enum CELL_TYPE mtype)
             {
                 this->removeChildByTag(999);
             }
-            this->setColor(cocos2d::Color3B(255,255,255));
+            this->setColor(cocos2d::Color3B(200,200,200));
             break;
         case TYPE_7COLORS:
         {

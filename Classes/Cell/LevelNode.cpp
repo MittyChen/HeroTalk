@@ -143,7 +143,7 @@ void LevelNode::setLevelCode(int code)
     }
     
     char* currentActionType = marry[0];
-    
+    type = currentActionType;
     if ( strncasecmp(currentActionType,"FIND_COLOR", 10 )  == 0) {
         
         
@@ -166,7 +166,7 @@ void LevelNode::setLevelCode(int code)
         CCLOG("greencount:  %d --- ", greencount);
         
         return;
-    }else{
+    }else if ( strncasecmp(currentActionType,"GET_SCORE", 9 )  == 0) {
     
         
         CCLOG("currentActionType:  %s --- ", currentActionType);

@@ -108,6 +108,25 @@ bool GameScene::init()
     
     scoreLAbel = (cocos2d::ui::Text*)rootNode->getChildByTag(7);
     
+    const char * scoretext = String::createWithFormat("目标分数 %d" , lv->score)->getCString();
+    scoreLAbel->setString(scoretext);
+    
+    const char* currentActionType =  lv->type;
+    
+    if ( strncasecmp(currentActionType,"FIND_COLOR", 10 )  == 0) {
+        scoreLAbel->setVisible(false);
+    }else if ( strncasecmp(currentActionType,"GET_SCORE", 9 )  == 0) {
+        
+        rootNode->getChildByTag(123)->setVisible(false);;
+        rootNode->getChildByTag(126)->setVisible(false);;
+        rootNode->getChildByTag(127)->setVisible(false);;
+        rootNode->getChildByTag(128)->setVisible(false);;
+        rootNode->getChildByTag(129)->setVisible(false);;
+        rootNode->getChildByTag(130)->setVisible(false);;
+    }
+
+    
+    
     cocos2d::ui::Text* labelLevel = (cocos2d::ui::Text*)rootNode->getChildByTag(74);
     
     const char * Leveltext = String::createWithFormat("第 %d 关" , lv->getLevelCode())->getCString();
@@ -130,16 +149,13 @@ bool GameScene::init()
     
     Vec2 uiPosition = btnPause->getPosition() + Vec2(40, 0);
     
-    
-    float middleY = visibleSize.height/2;
-    
     int mcount = 6;
     
     if(count >= 6)
     {
         mcount = count;
-        
     }
+    
     
     float targetHeight = rootNode->getChildByTag(123)->getPositionY() - rootNode->getChildByTag(123)->getContentSize().height - onShotButtonPos.y - mTool_OneShot->getContentSize().height*mTool_ChangeType->getScale();
     
@@ -268,7 +284,9 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
         isPauseFlag = true;
         
         isGameFinish = false;
-        scoreLAbel->setString("SCORE : 0");
+        
+        const char * scoretext = String::createWithFormat("目标分数 %d" , lv->score)->getCString();
+        scoreLAbel->setString(scoretext);
         
         map<Vec2, HappyStartCell*>::iterator  mpIterator = allcells.begin();
         
@@ -361,7 +379,8 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
 //    }
     
     
-    scoreLAbel->setString("SCORE : 0");
+    const char * scoretext1 = String::createWithFormat("目标分数 %d" , lv->score)->getCString();
+    scoreLAbel->setString(scoretext1);
     
     map<Vec2, HappyStartCell*>::iterator  mpIterator = allcells.begin();
     
@@ -790,11 +809,6 @@ void GameScene::gotoLevelNext(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
         UserDefault::getInstance()->setIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED",count);
     }
    
-    
-    
-    //    if (isPaused){
-    //        return;
-    //    }
     LevelNode* lbn = LevelNode::create();
     lbn->setLevelCode(lv->getLevelCode()+1);
 
@@ -2207,10 +2221,10 @@ void GameScene::checkoutResult()
     const char * blueT = String::createWithFormat(" x %d " ,finalblue)->getCString();
     blueCountt->setString(blueT);
     
-    const char * scotext = String::createWithFormat("SCORE : %d" , redCount*10 + greenCount*20 + blueCount*30 )->getCString();
+    int nowScore = lv->score -(redCount*10 + greenCount*20 + blueCount*30);
+    const char * scotext = String::createWithFormat("目标分数 : %d" , nowScore > 0 ? nowScore : 0 )->getCString();
     scoreLAbel->setString(scotext);
     scoreLAbel->runAction(Sequence::create(ScaleTo::create(0.15,1.1),ScaleTo::create(0.15, 1.0), NULL));
-    
     
     
     switch (_mMode) {
@@ -2292,7 +2306,7 @@ void GameScene::checkoutResult()
         case CHANGE_COLOR:
         {
             
-            if (redCount >= lv->redcount && greenCount>=lv->greencount && blueCount>=lv->bluecount ) {
+            if ( (redCount >= lv->redcount && greenCount>=lv->greencount && blueCount>=lv->bluecount&& strcmp(lv->type, "FIND_COLOR") == 0 )   || (strcmp(lv->type, "GET_SCORE") == 0 && nowScore <= 0)) {
                 gameWin();
                 return;
             }
