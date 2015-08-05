@@ -46,6 +46,8 @@ void HappyStartCell::setParameters(cocos2d::Color3B mcolor,cocos2d::Vec2 originP
     float velocity = Director::getInstance()->getVisibleSize().height / 0.5;
     Vec2 posDes = Vec2(originPos.x + posIndex.x * (unitSize.width +1) + unitSize.width/2 , originPos.y + posIndex.y *  (unitSize.height+1)+ unitSize.width/2 );
     this->runAction(MoveTo::create((getPositionY() - posDes.y )/velocity, posDes));
+    
+    
 }
 void HappyStartCell::setActualColor(cocos2d::Color3B mcolor){
     this->setColor(mcolor);

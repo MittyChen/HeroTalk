@@ -94,8 +94,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     int maxlevel =  UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED");
     // create a scene. it's an autorelease object
 //    auto scene =  GameScene::createScene(8,0);
-    auto scene =  LevelSelectScene::createScene(maxlevel);
-//    auto scene =  VideoScene::createScene();
+//    auto scene =  LevelSelectScene::createScene(maxlevel);
+    auto scene =  VideoScene::createScene();
 //    auto scene =  SPCScene::createScene();
     // run
     director->runWithScene(scene);

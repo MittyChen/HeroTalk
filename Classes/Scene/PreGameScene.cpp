@@ -110,6 +110,19 @@ bool PreGameScene::init()
     this->addChild(nodeGrid);
     
     
+    LevelSelectScene::mLevelStr.clear();
+    
+    for (int i = 1; i < LEVEL_COUNT; i++) {
+        std::string fullPath = FileUtils::getInstance()->fullPathForFilename("LevelDesign.plist");
+        
+        __Dictionary* pdic = Dictionary::createWithContentsOfFile(fullPath.c_str());
+        std::string mkey = CommonUtils::IntToCString(i);
+        
+        auto* value = pdic->objectForKey(mkey);
+        LevelSelectScene::mLevelStr.pushBack(value);
+    }
+    
+    
    
     this->addChild(waterpoolSpirit);
     

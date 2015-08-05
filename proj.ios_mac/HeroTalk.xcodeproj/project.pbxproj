@@ -105,6 +105,23 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1F29DE651B7217B800E4C860 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F29DE601B7217B800E4C860 /* cocos2d_libs.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1551A33F158F2AB200E66CFE;
+			remoteInfo = "libcocos2d Mac";
+		};
+		1F29DE671B7217B800E4C860 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F29DE601B7217B800E4C860 /* cocos2d_libs.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A07A4D641783777C0073F6A7;
+			remoteInfo = "libcocos2d iOS";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0F3A4B559B3019F2C7B0E080 /* res */ = {isa = PBXFileReference; lastKnownFileType = "?"; name = res; path = ../Resources/res; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
@@ -136,6 +153,7 @@
 		1F0869561B3BE63F00A99CFF /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		1F0869651B3C037000A99CFF /* SPCScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SPCScene.cpp; sourceTree = "<group>"; };
 		1F0869661B3C037000A99CFF /* SPCScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCScene.h; sourceTree = "<group>"; };
+		1F29DE601B7217B800E4C860 /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = "../../../env/cocos2d-x-3.4/build/cocos2d_libs.xcodeproj"; sourceTree = "<group>"; };
 		1F4373241B0DB90300A7FD8D /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingScene.cpp; sourceTree = "<group>"; };
 		1F4373251B0DB90300A7FD8D /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
 		1F4373271B0DBB9400A7FD8D /* BaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseScene.cpp; sourceTree = "<group>"; };
@@ -302,6 +320,7 @@
 			files = (
 				1F90810B1B68BB3B0090D485 /* GameController.framework in Frameworks */,
 				1F4373351B0DDCD100A7FD8D /* MediaPlayer.framework in Frameworks */,
+				1F9080FC1B6892330090D485 /* libPluginProtocol.a in Frameworks */,
 				1F9081031B6892530090D485 /* libz.dylib in Frameworks */,
 				1F9081051B6892690090D485 /* CoreGraphics.framework in Frameworks */,
 				1F9081011B68924D0090D485 /* MobileCoreServices.framework in Frameworks */,
@@ -309,7 +328,6 @@
 				1FA6F9701B16D87F006CA13B /* CFNetwork.framework in Frameworks */,
 				1F9080FF1B6892470090D485 /* CoreFoundation.framework in Frameworks */,
 				1FA6F96E1B16D7A7006CA13B /* StoreKit.framework in Frameworks */,
-				1F9080FC1B6892330090D485 /* libPluginProtocol.a in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -395,6 +413,15 @@
 				1F08694C1B3BE63F00A99CFF /* quantize.c */,
 			);
 			path = gif_lib;
+			sourceTree = "<group>";
+		};
+		1F29DE611B7217B800E4C860 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F29DE661B7217B800E4C860 /* libcocos2d Mac.a */,
+				1F29DE681B7217B800E4C860 /* libcocos2d iOS.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		1F5CAFA31AEDE4E2000D3656 /* ScriptEngine */ = {
@@ -575,6 +602,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				1F29DE601B7217B800E4C860 /* cocos2d_libs.xcodeproj */,
 				1F9080D71B6892330090D485 /* Libs */,
 				46880B8319C43A87006E1F66 /* Classes */,
 				46880B7519C43A67006E1F66 /* Resources */,
@@ -716,12 +744,35 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1F29DE611B7217B800E4C860 /* Products */;
+					ProjectRef = 1F29DE601B7217B800E4C860 /* cocos2d_libs.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* HeroTalk iOS */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1F29DE661B7217B800E4C860 /* libcocos2d Mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d Mac.a";
+			remoteRef = 1F29DE651B7217B800E4C860 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F29DE681B7217B800E4C860 /* libcocos2d iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d iOS.a";
+			remoteRef = 1F29DE671B7217B800E4C860 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
@@ -839,15 +890,12 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/platform/ios",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/platform/ios/Simulation",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/platform/ios",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/prebuilt/ios",
-					/Users/chenwei/Desktop/WorkSpace/HeroTalk/Libs/AnysdkLib,
-				);
+				LIBRARY_SEARCH_PATHS = /Users/chenwei/workspace/HeroTalk/Libs/AnysdkLib;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -880,15 +928,12 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/platform/ios",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/platform/ios/Simulation",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/platform/ios",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/prebuilt/ios",
-					/Users/chenwei/Desktop/WorkSpace/HeroTalk/Libs/AnysdkLib,
-				);
+				LIBRARY_SEARCH_PATHS = /Users/chenwei/workspace/HeroTalk/Libs/AnysdkLib;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -912,19 +957,19 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/base",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/physics",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/math",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/2d",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/ui",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/network",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/audio/include",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/editor-support",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/extensions",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/external",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/external/chipmunk/include/chipmunk",
+					"/Users/chenwei/env/cocos2d-x-3.4",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/base",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/physics",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/math",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/2d",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/ui",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/network",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/audio/include",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/editor-support",
+					"/Users/chenwei/env/cocos2d-x-3.4/extensions",
+					"/Users/chenwei/env/cocos2d-x-3.4/external",
+					"/Users/chenwei/env/cocos2d-x-3.4/external/chipmunk/include/chipmunk",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -941,19 +986,19 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/base",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/physics",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/math",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/2d",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/ui",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/network",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/audio/include",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/cocos/editor-support",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/extensions",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/external",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.4/external/chipmunk/include/chipmunk",
+					"/Users/chenwei/env/cocos2d-x-3.4",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/base",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/physics",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/math",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/2d",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/ui",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/network",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/audio/include",
+					"/Users/chenwei/env/cocos2d-x-3.4/cocos/editor-support",
+					"/Users/chenwei/env/cocos2d-x-3.4/extensions",
+					"/Users/chenwei/env/cocos2d-x-3.4/external",
+					"/Users/chenwei/env/cocos2d-x-3.4/external/chipmunk/include/chipmunk",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";

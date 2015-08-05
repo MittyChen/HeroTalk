@@ -376,30 +376,30 @@ vector<string> * CommonUtils::getCsvBanWordForResource( string path )
     vector<string> * csvlist = new vector<string>;
     
     
-    CCFileData *data = new CCFileData( path.c_str(), "r");
-    
-    std::string* pLoadedString = new std::string((const char *)data->getBuffer(), data->getSize() );
-    
-    delete data;
-    
-    int spos = 0;
-    
-    for( ;; )
-    {
-        // 改行コードで分割
-        int kidx = pLoadedString->find_first_of("\n", spos );
-        
-        if( kidx == string::npos )
-            break;
-        
-        string linestr = pLoadedString->substr( spos, kidx - spos );
-        spos += ( kidx - spos );
-        spos++;
-        
-        csvlist->push_back(linestr);
-    }
-    
-    delete pLoadedString;
+//    FileData *data = new FileData( path.c_str(), "r");
+//    
+//    std::string* pLoadedString = new std::string((const char *)data->getBuffer(), data->getSize() );
+//    
+//    delete data;
+//    
+//    int spos = 0;
+//    
+//    for( ;; )
+//    {
+//        // 改行コードで分割
+//        int kidx = pLoadedString->find_first_of("\n", spos );
+//        
+//        if( kidx == string::npos )
+//            break;
+//        
+//        string linestr = pLoadedString->substr( spos, kidx - spos );
+//        spos += ( kidx - spos );
+//        spos++;
+//        
+//        csvlist->push_back(linestr);
+//    }
+//    
+//    delete pLoadedString;
     
     return csvlist;
 }

@@ -170,7 +170,7 @@ void Character::setCharacterState(Ref* pSender)
             break;
          
         case 3:
-            RemoveSelf();
+//            RemoveSelf();
             break;
         default:
             break;
