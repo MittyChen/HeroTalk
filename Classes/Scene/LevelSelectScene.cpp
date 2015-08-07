@@ -289,7 +289,7 @@ bool LevelSelectScene::init()
         
     }
    
-    rootNode->getChildByTag(-1)->setGlobalZOrder(zOrderFirst-2);
+    rootNode->getChildByTag(-111)->setGlobalZOrder(zOrderFirst-2);
     rootNode->getChildByTag(-2)->setGlobalZOrder(zOrderFirst-2);
     rootNode->getChildByTag(91)->setGlobalZOrder(zOrderFirst-2);
     

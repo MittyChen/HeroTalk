@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Scene/GameScene.cpp"
-            timestampString = "460364122.742346"
+            timestampString = "460653359.902736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "814"
-            endingLineNumber = "814"
+            startingLineNumber = "811"
+            endingLineNumber = "811"
             landmarkName = "GameScene::gotoLevelNext(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)"
             landmarkType = "5">
          </BreakpointContent>

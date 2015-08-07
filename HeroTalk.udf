@@ -1,4 +1,4 @@
-<UserData>
+<UserData Version="2.3.1.1">
   <Properties>
     <Item Key="PackageParamsKey">
       <Value ctype="PackageParams">
@@ -11,6 +11,7 @@
         <iOS_Target Value="HeroTalk iOS" />
         <iOS_BundleID Value="iPhone Distribution: Beijing Chukong Aipu Technology Co.,Ltd. (6JJBR8K7BJ)" />
         <Platform Value="Android" />
+        <RunPlatform Value="None" />
         <FrameworkVersion Value="cocos2d-x-3.4" />
         <IsDebugKeystore Value="True" />
         <EnableSourceMap Value="False" />
@@ -22,19 +23,6 @@
         <LastPublishType Value="Resource" />
         <IsLastPublish Value="True" />
         <LastRunType Value="Mac" />
-      </Value>
-    </Item>
-    <Item Key="TabsParamsKey">
-      <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="PreGameScene.csd" />
-          <FilePathData Path="LevelSelectLayer.csd" />
-          <FilePathData Path="LevelSelectNode.csd" />
-          <FilePathData Path="MainScene.csd" />
-          <FilePathData Path="GameFinishScene.csd" />
-          <FilePathData Path="PauseGameLayer.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="MainScene.csd" />
       </Value>
     </Item>
   </Properties>

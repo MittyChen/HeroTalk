@@ -94,7 +94,6 @@ public:
     int testScoreDegree(float score);
     
     
-    virtual void onExit();
 public:
 
     float munitSize;

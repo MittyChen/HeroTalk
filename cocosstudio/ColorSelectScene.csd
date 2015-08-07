@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Scene" Name="ColorSelectScene" ID="383a7717-be39-428f-a9aa-b0fa068b2446" Version="2.2.8.0" />
+  <PropertyGroup Type="Scene" Name="ColorSelectScene" ID="383a7717-be39-428f-a9aa-b0fa068b2446" Version="2.3.1.1" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
@@ -13,11 +13,11 @@
             <Scale ScaleX="0.2637" ScaleY="0.2616" />
             <CColor A="255" R="189" G="214" B="193" />
             <PrePosition X="0.5010" Y="0.5000" />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ball.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_1" ActionTag="420169271" Tag="26" IconVisible="False" LeftMargin="464.1116" RightMargin="463.8884" TopMargin="237.9239" BottomMargin="370.0761" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="12" Scale9Height="12" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_1" ActionTag="420169271" Tag="26" IconVisible="False" LeftMargin="464.1116" RightMargin="463.8884" TopMargin="237.9239" BottomMargin="370.0761" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="12" Scale9Height="12" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="32.0000" Y="32.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="480.1116" Y="386.0761" />
@@ -32,7 +32,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_2" ActionTag="420069905" Tag="27" IconVisible="False" LeftMargin="535.5912" RightMargin="392.4088" TopMargin="339.3073" BottomMargin="268.6927" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="12" Scale9Height="12" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_2" ActionTag="420069905" Tag="27" IconVisible="False" LeftMargin="535.5912" RightMargin="392.4088" TopMargin="339.3073" BottomMargin="268.6927" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="12" Scale9Height="12" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="32.0000" Y="32.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="551.5912" Y="284.6927" />
@@ -47,7 +47,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_3" ActionTag="1426015870" Tag="28" IconVisible="False" LeftMargin="404.9549" RightMargin="523.0452" TopMargin="335.3578" BottomMargin="272.6422" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="12" Scale9Height="12" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_3" ActionTag="1426015870" Tag="28" IconVisible="False" LeftMargin="404.9549" RightMargin="523.0452" TopMargin="335.3578" BottomMargin="272.6422" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="12" Scale9Height="12" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="32.0000" Y="32.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="420.9549" Y="288.6422" />

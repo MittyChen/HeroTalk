@@ -1,12 +1,12 @@
 <GameProjectFile>
-  <PropertyGroup Type="Scene" Name="ShopScene" ID="ff10a060-077c-49b2-bb74-3ea4b6ad8d21" Version="2.2.8.0" />
+  <PropertyGroup Type="Scene" Name="ShopScene" ID="ff10a060-077c-49b2-bb74-3ea4b6ad8d21" Version="2.3.1.1" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
       <ObjectData Name="Scene" Tag="13" ctype="GameNodeObjectData">
         <Size X="640.0000" Y="960.0000" />
         <Children>
-          <AbstractNodeData Name="Button_1_0_0" ActionTag="-995690588" Tag="41" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="-38.9450" RightMargin="422.9450" TopMargin="0.1947" BottomMargin="831.8053" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="226" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_1_0_0" ActionTag="-995690588" Tag="41" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="-38.9450" RightMargin="422.9450" TopMargin="0.1947" BottomMargin="831.8053" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="226" Scale9Height="106" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="256.0000" Y="128.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="89.0550" Y="895.8053" />
@@ -21,14 +21,14 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_6" ActionTag="-1528024067" Tag="51" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" LeftMargin="257.5273" RightMargin="238.4727" TopMargin="110.3999" BottomMargin="768.6001" FontSize="72" LabelText="商店" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_6" ActionTag="-1528024067" Tag="51" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" LeftMargin="257.5273" RightMargin="238.4727" TopMargin="110.3999" BottomMargin="768.6001" FontSize="72" LabelText="商店" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="144.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="329.5273" Y="809.1001" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5149" Y="0.8428" />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -38,14 +38,14 @@
               <AbstractNodeData Name="CheckBox_1" ActionTag="-818937019" UserData="com.mitty.iap.singledelete" Tag="113" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-53.6297" RightMargin="437.6297" TopMargin="20.9118" BottomMargin="343.0882" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" ctype="CheckBoxObjectData">
                 <Size X="256.0000" Y="256.0000" />
                 <Children>
-                  <AbstractNodeData Name="Text_11" ActionTag="902988684" Tag="127" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="33.4080" RightMargin="30.5920" TopMargin="-70.0592" BottomMargin="272.0592" FontSize="48" LabelText="天煞孤星" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+                  <AbstractNodeData Name="Text_11" ActionTag="902988684" Tag="127" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="33.4080" RightMargin="30.5920" TopMargin="-70.0592" BottomMargin="272.0592" FontSize="48" LabelText="天煞孤星" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="192.0000" Y="54.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="129.4080" Y="299.0592" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="73" B="108" />
                     <PrePosition X="0.5055" Y="1.1682" />
-                    <PreSize />
+                    <PreSize X="0.0000" Y="0.0000" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
@@ -65,14 +65,14 @@
               <AbstractNodeData Name="CheckBox_1_0" ActionTag="861914606" UserData="com.mitty.iap.selecttype" Tag="114" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="115.6220" RightMargin="268.3780" TopMargin="20.9116" BottomMargin="343.0884" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" ctype="CheckBoxObjectData">
                 <Size X="256.0000" Y="256.0000" />
                 <Children>
-                  <AbstractNodeData Name="Text_11_0" ActionTag="1025945172" Tag="128" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="36.8640" RightMargin="27.1360" TopMargin="-70.0592" BottomMargin="272.0592" FontSize="48" LabelText="万花轮回" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+                  <AbstractNodeData Name="Text_11_0" ActionTag="1025945172" Tag="128" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="36.8640" RightMargin="27.1360" TopMargin="-70.0592" BottomMargin="272.0592" FontSize="48" LabelText="万花轮回" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="192.0000" Y="54.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="132.8640" Y="299.0592" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="73" B="108" />
                     <PrePosition X="0.5190" Y="1.1682" />
-                    <PreSize />
+                    <PreSize X="0.0000" Y="0.0000" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
@@ -92,14 +92,14 @@
               <AbstractNodeData Name="CheckBox_1_1" ActionTag="109077752" UserData="com.mitty.iap.randomtype" Tag="115" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="284.8736" RightMargin="99.1264" TopMargin="23.4395" BottomMargin="340.5605" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" ctype="CheckBoxObjectData">
                 <Size X="256.0000" Y="256.0000" />
                 <Children>
-                  <AbstractNodeData Name="Text_11_0_0" ActionTag="-458957502" Tag="129" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="27.6736" RightMargin="36.3264" TopMargin="-70.0592" BottomMargin="272.0592" FontSize="48" LabelText="乍现之花" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+                  <AbstractNodeData Name="Text_11_0_0" ActionTag="-458957502" Tag="129" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="27.6736" RightMargin="36.3264" TopMargin="-70.0592" BottomMargin="272.0592" FontSize="48" LabelText="乍现之花" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="192.0000" Y="54.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="123.6736" Y="299.0592" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="73" B="108" />
                     <PrePosition X="0.4831" Y="1.1682" />
-                    <PreSize />
+                    <PreSize X="0.0000" Y="0.0000" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
@@ -136,11 +136,11 @@
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.2708" />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="diffbtn.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_2" ActionTag="-926240408" Tag="26" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="248.0000" RightMargin="248.0000" TopMargin="686.0000" BottomMargin="246.0000" FontSize="24" LabelText="商品用途说明" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_2" ActionTag="-926240408" Tag="26" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="248.0000" RightMargin="248.0000" TopMargin="686.0000" BottomMargin="246.0000" FontSize="24" LabelText="商品用途说明" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="144.0000" Y="28.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="260.0000" />
@@ -158,11 +158,11 @@
             <Scale ScaleX="1.4663" ScaleY="1.4316" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.8804" Y="0.6074" />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="shophead.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_8" ActionTag="1704613927" Tag="27" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="159.2012" RightMargin="160.7988" TopMargin="793.7275" BottomMargin="38.2724" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="290" Scale9Height="106" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_8" ActionTag="1704613927" Tag="27" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="159.2012" RightMargin="160.7988" TopMargin="793.7275" BottomMargin="38.2724" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="290" Scale9Height="106" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="320.0000" Y="128.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="319.2012" Y="102.2724" />

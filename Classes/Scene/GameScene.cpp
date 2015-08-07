@@ -47,9 +47,6 @@ Scene* GameScene::createScene(LevelNode* mLevel)
     return scene;
 }
 
-void GameScene::onExit(){
-    
-}
 GameScene::GameScene(){
     
 }

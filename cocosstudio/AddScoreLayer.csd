@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Layer" Name="AddScoreLayer" ID="f31d7a8a-5727-46da-b469-e41960cb6353" Version="2.2.8.0" />
+  <PropertyGroup Type="Layer" Name="AddScoreLayer" ID="f31d7a8a-5727-46da-b469-e41960cb6353" Version="2.3.1.1" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
@@ -13,18 +13,18 @@
             <Scale ScaleX="0.3889" ScaleY="0.4184" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.4939" Y="0.5109" />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="winbg.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_1" ActionTag="-103486370" Tag="94" IconVisible="False" LeftMargin="366.1548" RightMargin="377.8452" TopMargin="425.9373" BottomMargin="172.0627" FontSize="48" LabelText="胜一局！！！" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_1" ActionTag="-103486370" Tag="94" IconVisible="False" LeftMargin="366.1548" RightMargin="377.8452" TopMargin="425.9373" BottomMargin="172.0627" FontSize="48" LabelText="胜一局！！！" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="288.0000" Y="54.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="474.1548" Y="193.0627" />
             <Scale ScaleX="0.7779" ScaleY="0.8369" />
             <CColor A="255" R="255" G="0" B="89" />
             <PrePosition X="0.4939" Y="0.3017" />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
