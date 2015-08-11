@@ -725,23 +725,10 @@ void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
     }
      isGameWin = false;
     
-    if(isGameFinish)
-    {
-        isGameFinish = false;
+    
         auto scene = MainMenuScene::createScene();
         // run
         Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
-         return;
-    }
-    
-    
-//    if (isPaused){
-//        return;
-//    }
-    
-    auto scene = MainMenuScene::createScene();
-    // run
-    Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
 }
 
 
@@ -756,24 +743,9 @@ void GameScene::gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::Touch
         return;
     }
     
-    if(isGameFinish)
-    {
-        isGameFinish = false;
-
-        auto scene =  LevelSelectScene::createScene(lv->getLevelCode());
+        auto scene =  LevelSelectScene::createScene(0);
         // run
         Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
-         return;
-    }
-    
-    
-//    if (isPaused){
-//        return;
-//    }
-    auto scene =  LevelSelectScene::createScene(0);
-    // run
-    Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
-
 }
 
 
@@ -785,34 +757,13 @@ void GameScene::gotoLevelNext(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
     }
      isGameWin = false;
     
-    if(isGameFinish)
-    {
-        isGameFinish = false;
-        
         LevelNode* lbn = LevelNode::create();
         lbn->setLevelCode(lv->getLevelCode()+1);
         
         auto scene =  PreGameScene::createScene(lbn);
         // run
         Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
-        return;
-    }
-    
-    
-    __String* ss = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",count);
-    UserDefault::getInstance()->setBoolForKey(ss->getCString(),true);
-    
-    if (UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED") < count) {
-        UserDefault::getInstance()->setIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED",count);
-    }
    
-    LevelNode* lbn = LevelNode::create();
-    lbn->setLevelCode(lv->getLevelCode()+1);
-
-    auto scene =  PreGameScene::createScene(lbn);
-    // run
-    Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
-    
 }
 
 
@@ -2309,6 +2260,7 @@ void GameScene::checkoutResult()
             }
             
             
+            isGameFinish = true;
             isPaused = true;
             int sumCount = 0;
             bool canNotContinue = false;
@@ -2414,6 +2366,13 @@ void GameScene::gameWin()
         
         std::string  storyArr[3] = {"使用随机变色道具，\n可能性价比很高哦~","要是你是个多疑的人，\n最好使用选择变色道具吧~","要是有个小东西挡住你的去路，\n用消除单个道具干掉他吧！！！"};
         
+        __String* ss = __String::createWithFormat("HERO_TALK_UNLOCKED_LEVEL_%d",lv->getLevelCode()+1);
+        UserDefault::getInstance()->setBoolForKey(ss->getCString(),true);
+        
+        if (UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED") < lv->getLevelCode()+1 ){
+            UserDefault::getInstance()->setIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED",lv->getLevelCode()+1);
+        }
+        
         
         if (this->getChildByTag(-190)) {
             rootNode->setGlobalZOrder(this->getChildByTag(-190)->getGlobalZOrder()-1);
@@ -2448,7 +2407,7 @@ int GameScene::testScoreDegree(float score){
 
     
     
-    int scoreTarget[10] = {0,1000,2000,3000,4000,5000,6000,7000,8000,9000};
+    int scoreTarget[10] = {0,100,200,300,400,500,600,700,800,900};
     
     for (int i = 0;i < 10 ;i++) {
         if(score < scoreTarget[i]){

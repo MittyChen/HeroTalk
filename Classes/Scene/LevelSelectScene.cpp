@@ -11,7 +11,7 @@ static int levelToUnlock = 0;
 
 
 cocos2d::Vector<Ref*>  LevelSelectScene::mLevelStr;
-
+static LevelNode* selectNode = NULL;
 Scene* LevelSelectScene::createScene(int unclockLevel)
 {
     // 'scene' is an autorelease object
@@ -423,9 +423,9 @@ void LevelSelectScene::selectLevelAction(cocos2d::Ref* pSender, cocos2d::ui::Wid
     if (type == ui::Widget::TouchEventType::ENDED) {
         
         int mcode = ((LevelNode*)(((Node*) pSender)->getParent()))->getLevelCode();
-        
-       
-        auto scene = PreGameScene::createScene(((LevelNode*)(((Node*) pSender)->getParent())));
+        selectNode = LevelNode::create();
+        selectNode->setLevelCode(mcode);
+        auto scene = PreGameScene::createScene(selectNode);
         Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
     }
 }

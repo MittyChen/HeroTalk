@@ -18,8 +18,8 @@ public:
     
     void gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
     
-private:
-    static LevelNode* selectNode;
+//private:
+//    static LevelNode* selectNode;
 };
 
 #endif // PreGameScene_scene

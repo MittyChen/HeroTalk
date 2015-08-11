@@ -8,15 +8,17 @@ USING_NS_CC;
 using namespace cocostudio::timeline;
 using namespace ui;
 static int levelSelected = 0;
-LevelNode* PreGameScene::selectNode = NULL;
+static LevelNode* selectNodePre = NULL;
 
 Scene* PreGameScene::createScene(LevelNode* node)
 {
     levelSelected = node->getLevelCode() ;
     
-    selectNode = node;
+    selectNodePre = LevelNode::create();
     
-    selectNode->retain();
+    selectNodePre->setLevelCode(levelSelected);
+    
+    selectNodePre->retain();
     
     // 'scene' is an autorelease object
     auto scene = Scene::create();
@@ -139,15 +141,17 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
     
     if(type == cocos2d::ui::Widget::TouchEventType::ENDED){
         
+        
         Node* selectType = (Node*)object;
         
         int tag = selectType->getTag();
+        selectNodePre->setLevelCode(levelSelected);
         
         switch (tag) {
             case 57:
             {
             
-                auto scene = GameScene::createScene(selectNode);
+                auto scene = GameScene::createScene(selectNodePre);
                 Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
                 
                 break;
@@ -156,7 +160,7 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
             case 59:
                 
             {
-                auto scene = GameScene::createScene(selectNode);
+                auto scene = GameScene::createScene(selectNodePre);
                 Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
                 
                 break;
@@ -165,7 +169,7 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
             case 60:
                 
             {
-                auto scene = GameScene::createScene(selectNode);
+                auto scene = GameScene::createScene(selectNodePre);
                 Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
                 
                 break;
@@ -174,7 +178,7 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
                 
             {
                 
-                auto scene = LevelSelectScene::createScene(selectNode->getLevelCode());
+                auto scene = LevelSelectScene::createScene(selectNodePre->getLevelCode());
                 Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
                 
                 break;
@@ -183,7 +187,7 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
             default:
                 break;
         }
-        selectNode->release();
-        selectNode = NULL;
+        selectNodePre->release();
+        selectNodePre = NULL;
     }
 }
