@@ -66,7 +66,7 @@ public:
     
     CC_SYNTHESIZE(int, address, AddressName);
     
-    const char * type;
+    std::string type;
     int score;
     int bluecount;
     int redcount;

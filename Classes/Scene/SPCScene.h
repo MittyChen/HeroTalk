@@ -26,6 +26,7 @@ public:
     CREATE_FUNC(SPCScene);
     bool leftWin();
     static int winSide();
+    static void resetresult();
 private:
     const char* spcFile[3];
     SPC_TYPE typeLeft;

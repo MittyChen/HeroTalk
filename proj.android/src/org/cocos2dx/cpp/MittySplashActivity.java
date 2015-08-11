@@ -25,7 +25,7 @@ public class MittySplashActivity extends Activity
 		ani.setRepeatMode(AlphaAnimation.REVERSE);
 		ani.setRepeatCount(0);
 		ani.setDuration(2000);
-		ani.setFillAfter(true);
+//		ani.setFillAfter(true);
 		ImageView image = (ImageView) findViewById(R.id.splash_img);
 		if(image ==null)
 		{
@@ -59,6 +59,7 @@ public class MittySplashActivity extends Activity
 	private void startGameActivity()
 	{
 		Intent intent = new Intent(this, AppActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); 
 		startActivity(intent);
 		finish();
 	}

@@ -48,6 +48,8 @@ Scene* GameScene::createScene(LevelNode* mLevel)
     
     mdifficult = 2;
     
+    SPCScene::resetresult();
+    
     auto layer = GameScene::create();
 
     scene->addChild(layer);
@@ -175,7 +177,7 @@ bool GameScene::init()
     lv->setLevelCode(levelco);
     
     
-    const char* currentActionType =  lv->type;
+    const char* currentActionType =  lv->type.c_str();
     
     if ( strncasecmp(currentActionType,"FIND_COLOR", 10 )  == 0) {
         scoreLAbel->setVisible(false);
@@ -274,12 +276,18 @@ void GameScene::onEnter(){
     int winside = SPCScene::winSide();
     if (winside==0)
     {
+        
+        spcdes->setVisible(true);
         const char * spctext = String::createWithFormat("左边的先手")->getCString();
         spcdes->setString(spctext);
     }else if (winside==1)
     {
+        
+        spcdes->setVisible(true);
         const char * spctext = String::createWithFormat("右边的先手")->getCString();
         spcdes->setString(spctext);
+    }else{
+        spcdes->setVisible(false);
     }
 }
 
@@ -2217,25 +2225,37 @@ void GameScene::checkoutResult()
     }
     
     auto rootNode = this->getChildByName("MainSceneRoot");
-    cocos2d::ui::Text* redCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(123);
-    const char * scoretext = String::createWithFormat(" x %d " , finalred)->getCString();
-    redCountt->setString(scoretext);
-    
-    
-    
-    cocos2d::ui::Text* greenCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(126);
-    const char * greenT = String::createWithFormat(" x %d " ,finalgreen)->getCString();
-    greenCountt->setString(greenT);
-    
-    cocos2d::ui::Text* blueCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(127);
-    const char * blueT = String::createWithFormat(" x %d " ,finalblue)->getCString();
-    blueCountt->setString(blueT);
-    
+   
     int nowScore = lv->score -(redCount*10 + greenCount*20 + blueCount*30);
     const char * scotext = String::createWithFormat("目标分数 : %d" , nowScore > 0 ? nowScore : 0 )->getCString();
-    scoreLAbel->setString(scotext);
-    scoreLAbel->runAction(Sequence::create(ScaleTo::create(0.15,1.1),ScaleTo::create(0.15, 1.0), NULL));
     
+    if (rootNode->getChildByTag(123)&&rootNode->getChildByTag(123)->isVisible()) {
+        
+        cocos2d::ui::Text* redCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(123);
+        const char * scoretext = String::createWithFormat(" x %d " , finalred)->getCString();
+        redCountt->setString(scoretext);
+        
+        
+        
+        cocos2d::ui::Text* greenCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(126);
+        const char * greenT = String::createWithFormat(" x %d " ,finalgreen)->getCString();
+        greenCountt->setString(greenT);
+        
+        cocos2d::ui::Text* blueCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(127);
+        const char * blueT = String::createWithFormat(" x %d " ,finalblue)->getCString();
+        blueCountt->setString(blueT);
+
+    }
+    
+    
+    CCLOG("scotext-------- --- %d",scotext);
+    if (scoreLAbel&&scoreLAbel->isVisible()) {
+        
+        scoreLAbel = (cocos2d::ui::Text*)(rootNode->getChildByTag(7));
+        scoreLAbel->setString(scotext);
+        scoreLAbel->runAction(Sequence::create(ScaleTo::create(0.15,1.1),ScaleTo::create(0.15, 1.0), NULL));
+        
+    }
     
     switch (_mMode) {
         case CELL_TOUCH_MODE::CHESS_MODE:
@@ -2278,7 +2298,7 @@ void GameScene::checkoutResult()
                         rootNode->setPosition(visibleSize/2);
                         cocos2d::ui::Text* scorete = (cocos2d::ui::Text*)rootNode->getChildByTag(94);
                         
-                        const char * scoretext ;
+                        const char * scoretext = "";
                         if (mpIterator->second->getType() == 2) {
                             scoretext = "左边胜利啦～";
                         }else{
@@ -2323,7 +2343,7 @@ void GameScene::checkoutResult()
         case CHANGE_COLOR:
         {
             
-            if ( (redCount >= lv->redcount && greenCount>=lv->greencount && blueCount>=lv->bluecount&& strcmp(lv->type, "FIND_COLOR") == 0 )   || (strcmp(lv->type, "GET_SCORE") == 0 && nowScore <= 0)) {
+            if ( (redCount >= lv->redcount && greenCount>=lv->greencount && blueCount>=lv->bluecount&& strcmp(lv->type.c_str(), "FIND_COLOR") == 0 )   || (strcmp(lv->type.c_str(), "GET_SCORE") == 0 && nowScore <= 0)) {
                 gameWin();
                 return;
             }

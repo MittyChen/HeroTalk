@@ -187,4 +187,7 @@ int SPCScene::winSide()
 }
 
 
+void SPCScene::resetresult(){
+    winsideresult = -1;
+}
 
