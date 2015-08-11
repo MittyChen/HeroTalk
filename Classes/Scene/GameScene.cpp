@@ -31,12 +31,16 @@ bool isPauseFlag = false;
 int framecount = 0;
 
 static int mdifficult = 0;
-LevelNode* GameScene::lv = NULL;
+static int levelco = 0;
+static LevelNode* lv = NULL;
+
 Scene* GameScene::createScene(LevelNode* mLevel)
 {
     auto scene = Scene::create();
+    levelco = mLevel->getLevelCode();
+    lv = LevelNode::create();
     
-    lv = mLevel;
+    lv->setLevelCode(mLevel->getLevelCode());
     
     lv->retain();
     
@@ -56,7 +60,7 @@ GameScene::GameScene(){
 }
 GameScene::~GameScene(){
    
-    if(lv){
+    if(lv!=NULL){
         lv->release();
         lv=NULL;
     }
@@ -80,7 +84,6 @@ bool GameScene::init()
      redCount = 0;
      greenCount = 0;
      blueCount = 0;
-    
     
     
     cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -169,6 +172,8 @@ bool GameScene::init()
     addChild(rootNode);
     
     
+    lv->setLevelCode(levelco);
+    
     
     const char* currentActionType =  lv->type;
     
@@ -254,7 +259,6 @@ bool GameScene::init()
     cellsCacheOne.clear();
     
     
-  
     
 //    for(int i=0; i<10; i++)
 //    {

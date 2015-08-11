@@ -120,7 +120,7 @@ public:
     int redCount;
     int greenCount;
     int blueCount;
-    static LevelNode* lv;
+//    static LevelNode* lv;
 };
 
 #endif // __GAME_SCENE_H__

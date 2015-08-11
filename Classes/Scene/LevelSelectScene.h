@@ -22,7 +22,7 @@ public:
     
     static cocos2d::Vector<Ref*>  mLevelStr;
     
-    LevelNode* selectNode;
+//    LevelNode* selectNode;
 };
 
 #endif // __LEVELSELECT_SCENE_H__
