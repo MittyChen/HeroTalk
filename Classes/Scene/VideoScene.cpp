@@ -120,7 +120,7 @@ void VideoScene::onEnter()
     };
     
     cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
-    LHVideoPlayerImplCpp::playMP4WithName("res/Audio/splashvideo", cocos2d::Rect(0, 0, visibleSize.width, visibleSize.height),lambastartgame);
+    LHVideoPlayerImplCpp::playMP4WithName("res/Audio/play", cocos2d::Rect(0, 0, visibleSize.width, visibleSize.height),lambastartgame);
     LHVideoPlayerImplCpp::setSkipTitle("跳过");
 #endif
     
@@ -151,7 +151,7 @@ void VideoScene::onEnter()
 //    videoPlayer->setKeepAspectRatioEnabled(true);
 //    videoPlayer->setFullScreenEnabled(true);
     this->addChild(videoPlayer);
-    videoPlayer->setFileName(FileUtils::getInstance()->fullPathForFilename("splashvideo.mp4"));
+    videoPlayer->setFileName(FileUtils::getInstance()->fullPathForFilename("play.mp4"));
     videoPlayer->play();
     
     

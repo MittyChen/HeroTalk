@@ -129,12 +129,16 @@ void LevelNode::setLevelCode(int code)
     __String* mstring = (__String*) (LevelSelectScene::mLevelStr.at(code-1));
     
     
-    char* mchars =  const_cast<char*>(mstring->getCString());
+    const char* mchars =  mstring->getCString();
+    
+    char * tempchar = (char*)malloc(sizeof(mchars)+1);
+    tempchar = strcpy(tempchar, mchars);
+    
     int j = 0;
     char* marry [4];
     const char * split = ":";
-    char * p;
-    p = strtok (mchars,split);
+    char * p = strtok (tempchar,split);
+    
     
     while(p!=NULL) {
         marry[j] = p;
@@ -179,8 +183,21 @@ void LevelNode::setLevelCode(int code)
         
         CCLOG("score:  %d --- ", score);
         
+    }else if ( strncasecmp(currentActionType,"CHESS_MODE", 10 )  == 0) {
+        
+        
+        CCLOG("currentActionType:  %s --- ", currentActionType);
+        
+        score = 0;
+        
+        bluecount = 0;
+        redcount = 0;
+        greencount = 0;
+
+        CCLOG("score:  %d --- ", score);
+        return;
     }
-    
+    free(tempchar);
     
     
 }

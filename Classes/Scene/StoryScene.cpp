@@ -2,7 +2,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "LevelSelectScene.h"
-
+#include "HappyStartCell.h"
 #include "TalkScene.h"
 USING_NS_CC;
 
@@ -45,6 +45,49 @@ bool StoryScene::init()
     listener->onTouchBegan = CC_CALLBACK_2(StoryScene::onTouchBegan,this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener,this);
     
+    
+    
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
+    
+    
+    for(int i = 0; i < 4; ++i )
+    {
+        for(int j =0 ; j < 4 ; ++j)
+        {
+            HappyStartCell* mm =  HappyStartCell::create();
+            mm->setParameters(Color3B(25.5f * i,25.5f * j,10.f*(i+j)),Vec2(visibleSize.width/2 - 80,visibleSize.height/2-80),cocos2d::Size(40,40),Vec2(i,j),4);
+            addChild((Node*)mm);
+            int typeFind = random(1,7);
+            
+            if (typeFind == 7) {
+                
+                typeFind = random(1,100) > 90 ? 7 : random(1, 6);
+            }
+            
+            mm->setType((CELL_TYPE)typeFind);
+          
+            
+            auto gonextStroyline = [=](Node* pSender)mutable
+            {
+                int typeFind = random(1,6);
+                
+                
+                mm->setType((CELL_TYPE)typeFind);
+            };
+            
+            CallFuncN* nextLine = CallFuncN::create(gonextStroyline);
+            
+            mm->runAction(RepeatForever::create(Sequence::create(DelayTime::create(0.32),nextLine, NULL)));
+            
+        }
+    }
+    
+    
+    
+    
+    
 //    auto lambalabel = [=](Node* pSender)
 //    {
 //        Label* levelsec = Label::create("ALL FOR BENIFIT", "Arial", 80);
@@ -82,39 +125,42 @@ bool StoryScene::init()
 
     
     
-    const char*  storyArr[3] = {"人生不只有黑白","从现在开始","你需要色彩"};
-    
-    Label* storyLabel = Label::create();
-    storyLabel->setSystemFontSize(36);
-    storyLabel->setString(storyArr[0]);
-    storyLabel->setPosition(Director::getInstance()->getVisibleSize()/2);
-    this->addChild(storyLabel);
-    
-    
-    auto currentLine = 0;
-    auto gonextStroyline = [=](Node* pSender)mutable
-    {
-        currentLine ++;
-       
-        if (currentLine <= 2 ) {
-            storyLabel->setString(storyArr[currentLine]);
-        }else
-        {
-            
-            
-            
-            auto scene = TalkScene::createScene();
-            // run
-            Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
-        }
-    };
-    
-    
-    CallFuncN* nextLine = CallFuncN::create(gonextStroyline);
-    
-    //gonextStroyline(NULL);
-    storyLabel->runAction(Repeat::create(Sequence::create(FadeIn::create(2),DelayTime::create(2),FadeOut::create(2),nextLine, NULL), 3));
+//    const char*  storyArr[3] = {"人生不只有黑白","从现在开始","你需要色彩"};
+//    
+//    Label* storyLabel = Label::create();
+//    storyLabel->setSystemFontSize(36);
+//    storyLabel->setString(storyArr[0]);
+//    storyLabel->setPosition(Director::getInstance()->getVisibleSize()/2);
+//    this->addChild(storyLabel);
+//    
+//    
+//    auto currentLine = 0;
+//    auto gonextStroyline = [=](Node* pSender)mutable
+//    {
+//        currentLine ++;
+//       
+//        if (currentLine <= 2 ) {
+//            storyLabel->setString(storyArr[currentLine]);
+//        }else
+//        {
+//            
+//            
+//            
+//            auto scene = TalkScene::createScene();
+//            // run
+//            Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
+//        }
+//    };
+//    
+//    
+//    CallFuncN* nextLine = CallFuncN::create(gonextStroyline);
+//    
+//    //gonextStroyline(NULL);
+//    storyLabel->runAction(Repeat::create(Sequence::create(FadeIn::create(2),DelayTime::create(2),FadeOut::create(2),nextLine, NULL), 3));
 //    storyLabel->runAction(nextLine);
+    
+    
+    
     return true;
 }
 bool StoryScene::onTouchBegan(Touch *touch, Event *unused_event)

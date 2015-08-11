@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>TalkContent</key>
+	<array>
+		<string>100:Talk:欢迎来到我的游戏世界。</string>
+		<string>100:Talk:在这里你不必满怀警惕之心。</string>
+		<string>100:Talk:你可以在这里找到些有意思的东西。</string>
+		<string>100:Talk:不管从哪里得到的这款游戏，</string>
+		<string>100:Talk:就凭你还有耐心听我说话，</string>
+		<string>100:Talk:我还是对你充满感激之心</string>
+		<string>101:Talk:小明： 喂 走啦走啦~</string>
+		<string>100:Talk:不说了 走了 趁着还不插播广告 赶紧玩玩再说吧~</string>
+	</array>
+</dict>
+</plist>

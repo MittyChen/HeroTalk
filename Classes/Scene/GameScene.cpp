@@ -13,7 +13,11 @@
 #include "PreGameScene.h"
 #include "SPCScene.h"
 #include "CommonUtils.h"
+
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
 #include "Share.h"
+#endif
+
 USING_NS_CC;
 
 bool isGameWin = false;
@@ -108,19 +112,7 @@ bool GameScene::init()
     const char * scoretext = String::createWithFormat("目标分数 %d" , lv->score)->getCString();
     scoreLAbel->setString(scoretext);
     
-    const char* currentActionType =  lv->type;
     
-    if ( strncasecmp(currentActionType,"FIND_COLOR", 10 )  == 0) {
-        scoreLAbel->setVisible(false);
-    }else if ( strncasecmp(currentActionType,"GET_SCORE", 9 )  == 0) {
-        
-        rootNode->getChildByTag(123)->setVisible(false);;
-        rootNode->getChildByTag(126)->setVisible(false);;
-        rootNode->getChildByTag(127)->setVisible(false);;
-        rootNode->getChildByTag(128)->setVisible(false);;
-        rootNode->getChildByTag(129)->setVisible(false);;
-        rootNode->getChildByTag(130)->setVisible(false);;
-    }
 
     
     
@@ -176,6 +168,43 @@ bool GameScene::init()
     
     addChild(rootNode);
     
+    
+    
+    const char* currentActionType =  lv->type;
+    
+    if ( strncasecmp(currentActionType,"FIND_COLOR", 10 )  == 0) {
+        scoreLAbel->setVisible(false);
+    }else if ( strncasecmp(currentActionType,"GET_SCORE", 9 )  == 0) {
+        
+        rootNode->getChildByTag(123)->setVisible(false);;
+        rootNode->getChildByTag(126)->setVisible(false);;
+        rootNode->getChildByTag(127)->setVisible(false);;
+        rootNode->getChildByTag(128)->setVisible(false);;
+        rootNode->getChildByTag(129)->setVisible(false);;
+        rootNode->getChildByTag(130)->setVisible(false);;
+    }else if ( strncasecmp(currentActionType,"CHESS_MODE", 10 )  == 0) {
+        
+        rootNode->getChildByTag(123)->setVisible(false);
+        rootNode->getChildByTag(126)->setVisible(false);
+        rootNode->getChildByTag(127)->setVisible(false);
+        rootNode->getChildByTag(128)->setVisible(false);
+        rootNode->getChildByTag(129)->setVisible(false);
+        rootNode->getChildByTag(130)->setVisible(false);
+        scoreLAbel->setVisible(false);
+        _mMode = CELL_TOUCH_MODE::CHESS_MODE;
+        
+        auto lamdaSPC = [=](Ref* pSender){
+            
+            startSPC(this, ui::Widget::TouchEventType::ENDED);
+            
+        };
+        rootNode->getChildByTag(50)->setVisible(true);
+        
+        this->runAction(Sequence::create(DelayTime::create(1.5),CallFuncN::create(lamdaSPC), NULL));
+    }
+    
+    
+    
     loadMap(NULL,cocos2d::ui::Widget::TouchEventType::ENDED);
     
     
@@ -225,6 +254,7 @@ bool GameScene::init()
     cellsCacheOne.clear();
     
     
+  
     
 //    for(int i=0; i<10; i++)
 //    {
@@ -238,9 +268,13 @@ bool GameScene::init()
 void GameScene::onEnter(){
     Layer::onEnter();
     int winside = SPCScene::winSide();
-    if (winside!=-1)
+    if (winside==0)
     {
-        const char * spctext = String::createWithFormat("%d 先手" , winside)->getCString();
+        const char * spctext = String::createWithFormat("左边的先手")->getCString();
+        spcdes->setString(spctext);
+    }else if (winside==1)
+    {
+        const char * spctext = String::createWithFormat("右边的先手")->getCString();
         spcdes->setString(spctext);
     }
 }
@@ -272,6 +306,15 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     
     if(isGameFinish)
     {
+        cocos2d::ui::CheckBox* mTool_OneShot = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(11);
+        mTool_OneShot->setTouchEnabled(true);
+        
+        cocos2d::ui::CheckBox* mTool_RandomType = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(19);
+        mTool_RandomType->setTouchEnabled(true);
+        
+        cocos2d::ui::CheckBox* mTool_ChangeType = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(20);
+        mTool_ChangeType->setTouchEnabled(true);
+        
         
         if (((Node*)object)->getParent()->getName() == "MainSceneRoot") {
             return;
@@ -644,7 +687,7 @@ void GameScene::pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventT
     pauseRoot->setPosition(Vec2( visibleSize.width/2 , visibleSize.height + pauseRoot->getContentSize().height ));
     
     pauseRoot->setScale(visibleSize.width * 6 / 7 / pauseRoot->getContentSize().width);
-    pauseRoot->runAction( Sequence::create(MoveTo::create(0.1, Vec2(visibleSize.width/2, visibleSize.height/2 - 20)),MoveTo::create(0.2, Vec2(visibleSize.width/2, visibleSize.height/2)), nil) );
+    pauseRoot->runAction( Sequence::create(MoveTo::create(0.1, Vec2(visibleSize.width/2, visibleSize.height/2 - 20)),MoveTo::create(0.2, Vec2(visibleSize.width/2, visibleSize.height/2)), NULL) );
     
     
     cocos2d::ui::Button* btnSPC =  (cocos2d::ui::Button*)pauseRoot->getChildByTag(60);
@@ -701,7 +744,7 @@ void GameScene::pauseGameBack(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
     this->removeChildByTag(-190);
     Sprite* pauseRoot = (Sprite*)getChildByName("Pause_Game_Layer")->getChildByTag(49);
     
-    pauseRoot->runAction(Sequence::create(  MoveTo::create(0.25, Vec2(visibleSize.width/2 , visibleSize.height + pauseRoot->getContentSize().height) ),CallFuncN::create(removePauseLamda), nil));
+    pauseRoot->runAction(Sequence::create(  MoveTo::create(0.25, Vec2(visibleSize.width/2 , visibleSize.height + pauseRoot->getContentSize().height) ),CallFuncN::create(removePauseLamda), NULL));
     
     isPauseFlag = true;
     
@@ -734,7 +777,10 @@ void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
 
 void GameScene::shareScore(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
+    
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     Share::getInstance()->share();
+#endif
 }
 
 void GameScene::gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
@@ -794,7 +840,7 @@ void GameScene::deleteOneCell(cocos2d::Ref* object)
         
     }else{
         _mMode = CELL_TOUCH_MODE::DELETE_ONE_MODE;
-        ((cocos2d::ui::CheckBox*)object)->runAction(RepeatForever::create(Sequence::create( ScaleTo::create(0.5, 1.1 * ((Node*)object)->getScale()),ScaleTo::create(0.5, 1.0 * ((Node*)object)->getScale() ),nil)));
+        ((cocos2d::ui::CheckBox*)object)->runAction(RepeatForever::create(Sequence::create( ScaleTo::create(0.5, 1.1 * ((Node*)object)->getScale()),ScaleTo::create(0.5, 1.0 * ((Node*)object)->getScale() ),NULL)));
     }
     
     
@@ -824,7 +870,7 @@ void GameScene::changeTypeRandom(cocos2d::Ref* object)
         
         _mMode = CELL_TOUCH_MODE::CHANGE_COLOR_RANDOM;
         
-        ((cocos2d::ui::CheckBox*)object)->runAction(RepeatForever::create(Sequence::create( ScaleTo::create(0.5, 1.1 * ((Node*)object)->getScale()),ScaleTo::create(0.5, 1.0 * ((Node*)object)->getScale() ),nil)));
+        ((cocos2d::ui::CheckBox*)object)->runAction(RepeatForever::create(Sequence::create( ScaleTo::create(0.5, 1.1 * ((Node*)object)->getScale()),ScaleTo::create(0.5, 1.0 * ((Node*)object)->getScale() ),NULL)));
         
     }
 }
@@ -855,7 +901,7 @@ void GameScene::changeType(cocos2d::Ref* object)
         
         _mMode = CELL_TOUCH_MODE::CHANGE_COLOR;
         
-        ((cocos2d::ui::CheckBox*)object)->runAction(RepeatForever::create(Sequence::create( ScaleTo::create(0.5, 1.1 * ((Node*)object)->getScale()),ScaleTo::create(0.5, 1.0 * ((Node*)object)->getScale() ),nil)));
+        ((cocos2d::ui::CheckBox*)object)->runAction(RepeatForever::create(Sequence::create( ScaleTo::create(0.5, 1.1 * ((Node*)object)->getScale()),ScaleTo::create(0.5, 1.0 * ((Node*)object)->getScale() ),NULL)));
     }
 }
 
@@ -903,12 +949,24 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                 switch (_mMode) {
                     case CELL_TOUCH_MODE::CHESS_MODE:
                     {
+                        int winside = SPCScene::winSide();
                         
                         if (playerCount%2 == 0) {
+                            if(winside==0){
+                                
+                                mIt->second->setType(CELL_TYPE::TYPE_GREEN);
+                            }else{
+                                
+                                mIt->second->setType(CELL_TYPE::TYPE_RED);
+                            }
+                        }else{
+                            if(winside==1){
                             
                             mIt->second->setType(CELL_TYPE::TYPE_GREEN);
                         }else{
-                         mIt->second->setType(CELL_TYPE::TYPE_RED);
+                            
+                            mIt->second->setType(CELL_TYPE::TYPE_RED);
+                        }
                         }
                         if (!mIt->second->getLocked()) {
                             playerCount ++;
@@ -2216,7 +2274,12 @@ void GameScene::checkoutResult()
                         rootNode->setPosition(visibleSize/2);
                         cocos2d::ui::Text* scorete = (cocos2d::ui::Text*)rootNode->getChildByTag(94);
                         
-                        const char * scoretext = String::createWithFormat("%d 胜利了" , mpIterator->second->getType())->getCString();
+                        const char * scoretext ;
+                        if (mpIterator->second->getType() == 2) {
+                            scoretext = "左边胜利啦～";
+                        }else{
+                            scoretext = "右边胜利啦～";
+                        }
                         scorete->setString(scoretext);
                         
                         
@@ -2230,12 +2293,14 @@ void GameScene::checkoutResult()
                         auto hidewinDone = [=](Ref* pSender)
                         {
                             this->removeChildByName("scoreshow");
-                            isPauseFlag = true;
-                            this->loadMap(this, ui::Widget::TouchEventType::ENDED );
+//                            isPauseFlag = true;
+//                            this->loadMap(this, ui::Widget::TouchEventType::ENDED );
                         };
                         
                         playerCount = 0;
                         this->getChildByName("scoreshow")->runAction(Sequence::create(ScaleTo::create(0.15,0),CallFuncN::create(hidewinDone), NULL));
+                        
+                        gameWin();
                     };
                     
                     
@@ -2294,6 +2359,7 @@ void GameScene::checkoutResult()
                 this->addChild(cannotcontinue);
                 
                 auto createLamada = [=](Ref* pSender)mutable{
+                    
                     loadMap(NULL,cocos2d::ui::Widget::TouchEventType::ENDED);
                 };
                 
@@ -2314,7 +2380,7 @@ void GameScene::checkoutResult()
                     cannotcontinue->setGlobalZOrder(frootNode->getGlobalZOrder()-1);
                 }
                 
-                cannotcontinue->runAction(Sequence::create( ScaleTo::create(0.5, 0.4),DelayTime::create(1),CallFuncN::create(createLamada),DelayTime::create(0.5),ScaleTo::create(0.5, 0.1),CallFuncN::create(removeLamada),nil));
+                cannotcontinue->runAction(Sequence::create( ScaleTo::create(0.5, 0.4),DelayTime::create(1),CallFuncN::create(createLamada),DelayTime::create(0.5),ScaleTo::create(0.5, 0.1),CallFuncN::create(removeLamada),NULL));
             }
             break;
         }

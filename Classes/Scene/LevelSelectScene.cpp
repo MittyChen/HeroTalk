@@ -47,9 +47,9 @@ bool LevelSelectScene::init()
         std::string fullPath = FileUtils::getInstance()->fullPathForFilename("LevelDesign.plist");
         
         __Dictionary* pdic = Dictionary::createWithContentsOfFile(fullPath.c_str());
-        std::string mkey = CommonUtils::IntToCString(i);
-        
+        std::string mkey = StringUtils::toString(i);
         auto* value = pdic->objectForKey(mkey);
+        CCLOG("value %s",value);
         mLevelStr.pushBack(value);
     }
     
@@ -119,24 +119,24 @@ bool LevelSelectScene::init()
     
     this->addChild(lcc);
     
-    Sprite* door0 = Sprite::create("clouddoorside.png");
-    door0->setAnchorPoint(Vec2(0.5, 0));
-    door0->setScale(visibleSize.width/door0->getContentSize().width);
-    
-    
-    Sprite* door1 = Sprite::create("clouddoorside.png");
-    door1->setAnchorPoint(Vec2(0.5, 0));
-    door1->setRotation(180);
-    door1->setScale(visibleSize.width/door1->getContentSize().width);
-    
-    
-    door0->setPosition(Vec2(visibleSize.width/2, -door0->getContentSize().height * door0->getScale()));
-    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height * door0->getScale()));
-    
-    
-    
-    this->addChild(door0);
-    this->addChild(door1);
+//    Sprite* door0 = Sprite::create("clouddoorside.png");
+//    door0->setAnchorPoint(Vec2(0.5, 0));
+//    door0->setScale(visibleSize.width/door0->getContentSize().width);
+//    
+//    
+//    Sprite* door1 = Sprite::create("clouddoorside.png");
+//    door1->setAnchorPoint(Vec2(0.5, 0));
+//    door1->setRotation(180);
+//    door1->setScale(visibleSize.width/door1->getContentSize().width);
+//    
+//    
+//    door0->setPosition(Vec2(visibleSize.width/2, -door0->getContentSize().height * door0->getScale()));
+//    door1->setPosition(Vec2(visibleSize.width/2, visibleSize.height + door1->getContentSize().height * door0->getScale()));
+//    
+//    
+//    
+//    this->addChild(door0);
+//    this->addChild(door1);
     
 //    door0->runAction(MoveTo::create(6, Vec2(visibleSize.width/2, -door0->getContentSize().height)));
 //    door1->runAction(MoveTo::create(6, Vec2(visibleSize.width/2,  visibleSize.height+door1->getContentSize().height)));
@@ -300,7 +300,7 @@ bool LevelSelectScene::init()
         
     }
     
-    auto gtouchScroll = [maxlevelpos,m_scrollView,door0,door1,lcc,visibleSize](Ref* obj,cocos2d::ui::ScrollView::EventType event)mutable
+//    auto gtouchScroll = [maxlevelpos,m_scrollView,door0,door1,lcc,visibleSize](Ref* obj,cocos2d::ui::ScrollView::EventType event)mutable
     {
         
 //        float nodeMaxPosXNow = visibleSize.width *  m_scrollView->getInnerContainer()->getPositionPercent().x + maxlevelpos->getPosition().x;
@@ -336,7 +336,7 @@ bool LevelSelectScene::init()
     lcc->setVisible(false);
     
 //    m_scrollView->setBounceEnabled(true);
-    m_scrollView->addEventListener(gtouchScroll);
+//    m_scrollView->addEventListener(gtouchScroll);
     
     
     

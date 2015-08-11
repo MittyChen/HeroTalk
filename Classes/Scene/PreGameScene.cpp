@@ -118,7 +118,7 @@ bool PreGameScene::init()
         std::string fullPath = FileUtils::getInstance()->fullPathForFilename("LevelDesign.plist");
         
         __Dictionary* pdic = Dictionary::createWithContentsOfFile(fullPath.c_str());
-        std::string mkey = CommonUtils::IntToCString(i);
+        std::string mkey = StringUtils::toString(i);
         
         auto* value = pdic->objectForKey(mkey);
         LevelSelectScene::mLevelStr.pushBack(value);

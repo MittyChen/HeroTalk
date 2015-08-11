@@ -7,7 +7,11 @@
 #include "CopyRightScene.h"
 #include "CommonUtils.h"
 #include "ShopScene.h"
+
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
 #include "Ads.h"
+#endif
+
 USING_NS_CC;
 
 using namespace ui;
