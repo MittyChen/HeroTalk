@@ -984,7 +984,7 @@ void GameScene::update(float delta)
 int playerCount = 0;
 bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event)
 {
-    if (isPaused){
+    if (isPaused || isGameFinish){
         return false;
     }
     
@@ -2167,13 +2167,11 @@ list<HappyStartCell*>  GameScene::getCellsVerticalFor7Color(HappyStartCell* targ
     return mcellsAround;
 }
 
-
-
-
-
 void GameScene::produceCells(Node* psender)
 {
-
+    if (isGameFinish) {
+        return;
+    }
     while(allcells.size() != count*count) {
         
         for (int i = 0; i< count; i++) {
@@ -2257,8 +2255,10 @@ void GameScene::produceCells(Node* psender)
 //查询结果
 void GameScene::checkoutResult()
 {
+    if(isGameFinish){
+        return;
+    }
     isPaused = true;
-    
     
     int finalred = lv->redcount - redCount ;
     if (finalred < 0) {
@@ -2396,7 +2396,7 @@ void GameScene::checkoutResult()
             auto steplabel = (cocos2d::ui::Text*)rootNode->getChildByTag(36);
             const char * steptext = String::createWithFormat("还剩 %d 步" ,reaminingStep)->getCString();
             steplabel->setString(steptext);
-            
+            isPauseFlag = true;
             if ( (redCount >= lv->redcount && greenCount>=lv->greencount && blueCount>=lv->bluecount&& strcmp(lv->type.c_str(), "FIND_COLOR") == 0 )   || (strcmp(lv->type.c_str(), "GET_SCORE") == 0 && nowScore <= 0)) {
                 gameWin();
                 return;
@@ -2405,7 +2405,6 @@ void GameScene::checkoutResult()
                     gameFailed();
                 }
             }
-            isGameFinish = true;
             isPaused = true;
             int sumCount = 0;
             bool canNotContinue = false;
@@ -2430,7 +2429,7 @@ void GameScene::checkoutResult()
             }
             
             CCLOG("canNotContinue --- %d",canNotContinue);
-            isPauseFlag = true;
+            
             if(canNotContinue)
             {
                 Sprite* cannotcontinue = Sprite::create("cannotcontinue.png");
@@ -2485,7 +2484,7 @@ void GameScene::gameWin()
     cocos2d::ui::CheckBox* mTool_ChangeType = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(20);
     mTool_ChangeType->setTouchEnabled(false);
     
-    
+    isGameFinish = true;
     isGameWin = true;
     isPaused = true;
     auto gotoFinish = [=](Ref* pSender)
@@ -2520,9 +2519,8 @@ void GameScene::gameWin()
         }
         
         
-        if (this->getChildByTag(-190)) {
-            rootNode->setGlobalZOrder(this->getChildByTag(-190)->getGlobalZOrder()-1);
-        }
+        rootNode->setLocalZOrder(10000);
+        
         
         
         int index = random(0, 2);
@@ -2554,6 +2552,8 @@ void GameScene::gameFailed()
     if (isGameFailed) {
         return;
     }
+    isPaused = true;
+    isGameFinish = true;
     isGameFailed = true;
     cocos2d::ui::CheckBox* mTool_OneShot = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(11);
     mTool_OneShot->setTouchEnabled(false);
@@ -2591,18 +2591,15 @@ void GameScene::gameFailed()
         int index = random(0, 2);
         helptext->setString(storyArr[index]);
        
-        isPaused = true;
-        isGameFinish = true;
+       
     };
     
-    this->runAction(Sequence::create(DelayTime::create(0.3),CallFuncN::create(gotoFinish), NULL) );
+    this->runAction(Sequence::create(DelayTime::create(1.0),CallFuncN::create(gotoFinish), NULL) );
     
 }
 
 int GameScene::testScoreDegree(float score){
 
-    
-    
     int scoreTarget[10] = {0,100,200,300,400,500,600,700,800,900};
     
     for (int i = 0;i < 10 ;i++) {

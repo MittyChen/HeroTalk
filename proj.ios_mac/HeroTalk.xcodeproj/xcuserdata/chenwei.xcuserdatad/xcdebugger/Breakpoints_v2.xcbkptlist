@@ -9,13 +9,269 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/Scene/FailedPopup.cpp"
-            timestampString = "461063080.375243"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "461066691.290378"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "FailedPopup::init()"
+            startingLineNumber = "2594"
+            endingLineNumber = "2594"
+            landmarkName = "GameScene::gameFailed()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "461064997.155477"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "385"
+            endingLineNumber = "385"
+            landmarkName = "GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "461065010.791103"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "639"
+            endingLineNumber = "639"
+            landmarkName = "GameScene::seletctCellolor(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "461065012.318739"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "810"
+            endingLineNumber = "810"
+            landmarkName = "GameScene::pauseGameBack(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "461066691.290378"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2323"
+            endingLineNumber = "2323"
+            landmarkName = "GameScene::checkoutResult()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "461066691.290378"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2367"
+            endingLineNumber = "2367"
+            landmarkName = "GameScene::checkoutResult()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "461066691.290378"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2522"
+            endingLineNumber = "2522"
+            landmarkName = "GameScene::gameWin()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "461066637.799817"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1544"
+            endingLineNumber = "1544"
+            landmarkName = "GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_6::operator()(cocos2d::Ref*) const"
+                  moduleName = "HeroTalk iOS"
+                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
+                  timestampString = "461066720.159087"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1546"
+                  endingLineNumber = "1546"
+                  offsetFromSymbolStart = "2531">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_6::operator()(cocos2d::Ref*) const"
+                  moduleName = "HeroTalk iOS"
+                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
+                  timestampString = "461066720.159191"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1546"
+                  endingLineNumber = "1546"
+                  offsetFromSymbolStart = "2548">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_6::operator()(cocos2d::Ref*) const"
+                  moduleName = "HeroTalk iOS"
+                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
+                  timestampString = "461066720.159274"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1546"
+                  endingLineNumber = "1546"
+                  offsetFromSymbolStart = "6013">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_6::operator()(cocos2d::Ref*) const"
+                  moduleName = "HeroTalk iOS"
+                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
+                  timestampString = "461066720.159356"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1546"
+                  endingLineNumber = "1546"
+                  offsetFromSymbolStart = "6062">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_6::operator()(cocos2d::Ref*) const"
+                  moduleName = "HeroTalk iOS"
+                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
+                  timestampString = "461066720.159435"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1546"
+                  endingLineNumber = "1546"
+                  offsetFromSymbolStart = "7918">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_6::operator()(cocos2d::Ref*) const"
+                  moduleName = "HeroTalk iOS"
+                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
+                  timestampString = "461066720.159512"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1546"
+                  endingLineNumber = "1546"
+                  offsetFromSymbolStart = "10294">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_6::operator()(cocos2d::Ref*) const"
+                  moduleName = "HeroTalk iOS"
+                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
+                  timestampString = "461066720.159589"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1546"
+                  endingLineNumber = "1546"
+                  offsetFromSymbolStart = "10319">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_6::operator()(cocos2d::Ref*) const"
+                  moduleName = "HeroTalk iOS"
+                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
+                  timestampString = "461066720.159666"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1546"
+                  endingLineNumber = "1546"
+                  offsetFromSymbolStart = "12244">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_6::operator()(cocos2d::Ref*) const"
+                  moduleName = "HeroTalk iOS"
+                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
+                  timestampString = "461066720.159821"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1546"
+                  endingLineNumber = "1546"
+                  offsetFromSymbolStart = "13318">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "461066729.143071"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2173"
+            endingLineNumber = "2173"
+            landmarkName = "GameScene::produceCells(Node* psender)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
