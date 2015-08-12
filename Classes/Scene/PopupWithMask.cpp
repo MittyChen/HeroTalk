@@ -33,7 +33,7 @@ bool PopupWithMask::init()
         return false;
     }
 
-    scheduleUpdate();
+//    scheduleUpdate();
      cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     
     LayerColor* lco =  LayerColor::create(Color4B(0,0,0,100), visibleSize.width, visibleSize.height);

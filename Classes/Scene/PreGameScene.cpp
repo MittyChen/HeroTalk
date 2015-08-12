@@ -43,7 +43,7 @@ bool PreGameScene::init()
         return false;
     }
     
-    scheduleUpdate();
+//    scheduleUpdate();
     
     cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -111,8 +111,10 @@ bool PreGameScene::init()
     nodeGrid->runAction(RepeatForever::create(waves));
     this->addChild(nodeGrid);
     
-    
-    LevelSelectScene::mLevelStr.clear();
+    if ( LevelSelectScene::mLevelStr.size()>0 ) {
+        
+        LevelSelectScene::mLevelStr.clear();
+    }
     
     for (int i = 1; i < LEVEL_COUNT; i++) {
         std::string fullPath = FileUtils::getInstance()->fullPathForFilename("LevelDesign.plist");
@@ -187,7 +189,9 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
             default:
                 break;
         }
-        selectNodePre->release();
-        selectNodePre = NULL;
+        if (selectNodePre!=NULL) {
+            selectNodePre->release();
+            selectNodePre = NULL;
+        }
     }
 }

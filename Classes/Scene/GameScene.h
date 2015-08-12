@@ -90,7 +90,7 @@ public:
     void produceCells(Node* psender);
     
     void gameWin();
-    
+    void gameFailed();
     int testScoreDegree(float score);
     
     
@@ -120,6 +120,7 @@ public:
     int redCount;
     int greenCount;
     int blueCount;
+    
 //    static LevelNode* lv;
 };
 

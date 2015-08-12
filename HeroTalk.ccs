@@ -49,6 +49,7 @@
         <Image Name="buybtn.png" />
         <Project Name="PauseGameLayer.csd" Type="Layer" />
         <Image Name="close21.png" />
+        <Project Name="GameFailedScene.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

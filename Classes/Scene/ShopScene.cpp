@@ -50,7 +50,7 @@ bool ShopScene::init()
     }
     
     productId = "initValue";
-    scheduleUpdate();
+//    scheduleUpdate();
     
 //#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
 //    IAPManager = [[CKIAPManager alloc]init];

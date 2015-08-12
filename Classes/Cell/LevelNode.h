@@ -41,11 +41,12 @@ public:
     ~LevelNode();
     
     CREATE_FUNC(LevelNode);
+    
     virtual bool init();
     virtual void update(float delta);
     
     Label* levelcode;
-    cocos2d::ParticleSystem* ps;
+//    cocos2d::ParticleSystem* ps;
     cocos2d::ui::Button *  cloud;
 //    Sprite* userNode ;
     void setLevelCode(int code);
@@ -71,6 +72,8 @@ public:
     int bluecount;
     int redcount;
     int greencount;
+    
+    int stepNeed;
 };
 
 #endif /* defined(LevelNode) */

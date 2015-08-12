@@ -38,7 +38,7 @@ bool TalkScene::init()
         return false;
     }
 
-    scheduleUpdate();
+//    scheduleUpdate();
     
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(TalkScene::onTouchBegan,this);

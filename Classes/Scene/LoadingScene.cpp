@@ -29,7 +29,7 @@ bool LoadingScene::init()
         return false;
     }
 
-    scheduleUpdate();
+//    scheduleUpdate();
     
     cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();

@@ -33,7 +33,7 @@
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="318.5280" Y="104.4665" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
+            <CColor A="255" R="184" G="171" B="175" />
             <PrePosition X="0.4977" Y="0.1088" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="diffbtn.png" Plist="" />
@@ -225,6 +225,17 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.3966" Y="0.8735" />
             <PreSize X="0.0000" Y="0.0000" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Text_1_1_1" ActionTag="54102382" Tag="36" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="36.0160" RightMargin="455.9840" TopMargin="150.3280" BottomMargin="767.6720" FontSize="36" LabelText="还剩10步" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="148.0000" Y="42.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="110.0160" Y="788.6720" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.1719" Y="0.8215" />
+            <PreSize X="0.2062" Y="0.0656" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>

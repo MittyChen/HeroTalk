@@ -3,58 +3,58 @@
 <plist version="1.0">
 <dict>
 	<key>1</key>
-	<string>FIND_COLOR:1:1:1</string>
+	<string>FIND_COLOR:1:1:1:2</string>
 	<key>2</key>
-	<string>GET_SCORE:200</string>
+	<string>GET_SCORE:200:5</string>
 	<key>3</key>
-	<string>FIND_COLOR:2:2:2</string>
+	<string>FIND_COLOR:2:2:2:3</string>
 	<key>4</key>
-	<string>GET_SCORE:400</string>
+	<string>GET_SCORE:400:5</string>
 	<key>5</key>
 	<string>CHESS_MODE</string>
 	<key>6</key>
-	<string>GET_SCORE:600</string>
+	<string>GET_SCORE:600:5</string>
 	<key>7</key>
-	<string>FIND_COLOR:6:6:6</string>
+	<string>FIND_COLOR:6:6:6:5</string>
 	<key>8</key>
-	<string>GET_SCORE:800</string>
+	<string>GET_SCORE:800:5</string>
 	<key>9</key>
-	<string>FIND_COLOR:8:8:8</string>
+	<string>FIND_COLOR:8:8:8:7</string>
 	<key>10</key>
 	<string>CHESS_MODE</string>
 	<key>11</key>
-	<string>FIND_COLOR:10:10:10</string>
+	<string>FIND_COLOR:10:10:10:8</string>
 	<key>12</key>
-	<string>GET_SCORE:1200</string>
+	<string>GET_SCORE:1200:5</string>
 	<key>13</key>
-	<string>FIND_COLOR:11:12:13</string>
+	<string>FIND_COLOR:11:12:13:7</string>
 	<key>14</key>
-	<string>GET_SCORE:1400</string>
+	<string>GET_SCORE:1400:5</string>
 	<key>15</key>
-	<string>FIND_COLOR:13:14:15</string>
+	<string>FIND_COLOR:13:14:15:7</string>
 	<key>16</key>
 	<string>CHESS_MODE</string>
 	<key>17</key>
-	<string>FIND_COLOR:16:17:18</string>
+	<string>FIND_COLOR:16:17:18:7</string>
 	<key>18</key>
-	<string>GET_SCORE:1800</string>
+	<string>GET_SCORE:1800:5</string>
 	<key>19</key>
-	<string>FIND_COLOR:19:20:21</string>
+	<string>FIND_COLOR:19:20:21:10</string>
 	<key>20</key>
 	<string>CHESS_MODE</string>
 	<key>21</key>
-	<string>FIND_COLOR:22:24:26</string>
+	<string>FIND_COLOR:22:24:26:10</string>
 	<key>22</key>
-	<string>GET_SCORE:2200</string>
+	<string>GET_SCORE:2200:5</string>
 	<key>23</key>
-	<string>FIND_COLOR:27:30:33</string>
+	<string>FIND_COLOR:27:30:33:10</string>
 	<key>24</key>
 	<string>CHESS_MODE</string>
 	<key>25</key>
-	<string>FIND_COLOR:34:38:42</string>
+	<string>FIND_COLOR:34:38:42:10</string>
 	<key>26</key>
-	<string>GET_SCORE:2600</string>
+	<string>GET_SCORE:2600:5</string>
 	<key>27</key>
-	<string>FIND_COLOR:43:48:53</string>
+	<string>FIND_COLOR:43:48:53:10</string>
 </dict>
 </plist>

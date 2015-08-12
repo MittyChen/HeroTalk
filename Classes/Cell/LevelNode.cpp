@@ -18,7 +18,12 @@ LevelNode::LevelNode()
 
 LevelNode::~LevelNode()
 {
-
+    if (levelcode!= NULL) {
+        levelcode= NULL;
+    }
+    if (cloud!=NULL) {
+        cloud= NULL;
+    }
 }
 
 bool LevelNode::init()
@@ -60,23 +65,23 @@ bool LevelNode::init()
     levelcode->setPosition(visibleSize/2);
     
     
-    ps = cocos2d::CCParticleRain::create();
-    ps->setTexture(cocos2d::Director::getInstance()->getTextureCache()->addImage("whitedot.png"));
-//    ps->setContentSize(cloud->getContentSize());
-    ps->setPosition (cloud->getPosition() );
-    
-    ps->setStartSize(ps->getStartSize()*1.5);
-    ps->setStartColor(Color4F(0,100,255,255));
-    ps->setTotalParticles(200);
-    ps->setLife(4.0);
-    ps->setSpeed(20);
+//    ps = cocos2d::CCParticleRain::create();
+//    ps->setTexture(cocos2d::Director::getInstance()->getTextureCache()->addImage("whitedot.png"));
+////    ps->setContentSize(cloud->getContentSize());
+//    ps->setPosition (cloud->getPosition() );
+//    
+//    ps->setStartSize(ps->getStartSize()*1.5);
+//    ps->setStartColor(Color4F(0,100,255,255));
+//    ps->setTotalParticles(200);
+//    ps->setLife(4.0);
+//    ps->setSpeed(20);
     
     
 //    ps->setScaleX(cloud->getContentSize().width/visibleSize.width /2);
 //    ps->setScaleY(2);
     
-    ps->setPosVar( Vec2(cloud->getContentSize().width * cloud->getScale() /3, 0) );
-    this->addChild(ps);
+//    ps->setPosVar( Vec2(cloud->getContentSize().width * cloud->getScale() /3, 0) );
+//    this->addChild(ps);
     this->addChild(cloud);
     this->addChild(levelcode);
     
@@ -129,15 +134,15 @@ void LevelNode::setLevelCode(int code)
     __String* mstring = (__String*) (LevelSelectScene::mLevelStr.at(code-1));
     
     
-    const char* mchars =  mstring->getCString();
+    char* mchars = (char*)malloc(mstring->length()+1);  ;
     
-    char * tempchar = (char*)malloc(sizeof(mchars)+1);
-    tempchar = strcpy(tempchar, mchars);
+    strcpy(mchars, mstring->getCString());
     
     int j = 0;
-    char* marry [4];
+    char* marry [5] = {};
+    
     const char * split = ":";
-    char * p = strtok (tempchar,split);
+    char * p = strtok (mchars,split);
     
     
     while(p!=NULL) {
@@ -151,42 +156,38 @@ void LevelNode::setLevelCode(int code)
     if ( strncasecmp(currentActionType,"FIND_COLOR", 10 )  == 0) {
         
         
-        CCLOG("currentActionType:  %s --- ", currentActionType);
+        CCLOG("FIND_COLOR:  %s --- ", currentActionType);
         
         bluecount = atoi(marry[1]);
-        if ( bluecount == 0) {
-            return;
-        }
         CCLOG("bluecount:  %d --- ", bluecount);
         redcount = atoi(marry[2]);
-        if ( redcount == 0) {
-            return;
-        }
         CCLOG("redcount:  %d --- ", redcount);
         greencount = atoi(marry[3]);
-        if ( greencount == 0) {
-            return;
-        }
         CCLOG("greencount:  %d --- ", greencount);
+        stepNeed = atoi(marry[4]);
+        CCLOG("stepNeed:  %d --- ", stepNeed);
         
         return;
     }else if ( strncasecmp(currentActionType,"GET_SCORE", 9 )  == 0) {
     
         
-        CCLOG("currentActionType:  %s --- ", currentActionType);
+        CCLOG("GET_SCORE:  %s --- ", currentActionType);
         
         score = atoi(marry[1]);
         
         if ( score == 0) {
-            return;
+            assert(true);
         }
+        stepNeed = atoi(marry[2]);
         
         CCLOG("score:  %d --- ", score);
+        
+        CCLOG("stepNeed:  %d --- ", stepNeed);
         
     }else if ( strncasecmp(currentActionType,"CHESS_MODE", 10 )  == 0) {
         
         
-        CCLOG("currentActionType:  %s --- ", currentActionType);
+        CCLOG("CHESS_MODE:  %s --- ", currentActionType);
         
         score = 0;
         
@@ -194,10 +195,10 @@ void LevelNode::setLevelCode(int code)
         redcount = 0;
         greencount = 0;
 
-        CCLOG("score:  %d --- ", score);
         return;
     }
-    free(tempchar);
+    
+    free(mchars);
     
     
 }
@@ -214,7 +215,7 @@ void LevelNode::startRain()
 
     cloud->setEnabled(true);
 //    ps->resetSystem();
-     ps->stopSystem();
+//     ps->stopSystem();
 }
 
 void LevelNode::stopRain()
@@ -232,7 +233,7 @@ void LevelNode::stopRain()
 
     
     
-     ps->stopSystem();
+//     ps->stopSystem();
 }
 bool LevelNode::onTouchBegan(Touch *touch, Event *unused_event)
 {

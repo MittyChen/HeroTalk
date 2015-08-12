@@ -39,7 +39,7 @@ bool StoryScene::init()
     }
  
     
-    scheduleUpdate();
+//    scheduleUpdate();
     
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(StoryScene::onTouchBegan,this);

@@ -44,7 +44,7 @@ bool VideoScene::init()
     }
     touchcount  = 0;
     
-    scheduleUpdate();
+//    scheduleUpdate();
     
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(VideoScene::onTouchBegan,this);

@@ -1,4 +1,4 @@
-#include "FinishPopup.h"
+#include "FailedPopup.h"
 #include "GameScene.h"
 
 #include "cocostudio/CocoStudio.h"
@@ -7,13 +7,13 @@ USING_NS_CC;
 using namespace cocostudio::timeline;
 using namespace ui;
 
-Scene* FinishPopup::createScene()
+Scene* FailedPopup::createScene()
 {
     // 'scene' is an autorelease object
     auto scene = Scene::create();
     
     // 'layer' is an autorelease object
-    auto layer = FinishPopup::create();
+    auto layer = FailedPopup::create();
 
     // add layer as a child to scene
     scene->addChild(layer);
@@ -23,7 +23,7 @@ Scene* FinishPopup::createScene()
 }
 
 // on "init" you need to initialize your instance
-bool FinishPopup::init()
+bool FailedPopup::init()
 {
     //////////////////////////////
     // 1. super init first
@@ -41,11 +41,11 @@ bool FinishPopup::init()
     this->addChild(lco);
     
     auto listener = EventListenerTouchOneByOne::create();
-    listener->onTouchBegan = CC_CALLBACK_2(FinishPopup::onTouchBegan,this);
+    listener->onTouchBegan = CC_CALLBACK_2(FailedPopup::onTouchBegan,this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener,this);
     
     
-    auto rootNode = CSLoader::createNode("GameFinishScene.csb");
+    auto rootNode = CSLoader::createNode("GameFailedScene.csb");
     
     rootNode->setContentSize(visibleSize);
     ui::Helper::doLayout(rootNode);
@@ -53,12 +53,12 @@ bool FinishPopup::init()
     rootNode->setAnchorPoint(Vec2(0.5,0.5));
     rootNode->setPosition(visibleSize/2);
     this->addChild(rootNode);
-    rootNode->setName("FinishPopRoot");
+    rootNode->setName("FailedPopRoot");
     
     rootNode->runAction(Sequence::create(ScaleTo::create(0.15,1.1),ScaleTo::create(0.15, 1.0), NULL));
     return true;
 }
-bool FinishPopup::onTouchBegan(Touch *touch, Event *unused_event)
+bool FailedPopup::onTouchBegan(Touch *touch, Event *unused_event)
 {
     return true;
 }

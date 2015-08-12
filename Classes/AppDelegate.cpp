@@ -93,6 +93,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
         CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0);
     }
     
+    
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("gamebg.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("playbg.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("levelselect.mp3");
+    
+    
 #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     PluginChannel::getInstance()->loadPlugins();
 #endif

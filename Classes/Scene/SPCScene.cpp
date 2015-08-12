@@ -60,7 +60,7 @@ bool SPCScene::init()
     la->setTextColor(Color4B(255, 255, 255, 255));
     this->addChild(la);
     
-    scheduleUpdate();
+//    scheduleUpdate();
     spcFile[0] =  "sessior.png";
     spcFile[1] =  "punch.png";
     spcFile[2] =  "cloth.png";

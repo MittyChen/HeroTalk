@@ -4,7 +4,7 @@
 #include "HappyStartCell.h"
 #include "MainMenuScene.h"
 #include "SimpleAudioEngine.h"
-
+#include "FailedPopup.h"
 #include "FinishPopup.h"
 #include "CCSpriteWithHue.h"
 
@@ -21,6 +21,7 @@
 USING_NS_CC;
 
 bool isGameWin = false;
+bool isGameFailed = false;
 bool GameScene::isPaused  = false;
 static HappyStartCell* seletingCell = NULL;
 bool GameScene::isGameFinish = false;
@@ -33,6 +34,7 @@ int framecount = 0;
 static int mdifficult = 0;
 static int levelco = 0;
 static LevelNode* lv = NULL;
+static int reaminingStep = 10;
 
 Scene* GameScene::createScene(LevelNode* mLevel)
 {
@@ -41,6 +43,8 @@ Scene* GameScene::createScene(LevelNode* mLevel)
     lv = LevelNode::create();
     
     lv->setLevelCode(mLevel->getLevelCode());
+    
+    reaminingStep = lv->stepNeed;
     
     lv->retain();
     
@@ -66,6 +70,29 @@ GameScene::~GameScene(){
         lv->release();
         lv=NULL;
     }
+    
+    if ( allcells.size()>0 && allcells.begin()->second != NULL) {
+        allcells.clear();
+    }
+    
+    if (cellsGet.size()>0) {
+
+        cellsGet.clear();
+    }
+    if (cellsCacheOne.size()>0) {
+
+        cellsCacheOne.clear();
+    }
+    if (scoreLAbel!=NULL) {
+        scoreLAbel->release();
+        scoreLAbel=NULL;
+    }
+    if (spcdes!=NULL) {
+        spcdes->release();
+        spcdes = NULL;
+    }
+    
+    
 
 }
 // on "init" you need to initialize your instance
@@ -83,9 +110,11 @@ bool GameScene::init()
     isGameFinish = false;
     _mMode = CELL_TOUCH_MODE::NORMAL_MODE;
     
-     redCount = 0;
-     greenCount = 0;
-     blueCount = 0;
+    reaminingStep = 3;
+    
+    redCount = 0;
+    greenCount = 0;
+    blueCount = 0;
     
     
     cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -114,9 +143,13 @@ bool GameScene::init()
     
     scoreLAbel = (cocos2d::ui::Text*)rootNode->getChildByTag(7);
     
+    scoreLAbel->retain();
     const char * scoretext = String::createWithFormat("目标分数 %d" , lv->score)->getCString();
     scoreLAbel->setString(scoretext);
     
+    auto steplabel = (cocos2d::ui::Text*)rootNode->getChildByTag(36);
+    const char * steptext = String::createWithFormat("还剩 %d 步" ,reaminingStep)->getCString();
+    steplabel->setString(steptext);
     
 
     
@@ -138,6 +171,7 @@ bool GameScene::init()
     
     spcdes = (cocos2d::ui::Text*)rootNode->getChildByTag(62);
     
+    spcdes->retain();
     
     actionPlaying = false;
     
@@ -189,6 +223,9 @@ bool GameScene::init()
         rootNode->getChildByTag(128)->setVisible(false);;
         rootNode->getChildByTag(129)->setVisible(false);;
         rootNode->getChildByTag(130)->setVisible(false);;
+        
+        
+        
     }else if ( strncasecmp(currentActionType,"CHESS_MODE", 10 )  == 0) {
         
         rootNode->getChildByTag(123)->setVisible(false);
@@ -198,6 +235,8 @@ bool GameScene::init()
         rootNode->getChildByTag(129)->setVisible(false);
         rootNode->getChildByTag(130)->setVisible(false);
         scoreLAbel->setVisible(false);
+        rootNode->getChildByTag(36)->setVisible(false);;
+        
         _mMode = CELL_TOUCH_MODE::CHESS_MODE;
         
         auto lamdaSPC = [=](Ref* pSender){
@@ -300,6 +339,9 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     redCount =0;
     greenCount = 0;
     blueCount = 0;
+    reaminingStep = lv->stepNeed;
+    
+
     
     auto rootNode = this->getChildByName("MainSceneRoot");
     cocos2d::ui::Text* redCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(123);
@@ -314,7 +356,13 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     const char * blueT = String::createWithFormat(" x %d " ,lv->bluecount)->getCString();
     blueCountt->setString(blueT);
     
+    
+    auto steplabel = (cocos2d::ui::Text*)rootNode->getChildByTag(36);
+    const char * steptext = String::createWithFormat("还剩 %d 步" ,reaminingStep)->getCString();
+    steplabel->setString(steptext);
+    
     isGameWin = false;
+    isGameFailed = false;
     
     if(isGameFinish)
     {
@@ -332,6 +380,7 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
             return;
         }
         this->removeChildByName("GameFinish");
+        this->removeChildByName("GameFailed");
         
         isPauseFlag = true;
         
@@ -779,7 +828,7 @@ void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
         return;
     }
      isGameWin = false;
-    
+    isGameFailed = false;
     
         auto scene = MainMenuScene::createScene();
         // run
@@ -814,7 +863,7 @@ void GameScene::gotoLevelNext(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
         return;
     }
      isGameWin = false;
-    
+    isGameFailed = false;
         LevelNode* lbn = LevelNode::create();
         lbn->setLevelCode(lv->getLevelCode()+1);
         
@@ -2247,8 +2296,6 @@ void GameScene::checkoutResult()
 
     }
     
-    
-    CCLOG("scotext-------- --- %d",scotext);
     if (scoreLAbel&&scoreLAbel->isVisible()) {
         
         scoreLAbel = (cocos2d::ui::Text*)(rootNode->getChildByTag(7));
@@ -2342,13 +2389,22 @@ void GameScene::checkoutResult()
         case CELL_TOUCH_MODE::DELETE_ONE_MODE:
         case CHANGE_COLOR:
         {
+            reaminingStep--;
+            if (reaminingStep<0) {
+                reaminingStep = 0;
+            }
+            auto steplabel = (cocos2d::ui::Text*)rootNode->getChildByTag(36);
+            const char * steptext = String::createWithFormat("还剩 %d 步" ,reaminingStep)->getCString();
+            steplabel->setString(steptext);
             
             if ( (redCount >= lv->redcount && greenCount>=lv->greencount && blueCount>=lv->bluecount&& strcmp(lv->type.c_str(), "FIND_COLOR") == 0 )   || (strcmp(lv->type.c_str(), "GET_SCORE") == 0 && nowScore <= 0)) {
                 gameWin();
                 return;
+            }else{
+                if(reaminingStep <= 0){
+                    gameFailed();
+                }
             }
-            
-            
             isGameFinish = true;
             isPaused = true;
             int sumCount = 0;
@@ -2490,7 +2546,57 @@ void GameScene::gameWin()
     };
     
     this->runAction(Sequence::create(DelayTime::create(1),CallFuncN::create(gotoFinish), NULL) );
+    
+}
 
+void GameScene::gameFailed()
+{
+    if (isGameFailed) {
+        return;
+    }
+    isGameFailed = true;
+    cocos2d::ui::CheckBox* mTool_OneShot = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(11);
+    mTool_OneShot->setTouchEnabled(false);
+    
+    cocos2d::ui::CheckBox* mTool_RandomType = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(19);
+    mTool_RandomType->setTouchEnabled(false);
+    
+    cocos2d::ui::CheckBox* mTool_ChangeType = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(20);
+    mTool_ChangeType->setTouchEnabled(false);
+    
+    
+    isPaused = true;
+    auto gotoFinish = [=](Ref* pSender)
+    {
+        Layer* ly = FailedPopup::create();
+        this->addChild(ly);
+        ly->setName("GameFailed");
+        
+        auto rootNode = ly->getChildByName("FailedPopRoot");
+        cocos2d::ui::Button* btnRetry =  (cocos2d::ui::Button*)rootNode->getChildByTag(47)->getChildByTag(49);
+        btnRetry->addTouchEventListener(CC_CALLBACK_2(GameScene::loadMap, this) );
+        
+        
+        cocos2d::ui::Button* btnExit =  (cocos2d::ui::Button*)rootNode->getChildByTag(47)->getChildByTag(48);
+        btnExit->addTouchEventListener(CC_CALLBACK_2(GameScene::exitGame, this) );
+        
+        cocos2d::ui::Text* helptext = (cocos2d::ui::Text*)rootNode->getChildByTag(47)->getChildByTag(51);
+        
+        std::string  storyArr[3] = {"使用随机变色道具，\n可能性价比很高哦~","要是你是个多疑的人，\n最好使用选择变色道具吧~","要是有个小东西挡住你的去路，\n用消除单个道具干掉他吧！！！"};
+        
+        if (this->getChildByTag(-190)) {
+            rootNode->setGlobalZOrder(this->getChildByTag(-190)->getGlobalZOrder()-1);
+        }
+        
+        int index = random(0, 2);
+        helptext->setString(storyArr[index]);
+       
+        isPaused = true;
+        isGameFinish = true;
+    };
+    
+    this->runAction(Sequence::create(DelayTime::create(0.3),CallFuncN::create(gotoFinish), NULL) );
+    
 }
 
 int GameScene::testScoreDegree(float score){

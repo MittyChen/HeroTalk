@@ -7,7 +7,7 @@
 #include "CopyRightScene.h"
 #include "CommonUtils.h"
 #include "ShopScene.h"
-
+#include "HappyStartCell.h"
 #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
 #include "Ads.h"
 #endif
@@ -41,7 +41,7 @@ bool MainMenuScene::init()
         return false;
     }
 
-    scheduleUpdate();
+//    scheduleUpdate();
     
     cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -56,6 +56,17 @@ bool MainMenuScene::init()
     this->addChild(LayerColor::create(GAMEBG_COLOR,visibleSize.width,visibleSize.height));
    
     Sprite* fengye = Sprite::create("fengye.png");
+    
+    ParticleSnow* ccsz = ParticleSnow::createWithTotalParticles(66);
+    ccsz->setTexture(cocos2d::Director::getInstance()->getTextureCache()->addImage("whitedot.png"));
+    ccsz->setStartColorVar(cocos2d::Color4F(1, 10,40,255));
+    ccsz->setSpeed(5);
+    ccsz->setPosition(Vec2(visibleSize.width/2,0));
+    ccsz->cocos2d::Node::setRotation(180);
+    ccsz->setScale(3);
+    this->addChild(ccsz);
+    
+    
     fengye->setPosition(visibleSize/2);
     fengye->setAnchorPoint(Vec2(0.5,0.5));
     fengye->runAction(FadeTo::create(0.001, 200));
@@ -152,7 +163,7 @@ bool MainMenuScene::init()
     {
         Sprite* dotP = Sprite::create("whitedot.png");
         dotP->setPosition(Vec2(visibleSize.width,0));
-//        dotP->runAction(TintTo::create(0.01,255, 89, 56));
+        dotP->setColor(cocos2d::Color3B(28, 241,183));
         
         ccBezierConfig ccb;
         ccb.controlPoint_1 = Vec2(visibleSize.width/2 + 280,visibleSize.height/2 + 280);
@@ -206,6 +217,8 @@ bool MainMenuScene::init()
     cocos2d::ui::Button * skipbutton = cocos2d::ui::Button::create("startBtn.png");
     skipbutton->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 5 / 12));
     skipbutton->setScale(0.7);
+    this->addChild(skipbutton);
+    
 //    Label* skipLabel = Label::create();
 //    skipLabel->setString("开始");
 //    skipLabel->setSystemFontSize(20);
@@ -275,6 +288,7 @@ bool MainMenuScene::init()
     
     options->addTouchEventListener(gotoOptions);
     
+
     auto skipDrama = [=](Ref* obj,cocos2d::ui::Widget::TouchEventType event)
     {
         
@@ -297,17 +311,47 @@ bool MainMenuScene::init()
         }
     };
     skipbutton->addTouchEventListener(skipDrama);
-    this->addChild(skipbutton);
-
-     
     
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("gamebg.mp3");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("playbg.mp3");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("levelselect.mp3");
-    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("gamebg.mp3",true);
+    
+//    for(int i = 0; i < 5; ++i )
+//    {
+//        for(int j =0 ; j < 5 ; ++j)
+//        {
+//            HappyStartCell* mm =  HappyStartCell::create();
+//            mm->setParameters(Color3B(25.5f * i,25.5f * j,10.f*(i+j)),Vec2(0,0),cocos2d::Size(40,40),Vec2(random(1, 20),random(1,20)),4);
+//            addChild((Node*)mm);
+//            int typeFind = random(1,7);
+//            
+//            if (typeFind == 7) {
+//                
+//                typeFind = random(1,100) > 90 ? 7 : random(1, 6);
+//            }
+//            
+//            mm->setType((CELL_TYPE)typeFind);
+//            
+//            
+//            auto gonextStroyline = [=](Node* pSender)mutable
+//            {
+//                int typeFind = random(1,6);
+//                
+//                mm->setParameters(Color3B(25.5f * i,25.5f * j,10.f*(i+j)),Vec2(0,0),cocos2d::Size(40,40),Vec2(random(1, 20),random(1,20)),25);
+//                
+//                mm->setType((CELL_TYPE)typeFind);
+//            };
+//            
+//            CallFuncN* nextLine = CallFuncN::create(gonextStroyline);
+//            
+//            mm->runAction(RepeatForever::create(Sequence::create(DelayTime::create(1),nextLine, NULL)));
+//            
+//        }
+//    }
+    
+    
     
 //    Ads::getInstance()->showAds(AdsType::AD_TYPE_BANNER);
     
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("gamebg.mp3",true);
     
     return true;
 }
@@ -331,4 +375,8 @@ void MainMenuScene::playClickCallBack(Ref* sender,cocos2d::ui::TouchEventType ty
         // run
         Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
     }
+}
+
+MainMenuScene::~MainMenuScene(){
+
 }

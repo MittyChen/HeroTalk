@@ -6,7 +6,7 @@
       <ObjectData Name="Scene" Tag="13" ctype="GameNodeObjectData">
         <Size X="640.0000" Y="960.0000" />
         <Children>
-          <AbstractNodeData Name="Sprite_2" CanEdit="False" ActionTag="1193324727" Tag="19" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="70.0003" RightMargin="69.9997" TopMargin="267.4922" BottomMargin="392.5078" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Sprite_2" ActionTag="1193324727" Tag="19" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="70.0000" RightMargin="70.0000" TopMargin="267.5040" BottomMargin="392.4960" ctype="SpriteObjectData">
             <Size X="500.0000" Y="300.0000" />
             <Children>
               <AbstractNodeData Name="Button_1_0" ActionTag="-474206828" Tag="16" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="117.9000" RightMargin="126.1000" TopMargin="138.4700" BottomMargin="33.5300" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="226" Scale9Height="106" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -104,7 +104,7 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="320.0003" Y="542.5078" />
+            <Position X="320.0000" Y="542.4960" />
             <Scale ScaleX="1.2086" ScaleY="1.3637" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5651" />
