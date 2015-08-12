@@ -93,8 +93,8 @@ bool LevelSelectScene::init()
     
     
     cocos2d::ui::Button* backbtn = cocos2d::ui::Button::create("goback.png");
-    backbtn->setPosition( Vec2( backbtn->getContentSize().width /2  , -backbtn->getContentSize().height/2 + visibleSize.height));
-    backbtn->setScale(0.7);
+    backbtn->setPosition( Vec2( backbtn->getContentSize().width /2  , -backbtn->getContentSize().width/3 + visibleSize.height));
+    backbtn->setScale(0.6);
     backbtn->setTitleFontSize(20);
     backbtn->setTitleColor(Color3B(0,200,120));
     this->addChild(backbtn);

@@ -10,7 +10,7 @@
             <Size X="256.0000" Y="128.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="108.0551" Y="896.8053" />
-            <Scale ScaleX="0.7000" ScaleY="0.7071" />
+            <Scale ScaleX="0.6000" ScaleY="0.6000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.1688" Y="0.9342" />
             <PreSize X="0.2667" Y="0.2000" />
@@ -166,7 +166,7 @@
             <Size X="320.0000" Y="128.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="319.2320" Y="102.2400" />
-            <Scale ScaleX="0.6000" ScaleY="0.6000" />
+            <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.4988" Y="0.1065" />
             <PreSize X="0.5000" Y="0.1333" />
