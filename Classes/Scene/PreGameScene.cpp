@@ -66,6 +66,14 @@ bool PreGameScene::init()
     
     this->addChild(fengye);
     
+    Sprite* flower = Sprite::create("mainmenubg.png");
+    flower->setPosition(Vec2(visibleSize.width/2,visibleSize.height/2) );
+    flower->setAnchorPoint(Vec2(0.5,0.5));
+    flower->setScale(visibleSize.width*5/6/flower->getContentSize().width);
+    this->addChild(flower);
+    
+    
+    
     this->addChild(LayerColor::create(GAMEBG_COLOR,visibleSize.width,visibleSize.height));
     
     

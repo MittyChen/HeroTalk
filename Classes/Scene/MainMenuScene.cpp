@@ -52,8 +52,6 @@ bool MainMenuScene::init()
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener,this);
     
     
-    
-    this->addChild(LayerColor::create(GAMEBG_COLOR,visibleSize.width,visibleSize.height));
    
     Sprite* fengye = Sprite::create("fengye.png");
     
@@ -80,6 +78,17 @@ bool MainMenuScene::init()
 //    fengye->runAction(RepeatForever::create(Sequence::create(FadeTo::create(5, 0),ScaleTo::create(0.01, 1.2),FadeTo::create(0.5, 200),ScaleTo::create(2.5, 1), NULL) ));
     
     this->addChild(fengye);
+    
+    
+    
+    Sprite* flower = Sprite::create("mainmenubg.png");
+    flower->setPosition(Vec2(visibleSize.width/2,visibleSize.height/2) );
+    flower->setAnchorPoint(Vec2(0.5,0.5));
+    flower->setScale(visibleSize.width*5/6/flower->getContentSize().width);
+    this->addChild(flower);
+    
+    
+    this->addChild(LayerColor::create(GAMEBG_COLOR,visibleSize.width,visibleSize.height));
     
     {
         Sprite* dotP = Sprite::create("whitedot.png");

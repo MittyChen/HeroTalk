@@ -71,6 +71,12 @@ bool LevelSelectScene::init()
     LayerColor* lcc = LayerColor::create(Color4B(0,0,0,200),visibleSize.width,visibleSize.height);
     this->addChild(lcc);
     
+    Sprite* flower = Sprite::create("flowers.png");
+    flower->setPosition(Vec2(visibleSize.width/2,0));
+    flower->setAnchorPoint(Vec2(0.5,0));
+    flower->setScale(visibleSize.width/flower->getContentSize().width);
+    this->addChild(flower);
+    
     ui::ScrollView* m_scrollView =  ui::ScrollView::create();
     m_scrollView->setDirection( ui::ScrollView::Direction::VERTICAL);
     m_scrollView->setAnchorPoint(cocos2d::Point::ZERO);
@@ -218,6 +224,9 @@ bool LevelSelectScene::init()
     };
     
     this->runAction(Sequence::create(DelayTime::create(1),CallFuncN::create(removeLamda), NULL) );
+    
+    
+ 
     
     return true;
 }
