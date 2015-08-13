@@ -27,6 +27,7 @@
 		1F4373291B0DBB9400A7FD8D /* BaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F4373271B0DBB9400A7FD8D /* BaseScene.cpp */; };
 		1F43732C1B0DD7C600A7FD8D /* VideoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F43732A1B0DD7C600A7FD8D /* VideoScene.cpp */; };
 		1F4373351B0DDCD100A7FD8D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4373341B0DDCD100A7FD8D /* MediaPlayer.framework */; };
+		1F59B9DD1B7C2C61000209C6 /* MittyToolData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F59B9DB1B7C2C61000209C6 /* MittyToolData.cpp */; };
 		1F5CAFA61AEDE503000D3656 /* Drama.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CAFA41AEDE503000D3656 /* Drama.cpp */; };
 		1F5CAFA91AEDE515000D3656 /* Curtain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CAFA71AEDE515000D3656 /* Curtain.cpp */; };
 		1F5CAFAC1AEDE527000D3656 /* Paragraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CAFAA1AEDE527000D3656 /* Paragraph.cpp */; };
@@ -162,6 +163,8 @@
 		1F43732A1B0DD7C600A7FD8D /* VideoScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoScene.cpp; sourceTree = "<group>"; };
 		1F43732B1B0DD7C600A7FD8D /* VideoScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoScene.h; sourceTree = "<group>"; };
 		1F4373341B0DDCD100A7FD8D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
+		1F59B9DB1B7C2C61000209C6 /* MittyToolData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MittyToolData.cpp; sourceTree = "<group>"; };
+		1F59B9DC1B7C2C61000209C6 /* MittyToolData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MittyToolData.h; sourceTree = "<group>"; };
 		1F5CAFA41AEDE503000D3656 /* Drama.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Drama.cpp; sourceTree = "<group>"; };
 		1F5CAFA51AEDE503000D3656 /* Drama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drama.h; sourceTree = "<group>"; };
 		1F5CAFA71AEDE515000D3656 /* Curtain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Curtain.cpp; sourceTree = "<group>"; };
@@ -427,6 +430,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1F59B9D81B7C2C34000209C6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1F59B9DB1B7C2C61000209C6 /* MittyToolData.cpp */,
+				1F59B9DC1B7C2C61000209C6 /* MittyToolData.h */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		1F5CAFA31AEDE4E2000D3656 /* ScriptEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,6 +676,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1F59B9D81B7C2C34000209C6 /* Data */,
 				1F08693E1B3BE63F00A99CFF /* Gif */,
 				1FAE98EB1B1408190073F3C7 /* common */,
 				1F6607201B0EC3550001E3D8 /* playmp4 */,
@@ -823,6 +836,7 @@
 				1FA053B61B26C76700A771CD /* CopyRightScene.cpp in Sources */,
 				1FA1DC391B466A9700DB95A6 /* ShopScene.cpp in Sources */,
 				1F43732C1B0DD7C600A7FD8D /* VideoScene.cpp in Sources */,
+				1F59B9DD1B7C2C61000209C6 /* MittyToolData.cpp in Sources */,
 				1F7B26C61B202EAA00A2A691 /* OptionsPopup.cpp in Sources */,
 				1F4373261B0DB90300A7FD8D /* LoadingScene.cpp in Sources */,
 				1FF29B0F1B1848E60017AA79 /* CCSpriteWithHue.cpp in Sources */,

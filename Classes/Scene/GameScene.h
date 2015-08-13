@@ -92,8 +92,10 @@ public:
     void gameWin();
     void gameFailed();
     int testScoreDegree(float score);
-    
-    
+    void updateToolsBadge();
+    void showShortOfTool();
+    void hideShortOfTool(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
+    void goShop(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
 public:
 
     float munitSize;
@@ -120,6 +122,11 @@ public:
     int redCount;
     int greenCount;
     int blueCount;
+    
+protected:
+    int oneshottoolsum;
+    int changeTypesum;
+    int randomTypesum;
     
 //    static LevelNode* lv;
 };

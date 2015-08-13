@@ -52,6 +52,7 @@
         <Project Name="GameFailedScene.csd" Type="Scene" />
         <Image Name="bg.png" />
         <Image Name="leftbg.png" />
+        <Project Name="ToolShortLayer.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>

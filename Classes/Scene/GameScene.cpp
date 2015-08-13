@@ -13,7 +13,8 @@
 #include "PreGameScene.h"
 #include "SPCScene.h"
 #include "CommonUtils.h"
-
+#include "MittyToolData.h"
+#include "ShopScene.h"
 #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
 #include "Share.h"
 #endif
@@ -116,6 +117,10 @@ bool GameScene::init()
     greenCount = 0;
     blueCount = 0;
     
+ 
+    
+    
+    
     
     cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -168,6 +173,26 @@ bool GameScene::init()
     
     cocos2d::ui::CheckBox* mTool_ChangeType = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(20);
     mTool_ChangeType->addClickEventListener(CC_CALLBACK_1(GameScene::changeType,this));
+    
+    
+    oneshottoolsum = MittyToolData::getInstance()->getOneshotTool();
+    changeTypesum =  MittyToolData::getInstance()->getChangeTypeTool();
+    randomTypesum =  MittyToolData::getInstance()->getRandomTool();
+    
+   
+    cocos2d::ui::Text* labelchanetype = (cocos2d::ui::Text*)(mTool_ChangeType->getChildByTag(31)->getChildByTag(36));
+    const char * cttext = String::createWithFormat("%d" , changeTypesum)->getCString();
+    labelchanetype->setString(cttext);
+    
+    cocos2d::ui::Text* labelrandomtype = (cocos2d::ui::Text*)(mTool_RandomType->getChildByTag(32)->getChildByTag(35));
+    
+    const char * rttext = String::createWithFormat("%d" , randomTypesum)->getCString();
+    labelrandomtype->setString(rttext);
+    
+    
+    cocos2d::ui::Text* labeloneshot = (cocos2d::ui::Text*)(mTool_OneShot->getChildByTag(33)->getChildByTag(34));
+    const char * onstext = String::createWithFormat("%d" , oneshottoolsum)->getCString();
+    labeloneshot->setString(onstext);
     
     spcdes = (cocos2d::ui::Text*)rootNode->getChildByTag(62);
     
@@ -310,6 +335,107 @@ bool GameScene::init()
 //    }
     return true;
 }
+//更新道具数量显示
+void GameScene::updateToolsBadge(){
+    
+    auto rootNode = this->getChildByName("MainSceneRoot");
+    cocos2d::ui::CheckBox* mTool_OneShot = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(11);
+    cocos2d::ui::CheckBox* mTool_RandomType = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(19);
+    cocos2d::ui::CheckBox* mTool_ChangeType = (cocos2d::ui::CheckBox*)rootNode->getChildByTag(20);
+    
+    oneshottoolsum = MittyToolData::getInstance()->getOneshotTool();
+    changeTypesum =  MittyToolData::getInstance()->getChangeTypeTool();
+    randomTypesum =  MittyToolData::getInstance()->getRandomTool();
+    
+    cocos2d::ui::Text* labelchanetype = (cocos2d::ui::Text*)(mTool_ChangeType->getChildByTag(31)->getChildByTag(36));
+    const char * cttext = String::createWithFormat("%d" , changeTypesum)->getCString();
+    labelchanetype->setString(cttext);
+    cocos2d::ui::Text* labelrandomtype = (cocos2d::ui::Text*)(mTool_RandomType->getChildByTag(32)->getChildByTag(35));
+    const char * rttext = String::createWithFormat("%d" , randomTypesum)->getCString();
+    labelrandomtype->setString(rttext);
+    cocos2d::ui::Text* labeloneshot = (cocos2d::ui::Text*)(mTool_OneShot->getChildByTag(33)->getChildByTag(34));
+    const char * onstext = String::createWithFormat("%d" , oneshottoolsum)->getCString();
+    labeloneshot->setString(onstext);
+    
+}
+
+void GameScene::showShortOfTool()
+{
+    if (isPaused) {
+        return;
+    }
+    
+    
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
+    LayerColor* lco =  LayerColor::create(Color4B(0,0,0,100), visibleSize.width, visibleSize.height);
+    this->addChild(lco);
+    lco->setTag(-190);
+    
+    auto pauselayer = CSLoader::createNode("ToolShortLayer.csb");
+    
+    this->addChild(pauselayer);
+    pauselayer->setName("shor_tool_Layer");
+    
+    pauselayer->setContentSize(visibleSize);
+    ui::Helper::doLayout(pauselayer);
+    
+    Sprite* pauseRoot = (Sprite*)pauselayer->getChildByTag(53);
+    pauseRoot->setPosition(Vec2( visibleSize.width/2 , visibleSize.height + pauseRoot->getContentSize().height ));
+    
+    pauseRoot->setScale(visibleSize.width * 6 / 7 / pauseRoot->getContentSize().width);
+    pauseRoot->runAction( Sequence::create(MoveTo::create(0.1, Vec2(visibleSize.width/2, visibleSize.height/2 - 20)),MoveTo::create(0.2, Vec2(visibleSize.width/2, visibleSize.height/2)), NULL) );
+    
+    
+    cocos2d::ui::Button* btnExit =  (cocos2d::ui::Button*)pauseRoot->getChildByTag(54);
+    btnExit->addTouchEventListener(CC_CALLBACK_2(GameScene::goShop, this) );
+    
+    cocos2d::ui::Button* backtogame =  (cocos2d::ui::Button*)pauseRoot->getChildByTag(62);
+    backtogame->addTouchEventListener(CC_CALLBACK_2(GameScene::hideShortOfTool, this) );
+    
+    
+    cocos2d::ui::CheckBox* mTool_OneShot = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(11);
+    mTool_OneShot->setTouchEnabled(false);
+    
+    cocos2d::ui::CheckBox* mTool_RandomType = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(19);
+    mTool_RandomType->setTouchEnabled(false);
+    
+    cocos2d::ui::CheckBox* mTool_ChangeType = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(20);
+    mTool_ChangeType->setTouchEnabled(false);
+    
+    
+    isPaused = true;
+}
+
+void GameScene::hideShortOfTool(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
+{
+    auto removePauseLamda = [=](Ref* pSender)mutable{
+        
+        getChildByName("shor_tool_Layer")->removeFromParent();
+        
+    };
+    
+    
+    cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
+    this->removeChildByTag(-190);
+    Sprite* pauseRoot = (Sprite*)getChildByName("shor_tool_Layer")->getChildByTag(53);
+    
+    pauseRoot->runAction(Sequence::create(  MoveTo::create(0.25, Vec2(visibleSize.width/2 , visibleSize.height + pauseRoot->getContentSize().height) ),CallFuncN::create(removePauseLamda), NULL));
+    
+    isPauseFlag = true;
+    
+    
+    cocos2d::ui::CheckBox* mTool_OneShot = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(11);
+    mTool_OneShot->setTouchEnabled(true);
+    
+    cocos2d::ui::CheckBox* mTool_RandomType = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(19);
+    mTool_RandomType->setTouchEnabled(true);
+    
+    cocos2d::ui::CheckBox* mTool_ChangeType = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(20);
+    mTool_ChangeType->setTouchEnabled(true);
+}
+
 void GameScene::onEnter(){
     Layer::onEnter();
     int winside = SPCScene::winSide();
@@ -799,8 +925,6 @@ void GameScene::pauseGameBack(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEv
     };
     
     
-    
-    
     cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     this->removeChildByTag(-190);
     Sprite* pauseRoot = (Sprite*)getChildByName("Pause_Game_Layer")->getChildByTag(49);
@@ -827,7 +951,7 @@ void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
     if (type != ui::Widget::TouchEventType::ENDED) {
         return;
     }
-     isGameWin = false;
+    isGameWin = false;
     isGameFailed = false;
     
         auto scene = MainMenuScene::createScene();
@@ -835,6 +959,17 @@ void GameScene::exitGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTy
         Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
 }
 
+void GameScene::goShop(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
+{
+    if (type != ui::Widget::TouchEventType::ENDED) {
+        return;
+    }
+    isGameWin = false;
+    isGameFailed = false;
+    
+    auto scene = ShopScene::createScene();
+    Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
+}
 
 void GameScene::shareScore(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
@@ -888,6 +1023,8 @@ void GameScene::deleteOneCell(cocos2d::Ref* object)
     mTool_ChangeType->stopAllActions();
     mTool_RandomType->stopAllActions();
     
+    mTool_ChangeType->setScale(0.2971);
+    mTool_RandomType->setScale(0.2971);
     
     mTool_ChangeType->setSelected(false);
     mTool_RandomType->setSelected(false);
@@ -898,6 +1035,7 @@ void GameScene::deleteOneCell(cocos2d::Ref* object)
         cocos2d::ui::CheckBox* mTool_OneShot = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(11);
         
         mTool_OneShot->stopAllActions();
+        mTool_OneShot->setScale(0.2971);
         
     }else{
         _mMode = CELL_TOUCH_MODE::DELETE_ONE_MODE;
@@ -922,11 +1060,15 @@ void GameScene::changeTypeRandom(cocos2d::Ref* object)
     mTool_OneShot->setSelected(false);
     mTool_ChangeType->setSelected(false);
     
+    mTool_ChangeType->setScale(0.2971);
+    mTool_OneShot->setScale(0.2971);
+    
+    
     if (_mMode == CELL_TOUCH_MODE::CHANGE_COLOR_RANDOM) {
         _mMode = CELL_TOUCH_MODE::NORMAL_MODE;
         cocos2d::ui::CheckBox* mTool_RandomType = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(19);
         mTool_RandomType->stopAllActions();
-        
+        mTool_RandomType->setScale(0.2971);
     }else{
         
         _mMode = CELL_TOUCH_MODE::CHANGE_COLOR_RANDOM;
@@ -951,12 +1093,16 @@ void GameScene::changeType(cocos2d::Ref* object)
     mTool_OneShot->setSelected(false);
     mTool_RandomType->setSelected(false);
     
+    
+    mTool_RandomType->setScale(0.2971);
+    mTool_OneShot->setScale(0.2971);
     if (_mMode == CELL_TOUCH_MODE::CHANGE_COLOR) {
         
         _mMode = CELL_TOUCH_MODE::NORMAL_MODE;
         cocos2d::ui::CheckBox* mTool_ChangeType = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(20);
         
         mTool_ChangeType->stopAllActions();
+        mTool_ChangeType->setScale(0.2971);
         
     }else{
         
@@ -1365,6 +1511,12 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         
                     case CELL_TOUCH_MODE::DELETE_ONE_MODE:
                     {
+                        if (MittyToolData::getInstance()->getOneshotTool() <=0 ) {
+                            showShortOfTool();
+                            return false;
+                        }
+                        MittyToolData::getInstance()->useOneshotTool();
+                        updateToolsBadge();
                         
                         Vec2 targetPos = unitOriginPosition +  mIt->second->getposIndex()  * (1 + munitSize) + Vec2(munitSize/2,munitSize/2);
                         
@@ -1562,7 +1714,13 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                 }
                         
                     case CHANGE_COLOR_RANDOM:
-                        
+                        if (MittyToolData::getInstance()->getRandomTool() <=0 ) {
+                            showShortOfTool();
+                            return false;
+                        }
+                        MittyToolData::getInstance()->useRandomTool();
+                       
+                        updateToolsBadge();
                         mIt->second->changeTypeRandom();
                         
                         
@@ -1570,6 +1728,14 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         
                     case CHANGE_COLOR:
                     {
+                        if (MittyToolData::getInstance()->getChangeTypeTool() <=0 ) {
+                            showShortOfTool();
+                            return false;
+                        }
+                        MittyToolData::getInstance()->useChangeTypeTool();
+                       
+                        updateToolsBadge();
+                        
                         auto rootNode = CSLoader::createNode("ColorSelectNode.csb");
                         rootNode->setAnchorPoint(Vec2(0.5, 0.5));
                         

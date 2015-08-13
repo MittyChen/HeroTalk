@@ -86,7 +86,7 @@ bool MainMenuScene::init()
     flower->setAnchorPoint(Vec2(0.5,0.5));
     flower->setScale(visibleSize.width*5/6/flower->getContentSize().width);
     this->addChild(flower);
-    
+    flower->runAction(RepeatForever::create(RotateBy::create(50, 360)));
     
     this->addChild(LayerColor::create(GAMEBG_COLOR,visibleSize.width,visibleSize.height));
     
