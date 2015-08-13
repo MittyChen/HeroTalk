@@ -10,36 +10,22 @@
         <Image Name="ball.png" />
         <Project Name="ColorSelectNode.csd" Type="Node" />
         <Project Name="OptionsLayer.csd" Type="Layer" />
-        <Image Name="CloseNormal.png" />
         <Project Name="ShopScene.csd" Type="Scene" />
         <Image Name="bg_shop00_bottom@2z.png" />
         <Project Name="PreGameScene.csd" Type="Scene" />
-        <Image Name="dec_0293-hd.png" />
-        <Image Name="cn_Menu_Buttonweixin.png" />
-        <Image Name="cn_Menu_Buttonweixin_Pressed.png" />
         <Image Name="Menu_ButtonSina.png" />
         <Image Name="Menu_ButtonSinaPressed.png" />
         <Project Name="CopyRightScene.csd" Type="Scene" />
         <Image Name="goback.png" />
         <Image Name="diffbtn.png" />
-        <Image Name="bloodstar.png" />
         <Image Name="popupbg.png" />
         <Image Name="goon.png" />
         <Image Name="mainscene.png" />
         <Image Name="tryagain.png" />
         <Project Name="LevelSelectNode.csd" Type="Node" />
-        <Image Name="mapbg.png" />
-        <Image Name="mapback.png" />
-        <Image Name="mapbg2.png" />
-        <Image Name="81bOOOPIC46_1024.jpg" />
         <Project Name="AddScoreLayer.csd" Type="Layer" />
         <Image Name="winbg.png" />
-        <Image Name="chesspanel.png" />
-        <Image Name="01064364N-1.jpg" />
-        <Project Name="LevelSelectLayer.csd" Type="Layer" />
         <Image Name="testboard.png" />
-        <Image Name="fengye.png" />
-        <Image Name="shophead.png" />
         <Image Name="shop_frame.png" />
         <Image Name="shop_random.png" />
         <Image Name="store_selectcolor.png" />
@@ -50,7 +36,6 @@
         <Project Name="PauseGameLayer.csd" Type="Layer" />
         <Image Name="close21.png" />
         <Project Name="GameFailedScene.csd" Type="Scene" />
-        <Image Name="bg.png" />
         <Image Name="leftbg.png" />
         <Project Name="ToolShortLayer.csd" Type="Layer" />
       </RootFolder>

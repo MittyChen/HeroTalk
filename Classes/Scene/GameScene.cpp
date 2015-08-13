@@ -385,7 +385,7 @@ void GameScene::showShortOfTool()
     pauseRoot->setPosition(Vec2( visibleSize.width/2 , visibleSize.height + pauseRoot->getContentSize().height ));
     
     pauseRoot->setScale(visibleSize.width * 6 / 7 / pauseRoot->getContentSize().width);
-    pauseRoot->runAction( Sequence::create(MoveTo::create(0.1, Vec2(visibleSize.width/2, visibleSize.height/2 - 20)),MoveTo::create(0.2, Vec2(visibleSize.width/2, visibleSize.height/2)), NULL) );
+    pauseRoot->runAction(MoveTo::create(0.1, Vec2(visibleSize.width/2, visibleSize.height/2 - 20)));
     
     
     cocos2d::ui::Button* btnExit =  (cocos2d::ui::Button*)pauseRoot->getChildByTag(54);
@@ -874,8 +874,10 @@ void GameScene::pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventT
     pauseRoot->setPosition(Vec2( visibleSize.width/2 , visibleSize.height + pauseRoot->getContentSize().height ));
     
     pauseRoot->setScale(visibleSize.width * 6 / 7 / pauseRoot->getContentSize().width);
-    pauseRoot->runAction( Sequence::create(MoveTo::create(0.1, Vec2(visibleSize.width/2, visibleSize.height/2 - 20)),MoveTo::create(0.2, Vec2(visibleSize.width/2, visibleSize.height/2)), NULL) );
+//    pauseRoot->runAction( Sequence::create(MoveTo::create(0.1, Vec2(visibleSize.width/2, visibleSize.height/2 - 20)),MoveTo::create(0.2, Vec2(visibleSize.width/2, visibleSize.height/2)), NULL) );
+    pauseRoot->runAction(MoveTo::create(0.1, Vec2(visibleSize.width/2, visibleSize.height/2)) );
     
+
     
     cocos2d::ui::Button* btnSPC =  (cocos2d::ui::Button*)pauseRoot->getChildByTag(60);
     btnSPC->addTouchEventListener(CC_CALLBACK_2(GameScene::startSPC, this) );

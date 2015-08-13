@@ -152,14 +152,14 @@
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
           <AbstractNodeData Name="shophead_14" ActionTag="-1482956875" Tag="111" VisibleForFrame="False" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="339.4560" RightMargin="-147.4560" TopMargin="271.8960" BottomMargin="478.1040" ctype="SpriteObjectData">
-            <Size X="448.0000" Y="210.0000" />
+            <Size X="46.0000" Y="46.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="563.4560" Y="583.1040" />
             <Scale ScaleX="1.4663" ScaleY="1.4316" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.8804" Y="0.6074" />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="shophead.png" Plist="" />
+            <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="Button_8" ActionTag="1704613927" Tag="27" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="159.2320" RightMargin="160.7680" TopMargin="793.7600" BottomMargin="38.2400" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="290" Scale9Height="106" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">

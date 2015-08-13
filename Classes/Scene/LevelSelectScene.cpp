@@ -85,7 +85,7 @@ bool LevelSelectScene::init()
     m_scrollView->setSwallowTouches(false);
     m_scrollView->setName("ScrollViewNode");
     this->addChild(m_scrollView);
-    
+//    m_scrollView->setBounceEnabled(true);
     auto rootNode = CSLoader::createNode("LevelSelectNode.csb");
     m_scrollView->addChild(rootNode);
     rootNode->setPosition(visibleSize/2);

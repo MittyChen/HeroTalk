@@ -30,7 +30,7 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ScriptEngine
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/common
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/Gif
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/Gif/gif_lib
-
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/Data
 
 LOCAL_STATIC_LIBRARIES := cocos2dx_static
 
