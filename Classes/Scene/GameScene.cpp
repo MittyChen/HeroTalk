@@ -15,10 +15,8 @@
 #include "CommonUtils.h"
 #include "MittyToolData.h"
 #include "ShopScene.h"
-#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
 #include "Share.h"
-#endif
-
+#include "Ads.h"
 USING_NS_CC;
 
 bool isGameWin = false;
@@ -37,7 +35,8 @@ static int levelco = 0;
 static LevelNode* lv = NULL;
 static int reaminingStep = 10;
 
-Scene* GameScene::createScene(LevelNode* mLevel)
+static int gameTimes = 0;
+Scene* GameScene::createScene(LevelNode* mLevel,int diffcu)
 {
     auto scene = Scene::create();
     levelco = mLevel->getLevelCode();
@@ -51,7 +50,7 @@ Scene* GameScene::createScene(LevelNode* mLevel)
     
     count = 10;
     
-    mdifficult = 2;
+    mdifficult = diffcu;
     
     SPCScene::resetresult();
     
@@ -59,6 +58,7 @@ Scene* GameScene::createScene(LevelNode* mLevel)
 
     scene->addChild(layer);
 
+    
     return scene;
 }
 
@@ -333,6 +333,9 @@ bool GameScene::init()
 //        alien->setHue(2 * M_PI * CCRANDOM_0_1());
 //        this->addChild(alien,1);
 //    }
+     CCLOG("gametimes===== %d",gameTimes);
+    gameTimes ++;
+    
     return true;
 }
 //更新道具数量显示
@@ -356,6 +359,7 @@ void GameScene::updateToolsBadge(){
     cocos2d::ui::Text* labeloneshot = (cocos2d::ui::Text*)(mTool_OneShot->getChildByTag(33)->getChildByTag(34));
     const char * onstext = String::createWithFormat("%d" , oneshottoolsum)->getCString();
     labeloneshot->setString(onstext);
+    
     
 }
 
@@ -465,6 +469,11 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     redCount =0;
     greenCount = 0;
     blueCount = 0;
+    
+#if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
+    lv->stepNeed = 10;
+#endif
+    
     reaminingStep = lv->stepNeed;
     
 
@@ -853,7 +862,10 @@ void GameScene::pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventT
     if (isPaused) {
         return;
     }
-    
+    CCLOG("gametimes===== %d",gameTimes);
+    if (gameTimes%3 == 0 && gameTimes != 0) {
+        Ads::getInstance()->showAds(AdsType::AD_TYPE_FULLSCREEN);
+    }
     
     cocos2d::Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -975,10 +987,7 @@ void GameScene::goShop(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType
 
 void GameScene::shareScore(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
-    
-#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     Share::getInstance()->share();
-#endif
 }
 
 void GameScene::gotoLevelSelect(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
@@ -2709,9 +2718,17 @@ void GameScene::gameWin()
         
         isPaused = true;
         isGameFinish = true;
+        
+      
     };
     
     this->runAction(Sequence::create(DelayTime::create(1),CallFuncN::create(gotoFinish), NULL) );
+    
+    CCLOG("gametimes===== %d",gameTimes);
+    if (gameTimes%3 == 0 && gameTimes != 0) {
+        Ads::getInstance()->showAds(AdsType::AD_TYPE_FULLSCREEN);
+    }
+    
     
 }
 

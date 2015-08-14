@@ -8,9 +8,7 @@
 #include "CommonUtils.h"
 #include "ShopScene.h"
 #include "HappyStartCell.h"
-#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
 #include "Ads.h"
-#endif
 
 USING_NS_CC;
 
@@ -314,6 +312,7 @@ bool MainMenuScene::init()
 //        }
 //        else
         {
+            
             auto scene = LevelSelectScene::createScene(0);
             // run
             Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
@@ -357,13 +356,23 @@ bool MainMenuScene::init()
     
     
     
-//    Ads::getInstance()->showAds(AdsType::AD_TYPE_BANNER);
-    
     
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("gamebg.mp3",true);
     
     return true;
 }
+
+void MainMenuScene::onEnter(){
+    Layer::onEnter();
+    Ads::getInstance()->showAds(AdsType::AD_TYPE_BANNER);
+    
+}
+void MainMenuScene::onExit(){
+    Ads::getInstance()->hideAds(AdsType::AD_TYPE_BANNER);
+    Layer::onExit();
+}
+
+
 bool MainMenuScene::onTouchBegan(Touch *touch, Event *unused_event)
 {
     
@@ -379,6 +388,7 @@ void MainMenuScene::playClickCallBack(Ref* sender,cocos2d::ui::TouchEventType ty
     }
     else
     {
+        
         int maxlevel =  UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED");
         auto scene = LevelSelectScene::createScene(maxlevel);
         // run
@@ -387,5 +397,4 @@ void MainMenuScene::playClickCallBack(Ref* sender,cocos2d::ui::TouchEventType ty
 }
 
 MainMenuScene::~MainMenuScene(){
-
 }

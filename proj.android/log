@@ -1,0 +1,114 @@
+[~/workspace/HeroTalk/proj.android] (master) 18h51m $ ant debug
+Buildfile: /Users/chenwei/workspace/HeroTalk/proj.android/build.xml
+
+-set-mode-check:
+
+-set-debug-files:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 24.0.2
+ [checkenv] Installed at /Users/chenwei/env/android_sdk
+
+-setup:
+     [echo] Project Name: HeroTalk
+  [gettype] Project Type: Application
+
+-set-debug-mode:
+
+-debug-obfuscation-check:
+
+-pre-build:
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 21.1.2
+     [echo] Resolving Build Target for HeroTalk...
+[gettarget] Project Target:   Android 2.3.3
+[gettarget] API level:        10
+     [echo] ----------
+     [echo] Creating output directories if needed...
+    [mkdir] Created dir: /Users/chenwei/workspace/HeroTalk/proj.android/bin
+    [mkdir] Created dir: /Users/chenwei/workspace/HeroTalk/proj.android/bin/res
+    [mkdir] Created dir: /Users/chenwei/workspace/HeroTalk/proj.android/bin/rsObj
+    [mkdir] Created dir: /Users/chenwei/workspace/HeroTalk/proj.android/bin/rsLibs
+    [mkdir] Created dir: /Users/chenwei/workspace/HeroTalk/proj.android/gen
+    [mkdir] Created dir: /Users/chenwei/workspace/HeroTalk/proj.android/bin/classes
+    [mkdir] Created dir: /Users/chenwei/workspace/HeroTalk/proj.android/bin/dexedLibs
+     [echo] ----------
+     [echo] Resolving Dependencies for HeroTalk...
+[dependency] Library dependencies:
+[dependency] No Libraries
+[dependency] 
+[dependency] ------------------
+[dependency] API<=15: Adding annotations.jar to the classpath.
+     [echo] ----------
+     [echo] Building Libraries with 'debug'...
+   [subant] No sub-builds to iterate on
+
+-code-gen:
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Generating resource IDs...
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] Generating BuildConfig class.
+
+-pre-compile:
+
+-compile:
+    [javac] Compiling 30 source files to /Users/chenwei/workspace/HeroTalk/proj.android/bin/classes
+    [javac] /Users/chenwei/workspace/HeroTalk/proj.android/src/org/cocos2dx/cpp/AppActivity.java:32: 错误: 程序包com.anysdk.framework不存在
+    [javac] import com.anysdk.framework.PluginWrapper;
+    [javac]                            ^
+    [javac] /Users/chenwei/workspace/HeroTalk/proj.android/src/org/cocos2dx/cpp/AppActivity.java:41: 错误: 找不到符号
+    [javac] 		 PluginWrapper.init(this); // for plugins
+    [javac] 		 ^
+    [javac]   符号:   变量 PluginWrapper
+    [javac]   位置: 类 AppActivity
+    [javac] /Users/chenwei/workspace/HeroTalk/proj.android/src/org/cocos2dx/cpp/AppActivity.java:48: 错误: 找不到符号
+    [javac]     	PluginWrapper.onDestroy();
+    [javac]     	^
+    [javac]   符号:   变量 PluginWrapper
+    [javac]   位置: 类 AppActivity
+    [javac] /Users/chenwei/workspace/HeroTalk/proj.android/src/org/cocos2dx/cpp/AppActivity.java:57: 错误: 找不到符号
+    [javac]         PluginWrapper.onPause();
+    [javac]         ^
+    [javac]   符号:   变量 PluginWrapper
+    [javac]   位置: 类 AppActivity
+    [javac] /Users/chenwei/workspace/HeroTalk/proj.android/src/org/cocos2dx/cpp/AppActivity.java:64: 错误: 找不到符号
+    [javac]         PluginWrapper.onResume();
+    [javac]         ^
+    [javac]   符号:   变量 PluginWrapper
+    [javac]   位置: 类 AppActivity
+    [javac] /Users/chenwei/workspace/HeroTalk/proj.android/src/org/cocos2dx/cpp/AppActivity.java:70: 错误: 找不到符号
+    [javac]         PluginWrapper.onStop();
+    [javac]         ^
+    [javac]   符号:   变量 PluginWrapper
+    [javac]   位置: 类 AppActivity
+    [javac] /Users/chenwei/workspace/HeroTalk/proj.android/src/org/cocos2dx/cpp/AppActivity.java:77: 错误: 找不到符号
+    [javac]     	PluginWrapper.onActivityResult(requestCode, resultCode, data);
+    [javac]     	^
+    [javac]   符号:   变量 PluginWrapper
+    [javac]   位置: 类 AppActivity
+    [javac] /Users/chenwei/workspace/HeroTalk/proj.android/src/org/cocos2dx/cpp/AppActivity.java:83: 错误: 找不到符号
+    [javac]         PluginWrapper.onNewIntent(intent);
+    [javac]         ^
+    [javac]   符号:   变量 PluginWrapper
+    [javac]   位置: 类 AppActivity
+    [javac] /Users/chenwei/workspace/HeroTalk/proj.android/src/org/cocos2dx/cpp/AppActivity.java:89: 错误: 找不到符号
+    [javac]         PluginWrapper.onRestart();
+    [javac]         ^
+    [javac]   符号:   变量 PluginWrapper
+    [javac]   位置: 类 AppActivity
+    [javac] 9 个错误
+
+BUILD FAILED
+/Users/chenwei/env/android_sdk/tools/ant/build.xml:720: The following error occurred while executing this line:
+/Users/chenwei/env/android_sdk/tools/ant/build.xml:734: Compile failed; see the compiler error output for details.
+
+Total time: 1 second

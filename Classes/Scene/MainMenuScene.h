@@ -10,6 +10,8 @@ public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
 
+    virtual void onEnter();
+    virtual void onExit();
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
     virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event); 

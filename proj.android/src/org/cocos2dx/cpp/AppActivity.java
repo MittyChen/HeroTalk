@@ -26,7 +26,67 @@ THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx.cpp;
 
+
+import android.content.Intent;
+import android.os.Bundle;
+import com.anysdk.framework.PluginWrapper;
+
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 public class AppActivity extends Cocos2dxActivity {
+	
+    protected void onCreate(Bundle savedInstanceState)
+    {
+		super.onCreate(savedInstanceState);
+		 PluginWrapper.init(this); // for plugins
+	}
+
+    
+    
+    protected void onDestory()
+	{
+    	PluginWrapper.onDestroy();
+		
+		super.onDestroy();
+	}
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        PluginWrapper.onPause();
+    }
+    
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        PluginWrapper.onResume();
+    }
+    
+    @Override
+    protected void onStop()
+    {
+        PluginWrapper.onStop();
+        super.onStop();
+    }
+   
+    @Override
+    protected void onActivityResult( int requestCode, int resultCode, Intent data )
+    {
+    	PluginWrapper.onActivityResult(requestCode, resultCode, data);
+		super.onActivityResult( requestCode, resultCode, data );
+    }
+    
+    @Override
+    protected void onNewIntent(Intent intent) {
+        PluginWrapper.onNewIntent(intent);
+        super.onNewIntent(intent);
+    }
+
+    @Override
+    protected void onRestart() {
+        PluginWrapper.onRestart();
+        super.onRestart();
+     }
 }

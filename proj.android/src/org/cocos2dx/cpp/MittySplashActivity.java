@@ -11,7 +11,6 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import org.cocos2dx.cpp.AppActivity;
 
 public class MittySplashActivity extends Activity
 {

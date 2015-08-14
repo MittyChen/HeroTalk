@@ -51,6 +51,7 @@ import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+
 public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener, OnFinishListener {
     // ===========================================================
     // Constants
@@ -292,7 +293,6 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
         
         instance = this;
 		group = (ViewGroup)getWindow().getDecorView();
-		
     }
 
     //native method,call GLViewImpl::getGLContextAttrs() to get the OpenGL ES context attributions
@@ -309,7 +309,6 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
     @Override
     protected void onResume() {
         super.onResume();
-
         Cocos2dxHelper.onResume();
         this.mGLSurfaceView.onResume();
          
@@ -318,7 +317,6 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
     @Override
     protected void onPause() {
         super.onPause();
-        
         Cocos2dxHelper.onPause();
         this.mGLSurfaceView.onPause();
         mVideoHelper.restartVideo(0);
@@ -356,10 +354,8 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
         for (OnActivityResultListener listener : Cocos2dxHelper.getOnActivityResultListeners()) {
             listener.onActivityResult(requestCode, resultCode, data);
         }
-
         super.onActivityResult(requestCode, resultCode, data);
     }
-
 
     protected FrameLayout mFrameLayout = null;
     // ===========================================================

@@ -46,6 +46,8 @@ void Ads::purge()
 }
 void Ads::onAdsResult(AdsResultCode code, const char* msg)
 {
+    
+    CCLOG("Ads::onAdsResult:%d, %s\n", code, msg);
     switch(code)
     {
         case kAdsReceived://广告接受成功回调
