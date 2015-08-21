@@ -35,7 +35,7 @@
           <AbstractNodeData Name="ScrollView_3" ActionTag="411937129" Tag="17" Alpha="224" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="69.3600" RightMargin="70.6400" TopMargin="281.7440" BottomMargin="418.2560" TouchEnable="True" ClipAble="True" BackColorAlpha="204" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="320" Scale9Height="68" IsBounceEnabled="True" ScrollDirectionType="Horizontal" ctype="ScrollViewObjectData">
             <Size X="500.0000" Y="260.0000" />
             <Children>
-              <AbstractNodeData Name="CheckBox_1" ActionTag="-818937019" UserData="com.mitty.iap.singledelete" Tag="113" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-53.6297" RightMargin="437.6297" TopMargin="20.9118" BottomMargin="343.0882" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" ctype="CheckBoxObjectData">
+              <AbstractNodeData Name="CheckBox_1" ActionTag="-818937019" UserData="com.mitty.iap.singledelete" Tag="113" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-48.6574" RightMargin="432.6574" TopMargin="-0.6365" BottomMargin="364.6365" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" ctype="CheckBoxObjectData">
                 <Size X="256.0000" Y="256.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_11" ActionTag="902988684" Tag="127" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="33.4080" RightMargin="30.5920" TopMargin="-70.0592" BottomMargin="272.0592" FontSize="48" LabelText="天煞孤星" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -49,12 +49,36 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="Text_3" ActionTag="-1300900424" Tag="17" IconVisible="False" LeftMargin="38.2778" RightMargin="53.7222" TopMargin="274.5388" BottomMargin="-60.5388" FontSize="36" LabelText="10金币" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="112.0000" Y="42.0000" />
+                    <Children>
+                      <AbstractNodeData Name="Text_8" ActionTag="-1237015470" Tag="21" IconVisible="False" LeftMargin="8.1621" RightMargin="4.8379" TopMargin="43.4731" BottomMargin="-33.4731" FontSize="28" LabelText="拥有1个" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                        <Size X="99.0000" Y="32.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="57.6621" Y="-17.4731" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="73" B="108" />
+                        <PrePosition X="0.5148" Y="-0.4160" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <OutlineColor A="255" R="255" G="0" B="0" />
+                        <ShadowColor A="255" R="110" G="110" B="110" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="120.2778" Y="-39.5388" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="73" B="108" />
+                    <PrePosition X="0.4698" Y="-0.1544" />
+                    <PreSize X="0.0000" Y="0.0000" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="74.3703" Y="471.0882" />
+                <Position X="79.3426" Y="492.6365" />
                 <Scale ScaleX="0.4743" ScaleY="0.4743" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.1162" Y="0.7598" />
+                <PrePosition X="0.1240" Y="0.7946" />
                 <PreSize X="0.4000" Y="0.4129" />
                 <NormalBackFileData Type="Normal" Path="store_single.png" Plist="" />
                 <PressedBackFileData Type="Normal" Path="store_single.png" Plist="" />
@@ -62,7 +86,7 @@
                 <NodeNormalFileData Type="Normal" Path="shop_frame.png" Plist="" />
                 <NodeDisableFileData Type="Normal" Path="shop_frame.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="CheckBox_1_0" ActionTag="861914606" UserData="com.mitty.iap.selecttype" Tag="114" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="115.6220" RightMargin="268.3780" TopMargin="20.9116" BottomMargin="343.0884" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" ctype="CheckBoxObjectData">
+              <AbstractNodeData Name="CheckBox_1_0" ActionTag="861914606" UserData="com.mitty.iap.selecttype" Tag="114" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="120.5944" RightMargin="263.4056" TopMargin="-0.6370" BottomMargin="364.6370" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" ctype="CheckBoxObjectData">
                 <Size X="256.0000" Y="256.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_11_0" ActionTag="1025945172" Tag="128" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="36.8640" RightMargin="27.1360" TopMargin="-70.0592" BottomMargin="272.0592" FontSize="48" LabelText="万花轮回" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -76,12 +100,36 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="Text_4" ActionTag="-348864203" Tag="18" IconVisible="False" LeftMargin="45.8425" RightMargin="46.1575" TopMargin="274.5391" BottomMargin="-60.5391" FontSize="36" LabelText="20金币" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="112.0000" Y="42.0000" />
+                    <Children>
+                      <AbstractNodeData Name="Text_9" ActionTag="1229808768" Tag="22" IconVisible="False" LeftMargin="6.8221" RightMargin="6.1779" TopMargin="43.4737" BottomMargin="-33.4737" FontSize="28" LabelText="拥有1个" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                        <Size X="99.0000" Y="32.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="56.3221" Y="-17.4737" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="73" B="108" />
+                        <PrePosition X="0.5029" Y="-0.4160" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <OutlineColor A="255" R="255" G="0" B="0" />
+                        <ShadowColor A="255" R="110" G="110" B="110" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="127.8425" Y="-39.5391" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="73" B="108" />
+                    <PrePosition X="0.4994" Y="-0.1544" />
+                    <PreSize X="0.0000" Y="0.0000" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="243.6220" Y="471.0884" />
+                <Position X="248.5944" Y="492.6370" />
                 <Scale ScaleX="0.4743" ScaleY="0.4743" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.3807" Y="0.7598" />
+                <PrePosition X="0.3884" Y="0.7946" />
                 <PreSize X="0.4000" Y="0.4129" />
                 <NormalBackFileData Type="Normal" Path="store_selectcolor.png" Plist="" />
                 <PressedBackFileData Type="Normal" Path="store_selectcolor.png" Plist="" />
@@ -89,7 +137,7 @@
                 <NodeNormalFileData Type="Normal" Path="shop_frame.png" Plist="" />
                 <NodeDisableFileData Type="Normal" Path="shop_frame.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="CheckBox_1_1" ActionTag="109077752" UserData="com.mitty.iap.randomtype" Tag="115" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="284.8736" RightMargin="99.1264" TopMargin="23.4395" BottomMargin="340.5605" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" ctype="CheckBoxObjectData">
+              <AbstractNodeData Name="CheckBox_1_1" ActionTag="109077752" UserData="com.mitty.iap.randomtype" Tag="115" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="291.5039" RightMargin="92.4961" TopMargin="1.0620" BottomMargin="362.9380" TouchEnable="True" StretchWidthEnable="True" StretchHeightEnable="True" ctype="CheckBoxObjectData">
                 <Size X="256.0000" Y="256.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_11_0_0" ActionTag="-458957502" Tag="129" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="27.6736" RightMargin="36.3264" TopMargin="-70.0592" BottomMargin="272.0592" FontSize="48" LabelText="乍现之花" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -103,12 +151,36 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="Text_5" ActionTag="1614866433" Tag="19" IconVisible="False" LeftMargin="48.9800" RightMargin="43.0200" TopMargin="269.2094" BottomMargin="-55.2093" FontSize="36" LabelText="30金币" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="112.0000" Y="42.0000" />
+                    <Children>
+                      <AbstractNodeData Name="Text_10" ActionTag="-1410489786" Tag="23" IconVisible="False" LeftMargin="9.9092" RightMargin="3.0908" TopMargin="43.4735" BottomMargin="-33.4735" FontSize="28" LabelText="拥有1个" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                        <Size X="99.0000" Y="32.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="59.4092" Y="-17.4735" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="73" B="108" />
+                        <PrePosition X="0.5304" Y="-0.4160" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <OutlineColor A="255" R="255" G="0" B="0" />
+                        <ShadowColor A="255" R="110" G="110" B="110" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="130.9800" Y="-34.2093" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="73" B="108" />
+                    <PrePosition X="0.5116" Y="-0.1336" />
+                    <PreSize X="0.0000" Y="0.0000" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="412.8736" Y="468.5605" />
+                <Position X="419.5039" Y="490.9380" />
                 <Scale ScaleX="0.4743" ScaleY="0.4743" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.6451" Y="0.7557" />
+                <PrePosition X="0.6555" Y="0.7918" />
                 <PreSize X="0.4000" Y="0.4129" />
                 <NormalBackFileData Type="Normal" Path="shop_random.png" Plist="" />
                 <PressedBackFileData Type="Normal" Path="shop_random.png" Plist="" />
@@ -151,7 +223,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="shophead_14" ActionTag="-1482956875" Tag="111" VisibleForFrame="False" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="339.4560" RightMargin="-147.4560" TopMargin="271.8960" BottomMargin="478.1040" ctype="SpriteObjectData">
+          <AbstractNodeData Name="shophead_14" ActionTag="-1482956875" Tag="111" VisibleForFrame="False" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="540.4560" RightMargin="53.5440" TopMargin="353.8960" BottomMargin="560.1040" ctype="SpriteObjectData">
             <Size X="46.0000" Y="46.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="563.4560" Y="583.1040" />
@@ -176,6 +248,30 @@
             <NormalFileData Type="Normal" Path="buybtn.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="coins_1" ActionTag="2004809760" Tag="15" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="409.9993" RightMargin="102.0007" TopMargin="-0.5972" BottomMargin="832.5972" ctype="SpriteObjectData">
+            <Size X="128.0000" Y="128.0000" />
+            <Children>
+              <AbstractNodeData Name="Text_1" ActionTag="-2123557859" Tag="16" IconVisible="False" LeftMargin="172.3514" RightMargin="-169.3514" TopMargin="43.4044" BottomMargin="30.5956" FontSize="48" LabelText="X 200" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="125.0000" Y="54.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="234.8514" Y="57.5956" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="1.8348" Y="0.4500" />
+                <PreSize X="0.0000" Y="0.0000" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+            </Children>
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="473.9993" Y="896.5972" />
+            <Scale ScaleX="0.5625" ScaleY="0.5625" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.7406" Y="0.9340" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="coins.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

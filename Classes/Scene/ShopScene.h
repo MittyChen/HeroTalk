@@ -11,8 +11,15 @@
 //#import "CKIAPManager.h"
 //#endif
 
+enum PRODUCT_ID{
+    PRODUCTID_ONESHOT,
+    PRODUCTID_RANDOM,
+    PRODUCTID_CHANGETYPE,
+    PRODUCTID_NONE,
+} ;
 class ShopScene : public cocos2d::Layer
 {
+
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
@@ -29,7 +36,7 @@ public:
     
     void selectProduct(cocos2d::Ref* object);
 private:
-    const char* productId;
+    PRODUCT_ID productId;
 //#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
 //    CKIAPManager* IAPManager;
 //#endif

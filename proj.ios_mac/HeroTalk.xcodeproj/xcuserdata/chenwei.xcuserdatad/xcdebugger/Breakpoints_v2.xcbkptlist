@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Scene/GameScene.cpp"
-            timestampString = "461233074.459937"
+            timestampString = "461838082.363112"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2778"
-            endingLineNumber = "2778"
+            startingLineNumber = "2779"
+            endingLineNumber = "2779"
             landmarkName = "GameScene::gameFailed()"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,44 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Scene/GameScene.cpp"
-            timestampString = "461233074.459937"
+            timestampString = "461838082.363112"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2500"
-            endingLineNumber = "2500"
+            startingLineNumber = "2545"
+            endingLineNumber = "2545"
             landmarkName = "GameScene::checkoutResult()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/Scene/GameScene.cpp"
-            timestampString = "461233074.459937"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2544"
-            endingLineNumber = "2544"
-            landmarkName = "GameScene::checkoutResult()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/Scene/GameScene.cpp"
-            timestampString = "461233074.459937"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2699"
-            endingLineNumber = "2699"
-            landmarkName = "GameScene::gameWin()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -112,150 +80,6 @@
             startingLineNumber = "1707"
             endingLineNumber = "1707"
             landmarkName = "GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_7::operator()(cocos2d::Ref*) const"
-                  moduleName = "HeroTalk iOS"
-                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
-                  timestampString = "461224817.351077"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1704"
-                  endingLineNumber = "1704"
-                  offsetFromSymbolStart = "2531">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_7::operator()(cocos2d::Ref*) const"
-                  moduleName = "HeroTalk iOS"
-                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
-                  timestampString = "461224817.351181"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1704"
-                  endingLineNumber = "1704"
-                  offsetFromSymbolStart = "2548">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_7::operator()(cocos2d::Ref*) const"
-                  moduleName = "HeroTalk iOS"
-                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
-                  timestampString = "461224817.351263"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1704"
-                  endingLineNumber = "1704"
-                  offsetFromSymbolStart = "6013">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_7::operator()(cocos2d::Ref*) const"
-                  moduleName = "HeroTalk iOS"
-                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
-                  timestampString = "461224817.351352"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1704"
-                  endingLineNumber = "1704"
-                  offsetFromSymbolStart = "6062">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_7::operator()(cocos2d::Ref*) const"
-                  moduleName = "HeroTalk iOS"
-                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
-                  timestampString = "461224817.351443"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1704"
-                  endingLineNumber = "1704"
-                  offsetFromSymbolStart = "7918">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_7::operator()(cocos2d::Ref*) const"
-                  moduleName = "HeroTalk iOS"
-                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
-                  timestampString = "461224817.351522"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1704"
-                  endingLineNumber = "1704"
-                  offsetFromSymbolStart = "10294">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_7::operator()(cocos2d::Ref*) const"
-                  moduleName = "HeroTalk iOS"
-                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
-                  timestampString = "461224817.351679"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1704"
-                  endingLineNumber = "1704"
-                  offsetFromSymbolStart = "12244">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_7::operator()(cocos2d::Ref*) const"
-                  moduleName = "HeroTalk iOS"
-                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
-                  timestampString = "461224817.351761"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1704"
-                  endingLineNumber = "1704"
-                  offsetFromSymbolStart = "12261">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)::$_7::operator()(cocos2d::Ref*) const"
-                  moduleName = "HeroTalk iOS"
-                  urlString = "file:///Users/chenwei/workspace/HeroTalk/Classes/Scene/GameScene.cpp"
-                  timestampString = "461224817.351839"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1704"
-                  endingLineNumber = "1704"
-                  offsetFromSymbolStart = "13318">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/Scene/GameScene.cpp"
-            timestampString = "461233074.459937"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2350"
-            endingLineNumber = "2350"
-            landmarkName = "GameScene::produceCells(Node* psender)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -329,12 +153,172 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/Data/MittyToolData.cpp"
-            timestampString = "461126354.804974"
+            filePath = "../Libs/Ads.cpp"
+            timestampString = "461838199.896626"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "Ads::onAdsResult(AdsResultCode code, const char* msg)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Data/MittyToolData.cpp"
+            timestampString = "461839461.638031"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "MittyToolData::addcoins(int count)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Data/MittyToolData.cpp"
+            timestampString = "461841529.502015"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "MittyToolData::addOneshotTool(int count)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/ShopScene.cpp"
+            timestampString = "461843755.723044"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "ShopScene::buyItem(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/ShopScene.cpp"
+            timestampString = "461843219.768579"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
+            landmarkName = "ShopScene::buyItem(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Data/MittyToolData.cpp"
+            timestampString = "461842061.261436"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "MittyToolData::addChangeTypeTool(int count)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Data/MittyToolData.cpp"
+            timestampString = "461842063.261978"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "MittyToolData::addRandomTool(int count)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/ShopScene.cpp"
+            timestampString = "461843755.723044"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "ShopScene::buyItem(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Data/MittyToolData.cpp"
+            timestampString = "461842254.506863"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "MittyToolData::getRandomTool()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Data/MittyToolData.cpp"
+            timestampString = "461842255.072586"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "MittyToolData::getChangeTypeTool()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Data/MittyToolData.cpp"
+            timestampString = "461842256.107362"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "MittyToolData::getOneshotTool()"
             landmarkType = "5">
          </BreakpointContent>
@@ -346,28 +330,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Data/MittyToolData.cpp"
-            timestampString = "461126714.995728"
+            timestampString = "461842305.712324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "MittyToolData::useOneshotTool()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Libs/Ads.cpp"
-            timestampString = "461214736.142496"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "Ads::onAdsResult(AdsResultCode code, const char* msg)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "MittyToolData::initWithKeys()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

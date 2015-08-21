@@ -24,7 +24,6 @@ Ads::~Ads()
 
 Ads* Ads::getInstance()
 {
-    CCLOG("111");
     if (_pInstance == NULL) {
 
         _pInstance = new Ads();
@@ -47,7 +46,7 @@ void Ads::purge()
 void Ads::onAdsResult(AdsResultCode code, const char* msg)
 {
     
-    CCLOG("Ads::onAdsResult:%d, %s\n", code, msg);
+    CCLOG("Ads::onqAdsResult:%d, %s\n", code, msg);
     switch(code)
     {
         case kAdsReceived://广告接受成功回调
@@ -85,11 +84,13 @@ void onPlayerGetPoints(ProtocolAds* pAdsPlugin, int points) {
 
 void Ads::showAds(AdsType type, int idx)
 {
-    CCLOG("showAds:%d, %d\n", type, idx);
+    CCLOG("showAds:1:%d, %d\n", type, idx);
     if(ads_plugin != NULL)
     {
+        CCLOG("showAds:2:%d, %d\n", type, idx);
         if(ads_plugin->isAdTypeSupported(type))
         {
+            CCLOG("showAds:3:%d, %d\n", type, idx);
             ads_plugin->showAds(type,idx);
         }
     }

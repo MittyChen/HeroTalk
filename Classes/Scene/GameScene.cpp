@@ -987,6 +987,9 @@ void GameScene::goShop(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType
 
 void GameScene::shareScore(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)
 {
+    if (type != ui::Widget::TouchEventType::ENDED) {
+        return;
+    }
     Share::getInstance()->share();
 }
 
@@ -2455,6 +2458,7 @@ void GameScene::checkoutResult()
     int nowScore = lv->score -(redCount*10 + greenCount*20 + blueCount*30);
     const char * scotext = String::createWithFormat("目标分数 : %d" , nowScore > 0 ? nowScore : 0 )->getCString();
     
+    
     if (rootNode->getChildByTag(123)&&rootNode->getChildByTag(123)->isVisible()) {
         
         cocos2d::ui::Text* redCountt = (cocos2d::ui::Text*)rootNode->getChildByTag(123);
@@ -2651,7 +2655,7 @@ void GameScene::gameWin()
     if (isGameWin) {
         return;
     }
-    
+    MittyToolData::getInstance()->addcoins(lv->score);
     cocos2d::ui::CheckBox* mTool_OneShot = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(11);
     mTool_OneShot->setTouchEnabled(false);
     

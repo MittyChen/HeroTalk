@@ -40,11 +40,14 @@ void MittyToolData::initWithKeys(){
         randomTypeTool = 2;
         oneshotTool = 2;
         UserDefault::getInstance()->setBoolForKey(KEY_AFTER_FIRST_INSTALLED,true);
+        coins = 200;
+        UserDefault::getInstance()->setIntegerForKey(KEY_COINS_NUM,200);
         
     }else{
         changeTypeTool =  UserDefault::getInstance()->getIntegerForKey(KEY_CHANGE_TYPE);
         randomTypeTool =  UserDefault::getInstance()->getIntegerForKey(KEY_RANDOM_TYPE);
         oneshotTool =  UserDefault::getInstance()->getIntegerForKey(KEY_ONE_SHOT);
+        coins =  UserDefault::getInstance()->getIntegerForKey(KEY_COINS_NUM);
     }
 }
 
@@ -88,12 +91,30 @@ void MittyToolData::addChangeTypeTool(int count){
 }
 
 void MittyToolData::addRandomTool(int count){
-    UserDefault::getInstance()->setIntegerForKey(KEY_RANDOM_TYPE, changeTypeTool+=count);
+    UserDefault::getInstance()->setIntegerForKey(KEY_RANDOM_TYPE, randomTypeTool+=count);
 }
 
 
 void MittyToolData::addOneshotTool(int count){
-    UserDefault::getInstance()->setIntegerForKey(KEY_ONE_SHOT, changeTypeTool+=count);
+    UserDefault::getInstance()->setIntegerForKey(KEY_ONE_SHOT, oneshotTool+=count);
+}
+
+int MittyToolData::getcoins()
+{
+    return  coins;
+
+}
+void MittyToolData::usecoins(int amount)
+{
+    if (coins<=0) {
+        return;
+    }
+    UserDefault::getInstance()->setIntegerForKey(KEY_COINS_NUM, coins-=amount);
+}
+
+void MittyToolData::addcoins(int count)
+{
+    UserDefault::getInstance()->setIntegerForKey(KEY_COINS_NUM, coins+=count);
 }
 
 

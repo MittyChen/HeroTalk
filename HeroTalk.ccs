@@ -38,6 +38,7 @@
         <Project Name="GameFailedScene.csd" Type="Scene" />
         <Image Name="leftbg.png" />
         <Project Name="ToolShortLayer.csd" Type="Layer" />
+        <Image Name="coins.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>
