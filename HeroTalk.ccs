@@ -5,7 +5,6 @@
       <RootFolder Name=".">
         <Project Name="MainScene.csd" Type="Scene" />
         <Project Name="GameFinishScene.csd" Type="Scene" />
-        <Project Name="ColorSelectScene.csd" Type="Scene" />
         <Image Name="whitedot.png" />
         <Image Name="ball.png" />
         <Project Name="ColorSelectNode.csd" Type="Node" />
@@ -39,6 +38,7 @@
         <Image Name="leftbg.png" />
         <Project Name="ToolShortLayer.csd" Type="Layer" />
         <Image Name="coins.png" />
+        <Project Name="MittyPopLayer.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>

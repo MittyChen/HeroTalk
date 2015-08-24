@@ -1,15 +1,11 @@
 #include "AppDelegate.h"
-#include "GameScene.h"
 #include "SimpleAudioEngine.h"
-#include "LevelSelectScene.h"
 #include "VideoScene.h"
-#include "ShopScene.h"
-#include "CommonUtils.h"
-
 #include "PluginChannel.h"
 #include "Analytics.h"
 #include "Ads.h"
-#include "SPCScene.h"
+#include "MittyToolData.h"
+#include "LevelSelectScene.h"
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -67,6 +63,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     FileUtils::getInstance()->addSearchPath("res/Animals");
     
+    MittyToolData::getInstance();
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("explod.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("colorfulmade.wav");
     
@@ -101,13 +98,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
     PluginChannel::getInstance()->loadPlugins();
     Ads::getInstance()->preloadAds(AdsType::AD_TYPE_FULLSCREEN);
     Ads::getInstance()->preloadAds(AdsType::AD_TYPE_BANNER);
-    
+    Ads::getInstance()->preloadAds(AdsType::AD_TYPE_BANNER,2);
     int maxlevel =  UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED");
     // create a scene. it's an autorelease object
-//    auto scene =  GameScene::createScene(8,0);
-//    auto scene =  LevelSelectScene::createScene(maxlevel);
-    auto scene =  VideoScene::createScene();
-//    auto scene =  SPCScene::createScene();
+    
+    
+    auto scene =  LevelSelectScene::createScene(maxlevel);
+//    auto scene =  VideoScene::createScene();
     // run
     director->runWithScene(scene);
     

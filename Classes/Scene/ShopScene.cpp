@@ -12,6 +12,7 @@
 #include "GifBase.h"
 #include "CommonUtils.h"
 #include "MittyToolData.h"
+#include "MittyPopup.h"
 USING_NS_CC;
 
 using namespace std;
@@ -124,10 +125,6 @@ bool ShopScene::init()
     char * numsohothavestr = (char*) malloc(32);
     sprintf(numsohothavestr,"拥有 %d 个",MittyToolData::getInstance()->getOneshotTool());
     oneshotnum->setString(numsohothavestr);
-    
-
-    
-    
     
     cocos2d::ui::Text* changeprice = (cocos2d::ui::Text*)mTool_ChangeType->getChildByTag(18);
     char * numchangestr = (char*) malloc(32);
@@ -242,6 +239,9 @@ void ShopScene::buyItem(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     switch (productId) {
         case PRODUCTID_ONESHOT:
             if (MittyToolData::getInstance()->getcoins() < tooloneshotprice) {
+                auto scene = MittyPopup::create();
+                scene->setTitleAndText("", "金币不足啦～\n快去游戏赚取金币吧！！！");
+                this->addChild(scene);
                 return;
             }
             MittyToolData::getInstance()->usecoins(tooloneshotprice);
@@ -251,6 +251,11 @@ void ShopScene::buyItem(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
          
         case PRODUCTID_RANDOM:
             if (MittyToolData::getInstance()->getcoins() < toolrandomprice) {
+                
+                auto scene = MittyPopup::create();
+                scene->setTitleAndText("", "金币不足啦～\n快去游戏赚取金币吧！！！");
+                this->addChild(scene);
+                
                 return;
             }
             MittyToolData::getInstance()->usecoins(toolrandomprice);
@@ -258,6 +263,9 @@ void ShopScene::buyItem(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
             break;
         case PRODUCTID_CHANGETYPE:
             if (MittyToolData::getInstance()->getcoins() < toolchangetypeprice) {
+                auto scene = MittyPopup::create();
+                scene->setTitleAndText("", "金币不足啦～\n快去游戏赚取金币吧！！！");
+                this->addChild(scene);
                 return;
             }
             MittyToolData::getInstance()->usecoins(toolchangetypeprice);
@@ -271,20 +279,27 @@ void ShopScene::buyItem(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     char * numstr = (char*) malloc(32);
     sprintf(numstr,"X %d",MittyToolData::getInstance()->getcoins());
     coinnum->setString(numstr);
+    coinnum->runAction(Sequence::create(ScaleTo::create(0.2, 1.2),ScaleBy::create(0.2, 1), NULL));
     
     cocos2d::ui::Text* oneshotnum = (cocos2d::ui::Text*)this->getChildByTag(111)->getChildByTag(17)->getChildByTag(113)->getChildByTag(17)->getChildByTag(21);
     char * numsohothavestr = (char*) malloc(32);
     sprintf(numsohothavestr,"拥有 %d 个",MittyToolData::getInstance()->getOneshotTool());
     oneshotnum->setString(numsohothavestr);
-
+    oneshotnum->runAction(Sequence::create(ScaleTo::create(0.2, 1.2),ScaleTo::create(0.2, 1), NULL));
+    
     cocos2d::ui::Text* randomnum = (cocos2d::ui::Text*)this->getChildByTag(111)->getChildByTag(17)->getChildByTag(115)->getChildByTag(19)->getChildByTag(23);
     char * randomnumhavestr = (char*) malloc(32);
     sprintf(randomnumhavestr,"拥有 %d 个",MittyToolData::getInstance()->getRandomTool());
     randomnum->setString(randomnumhavestr);
+    randomnum->runAction(Sequence::create(ScaleTo::create(0.2, 1.2),ScaleTo::create(0.2, 1), NULL));
+    
     
     cocos2d::ui::Text* changenum = (cocos2d::ui::Text*)this->getChildByTag(111)->getChildByTag(17)->getChildByTag(114)->getChildByTag(18)->getChildByTag(22);
     char * changenumhavestr = (char*) malloc(32);
     sprintf(changenumhavestr,"拥有 %d 个",MittyToolData::getInstance()->getChangeTypeTool());
     changenum->setString(changenumhavestr);
+    
+    changenum->runAction(Sequence::create(ScaleTo::create(0.2, 1.2),ScaleTo::create(0.2, 1), NULL));
+    
     
 }

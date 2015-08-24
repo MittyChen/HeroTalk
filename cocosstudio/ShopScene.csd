@@ -13,7 +13,7 @@
             <Scale ScaleX="0.6000" ScaleY="0.6000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.1688" Y="0.9342" />
-            <PreSize X="0.2667" Y="0.2000" />
+            <PreSize X="0.4000" Y="0.1333" />
             <TextColor A="255" R="26" G="198" B="123" />
             <DisabledFileData Type="Normal" Path="goback.png" Plist="" />
             <PressedFileData Type="Normal" Path="goback.png" Plist="" />
@@ -49,7 +49,7 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Text_3" ActionTag="-1300900424" Tag="17" IconVisible="False" LeftMargin="38.2778" RightMargin="53.7222" TopMargin="274.5388" BottomMargin="-60.5388" FontSize="36" LabelText="10金币" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="Text_3" ActionTag="-1300900424" Tag="17" IconVisible="False" LeftMargin="64.2778" RightMargin="79.7222" TopMargin="274.5388" BottomMargin="-60.5388" FontSize="36" LabelText="10金币" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="112.0000" Y="42.0000" />
                     <Children>
                       <AbstractNodeData Name="Text_8" ActionTag="-1237015470" Tag="21" IconVisible="False" LeftMargin="8.1621" RightMargin="4.8379" TopMargin="43.4731" BottomMargin="-33.4731" FontSize="28" LabelText="拥有1个" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -100,7 +100,7 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Text_4" ActionTag="-348864203" Tag="18" IconVisible="False" LeftMargin="45.8425" RightMargin="46.1575" TopMargin="274.5391" BottomMargin="-60.5391" FontSize="36" LabelText="20金币" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="Text_4" ActionTag="-348864203" Tag="18" IconVisible="False" LeftMargin="71.8425" RightMargin="72.1575" TopMargin="274.5391" BottomMargin="-60.5391" FontSize="36" LabelText="20金币" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="112.0000" Y="42.0000" />
                     <Children>
                       <AbstractNodeData Name="Text_9" ActionTag="1229808768" Tag="22" IconVisible="False" LeftMargin="6.8221" RightMargin="6.1779" TopMargin="43.4737" BottomMargin="-33.4737" FontSize="28" LabelText="拥有1个" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -151,7 +151,7 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Text_5" ActionTag="1614866433" Tag="19" IconVisible="False" LeftMargin="48.9800" RightMargin="43.0200" TopMargin="269.2094" BottomMargin="-55.2093" FontSize="36" LabelText="30金币" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="Text_5" ActionTag="1614866433" Tag="19" IconVisible="False" LeftMargin="74.9800" RightMargin="69.0200" TopMargin="269.2093" BottomMargin="-55.2093" FontSize="36" LabelText="30金币" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="112.0000" Y="42.0000" />
                     <Children>
                       <AbstractNodeData Name="Text_10" ActionTag="-1410489786" Tag="23" IconVisible="False" LeftMargin="9.9092" RightMargin="3.0908" TopMargin="43.4735" BottomMargin="-33.4735" FontSize="28" LabelText="拥有1个" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">

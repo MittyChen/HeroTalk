@@ -1,27 +1,25 @@
-#ifndef PreGameScene_scene
-#define PreGameScene_scene
+#ifndef _MittyPopup_Scene_
+#define _MittyPopup_Scene_
 
 #include "cocos2d.h"
-#include "LevelNode.h"
+
 #include "ui/CocosGUI.h"
-class PreGameScene : public cocos2d::Layer
+class MittyPopup : public cocos2d::Layer
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
-    static cocos2d::Scene* createScene(LevelNode* node);
+    static cocos2d::Scene* createScene();
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
     virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event); 
     // implement the "static create()" method manually
-    CREATE_FUNC(PreGameScene);
+    CREATE_FUNC(MittyPopup);
     
-    void gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
+    void exitPop(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type);
+    void setTitleAndText(const char * title,const char * text);
+private:
     
-    virtual void onEnter();
-    virtual void onExit();
-//private:
-//    static LevelNode* selectNode;
 };
 
-#endif // PreGameScene_scene
+#endif // MittyPopup

@@ -445,7 +445,6 @@ void GameScene::onEnter(){
     int winside = SPCScene::winSide();
     if (winside==0)
     {
-        
         spcdes->setVisible(true);
         const char * spctext = String::createWithFormat("左边的先手")->getCString();
         spcdes->setString(spctext);
@@ -863,7 +862,7 @@ void GameScene::pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventT
         return;
     }
     CCLOG("gametimes===== %d",gameTimes);
-    if (gameTimes%3 == 0 && gameTimes != 0) {
+    if (gameTimes%2 == 0 && gameTimes != 0) {
         Ads::getInstance()->showAds(AdsType::AD_TYPE_FULLSCREEN);
     }
     
@@ -894,6 +893,13 @@ void GameScene::pauseGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventT
     cocos2d::ui::Button* btnSPC =  (cocos2d::ui::Button*)pauseRoot->getChildByTag(60);
     btnSPC->addTouchEventListener(CC_CALLBACK_2(GameScene::startSPC, this) );
     
+    
+    if (lv->type != "CHESS_MODE") {
+        btnSPC->setVisible(false);
+    }
+    else{
+        btnSPC->setVisible(true);
+    }
     cocos2d::ui::Button* btnReset =  (cocos2d::ui::Button*)pauseRoot->getChildByTag(52);
     btnReset->addTouchEventListener(CC_CALLBACK_2(GameScene::loadMap, this) );
     
@@ -1211,70 +1217,70 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
 //                        list<HappyStartCell*> templist = getAllSameAround(mIt->second);//依据横竖斜向连线
                         
                         
-                        for(HappyStartCell* temp :templist)
-                        {
-                            if (temp->getType() == CELL_TYPE::TYPE_7COLORS) {
-                                
-                                for(int i = 0;i < count;i++){
-                                    
-                                    if(allcells.find(Vec2(i,temp->getposIndex().y))!=allcells.end()){
-                                        
-                                        HappyStartCell* mmcell = allcells.find(Vec2(i,temp->getposIndex().y))->second;
-                                        
-                                        if(!(mmcell->gethasFind()))
-                                        {
-                                            templist.push_back(mmcell);
-                                            mmcell->sethasFind(true);
-                                        }
-                                        
-                                    }
-                                    
-                                }
-                                
-                                for(int i = 0;i < count;i++){
-                                    HappyStartCell* mmcell = allcells.find(Vec2(temp->getposIndex().x,i))->second;
-                                    
-                                    if(allcells.find(Vec2(temp->getposIndex().x,i)) !=allcells.end() && mmcell &&  !mmcell->gethasFind())
-                                    {
-                                        templist.push_back(mmcell);
-                                        mmcell->sethasFind(true);
-                                    }
-                                }
-                                
-                            }
-                        }
-                        
-                        if(templist.size() == 0 && mIt->second->getType() ==  CELL_TYPE::TYPE_7COLORS){
-                            //纵向消除
-                            for(int i = 0;i < count;i++){
-                                
-                                HappyStartCell* mmcell = allcells.find(Vec2(mIt->second->getposIndex().x,i))->second;
-                                if(allcells.find(Vec2(mIt->second->getposIndex().x,i)) != allcells.end()  &&  !mmcell->gethasFind() )
-                                {
-                                    templist.push_back(mmcell);
-                                    mmcell->sethasFind(true);
-                                }
-                            }
-                            //横向消除
-                            for(int i = 0;i < count;i++){
-                                
-                                if(allcells.find(Vec2(i,mIt->second->getposIndex().y)) != allcells.end())
-                                {
-                                    HappyStartCell* mmcell = allcells.find(Vec2(i,mIt->second->getposIndex().y))->second;
-                                    
-                                    if(!(mmcell->gethasFind()))
-                                    {
-                                        templist.push_back(mmcell);
-                                        mmcell->sethasFind(true);
-                                    }
-                                    
-                                }
-                                
-                            }
-                            
-                            //                            templist.push_back(mIt->second);
-                            
-                        }
+//                        for(HappyStartCell* temp :templist)
+//                        {
+//                            if (temp->getType() == CELL_TYPE::TYPE_7COLORS) {
+//                                
+//                                for(int i = 0;i < count;i++){
+//                                    
+//                                    if(allcells.find(Vec2(i,temp->getposIndex().y))!=allcells.end()){
+//                                        
+//                                        HappyStartCell* mmcell = allcells.find(Vec2(i,temp->getposIndex().y))->second;
+//                                        
+//                                        if(!(mmcell->gethasFind()))
+//                                        {
+//                                            templist.push_back(mmcell);
+//                                            mmcell->sethasFind(true);
+//                                        }
+//                                        
+//                                    }
+//                                    
+//                                }
+//                                
+//                                for(int i = 0;i < count;i++){
+//                                    HappyStartCell* mmcell = allcells.find(Vec2(temp->getposIndex().x,i))->second;
+//                                    
+//                                    if(allcells.find(Vec2(temp->getposIndex().x,i)) !=allcells.end() && mmcell &&  !mmcell->gethasFind())
+//                                    {
+//                                        templist.push_back(mmcell);
+//                                        mmcell->sethasFind(true);
+//                                    }
+//                                }
+//                                
+//                            }
+//                        }
+//                        
+//                        if(templist.size() == 0 && mIt->second->getType() ==  CELL_TYPE::TYPE_7COLORS){
+//                            //纵向消除
+//                            for(int i = 0;i < count;i++){
+//                                
+//                                HappyStartCell* mmcell = allcells.find(Vec2(mIt->second->getposIndex().x,i))->second;
+//                                if(allcells.find(Vec2(mIt->second->getposIndex().x,i)) != allcells.end()  &&  !mmcell->gethasFind() )
+//                                {
+//                                    templist.push_back(mmcell);
+//                                    mmcell->sethasFind(true);
+//                                }
+//                            }
+//                            //横向消除
+//                            for(int i = 0;i < count;i++){
+//                                
+//                                if(allcells.find(Vec2(i,mIt->second->getposIndex().y)) != allcells.end())
+//                                {
+//                                    HappyStartCell* mmcell = allcells.find(Vec2(i,mIt->second->getposIndex().y))->second;
+//                                    
+//                                    if(!(mmcell->gethasFind()))
+//                                    {
+//                                        templist.push_back(mmcell);
+//                                        mmcell->sethasFind(true);
+//                                    }
+//                                    
+//                                }
+//                                
+//                            }
+//                            
+//                            //                            templist.push_back(mIt->second);
+//                            
+//                        }
 
                         
                         auto blinkLamdas = [=](Node* psender)mutable{
@@ -1886,6 +1892,32 @@ list<HappyStartCell*> GameScene::getAllSameAround(HappyStartCell* targetCell)
    
     if(targetCell)
     {
+        
+        if (targetCell->getType() == CELL_TYPE::TYPE_7COLORS) {
+           list<HappyStartCell*> mcellsAroundH = getCellsHorizentalFor7Color(targetCell);
+            getCellsVerticalFor7Color(targetCell);
+            
+            for (HappyStartCell* tempCell:mcellsAroundH) {
+                if(tempCell)
+                {
+                    cellsGet.push_back(tempCell);
+                    tempCell->sethasFind(true);
+                }
+            }
+            list<HappyStartCell*> mcellsAroundV = getCellsVerticalFor7Color(targetCell);
+            
+            for (HappyStartCell* tempCell:mcellsAroundV) {
+                if(tempCell)
+                {
+                    cellsGet.push_back(tempCell);
+                    tempCell->sethasFind(true);
+                }
+            }
+            return cellsGet;
+        }
+        
+        
+        
         enum CELL_TYPE targetType = targetCell->getType();
         
         //  targetCell->sethasFind(true);
@@ -2266,7 +2298,18 @@ list<HappyStartCell*>  GameScene::getCellsHorizentalFor7Color(HappyStartCell* ta
         for (int i = targetposX-1;i >= 0; i--) {
             if( allcells.find(Vec2(i ,targetposY  )) != allcells.end() && !allcells.find(Vec2(i ,targetposY ))->second->gethasFind()){
                 allcells.find(Vec2(i ,targetposY ))->second->sethasFind(true);
-                mcellsAround.push_back(allcells.find(Vec2(i ,targetposY ))->second);
+                
+                if (allcells.find(Vec2(i ,targetposY ))->second->getType() == CELL_TYPE::TYPE_7COLORS) {
+                    
+                   list<HappyStartCell*> templ = getCellsVerticalFor7Color(allcells.find(Vec2(i ,targetposY ))->second );
+                    list<HappyStartCell*>::iterator mtiu = templ.begin();
+                    for(;mtiu != templ.end();mtiu++){
+                        mcellsAround.push_back(*mtiu);
+                    }
+                    
+                }else{
+                    mcellsAround.push_back(allcells.find(Vec2(i ,targetposY ))->second);
+                }
             }
         }
         
@@ -2274,7 +2317,18 @@ list<HappyStartCell*>  GameScene::getCellsHorizentalFor7Color(HappyStartCell* ta
         for (int i = targetposX+1; i < count; i++) {
             if( allcells.find(Vec2(i ,targetposY  )) != allcells.end() && !allcells.find(Vec2(i ,targetposY ))->second->gethasFind()){
                 allcells.find(Vec2(i ,targetposY ))->second->sethasFind(true);
-                mcellsAround.push_back(allcells.find(Vec2(i ,targetposY ))->second);
+                
+                if (allcells.find(Vec2(i ,targetposY ))->second->getType() == CELL_TYPE::TYPE_7COLORS) {
+                    
+                    list<HappyStartCell*> templ = getCellsVerticalFor7Color(allcells.find(Vec2(i ,targetposY ))->second );
+                    list<HappyStartCell*>::iterator mtiu = templ.begin();
+                    for(;mtiu != templ.end();mtiu++){
+                        mcellsAround.push_back(*mtiu);
+                    }
+                    
+                }else{
+                    mcellsAround.push_back(allcells.find(Vec2(i ,targetposY ))->second);
+                }
             }
         }
         
@@ -2319,7 +2373,18 @@ list<HappyStartCell*>  GameScene::getCellsVerticalFor7Color(HappyStartCell* targ
                 
                 
                 allcells.find(Vec2(targetposX,i ))->second->sethasFind(true);
-                mcellsAround.push_back(allcells.find(Vec2(targetposX,i ))->second);
+                
+                if (allcells.find(Vec2(targetposX,i))->second->getType() == CELL_TYPE::TYPE_7COLORS) {
+                    
+                    list<HappyStartCell*> templ = getCellsHorizentalFor7Color(allcells.find(Vec2(targetposX,i))->second );
+                    list<HappyStartCell*>::iterator mtiu = templ.begin();
+                    for(;mtiu != templ.end();mtiu++){
+                        mcellsAround.push_back(*mtiu);
+                    }
+                }else{
+                    mcellsAround.push_back(allcells.find(Vec2(targetposX,i ))->second);
+                }
+                
             }
         }
         
@@ -2327,7 +2392,18 @@ list<HappyStartCell*>  GameScene::getCellsVerticalFor7Color(HappyStartCell* targ
         for (int i = targetposY+1; i < count; i++) {
             if( allcells.find(Vec2(targetposX ,i )) != allcells.end() && !allcells.find(Vec2(targetposX ,i ))->second->gethasFind()){
                 allcells.find(Vec2(targetposX ,i ))->second->sethasFind(true);
-                mcellsAround.push_back(allcells.find(Vec2(targetposX ,i ))->second);
+                if (allcells.find(Vec2(targetposX,i))->second->getType() == CELL_TYPE::TYPE_7COLORS) {
+                    
+                    list<HappyStartCell*> templ = getCellsHorizentalFor7Color(allcells.find(Vec2(targetposX,i ))->second );
+                    list<HappyStartCell*>::iterator mtiu = templ.begin();
+                    for(;mtiu != templ.end();mtiu++){
+                        mcellsAround.push_back(*mtiu);
+                    }
+                    
+                }else{
+                    
+                    mcellsAround.push_back(allcells.find(Vec2(targetposX,i ))->second);
+                }
             }
         }
         
@@ -2729,7 +2805,7 @@ void GameScene::gameWin()
     this->runAction(Sequence::create(DelayTime::create(1),CallFuncN::create(gotoFinish), NULL) );
     
     CCLOG("gametimes===== %d",gameTimes);
-    if (gameTimes%3 == 0 && gameTimes != 0) {
+    if (gameTimes%2 == 0 && gameTimes != 0) {
         Ads::getInstance()->showAds(AdsType::AD_TYPE_FULLSCREEN);
     }
     

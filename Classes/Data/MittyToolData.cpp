@@ -9,6 +9,7 @@
 #include "MittyToolData.h"
 #include "cocos2d.h"
 
+#include "SimpleAudioEngine.h"
 USING_NS_CC;
 
 MittyToolData * MittyToolData::mData = NULL;
@@ -42,6 +43,10 @@ void MittyToolData::initWithKeys(){
         UserDefault::getInstance()->setBoolForKey(KEY_AFTER_FIRST_INSTALLED,true);
         coins = 200;
         UserDefault::getInstance()->setIntegerForKey(KEY_COINS_NUM,200);
+        UserDefault::getInstance()->setBoolForKey("HERO_TALK_AUDIO_ON",true);
+        CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(1.0f);
+        UserDefault::getInstance()->setBoolForKey("HERO_TALK_EFFECT_ON",true);
+        CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0);
         
     }else{
         changeTypeTool =  UserDefault::getInstance()->getIntegerForKey(KEY_CHANGE_TYPE);

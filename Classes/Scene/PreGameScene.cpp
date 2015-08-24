@@ -3,6 +3,7 @@
 #include "LevelSelectScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "CommonUtils.h"
+#include "Ads.h"
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -203,3 +204,16 @@ void PreGameScene::gotoGame(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEven
         }
     }
 }
+
+
+
+void PreGameScene::onEnter(){
+    Layer::onEnter();
+    Ads::getInstance()->showAds(AdsType::AD_TYPE_BANNER,2);
+    
+}
+void PreGameScene::onExit(){
+    Ads::getInstance()->hideAds(AdsType::AD_TYPE_BANNER,2);
+    Layer::onExit();
+}
+
