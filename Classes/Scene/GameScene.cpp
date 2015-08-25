@@ -470,7 +470,8 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     blueCount = 0;
     
 #if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
-    lv->stepNeed = 10;
+    lv->score = 10000000;
+    lv->stepNeed = 100;
 #endif
     
     reaminingStep = lv->stepNeed;
@@ -584,17 +585,20 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
                             typeFind = random(1,5);
                             break;
                         case 2:
-                            typeFind = random(1,7);
+                            typeFind = random(1,8);
                             break;
                         default:
                             break;
                     }
                     
+                    if (typeFind == 8) {
+                        
+                       typeFind = random(1,100) > 90 ? 8 : random(1, 6);
+                    }
                     if (typeFind == 7) {
                         
-                       typeFind = random(1,100) > 90 ? 7 : random(1, 6);
+                        typeFind = random(1,100) > 90 ? 7 : random(1, 6);
                     }
-                    
                     
                     mpIterator->second->setType((CELL_TYPE)typeFind);
                  break;
@@ -702,7 +706,7 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
                         typeFind = random(1,5);
                         break;
                     case 2:
-                        typeFind = random(1,7);
+                        typeFind = random(1,8);
                         break;
                     default:
                         break;
@@ -712,7 +716,10 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
                     
                     typeFind = random(1,100) > 90 ? 7 : random(1, 6);
                 }
-                
+                if (typeFind == 8) {
+                    
+                    typeFind = random(1,100) > 90 ? 8 : random(1, 6);
+                }
                 
                 mpIterator->second->setType((CELL_TYPE)typeFind);
                 break;
@@ -1214,74 +1221,56 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                         list<HappyStartCell*> templist = findTheGroupToRemove(mIt->second);//相邻所有
                         
                         
-//                        list<HappyStartCell*> templist = getAllSameAround(mIt->second);//依据横竖斜向连线
                         
                         
+                        if (mIt->second->getType() != CELL_TYPE::TYPE_7COLORS) {
+                            
+                            list<HappyStartCell*> tempforBlock;
+                            
+                            for(HappyStartCell* temp :templist)
+                            {
+                                tempforBlock.push_back(temp);
+                            }
+                            for(HappyStartCell* temp :tempforBlock)
+                            {
+                                
+                                if (temp->getType() == CELL_TYPE::TYPE_BLOCK) {
+                                    list<HappyStartCell*> mcellsAroundH =  findCellsAround(temp);
+                                    for (HappyStartCell* tempCell0:mcellsAroundH) {
+                                        if(tempCell0)
+                                        {
+                                            templist.push_back(tempCell0);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                       
+                        
+//                        list<HappyStartCell*> temp2forBlock;
 //                        for(HappyStartCell* temp :templist)
 //                        {
-//                            if (temp->getType() == CELL_TYPE::TYPE_7COLORS) {
-//                                
-//                                for(int i = 0;i < count;i++){
-//                                    
-//                                    if(allcells.find(Vec2(i,temp->getposIndex().y))!=allcells.end()){
-//                                        
-//                                        HappyStartCell* mmcell = allcells.find(Vec2(i,temp->getposIndex().y))->second;
-//                                        
-//                                        if(!(mmcell->gethasFind()))
-//                                        {
-//                                            templist.push_back(mmcell);
-//                                            mmcell->sethasFind(true);
-//                                        }
-//                                        
-//                                    }
-//                                    
+//                            temp2forBlock.push_back(temp);
+//                        }
+//                        
+//                        //保证唯一性
+//                        for(HappyStartCell* temp :temp2forBlock)
+//                        {
+//                            
+//                            int mmcount =0;
+//                            for(HappyStartCell* temp2 :templist)
+//                            {
+//                                if (temp->getposIndex() == temp2->getposIndex()) {
+//                                    mmcount ++;
 //                                }
-//                                
-//                                for(int i = 0;i < count;i++){
-//                                    HappyStartCell* mmcell = allcells.find(Vec2(temp->getposIndex().x,i))->second;
-//                                    
-//                                    if(allcells.find(Vec2(temp->getposIndex().x,i)) !=allcells.end() && mmcell &&  !mmcell->gethasFind())
-//                                    {
-//                                        templist.push_back(mmcell);
-//                                        mmcell->sethasFind(true);
-//                                    }
+//                                if (mmcount >= 2) {
+//                                    templist.remove(temp2);
 //                                }
-//                                
 //                            }
 //                        }
 //                        
-//                        if(templist.size() == 0 && mIt->second->getType() ==  CELL_TYPE::TYPE_7COLORS){
-//                            //纵向消除
-//                            for(int i = 0;i < count;i++){
-//                                
-//                                HappyStartCell* mmcell = allcells.find(Vec2(mIt->second->getposIndex().x,i))->second;
-//                                if(allcells.find(Vec2(mIt->second->getposIndex().x,i)) != allcells.end()  &&  !mmcell->gethasFind() )
-//                                {
-//                                    templist.push_back(mmcell);
-//                                    mmcell->sethasFind(true);
-//                                }
-//                            }
-//                            //横向消除
-//                            for(int i = 0;i < count;i++){
-//                                
-//                                if(allcells.find(Vec2(i,mIt->second->getposIndex().y)) != allcells.end())
-//                                {
-//                                    HappyStartCell* mmcell = allcells.find(Vec2(i,mIt->second->getposIndex().y))->second;
-//                                    
-//                                    if(!(mmcell->gethasFind()))
-//                                    {
-//                                        templist.push_back(mmcell);
-//                                        mmcell->sethasFind(true);
-//                                    }
-//                                    
-//                                }
-//                                
-//                            }
-//                            
-//                            //                            templist.push_back(mIt->second);
-//                            
-//                        }
-
+                        
+                       
                         
                         auto blinkLamdas = [=](Node* psender)mutable{
                             
@@ -1291,7 +1280,7 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                             }
                         };
                         
-                        
+                      
                         
                         isPaused = true;
                         
@@ -1353,23 +1342,34 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                                 }
                                 
                             }
+                            
+                            
                             map<Vec2, HappyStartCell*>::iterator  mpIterator = allcells.begin();
                             
                             for (; mpIterator != allcells.end(); ++mpIterator)
                             {
                                 if(mpIterator != allcells.end()){
                                     int countBelowWillRemove = 0;
-                                    
+                                    for(HappyStartCell* temp :templist)
+                                    {
+                                        temp->sethasFind(false);
+                                    }
                                     for(auto temp :templist)
                                     {
-                                        if(temp  && temp->getposIndex().y < mpIterator->second->getposIndex().y && temp->getposIndex().x == mpIterator->second->getposIndex().x)// below the target
+                                        if(temp && temp->getposIndex().y < mpIterator->second->getposIndex().y && temp->getposIndex().x == mpIterator->second->getposIndex().x  && !temp->gethasFind())// below the target
                                         {
+                                             CCLOG("temp %f %f === %d",temp->getposIndex().x,temp->getposIndex().y,countBelowWillRemove);
+                                            temp->sethasFind(true);
                                             countBelowWillRemove ++;
                                         }
                                     }
                                     
-                                    
+                                    for(HappyStartCell* temp :templist)
+                                    {
+                                        temp->sethasFind(false);
+                                    }
                                     mpIterator->second->setdownShouldGo(countBelowWillRemove);
+                                    CCLOG("countBelowWillRemove %f %f === %d",mpIterator->second->getposIndex().x,mpIterator->second->getposIndex().y,countBelowWillRemove);
                                     
                                 }
                             }
@@ -1709,11 +1709,11 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event
                             {
                                 mpIterator->second->settimeToDelay(0.0f);
                             }
-                             actionPlaying = false;
+                            
+                            actionPlaying = false;
                             checkoutResult();
                             
                             produceCells(NULL);
-                            
                             
                         };
                         auto blinklamda = [=](Node* pSender){
@@ -1883,9 +1883,108 @@ list<HappyStartCell*> GameScene::getAllSameAround(HappyStartCell* targetCell)
 }
 
 
+list<HappyStartCell*> GameScene::findCellsAround(HappyStartCell* targetCell){
 
+    list<HappyStartCell*> mcellsAround;
+    
+    int targetposX =  targetCell->getposIndex().x;
+    
+    int targetposY =  targetCell->getposIndex().y;
+    
+//    if(allcells.find(Vec2(targetposX + 1 , targetposY)) != allcells.end() && !allcells.find(Vec2(targetposX + 1 , targetposY))->second->gethasFind()){
+//        
+//        mcellsAround.push_back(allcells.find(Vec2(targetposX + 1 , targetposY))->second);
+//        allcells.find(Vec2(targetposX + 1 , targetposY))->second->sethasFind(true);
+//    }
+//
+//    if(allcells.find(Vec2(targetposX - 1 , targetposY)) != allcells.end()&& !allcells.find(Vec2(targetposX - 1 , targetposY))->second->gethasFind()){
+//        
+//        mcellsAround.push_back(allcells.find(Vec2(targetposX - 1 , targetposY))->second);
+//        allcells.find(Vec2(targetposX - 1 , targetposY))->second->sethasFind(true);
+//        
+//    }
+//    if(allcells.find(Vec2(targetposX , targetposY+1)) != allcells.end()&& !allcells.find(Vec2(targetposX, targetposY+1))->second->gethasFind()){
+//        
+//        mcellsAround.push_back(allcells.find(Vec2(targetposX , targetposY+1))->second);
+//        allcells.find(Vec2(targetposX , targetposY+1))->second->sethasFind(true);
+//        
+//    }
+//    if(allcells.find(Vec2(targetposX , targetposY-1)) != allcells.end()&& !allcells.find(Vec2(targetposX, targetposY-1))->second->gethasFind()){
+//        
+//        mcellsAround.push_back(allcells.find(Vec2(targetposX , targetposY-1))->second);
+//        allcells.find(Vec2(targetposX , targetposY-1))->second->sethasFind(true);
+//        
+//    }
+//    
+//    
+//    if(allcells.find(Vec2(targetposX + 1 , targetposY+1)) != allcells.end()&& !allcells.find(Vec2(targetposX + 1 , targetposY+1))->second->gethasFind()){
+//        
+//        mcellsAround.push_back(allcells.find(Vec2(targetposX + 1 , targetposY+1))->second);
+//        allcells.find(Vec2(targetposX + 1 , targetposY+1))->second->sethasFind(true);
+//        
+//    }
+//    
+//    if(allcells.find(Vec2(targetposX - 1 , targetposY-1)) != allcells.end()&& !allcells.find(Vec2(targetposX - 1 , targetposY-1))->second->gethasFind()){
+//        
+//        mcellsAround.push_back(allcells.find(Vec2(targetposX - 1 , targetposY-1))->second);
+//        allcells.find(Vec2(targetposX - 1 , targetposY-1))->second->sethasFind(true);
+//    }
+//    if(allcells.find(Vec2(targetposX-1 , targetposY+1)) != allcells.end()&& !allcells.find(Vec2(targetposX - 1 , targetposY+1))->second->gethasFind()){
+//        
+//        mcellsAround.push_back(allcells.find(Vec2(targetposX-1 , targetposY+1))->second);
+//        allcells.find(Vec2(targetposX-1 , targetposY+1))->second->sethasFind(true);
+//    }
+//    if(allcells.find(Vec2(targetposX+1 , targetposY-1)) != allcells.end()&& !allcells.find(Vec2(targetposX + 1 , targetposY-1))->second->gethasFind()){
+//        
+//        mcellsAround.push_back(allcells.find(Vec2(targetposX+1 , targetposY-1))->second);
+//        allcells.find(Vec2(targetposX+1 , targetposY-1))->second->sethasFind(true);
+//    }
+    
+    if(allcells.find(Vec2(targetposX + 1 , targetposY)) != allcells.end()){
+        
+        mcellsAround.push_back(allcells.find(Vec2(targetposX + 1 , targetposY))->second);
+    }
+    
+    if(allcells.find(Vec2(targetposX - 1 , targetposY)) != allcells.end()){
+        
+        mcellsAround.push_back(allcells.find(Vec2(targetposX - 1 , targetposY))->second);
+        
+    }
+    if(allcells.find(Vec2(targetposX , targetposY+1)) != allcells.end()){
+        
+        mcellsAround.push_back(allcells.find(Vec2(targetposX , targetposY+1))->second);
+        
+    }
+    if(allcells.find(Vec2(targetposX , targetposY-1)) != allcells.end()){
+        
+        mcellsAround.push_back(allcells.find(Vec2(targetposX , targetposY-1))->second);
+    }
+    
+    
+    if(allcells.find(Vec2(targetposX + 1 , targetposY+1)) != allcells.end()){
+        mcellsAround.push_back(allcells.find(Vec2(targetposX + 1 , targetposY+1))->second);
+    }
+    
+    if(allcells.find(Vec2(targetposX - 1 , targetposY-1)) != allcells.end()){
+        mcellsAround.push_back(allcells.find(Vec2(targetposX - 1 , targetposY-1))->second);
+    }
+    if(allcells.find(Vec2(targetposX-1 , targetposY+1)) != allcells.end()){
+        
+        mcellsAround.push_back(allcells.find(Vec2(targetposX-1 , targetposY+1))->second);
+    }
+    if(allcells.find(Vec2(targetposX+1 , targetposY-1)) != allcells.end()){
+        
+        mcellsAround.push_back(allcells.find(Vec2(targetposX+1 , targetposY-1))->second);
+    }
+    
+    
+    if (mcellsAround.size() > 0 ) {
+        mcellsAround.push_back(targetCell);
+    }
+    
+    return mcellsAround;
 
-
+}
 //递归遍历查询所有临近的方块
  list<HappyStartCell*> GameScene::findTheGroupToRemove(HappyStartCell* targetCell)
 {
@@ -1893,15 +1992,37 @@ list<HappyStartCell*> GameScene::getAllSameAround(HappyStartCell* targetCell)
     if(targetCell)
     {
         
-        if (targetCell->getType() == CELL_TYPE::TYPE_7COLORS) {
-           list<HappyStartCell*> mcellsAroundH = getCellsHorizentalFor7Color(targetCell);
-            getCellsVerticalFor7Color(targetCell);
-            
+        if (targetCell->getType() == CELL_TYPE::TYPE_BLOCK) {
+            list<HappyStartCell*> mcellsAroundH = findCellsAround(targetCell);
             for (HappyStartCell* tempCell:mcellsAroundH) {
                 if(tempCell)
                 {
                     cellsGet.push_back(tempCell);
                     tempCell->sethasFind(true);
+                }
+            }
+            return cellsGet;
+        }
+        
+        
+        if (targetCell->getType() == CELL_TYPE::TYPE_7COLORS) {
+           list<HappyStartCell*> mcellsAroundH = getCellsHorizentalFor7Color(targetCell);
+           for (HappyStartCell* tempCell:mcellsAroundH) {
+                if(tempCell)
+                {
+                    cellsGet.push_back(tempCell);
+                    tempCell->sethasFind(true);
+                    
+                    if (tempCell->getType() == CELL_TYPE::TYPE_BLOCK) {
+                        list<HappyStartCell*> mcellsAroundH =  findCellsAround(tempCell);
+                        for (HappyStartCell* tempCell0:mcellsAroundH) {
+                            if(tempCell0 && !tempCell0->gethasFind())
+                            {
+                                cellsGet.push_back(tempCell0);
+                                tempCell0->sethasFind(true);
+                            }
+                        }
+                    }
                 }
             }
             list<HappyStartCell*> mcellsAroundV = getCellsVerticalFor7Color(targetCell);
@@ -1911,7 +2032,23 @@ list<HappyStartCell*> GameScene::getAllSameAround(HappyStartCell* targetCell)
                 {
                     cellsGet.push_back(tempCell);
                     tempCell->sethasFind(true);
+                    
+                    if (tempCell->getType() == CELL_TYPE::TYPE_BLOCK) {
+                        list<HappyStartCell*> mcellsAroundH =  findCellsAround(tempCell);
+                        for (HappyStartCell* tempCell0:mcellsAroundH) {
+                            if(tempCell0 && !tempCell0->gethasFind())
+                            {
+                                cellsGet.push_back(tempCell0);
+                                tempCell0->sethasFind(true);
+                            }
+                        }
+                    }
                 }
+            }
+            
+            
+            for (HappyStartCell* temp:cellsGet) {
+                temp->sethasFind(false);
             }
             return cellsGet;
         }
@@ -2478,7 +2615,7 @@ void GameScene::produceCells(Node* psender)
                                         typeFind = random(1,5);
                                         break;
                                     case 2:
-                                        typeFind = random(1,7);
+                                        typeFind = random(1,8);
                                         break;
                                     default:
                                         break;
@@ -2488,7 +2625,10 @@ void GameScene::produceCells(Node* psender)
                                     
                                     typeFind = random(1,100) > 90 ? 7 : random(1, 6);
                                 }
-                                
+                                if (typeFind == 8) {
+                                    
+                                    typeFind = random(1,100) > 90 ? 8 : random(1, 6);
+                                }
                                 
                                  mm->setType((CELL_TYPE)typeFind);
                                 break;
@@ -2503,8 +2643,6 @@ void GameScene::produceCells(Node* psender)
             }
         }
     }
-    
-    
     
 }
 

@@ -141,6 +141,22 @@ void HappyStartCell::setType(enum CELL_TYPE mtype)
             }
             this->setColor(cocos2d::Color3B(200,200,200));
             break;
+        case TYPE_BLOCK:
+        {
+            this->setTexture("ball.png");
+            Sprite* round7 = Sprite::create("boom.png");
+            this->addChild(round7);
+            round7->setAnchorPoint(Vec2(0.5,0.5));
+            round7->setPosition(this->getContentSize()/2);
+            round7->setTag(999);
+            round7->setGlobalZOrder(this->getGlobalZOrder());
+            float scalenow = round7->getScale();
+            this->setRotation3D(Vec3(0,90,0));
+            round7->runAction(RepeatForever::create(Sequence::create(ScaleTo::create(0.5,2.2*scalenow),ScaleTo::create(0.5,1.8*scalenow), NULL)  ));
+            this->setColor(cocos2d::Color3B(225,118,0));
+            this->runAction(RotateTo::create(1.0, Vec3(0,0,0)));
+            break;
+        }
         case TYPE_7COLORS:
         {
             this->setTexture("ball.png");

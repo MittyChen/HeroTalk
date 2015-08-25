@@ -51,6 +51,7 @@ public:
     list<HappyStartCell*>  getCellsHorizentalFor7Color(HappyStartCell* targetCell);
     list<HappyStartCell*>  getCellsVerticalFor7Color(HappyStartCell* targetCell);
     
+    list<HappyStartCell*> findCellsAround(HappyStartCell* targetCell);//周围
     
     
     void loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type) ;

@@ -58,27 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Scene/GameScene.cpp"
-            timestampString = "462094018.559521"
+            timestampString = "462159063.165457"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2282"
-            endingLineNumber = "2282"
-            landmarkName = "GameScene::getCellsHorizentalFor7Color(HappyStartCell* targetCell)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/Scene/GameScene.cpp"
-            timestampString = "462094314.473529"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2397"
-            endingLineNumber = "2397"
+            startingLineNumber = "2515"
+            endingLineNumber = "2515"
             landmarkName = "GameScene::getCellsVerticalFor7Color(HappyStartCell* targetCell)"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Scene/GameScene.cpp"
-            timestampString = "462094018.559521"
+            timestampString = "462100739.329127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2378"
-            endingLineNumber = "2378"
-            landmarkName = "GameScene::getCellsVerticalFor7Color(HappyStartCell* targetCell)"
+            startingLineNumber = "825"
+            endingLineNumber = "825"
+            landmarkName = "GameScene::backOneStep(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventType type)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Scene/GameScene.cpp"
-            timestampString = "462094018.559521"
+            timestampString = "462159063.165457"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2323"
-            endingLineNumber = "2323"
-            landmarkName = "GameScene::getCellsHorizentalFor7Color(HappyStartCell* targetCell)"
+            startingLineNumber = "1372"
+            endingLineNumber = "1372"
+            landmarkName = "GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,12 +106,124 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Scene/GameScene.cpp"
-            timestampString = "462094018.559521"
+            timestampString = "462159063.165457"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2303"
-            endingLineNumber = "2303"
-            landmarkName = "GameScene::getCellsHorizentalFor7Color(HappyStartCell* targetCell)"
+            startingLineNumber = "1497"
+            endingLineNumber = "1497"
+            landmarkName = "GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "462159063.165457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1594"
+            endingLineNumber = "1594"
+            landmarkName = "GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "462159063.165457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1687"
+            endingLineNumber = "1687"
+            landmarkName = "GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "462158728.126892"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1363"
+            endingLineNumber = "1363"
+            landmarkName = "GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "462159063.165457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2021"
+            endingLineNumber = "2021"
+            landmarkName = "GameScene::findTheGroupToRemove(HappyStartCell* targetCell)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "462159063.165457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2009"
+            endingLineNumber = "2009"
+            landmarkName = "GameScene::findTheGroupToRemove(HappyStartCell* targetCell)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "462159063.165457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2049"
+            endingLineNumber = "2049"
+            landmarkName = "GameScene::findTheGroupToRemove(HappyStartCell* targetCell)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Scene/GameScene.cpp"
+            timestampString = "462159063.165457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1996"
+            endingLineNumber = "1996"
+            landmarkName = "GameScene::findTheGroupToRemove(HappyStartCell* targetCell)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

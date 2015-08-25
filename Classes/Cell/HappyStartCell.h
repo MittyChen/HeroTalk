@@ -26,7 +26,9 @@ enum CELL_TYPE{
     TYPE_PINK = 4 ,
     TYPE_GRAY = 5,
     TYPE_PURPLE = 6,
-    TYPE_7COLORS = 7
+    TYPE_7COLORS = 7,
+    TYPE_BLOCK = 8,
+    
 };
 
 

@@ -27,7 +27,11 @@
     </Item>
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
-        <ActiveDocument />
+        <OpenedDocuments>
+          <FilePathData Path="MittyPopLayer.csd" />
+          <FilePathData Path="MainScene.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="MainScene.csd" />
       </Value>
     </Item>
   </Properties>
