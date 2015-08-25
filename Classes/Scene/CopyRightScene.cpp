@@ -77,7 +77,7 @@ bool CopyRightScene::init()
     listener->onTouchBegan = CC_CALLBACK_2(CopyRightScene::onTouchBegan,this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener,this);
     
-    auto rootNode = CSLoader::createNode("CopyRightScene.csb");
+    auto rootNode = CSLoader::createNode("CopyRightSceneprivate.csb");
     this->addChild(rootNode);
     rootNode->setName("CopyRightScene");
     

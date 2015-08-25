@@ -30,8 +30,12 @@
         <OpenedDocuments>
           <FilePathData Path="MittyPopLayer.csd" />
           <FilePathData Path="MainScene.csd" />
+          <FilePathData Path="CopyRightScene.csd" />
+          <FilePathData Path="ShopScene.csd" />
+          <FilePathData Path="ColorSelectNode.csd" />
+          <FilePathData Path="CopyRightSceneprivate.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="MainScene.csd" />
+        <ActiveDocument Path="CopyRightSceneprivate.csd" />
       </Value>
     </Item>
   </Properties>

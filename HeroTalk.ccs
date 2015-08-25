@@ -39,6 +39,7 @@
         <Project Name="ToolShortLayer.csd" Type="Layer" />
         <Image Name="coins.png" />
         <Project Name="MittyPopLayer.csd" Type="Layer" />
+        <Project Name="CopyRightSceneprivate.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

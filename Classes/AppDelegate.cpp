@@ -99,12 +99,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
     Ads::getInstance()->preloadAds(AdsType::AD_TYPE_FULLSCREEN);
     Ads::getInstance()->preloadAds(AdsType::AD_TYPE_BANNER);
     Ads::getInstance()->preloadAds(AdsType::AD_TYPE_BANNER,2);
-    int maxlevel =  UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED");
+    
+//    SpriteFrameCache *frameCache = SpriteFrameCache::getInstance();
+//    frameCache->addSpriteFramesWithFile("buttons.plist","buttons.png");
+    
+    //    int maxlevel =  UserDefault::getInstance()->getIntegerForKey("HERO_TALK_MAX_LEVEL_UNLOCKED");
     // create a scene. it's an autorelease object
-    
-    
-    auto scene =  LevelSelectScene::createScene(maxlevel);
-//    auto scene =  VideoScene::createScene();
+//    auto scene =  LevelSelectScene::createScene(maxlevel);
+    auto scene =  VideoScene::createScene();
     // run
     director->runWithScene(scene);
     
