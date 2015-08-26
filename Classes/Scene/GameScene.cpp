@@ -438,6 +438,21 @@ void GameScene::hideShortOfTool(cocos2d::Ref* object, cocos2d::ui::Widget::Touch
     
     cocos2d::ui::CheckBox* mTool_ChangeType = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(20);
     mTool_ChangeType->setTouchEnabled(true);
+    
+    
+    mTool_OneShot->stopAllActions();
+    mTool_ChangeType->stopAllActions();
+    mTool_RandomType->stopAllActions();
+    
+    mTool_OneShot->setSelected(false);
+    mTool_ChangeType->setSelected(false);
+     mTool_RandomType->setSelected(false);
+    
+    mTool_ChangeType->setScale(0.2971);
+    mTool_OneShot->setScale(0.2971);
+    mTool_RandomType->setScale(0.2971);
+    
+    _mMode = CELL_TOUCH_MODE::NORMAL_MODE;
 }
 
 void GameScene::onEnter(){
@@ -468,11 +483,11 @@ void GameScene::loadMap(cocos2d::Ref* object, cocos2d::ui::Widget::TouchEventTyp
     redCount =0;
     greenCount = 0;
     blueCount = 0;
-    
-#if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
-    lv->score = 10000000;
-    lv->stepNeed = 100;
-#endif
+    //test for levels
+//#if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
+//    lv->score = 10000000;
+//    lv->stepNeed = 100;
+//#endif
     
     reaminingStep = lv->stepNeed;
     
@@ -1999,6 +2014,28 @@ list<HappyStartCell*> GameScene::findCellsAround(HappyStartCell* targetCell){
                 {
                     cellsGet.push_back(tempCell);
                     tempCell->sethasFind(true);
+                    
+                    if (tempCell->getType() == CELL_TYPE::TYPE_7COLORS) {
+                        list<HappyStartCell*> mcellsAroundH =  getCellsHorizentalFor7Color(tempCell);
+                        for (HappyStartCell* tempCell0:mcellsAroundH) {
+                            if(tempCell0 && !tempCell0->gethasFind())
+                            {
+                                cellsGet.push_back(tempCell0);
+                                tempCell0->sethasFind(true);
+                            }
+                        }
+                        
+                        list<HappyStartCell*> mcellsAroundV =  getCellsVerticalFor7Color(tempCell);
+                        for (HappyStartCell* tempCell0:mcellsAroundV) {
+                            if(tempCell0 && !tempCell0->gethasFind())
+                            {
+                                cellsGet.push_back(tempCell0);
+                                tempCell0->sethasFind(true);
+                            }
+                        }
+                    }
+                    
+                    
                 }
             }
             return cellsGet;
@@ -2869,7 +2906,7 @@ void GameScene::gameWin()
     if (isGameWin) {
         return;
     }
-    MittyToolData::getInstance()->addcoins(lv->score);
+    MittyToolData::getInstance()->addcoins((redCount*10 + greenCount*20 + blueCount*30)/10);
     cocos2d::ui::CheckBox* mTool_OneShot = (cocos2d::ui::CheckBox*)(Sprite*)getChildByName("MainSceneRoot")->getChildByTag(11);
     mTool_OneShot->setTouchEnabled(false);
     
@@ -2932,6 +2969,29 @@ void GameScene::gameWin()
         
         const char * sctext = String::createWithFormat("击败了 %d %%的玩家" , testScoreDegree(redCount*10 + greenCount*20 + blueCount*30) )->getCString();
         scoretee->setString(sctext);
+        
+        
+        cocos2d::ui::Text* coins =  (cocos2d::ui::Text*)rootNode->getChildByTag(19)->getChildByTag(45)->getChildByTag(46);
+        const char * cointext = String::createWithFormat("+ %d " , (redCount*10 + greenCount*20 + blueCount*30)/10 )->getCString();
+        coins->setString(cointext);
+        
+//        Vec2 targetPos = coins->getPosition();
+//        Vec2 startpos = scorete->getPosition();
+//        cocos2d::ParticleSystem* ps = cocos2d::ParticleMeteor::create();
+//        ps->setTexture(cocos2d::Director::getInstance()->getTextureCache()->addImage("coins.png"));
+//        
+//        ps->setPosition( startpos );
+//        
+//        ps->setGravity(Vec2::ZERO);
+//        ps->setTotalParticles(100);
+//        
+//        ps->setScale(0.6);
+//        ps->setLife(0.1);
+//        ps->setTag(1000);
+//        this->addChild(ps);
+//        
+//        ps->runAction(MoveTo::create(1.0f, targetPos));
+        
         
         
         isPaused = true;

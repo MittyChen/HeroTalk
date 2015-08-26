@@ -11,7 +11,7 @@
 	<key>4</key>
 	<string>GET_SCORE:400:5</string>
 	<key>5</key>
-	<string>CHESS_MODE</string>
+	<string>FIND_COLOR:2:2:2:2</string>
 	<key>6</key>
 	<string>GET_SCORE:600:5</string>
 	<key>7</key>
@@ -33,7 +33,7 @@
 	<key>15</key>
 	<string>FIND_COLOR:13:14:15:7</string>
 	<key>16</key>
-	<string>CHESS_MODE</string>
+	<string>GET_SCORE:400:4</string>
 	<key>17</key>
 	<string>FIND_COLOR:16:17:18:7</string>
 	<key>18</key>
@@ -41,7 +41,7 @@
 	<key>19</key>
 	<string>FIND_COLOR:19:20:21:10</string>
 	<key>20</key>
-	<string>CHESS_MODE</string>
+	<string>GET_SCORE:400:5</string>
 	<key>21</key>
 	<string>FIND_COLOR:22:24:26:10</string>
 	<key>22</key>
@@ -49,9 +49,9 @@
 	<key>23</key>
 	<string>FIND_COLOR:27:30:33:10</string>
 	<key>24</key>
-	<string>CHESS_MODE</string>
-	<key>25</key>
 	<string>FIND_COLOR:34:38:42:10</string>
+	<key>25</key>
+	<string>FIND_COLOR:34:45:30:10</string>
 	<key>26</key>
 	<string>GET_SCORE:2600:5</string>
 	<key>27</key>
@@ -61,7 +61,7 @@
 	<key>29</key>
 	<string>FIND_COLOR:43:48:53:8</string>
 	<key>30</key>
-	<string>FIND_COLOR:43:48:53:7</string>
+	<string>CHESS_MODE</string>
 	<key>31</key>
 	<string>FIND_COLOR:43:48:53:6</string>
 	<key>32</key>

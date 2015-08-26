@@ -6,12 +6,12 @@
       <ObjectData Name="Node" Tag="30" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="whitedot_1" ActionTag="-1714915691" Tag="31" Alpha="58" IconVisible="False" LeftMargin="-512.0005" RightMargin="-511.9995" TopMargin="-512.0000" BottomMargin="-512.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="whitedot_1" ActionTag="-1714915691" Tag="31" IconVisible="False" LeftMargin="-512.0005" RightMargin="-511.9995" TopMargin="-512.0000" BottomMargin="-512.0000" ctype="SpriteObjectData">
             <Size X="1024.0000" Y="1024.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-0.0005" />
             <Scale ScaleX="0.2637" ScaleY="0.2616" />
-            <CColor A="255" R="0" G="0" B="0" />
+            <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ball.png" Plist="" />

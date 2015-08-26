@@ -40,6 +40,8 @@
         <Image Name="coins.png" />
         <Project Name="MittyPopLayer.csd" Type="Layer" />
         <Project Name="CopyRightSceneprivate.csd" Type="Scene" />
+        <Image Name="weixin.png" />
+        <Image Name="weixindown.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

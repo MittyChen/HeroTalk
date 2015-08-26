@@ -212,8 +212,8 @@
             <FileData Type="Normal" Path="diffbtn.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_2" ActionTag="-926240408" Tag="26" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="248.0000" RightMargin="248.0000" TopMargin="686.0320" BottomMargin="245.9680" FontSize="24" LabelText="商品用途说明" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="144.0000" Y="28.0000" />
+          <AbstractNodeData Name="Text_2" ActionTag="-926240408" Tag="26" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="248.0000" RightMargin="248.0000" TopMargin="686.0320" BottomMargin="245.9680" FontSize="24" LabelText="点击商品图标，显示商品用途说明！！！" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="432.0000" Y="28.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="259.9680" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />

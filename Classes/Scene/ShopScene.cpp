@@ -21,9 +21,9 @@ using namespace cocos2d::ui;
 using namespace cocostudio::timeline;
 using namespace ui;
 
-static int tooloneshotprice = 20;
-static int toolrandomprice = 20;
-static int toolchangetypeprice =30;
+static int tooloneshotprice = 150;
+static int toolrandomprice = 200;
+static int toolchangetypeprice =300;
 
 Scene* ShopScene::createScene()
 {
@@ -176,7 +176,7 @@ void ShopScene::selectProduct(cocos2d::Ref* object)
         productId = PRODUCTID_ONESHOT;
         
         if (mTool_OneShot->isSelected()) {
-            desp = "商品用途说明";
+            desp = "点击商品图标，显示商品用途说明！！！";
             productId = PRODUCTID_NONE;
         }
     }
@@ -188,7 +188,7 @@ void ShopScene::selectProduct(cocos2d::Ref* object)
         productId = PRODUCTID_CHANGETYPE;
         
         if (mTool_ChangeType->isSelected()) {
-            desp = "商品用途说明";
+            desp = "点击商品图标，显示商品用途说明！！！";
             productId = PRODUCTID_NONE;
         }
         
@@ -201,7 +201,7 @@ void ShopScene::selectProduct(cocos2d::Ref* object)
         productId = PRODUCTID_RANDOM;
         
         if (mTool_RandomType->isSelected()) {
-            desp = "商品用途说明";
+            desp = "点击商品图标，显示商品用途说明！！！";
             productId = PRODUCTID_NONE;
         }
     }
